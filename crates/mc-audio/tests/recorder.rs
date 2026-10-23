@@ -250,7 +250,14 @@ fn gives_up_after_the_reopen_budget() {
     );
 }
 
-struct Blocked(StreamInfo, Arc<AtomicBool>);
+/// Holds every read until `release`; `entered` says one is under way.
+#[derive(Clone, Default)]
+struct Gate {
+    release: Arc<AtomicBool>,
+    entered: Arc<AtomicBool>,
+}
+
+struct Blocked(StreamInfo, Gate);
 
 impl AudioSource for Blocked {
     fn info(&self) -> &StreamInfo {
@@ -259,15 +266,16 @@ impl AudioSource for Blocked {
 
     fn read(&mut self, _n_frames: usize) -> Result<Read, AudioError> {
         // Blocked until the test lets go (or a generous safety limit).
+        self.1.entered.store(true, Ordering::Relaxed);
         let limit = Instant::now() + Duration::from_secs(20);
-        while !self.1.load(Ordering::Relaxed) && Instant::now() < limit {
+        while !self.1.release.load(Ordering::Relaxed) && Instant::now() < limit {
             std::thread::sleep(Duration::from_millis(2));
         }
         Ok(Read::Idle)
     }
 }
 
-struct BlockedBackend(Arc<AtomicBool>);
+struct BlockedBackend(Gate);
 
 impl AudioBackend for BlockedBackend {
     fn open_mic(&self, _device: Option<&str>) -> Result<Box<dyn AudioSource>, AudioError> {
@@ -279,7 +287,7 @@ impl AudioBackend for BlockedBackend {
                 channels: 1,
                 latency_s: None,
             },
-            Arc::clone(&self.0),
+            self.0.clone(),
         )))
     }
 
@@ -292,15 +300,17 @@ impl AudioBackend for BlockedBackend {
 fn a_blocked_read_is_reported_as_stuck_within_the_timeout() {
     let dir = tempfile::tempdir().unwrap();
     let (_, dynamic) = clock();
-    let release = Arc::new(AtomicBool::new(false));
+    let gate = Gate::default();
     let mut rec = recorder(
         dir.path(),
         dynamic,
-        BlockedBackend(Arc::clone(&release)),
+        BlockedBackend(gate.clone()),
         fast_config(),
     );
     rec.start().unwrap();
     wait_for("recording", || rec.recording());
+    // A stop asked before the read begins ends the channel cleanly instead.
+    wait_for("a blocked read", || gate.entered.load(Ordering::Relaxed));
     let started = Instant::now();
     let info = rec.stop(Duration::from_millis(150));
     assert!(started.elapsed() < Duration::from_secs(2));
@@ -311,7 +321,7 @@ fn a_blocked_read_is_reported_as_stuck_within_the_timeout() {
     assert!(!rec.recording());
     assert_eq!(rec.info()["mic"]["status"], "stuck");
     // Let the abandoned read end before the temp dir goes away.
-    release.store(true, Ordering::Relaxed);
+    gate.release.store(true, Ordering::Relaxed);
     std::thread::sleep(Duration::from_millis(100));
 }
 
@@ -410,11 +420,11 @@ fn the_resampler_tail_is_written_and_a_bad_block_does_not_kill_the_channel() {
 fn dropping_the_recorder_ends_its_threads() {
     let dir = tempfile::tempdir().unwrap();
     let (_, dynamic) = clock();
-    let release = Arc::new(AtomicBool::new(false));
+    let gate = Gate::default();
     let mut rec = recorder(
         dir.path(),
         dynamic,
-        BlockedBackend(Arc::clone(&release)),
+        BlockedBackend(gate.clone()),
         fast_config(),
     );
     rec.start().unwrap();
@@ -422,7 +432,7 @@ fn dropping_the_recorder_ends_its_threads() {
     let started = Instant::now();
     drop(rec);
     assert!(started.elapsed() < Duration::from_secs(3));
-    release.store(true, Ordering::Relaxed);
+    gate.release.store(true, Ordering::Relaxed);
     std::thread::sleep(Duration::from_millis(100));
 }
 
