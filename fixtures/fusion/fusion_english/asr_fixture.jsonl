@@ -1,0 +1,12 @@
+{"v": 1, "ch": "mic", "start_ms": 2268, "end_ms": 5332, "text": "The sprint is ready for review on producción", "lang": "en", "conf": -0.272, "no_speech": 0.047}
+{"v": 1, "ch": "system", "start_ms": 7020, "end_ms": 10410, "text": "Can you share the hotfix link in the chat", "lang": "en", "conf": -0.375, "no_speech": 0.019}
+{"v": 1, "ch": "system", "start_ms": 11446, "end_ms": 14493, "text": "We hit a sprint problem on staging again", "lang": "en", "conf": -0.182, "no_speech": 0.014}
+{"v": 1, "ch": "mic", "start_ms": 15631, "end_ms": 18699, "text": "We hit a rollback problem on QA again", "lang": "en", "conf": -0.489, "no_speech": 0.023}
+{"v": 1, "ch": "system", "start_ms": 20227, "end_ms": 23642, "text": "Can you share the done link in the chat", "lang": "en", "conf": -0.565, "no_speech": 0.059}
+{"v": 1, "ch": "system", "start_ms": 25197, "end_ms": 28224, "text": "I will check the push after the meeting", "lang": "en", "conf": -0.141, "no_speech": 0.037}
+{"v": 1, "ch": "mic", "start_ms": 29986, "end_ms": 32968, "text": "The hotfix is ready for review on produccion", "lang": "en", "conf": -0.393, "no_speech": 0.049}
+{"v": 1, "ch": "system", "start_ms": 33611, "end_ms": 36645, "text": "We hit a deploy problem on staging again", "lang": "en", "conf": -0.501, "no_speech": 0.07}
+{"v": 1, "ch": "system", "start_ms": 37439, "end_ms": 40419, "text": "The ticket is ready for review on staging", "lang": "en", "conf": -0.296, "no_speech": 0.017}
+{"v": 1, "ch": "mic", "start_ms": 41025, "end_ms": 44064, "text": "I will check the deploy after the meeting", "lang": "en", "conf": -0.166, "no_speech": 0.056}
+{"v": 1, "ch": "system", "start_ms": 45879, "end_ms": 48885, "text": "I will check the staging after the meeting", "lang": "en", "conf": -0.218, "no_speech": 0.05}
+{"v": 1, "ch": "system", "start_ms": 49439, "end_ms": 52444, "text": "The push is ready for review on staging", "lang": "en", "conf": -0.377, "no_speech": 0.038}

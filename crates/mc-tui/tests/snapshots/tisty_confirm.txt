@@ -1,0 +1,24 @@
+■ ENDED (source_ended)  ended  consent: flag                            00:01:35
+┌Confirm───────────────────────────────────────────────────────────────────────┐
+│minutes: «Minuta: Daily de equipo (2026-10-20)» -> folder Reuniones           │
+│task: Ana: cerrar el bug -> Trabajo, due 2026-10-27                           │
+│task: Luis: revisar el PR -> Trabajo                                          │
+│                                                                              │
+│Publish this to Tisty?                                                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+↑↓ PgUp/PgDn scroll  Enter publish  Esc cancel

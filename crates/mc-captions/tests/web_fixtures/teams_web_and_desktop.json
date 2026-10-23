@@ -1,0 +1,190 @@
+{
+ "format": "mc-uia-tree",
+ "version": 1,
+ "platform": "teams-web",
+ "app": "Microsoft Teams (web, synthetic)",
+ "anonymized": false,
+ "note": "synthetic; Teams in a browser next to the desktop app and a chat tab",
+ "windows": [
+  {
+   "handle": 1,
+   "title": "Reunión de equipo | Microsoft Teams",
+   "class": "TeamsWebView",
+   "pid": 7100,
+   "process": "ms-teams.exe",
+   "tree": {
+    "role": "Window",
+    "children": [
+     {
+      "role": "Pane",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Document",
+          "aid": "RootWebArea",
+          "children": [
+           {
+            "role": "Group",
+            "children": [
+             {
+              "role": "Text",
+              "name": "Marta Ruiz"
+             },
+             {
+              "role": "Text",
+              "name": "Hola desde la aplicación."
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "handle": 3,
+   "title": "Chat | Microsoft Teams - Google Chrome",
+   "class": "Chrome_WidgetWin_1",
+   "pid": 7102,
+   "process": "chrome.exe",
+   "tree": {
+    "role": "Window",
+    "children": [
+     {
+      "role": "Pane",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Other",
+          "children": [
+           {
+            "role": "TabItem",
+            "name": "Chat | Microsoft Teams"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Document",
+            "aid": "RootWebArea",
+            "children": [
+             {
+              "role": "Group",
+              "children": [
+               {
+                "role": "Text",
+                "name": "Hola"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "handle": 2,
+   "title": "Reunión de equipo | Microsoft Teams - Microsoft Edge",
+   "class": "Chrome_WidgetWin_1",
+   "pid": 7101,
+   "process": "msedge.exe",
+   "tree": {
+    "role": "Window",
+    "children": [
+     {
+      "role": "Pane",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Other",
+          "children": [
+           {
+            "role": "TabItem",
+            "name": "Reunión de equipo | Microsoft Teams"
+           },
+           {
+            "role": "TabItem",
+            "name": "Outlook"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Document",
+            "aid": "RootWebArea",
+            "children": [
+             {
+              "role": "Group",
+              "children": [
+               {
+                "role": "Group",
+                "children": [
+                 {
+                  "role": "Text",
+                  "name": "Ana García"
+                 },
+                 {
+                  "role": "Text",
+                  "name": "Hola desde el navegador."
+                 }
+                ]
+               },
+               {
+                "role": "Group",
+                "children": [
+                 {
+                  "role": "Text",
+                  "name": "Luis Pérez"
+                 },
+                 {
+                  "role": "Text",
+                  "name": "Te oigo bien."
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "script": []
+}

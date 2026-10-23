@@ -1,0 +1,99 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "zoom",
+  "script": [],
+  "version": 1,
+  "windows": [
+    {
+      "class": "ConfMultiTabContentWndClass",
+      "handle": 1,
+      "pid": 5001,
+      "process": "Zoom.exe",
+      "title": "Webinar semanal",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "name": "Ana Garc\u00eda",
+                    "role": "ListItem"
+                  }
+                ],
+                "name": "Participants",
+                "role": "List"
+              }
+            ],
+            "role": "Pane"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "name": "\u00bfQu\u00e9 tal?",
+                                            "role": "Edit"
+                                          }
+                                        ],
+                                        "role": "Pane"
+                                      }
+                                    ],
+                                    "name": "Speaker 2 (Sala), \u00bfQu\u00e9 tal?",
+                                    "role": "ListItem"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "name": "todo bien",
+                                            "role": "Edit"
+                                          }
+                                        ],
+                                        "role": "Pane"
+                                      }
+                                    ],
+                                    "name": "Ana Garc\u00eda, todo bien",
+                                    "role": "ListItem"
+                                  }
+                                ],
+                                "name": "Closed caption",
+                                "role": "List"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

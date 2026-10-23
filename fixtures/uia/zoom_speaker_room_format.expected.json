@@ -1,0 +1,52 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Speaker 1 (Room)",
+          "hola a todos"
+        ],
+        [
+          "Speaker 2 (Room, X)",
+          "\u00bfnos ve?"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Speaker 2 (Room, X)",
+          "\u00bfnos ve?"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de producto"
+      },
+      "meeting_name": "Reuni\u00f3n de producto"
+    },
+    {
+      "captions_all": [
+        [
+          "Speaker 1 (Room)",
+          "hola a todos"
+        ],
+        [
+          "Speaker 2 (Room, X)",
+          "\u00bfnos ve?"
+        ],
+        [
+          "Speaker 3 (Room)",
+          "s\u00ed, claro"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Speaker 3 (Room)",
+          "s\u00ed, claro"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de producto"
+      },
+      "meeting_name": "Reuni\u00f3n de producto"
+    }
+  ]
+}

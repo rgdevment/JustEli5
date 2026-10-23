@@ -1,0 +1,16 @@
+{"v": 2, "seq": 1, "frame": 1, "t": 1700000000.1, "wall_ms": 1700000000100, "mono_ms": 100.0, "read_ms": 500.0, "speaker": "A", "text": "uno dos tres", "decision": "new_open"}
+{"v": 2, "seq": 2, "frame": 1, "t": 1700000000.1, "wall_ms": 1700000000100, "mono_ms": 100.0, "read_ms": 500.0, "speaker": "B", "text": "cuatro cinco seis", "decision": "new_open"}
+{"v": 2, "seq": 3, "frame": 2, "t": 1700000000.2, "wall_ms": 1700000000200, "mono_ms": 200.0, "read_ms": 500.0, "speaker": "B", "text": "cuatro cinco seis", "decision": "committed", "first_mono_ms": 100.0, "last_mono_ms": 100.0}
+{"v": 2, "seq": 4, "frame": 2, "t": 1700000000.2, "wall_ms": 1700000000200, "mono_ms": 200.0, "read_ms": 500.0, "speaker": "B", "text": "completamente otra cosa aqui", "decision": "newline"}
+{"v": 2, "seq": 5, "frame": 2, "t": 1700000000.2, "wall_ms": 1700000000200, "mono_ms": 200.0, "read_ms": 500.0, "speaker": "A", "text": "uno dos tres", "decision": "committed", "first_mono_ms": 100.0, "last_mono_ms": 100.0}
+{"v": 2, "seq": 6, "frame": 2, "t": 1700000000.2, "wall_ms": 1700000000200, "mono_ms": 200.0, "read_ms": 500.0, "speaker": "A", "text": "y otra distinta tambien", "decision": "newline"}
+{"v": 2, "seq": 7, "frame": 3, "t": 1700000002.2, "wall_ms": 1700000002200, "mono_ms": 2200.0, "read_ms": 500.0, "speaker": "B", "text": "completamente otra cosa aqui", "decision": "dup_exact"}
+{"v": 2, "seq": 8, "frame": 3, "t": 1700000002.2, "wall_ms": 1700000002200, "mono_ms": 2200.0, "read_ms": 500.0, "speaker": "A", "text": "y otra distinta tambien", "decision": "dup_exact"}
+{"v": 2, "seq": 9, "frame": 3, "t": 1700000002.2, "wall_ms": 1700000002200, "mono_ms": 2200.0, "read_ms": 500.0, "speaker": "A", "text": "y otra distinta tambien", "decision": "committed", "first_mono_ms": 200.0, "last_mono_ms": 200.0}
+{"v": 2, "seq": 10, "frame": 3, "t": 1700000002.2, "wall_ms": 1700000002200, "mono_ms": 2200.0, "read_ms": 500.0, "speaker": "B", "text": "completamente otra cosa aqui", "decision": "committed", "first_mono_ms": 200.0, "last_mono_ms": 200.0}
+{"v": 2, "seq": 11, "frame": 4, "t": 1700000002.3, "wall_ms": 1700000002300, "mono_ms": 2300.0, "read_ms": 500.0, "speaker": "B", "text": "tercera tanda para B distinta", "decision": "new_open"}
+{"v": 2, "seq": 12, "frame": 4, "t": 1700000002.3, "wall_ms": 1700000002300, "mono_ms": 2300.0, "read_ms": 500.0, "speaker": "A", "text": "tercera tanda para A diferente", "decision": "new_open"}
+{"v": 2, "seq": 13, "frame": 5, "t": 1700000004.3, "wall_ms": 1700000004300, "mono_ms": 4300.0, "read_ms": 500.0, "speaker": "A", "text": "tercera tanda para A diferente", "decision": "dup_exact"}
+{"v": 2, "seq": 14, "frame": 5, "t": 1700000004.3, "wall_ms": 1700000004300, "mono_ms": 4300.0, "read_ms": 500.0, "speaker": "B", "text": "tercera tanda para B distinta", "decision": "dup_exact"}
+{"v": 2, "seq": 15, "frame": 5, "t": 1700000004.3, "wall_ms": 1700000004300, "mono_ms": 4300.0, "read_ms": 500.0, "speaker": "B", "text": "tercera tanda para B distinta", "decision": "committed", "first_mono_ms": 2300.0, "last_mono_ms": 2300.0}
+{"v": 2, "seq": 16, "frame": 5, "t": 1700000004.3, "wall_ms": 1700000004300, "mono_ms": 4300.0, "read_ms": 500.0, "speaker": "A", "text": "tercera tanda para A diferente", "decision": "committed", "first_mono_ms": 2300.0, "last_mono_ms": 2300.0}

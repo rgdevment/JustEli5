@@ -1,0 +1,60 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Buenos d\u00edas."
+        ],
+        [
+          "Luis P\u00e9rez",
+          "Tengo una duda."
+        ],
+        [
+          "Mar\u00eda Soto",
+          "Adelante, Luis."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Mar\u00eda Soto",
+          "Adelante, Luis."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Buenos d\u00edas."
+        ],
+        [
+          "Luis P\u00e9rez",
+          "Tengo una duda."
+        ],
+        [
+          "Mar\u00eda Soto",
+          "Adelante, Luis."
+        ],
+        [
+          "Ana Garc\u00eda",
+          "Perfecto."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Ana Garc\u00eda",
+          "Perfecto."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

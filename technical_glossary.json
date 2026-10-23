@@ -1,0 +1,166 @@
+{
+  "Scrum": {
+    "aliases": ["escrún", "escaun"],
+    "live_replace": true
+  },
+  "Backlog": {
+    "aliases": ["vackloc"],
+    "live_replace": true
+  },
+  "Daily": {
+    "aliases": ["deili"],
+    "live_replace": true
+  },
+  "Grooming": {
+    "aliases": ["gru-min"],
+    "live_replace": true
+  },
+  "Pipeline": {
+    "aliases": ["paine", "paylain", "paylight"],
+    "live_replace": true
+  },
+  "Docker": {
+    "aliases": ["dokér", "doker"],
+    "live_replace": true
+  },
+  "YAML": {
+    "aliases": ["yámel"],
+    "live_replace": true
+  },
+  "Deploy": {
+    "aliases": ["de-ploi", "deploi"],
+    "live_replace": true
+  },
+  "Kubernetes": {
+    "aliases": ["kubernetis", "cuber net", "k8s"],
+    "live_replace": true
+  },
+  "Infrastructure": {
+    "aliases": ["infrestrachur"],
+    "live_replace": true
+  },
+  "QA/UAT": {
+    "aliases": ["cuat", "uat"],
+    "live_replace": true
+  },
+  "Bug": {
+    "aliases": ["vug"],
+    "live_replace": true
+  },
+  "CTO": {
+    "aliases": ["ct o", "c t o"],
+    "live_replace": true
+  },
+  "Refactor": {
+    "aliases": ["re-fact"],
+    "live_replace": true
+  },
+  "JSON": {
+    "aliases": ["jaison", "yeison", "jaisón"],
+    "live_replace": true
+  },
+  "Branch": {
+    "aliases": ["brunch"],
+    "live_replace": true
+  },
+  "Schema": {
+    "aliases": ["chisme"],
+    "live_replace": true
+  },
+  "Monorepo": {
+    "aliases": ["mono redpo"],
+    "live_replace": true
+  },
+  "Jira": {
+    "aliases": ["yira"],
+    "live_replace": true
+  },
+  "Exclude": {
+    "aliases": ["esclúd"],
+    "live_replace": true
+  },
+  "Push": {
+    "aliases": ["puchear"],
+    "live_replace": true
+  },
+  "Backend": {
+    "aliases": ["baken"],
+    "live_replace": true
+  },
+  "PostgreSQL": {
+    "aliases": ["posgre"],
+    "live_replace": true
+  },
+  "Stakeholder": {
+    "aliases": ["estéicol"],
+    "live_replace": true
+  },
+  "PO": {
+    "aliases": ["pi-o"],
+    "live_replace": true
+  },
+  "PM": {
+    "aliases": ["peme"],
+    "live_replace": true
+  },
+  "CIAM": {
+    "aliases": ["cián"],
+    "live_replace": true
+  },
+  "Jarvis": {
+    "aliases": ["yarby"],
+    "live_replace": true
+  },
+  "OTP": {
+    "aliases": ["tp", "o tp"],
+    "live_replace": true
+  },
+  "Azure": {
+    "aliases": ["ázur"],
+    "live_replace": true
+  },
+  "Amazon": {
+    "aliases": ["ámason"],
+    "live_replace": true
+  },
+  "Google": {
+    "aliases": ["gúgol"],
+    "live_replace": true
+  },
+  "Dashboard": {
+    "aliases": ["Dakhoy"],
+    "live_replace": true
+  },
+  "Chakra": {
+    "aliases": ["sagrada", "sacra", "chacra", "chacras"],
+    "live_replace": true
+  },
+  "Storybook": {
+    "aliases": ["history book", "histori buk", "story book", "History Boc"],
+    "live_replace": true
+  },
+  "Theme Provider": {
+    "aliases": ["tim provider", "tip provider", "team provider"],
+    "live_replace": true
+  },
+  "React": {
+    "aliases": ["reac js", "riac"],
+    "live_replace": true
+  },
+  "TypeScript": {
+    "aliases": ["type escribe", "type script", "taipscrip"],
+    "live_replace": true
+  },
+  "v1": {
+    "aliases": ["b 1", "b-1", "be uno"],
+    "live_replace": true
+  },
+  "v2": {
+    "aliases": ["b 2", "b-2", "be dos", "bb 2"],
+    "live_replace": true
+  },
+  "v3": {
+    "aliases": ["b 3", "b-3", "be tres"],
+    "live_replace": true
+  }
+}

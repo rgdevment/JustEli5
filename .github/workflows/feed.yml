@@ -1,0 +1,143 @@
+name: Feed
+
+# What a release checks the moment it publishes, checked again every day and whenever a release is
+# touched by hand. A feed breaks between releases — an asset deleted, one replaced with other bytes,
+# a release retired, the branch force-pushed — and nothing else would notice.
+on:
+  schedule:
+    - cron: "23 7 * * *"
+  release:
+    types: [unpublished, deleted]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  answers:
+    name: the feed answers what a copy would read
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Read it the way an installed copy does
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          feed="https://raw.githubusercontent.com/$REPO/manifest"
+
+          # The highest stable version published, which is not always the one published last.
+          newest=$(gh release list --limit 100 --json tagName,isPrerelease,isDraft \
+            -q '.[] | select(.isPrerelease == false and .isDraft == false) | .tagName' \
+            | sed 's/^v//' | sort -V | tail -1 || true)
+
+          if ! git ls-remote --exit-code --heads "https://github.com/$REPO" manifest >/dev/null 2>&1; then
+            if [ -n "$newest" ]; then
+              echo "::error::$newest is published and there is no manifest branch: no installed copy will be told about it"
+              exit 1
+            fi
+            echo "::notice::nothing released yet, and no feed; nothing to check"
+            exit 0
+          fi
+
+          for attempt in 1 2 3; do
+            sudo apt-get update -qq && sudo apt-get install -y -qq minisign && break
+            echo "minisign would not install (${attempt}/3)"
+            sleep $((attempt * 5))
+          done
+          command -v minisign
+
+          # The key every installed copy carries; verifying against anything else proves nothing.
+          jq -r '.plugins.updater.pubkey' apps/mc-gui/src-tauri/tauri.conf.json | base64 -d > feed.pub
+
+          if ! curl -fsSL --retry 5 --retry-all-errors --retry-delay 3 \
+            -H "Cache-Control: no-cache" -o manifest.json "$feed/release-manifest.json"; then
+            echo "::error::the feed did not answer, so every copy out there is looking at nothing"
+            exit 1
+          fi
+          if ! jq -e . manifest.json >/dev/null 2>&1; then
+            echo "::error::the feed answered with something that is not json"
+            cat manifest.json
+            exit 1
+          fi
+
+          said=$(jq -r '.latest // ""' manifest.json)
+          stable=1
+          if [ -z "$newest" ]; then
+            if [ -n "$said" ] && [ "$said" != "0.0.0" ]; then
+              echo "::error::the feed announces «$said» and no stable release is published"
+              exit 1
+            fi
+            echo "::notice::no stable release yet; the stable channel announces nothing"
+            stable=0
+          elif [ "$said" != "$newest" ]; then
+            echo "::error::the feed says «$said» and the highest release is «$newest»"
+            exit 1
+          fi
+
+          # A channel carries the address and the signature, and those decide whether an update can be taken.
+          takes() {
+            local what="$1" expected="$2"
+            if ! curl -fsSL --retry 5 --retry-all-errors --retry-delay 3 \
+              -H "Cache-Control: no-cache" -o channel.json "$feed/$what"; then
+              echo "::error::$what did not answer, so what is announced is an update nobody can take"
+              return 1
+            fi
+            local version
+            version=$(jq -r '.version // ""' channel.json)
+            if [ "$version" != "$expected" ]; then
+              echo "::error::$what offers «$version» and the feed announces «$expected»"
+              return 1
+            fi
+            local names os url
+            names=$(jq -r '.platforms | keys[]' channel.json 2>/dev/null || true)
+            if [ -z "$names" ]; then
+              echo "::error::$what names no platform at all"
+              return 1
+            fi
+            for os in $names; do
+              url=$(jq -r --arg os "$os" '.platforms[$os].url' channel.json)
+              jq -r --arg os "$os" '.platforms[$os].signature' channel.json | base64 -d > one.sig
+              if ! curl -fsSL --retry 5 --retry-all-errors --retry-delay 3 -o one.bin "$url"; then
+                echo "::error::the installer for $os in $what does not answer: $url"
+                return 1
+              fi
+              if ! minisign -Vm one.bin -p feed.pub -x one.sig >/dev/null; then
+                echo "::error::the installer for $os in $what does not verify against the key every installed copy carries: $url"
+                return 1
+              fi
+              echo "  $os verifies"
+            done
+          }
+
+          if [ "$stable" = 1 ]; then
+            echo "the stable channel:"
+            takes latest.json "$said"
+          fi
+
+          ahead=$(jq -r '.latestPrerelease // ""' manifest.json)
+          if [ -n "$ahead" ]; then
+            echo "the candidates' channel, announcing $ahead:"
+            takes candidate.json "$ahead"
+          fi
+
+      - name: The branch holds only the feed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          held=$(gh api "repos/$REPO/contents?ref=manifest" -q '.[].name' 2>/dev/null | sort || true)
+          [ -n "$held" ] || { echo "no manifest branch yet"; exit 0; }
+          allowed=$(printf '%s\n' candidate.json latest.json release-manifest.json | sort)
+          extra=$(comm -23 <(echo "$held") <(echo "$allowed"))
+          if [ -n "$extra" ]; then
+            echo "::error::the manifest branch carries files that are not the feed: $(echo "$extra" | tr '\n' ' ')"
+            exit 1
+          fi
+          echo "the branch holds only: $(echo "$held" | tr '\n' ' ')"

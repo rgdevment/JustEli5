@@ -1,0 +1,14 @@
+{"v": 1, "ch": "mic", "start_ms": 2754, "end_ms": 5797, "text": "Tengo un bloqueo con el staging de staging", "lang": "es", "conf": -0.321, "no_speech": 0.04}
+{"v": 1, "ch": "system", "start_ms": 6718, "end_ms": 10133, "text": "Voy a revisar el push despues de la reunión", "lang": "es", "conf": -0.434, "no_speech": 0.063}
+{"v": 1, "ch": "system", "start_ms": 11173, "end_ms": 13852, "text": "¿Alguien puede hacer pipeline de este cambio?", "lang": "es", "conf": -0.186, "no_speech": 0.014}
+{"v": 1, "ch": "mic", "start_ms": 15180, "end_ms": 18200, "text": "Creo que el backlog tambien depende de staging", "lang": "es", "conf": -0.222, "no_speech": 0.021}
+{"v": 1, "ch": "system", "start_ms": 19537, "end_ms": 22154, "text": "Quedamos en cerrar el bug el viernes", "lang": "es", "conf": -0.238, "no_speech": 0.023}
+{"v": 1, "ch": "system", "start_ms": 23054, "end_ms": 25758, "text": "Quedamos en cerrar el bug el martes", "lang": "es", "conf": -0.578, "no_speech": 0.03}
+{"v": 1, "ch": "mic", "start_ms": 26945, "end_ms": 29980, "text": "Mañana termino el rollback y lo dejo listo", "lang": "es", "conf": -0.236, "no_speech": 0.064}
+{"v": 1, "ch": "system", "start_ms": 31310, "end_ms": 33983, "text": "Quedamos en en cerrar el release el viernes", "lang": "es", "conf": -0.279, "no_speech": 0.068}
+{"v": 1, "ch": "system", "start_ms": 34594, "end_ms": 38056, "text": "Voy a revisar el pipeline despues de la reunión", "lang": "es", "conf": -0.295, "no_speech": 0.036}
+{"v": 1, "ch": "mic", "start_ms": 39600, "end_ms": 42280, "text": "El release falló en QA otra vez", "lang": "es", "conf": -0.232, "no_speech": 0.054}
+{"v": 1, "ch": "system", "start_ms": 43596, "end_ms": 46680, "text": "Tengo un bloqueo con el bug de staging", "lang": "es", "conf": -0.318, "no_speech": 0.027}
+{"v": 1, "ch": "system", "start_ms": 47257, "end_ms": 50692, "text": "Voy a revisar el release después de la reunión", "lang": "es", "conf": -0.577, "no_speech": 0.03}
+{"v": 1, "ch": "mic", "start_ms": 51859, "end_ms": 54933, "text": "Tengo un bloqueo con el deploy de produccion", "lang": "es", "conf": -0.221, "no_speech": 0.031}
+{"v": 1, "ch": "system", "start_ms": 55730, "end_ms": 58754, "text": "Tengo un bloqueo con el bug de produccion", "lang": "es", "conf": -0.19, "no_speech": 0.07}

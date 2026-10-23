@@ -1,0 +1,60 @@
+[package]
+name = "mc-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+name = "mc_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "eli5"
+path = "src/main.rs"
+
+# The name before JustEli5, kept so existing scripts and MCP registrations still work.
+[[bin]]
+name = "mc"
+path = "src/main.rs"
+
+# The scripted MCP server of mc-mcp-client, built here so these tests can launch it.
+[[bin]]
+name = "mc-cli-fake-mcp"
+path = "../mc-mcp-client/tests/support/fake_server.rs"
+test = false
+doc = false
+
+[lints]
+workspace = true
+
+[features]
+# Local Whisper recognition (compiles whisper.cpp: needs cmake and a C++ compiler).
+whisper = ["mc-asr/whisper"]
+# Whisper on an NVIDIA GPU (needs the CUDA toolkit) or any Vulkan GPU (needs the Vulkan SDK).
+cuda = ["mc-asr/cuda"]
+vulkan = ["mc-asr/vulkan"]
+
+[dependencies]
+mc-captions = { path = "../mc-captions" }
+mc-core = { path = "../mc-core" }
+mc-asr = { path = "../mc-asr" }
+mc-audio = { path = "../mc-audio" }
+mc-engine = { path = "../mc-engine" }
+mc-llm = { path = "../mc-llm" }
+mc-mcp-client = { path = "../mc-mcp-client" }
+mc-analyst = { path = "../mc-analyst" }
+mc-eval = { path = "../mc-eval" }
+mc-fusion = { path = "../mc-fusion" }
+mc-models = { path = "../mc-models" }
+mc-mcp-server = { path = "../mc-mcp-server" }
+mc-tui = { path = "../mc-tui" }
+mc-reconcile = { path = "../mc-reconcile" }
+mc-memory = { path = "../mc-memory" }
+mc-store = { path = "../mc-store" }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+
+[dev-dependencies]
+tempfile = "3.27.0"

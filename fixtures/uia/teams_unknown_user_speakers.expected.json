@@ -1,0 +1,26 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Unknown User",
+          "Hello everyone."
+        ],
+        [
+          "Usuario desconocido",
+          "Hola a todos."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Usuario desconocido",
+          "Hola a todos."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

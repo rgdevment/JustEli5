@@ -1,0 +1,15 @@
+● REC  attached: Weekly sync | …00:00:30
+┌Transcript────────────────────────────┐
+│[00:03] Ana: Bom dia a todos.         │
+│[00:12] Bruno: Eu já mandei o         │
+│relatório ontem à noite.              │
+│                                      │
+│                                      │
+│                                      │
+│                                      │
+│                                      │
+└──────────────────────────────────────┘
+┌Speaking now──────────────────────────┐
+│Carla: perfeito, obrigada             │
+└──────────────────────────────────────┘
+q stop  ? help

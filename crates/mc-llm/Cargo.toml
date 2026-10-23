@@ -1,0 +1,21 @@
+[package]
+name = "mc-llm"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "mc-llm-echo"
+path = "tests/support/echo.rs"
+test = false
+doc = false
+
+[dependencies]
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+thiserror = "2.0.21"
+ureq = "3"

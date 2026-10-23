@@ -1,0 +1,24 @@
+■ ENDED (source_ended)  ended  consent: flag                            00:01:35
+┌Tisty─────────────────────────────────────────────────────────────────────────┐
+│  created          Minuta: Daily de equipo (2026-10-20)                       │
+│  FAILED: Unknown list "Trabajo"                                              │
+│nothing was lost: the minutes and commitments are still on disk. To try       │
+│again: mc export /data/corpus/x --tisty                                       │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+↑↓ PgUp/PgDn scroll  Enter back

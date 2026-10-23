@@ -1,0 +1,54 @@
+{
+  "schema": "meet-copilot.corpus/1",
+  "session_id": "69a710787d7e0315337304fe7b5cb3b0",
+  "app": {
+    "version": "2.0",
+    "git_commit": null
+  },
+  "python": "synthetic",
+  "os": {
+    "system": "synthetic",
+    "release": "",
+    "version": "",
+    "machine": ""
+  },
+  "platform_requested": "teams",
+  "capture_source": "FakeSource",
+  "meeting_name": "Desfase en la frontera",
+  "clock": {
+    "t0_wall_ms": 1700000000000,
+    "mono_source": "synthetic",
+    "t0_utc_iso": "2023-11-14T22:13:20.000+00:00"
+  },
+  "started_wall_ms": 1700000000000,
+  "started_utc_iso": "2023-11-14T22:13:20.000+00:00",
+  "ended_wall_ms": 1700000062970,
+  "ended_utc_iso": "2023-11-14T22:14:22.970+00:00",
+  "ended_mono_ms": 62970.0,
+  "end_reason": "stop",
+  "libs": {
+    "soundcard": null,
+    "numpy": null,
+    "uiautomation": null
+  },
+  "captions": {
+    "capture_all_nodes": true,
+    "file": "captions.jsonl",
+    "schema": 2,
+    "anonymous_label": "Invitado sin nombre",
+    "anonymous_aliases": [
+      "usuario desconocido",
+      "unknown user"
+    ]
+  },
+  "audio": {
+    "mic": {
+      "enabled": false,
+      "status": "disabled"
+    },
+    "system": {
+      "enabled": false,
+      "status": "disabled"
+    }
+  }
+}

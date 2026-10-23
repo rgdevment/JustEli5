@@ -1,0 +1,131 @@
+{
+  "format": "mc-uia-tree",
+  "version": 1,
+  "platform": "zoom",
+  "app": "Zoom",
+  "anonymized": true,
+  "note": "anonymised by mc doctor --dump",
+  "windows": [
+    {
+      "handle": 1,
+      "title": "Zoom - Xxxxxx Xxxxxx",
+      "class": "Xxxxxx_XxxxxxXxx_0",
+      "pid": 4000,
+      "process": "xxxxxx.xxx",
+      "tree": {
+        "role": "Window",
+        "name": "",
+        "aid": "",
+        "class": "",
+        "children": [
+          {
+            "role": "Pane",
+            "name": "",
+            "aid": "",
+            "class": "",
+            "children": [
+              {
+                "role": "Document",
+                "name": "",
+                "aid": "RootWebArea",
+                "class": "",
+                "children": [
+                  {
+                    "role": "Text",
+                    "name": "Zoom",
+                    "aid": "",
+                    "class": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "handle": 2,
+      "title": "Reunión xx xxxxxxxx",
+      "class": "ConfMultiTabContentWndClass",
+      "pid": 4001,
+      "process": "Zoom.exe",
+      "tree": {
+        "role": "Window",
+        "name": "",
+        "aid": "",
+        "class": "",
+        "children": [
+          {
+            "role": "Pane",
+            "name": "",
+            "aid": "",
+            "class": "",
+            "children": [
+              {
+                "role": "Window",
+                "name": "",
+                "aid": "",
+                "class": "ZConfCCRecieveWndExClass",
+                "children": [
+                  {
+                    "role": "List",
+                    "name": "Xxxxxx caption",
+                    "aid": "",
+                    "class": "",
+                    "children": [
+                      {
+                        "role": "ListItem",
+                        "name": "Speaker A, xxxx x xxxxx",
+                        "aid": "",
+                        "class": "",
+                        "children": [
+                          {
+                            "role": "Pane",
+                            "name": "",
+                            "aid": "",
+                            "class": "",
+                            "children": [
+                              {
+                                "role": "Edit",
+                                "name": "xxxx x xxxxx",
+                                "aid": "",
+                                "class": ""
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "role": "ListItem",
+                        "name": "Speaker B, ¿xxxxxx?",
+                        "aid": "",
+                        "class": "",
+                        "children": [
+                          {
+                            "role": "Pane",
+                            "name": "",
+                            "aid": "",
+                            "class": "",
+                            "children": [
+                              {
+                                "role": "Edit",
+                                "name": "¿xxxxxx?",
+                                "aid": "",
+                                "class": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "script": []
+}

@@ -1,0 +1,18 @@
+[package]
+name = "mc-reconcile"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dev-dependencies]
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+
+[dependencies]
+indexmap = "2.14.2"
+mc-core = { path = "../mc-core" }

@@ -1,0 +1,30 @@
+[package]
+name = "mc-gui"
+version = "0.1.0"
+edition = "2024"
+license = "AGPL-3.0-only"
+publish = false
+description = "Desktop window to prepare and record a meeting with mc"
+
+# Its own workspace: the CLI workspace and its CI never build the GUI and its webview stack.
+[workspace]
+
+[lib]
+name = "mc_gui_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri-plugin-updater = "2"
+tauri-plugin-process = "2"
+
+[lints.rust]
+unsafe_code = "deny"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }

@@ -1,0 +1,20 @@
+[package]
+name = "mc-mcp-client"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[[bin]]
+name = "mc-fake-mcp"
+path = "tests/support/fake_server.rs"
+test = false
+doc = false
+
+[dependencies]
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+thiserror = "2.0.21"

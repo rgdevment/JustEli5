@@ -1,0 +1,187 @@
+name: Bundle
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/mc-gui/src-tauri/windows/**"
+      - "apps/mc-gui/src-tauri/Info.plist"
+      - "apps/mc-gui/src-tauri/Entitlements.plist"
+      - "apps/mc-gui/src-tauri/tauri.conf.json"
+      - "apps/mc-gui/src-tauri/Cargo.toml"
+      - "apps/mc-gui/src-tauri/build.rs"
+      - "apps/mc-gui/scripts/prepare-mc.mjs"
+      - "crates/mc-cli/Cargo.toml"
+      - "Cargo.toml"
+      - ".github/actions/**"
+      - ".github/workflows/bundle.yml"
+      - ".github/workflows/release.yml"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  # `paths` on the trigger leaves a required check unreported for good; a skipped job counts as met.
+  changes:
+    name: what the branch touched
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      packaging: ${{ steps.look.outputs.packaging }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - id: look
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ -z "$BASE" ]; then
+            echo "packaging=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          watched='^(apps/mc-gui/src-tauri/(windows/|Info\.plist|Entitlements\.plist|tauri\.conf\.json|Cargo\.toml|build\.rs)|apps/mc-gui/scripts/prepare-mc\.mjs|crates/mc-cli/Cargo\.toml|Cargo\.toml$|\.github/actions/|\.github/workflows/(bundle|release)\.yml$)'
+          from=$(git merge-base "$BASE" HEAD)
+          if git diff --name-only --diff-filter=d "$from" HEAD | grep -qE "$watched"; then
+            echo "packaging=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "packaging=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  nsis:
+    name: the installer builds
+    needs: changes
+    if: needs.changes.outputs.packaging == 'true'
+    runs-on: windows-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/toolchain
+      - uses: ./.github/actions/whisper-tools
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          workspaces: |
+            .
+            apps/mc-gui/src-tauri
+          save-if: ${{ github.ref == 'refs/heads/main' }}
+      - uses: ./.github/actions/frontend
+
+      - uses: ./.github/actions/sidecar
+
+      - name: Bundle
+        working-directory: apps/mc-gui
+        run: pnpm tauri build --bundles nsis --no-sign
+
+      - name: It carries the CLI, and the hooks it was given
+        run: |
+          out=apps/mc-gui/src-tauri/target/release
+          setup=$(ls $out/bundle/nsis/*-setup.exe 2>/dev/null | head -1) || true
+          if [ -z "$setup" ]; then
+            echo "::error::the bundler produced no installer"
+            exit 1
+          fi
+
+          script=$(ls $out/nsis/*/installer.nsi 2>/dev/null | head -1) || true
+          if [ -z "$script" ]; then
+            echo "::error::makensis ran but left no script behind to read"
+            exit 1
+          fi
+
+          status=0
+          want() {
+            if ! grep -q "$1" "$script"; then
+              echo "::error::the generated installer does not $2"
+              status=1
+            fi
+          }
+          want 'oname=eli5.exe' "lay down the CLI; the sidecar was not bundled"
+          want '!include .*windows.hooks\.nsh' "include our hooks; installerHooks did not resolve"
+          exit $status
+
+      - name: How big it came out
+        run: ls -lh apps/mc-gui/src-tauri/target/release/bundle/nsis/*-setup.exe
+
+  macos:
+    name: the bundle builds
+    needs: changes
+    if: needs.changes.outputs.packaging == 'true'
+    runs-on: macos-latest
+    timeout-minutes: 60
+    env:
+      TARGET: aarch64-apple-darwin
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/toolchain
+        with:
+          targets: aarch64-apple-darwin
+      - uses: ./.github/actions/whisper-tools
+      - uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
+        with:
+          workspaces: |
+            .
+            apps/mc-gui/src-tauri
+          save-if: ${{ github.ref == 'refs/heads/main' }}
+      - uses: ./.github/actions/frontend
+
+      - name: One deployment target for the CLI and the window
+        run: |
+          floor=$(jq -r '.bundle.macOS.minimumSystemVersion' apps/mc-gui/src-tauri/tauri.conf.json)
+          echo "MACOSX_DEPLOYMENT_TARGET=$floor" >> "$GITHUB_ENV"
+
+      - uses: ./.github/actions/sidecar
+        with:
+          target: ${{ env.TARGET }}
+
+      - name: Bundle
+        working-directory: apps/mc-gui
+        run: pnpm tauri build --target "$TARGET" --bundles app --no-sign
+
+      - name: It carries the CLI, on one chip
+        run: |
+          app="apps/mc-gui/src-tauri/target/$TARGET/release/bundle/macos/JustEli5.app"
+          plist="$app/Contents/Info.plist"
+          test -d "$app" || { echo "::error::the bundler produced no app"; exit 1; }
+          status=0
+          want() {
+            if [ "$(plutil -extract "$1" raw -o - "$plist" 2>/dev/null)" != "$2" ]; then
+              echo "::error::$1 is «$(plutil -extract "$1" raw -o - "$plist" 2>/dev/null)», not «$2»"
+              status=1
+            fi
+          }
+          want CFBundleIdentifier dev.rgdevment.justeli5
+          want LSMinimumSystemVersion 13.0
+          if [ -z "$(plutil -extract NSMicrophoneUsageDescription raw -o - "$plist" 2>/dev/null)" ]; then
+            echo "::error::Info.plist lost the microphone prompt; macOS would refuse the microphone"
+            status=1
+          fi
+          bin="$app/Contents/MacOS/eli5"
+          if [ -x "$bin" ]; then
+            archs=$(lipo -archs "$bin")
+            [ "$archs" = arm64 ] || { echo "::error::eli5 is «$archs», not arm64 alone"; status=1; }
+            echo "eli5: $archs"
+          else
+            echo "::error::eli5 is not in the bundle"
+            status=1
+          fi
+          exit $status
+
+      - name: How big it came out
+        run: du -sh "apps/mc-gui/src-tauri/target/$TARGET/release/bundle/macos/JustEli5.app"

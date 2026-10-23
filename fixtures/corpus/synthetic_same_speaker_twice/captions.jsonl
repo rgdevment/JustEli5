@@ -1,0 +1,15 @@
+{"v": 2, "seq": 1, "frame": 1, "t": 1700000000.3, "wall_ms": 1700000000300, "mono_ms": 300.0, "read_ms": 500.0, "speaker": "Ana", "text": "alpha beta gamma", "decision": "new_open"}
+{"v": 2, "seq": 2, "frame": 1, "t": 1700000000.3, "wall_ms": 1700000000300, "mono_ms": 300.0, "read_ms": 500.0, "speaker": "Luis", "text": "delta epsilon zeta", "decision": "new_open"}
+{"v": 2, "seq": 3, "frame": 1, "t": 1700000000.3, "wall_ms": 1700000000300, "mono_ms": 300.0, "read_ms": 500.0, "speaker": "Ana", "text": "alpha beta gamma", "decision": "committed", "first_mono_ms": 300.0, "last_mono_ms": 300.0}
+{"v": 2, "seq": 4, "frame": 1, "t": 1700000000.3, "wall_ms": 1700000000300, "mono_ms": 300.0, "read_ms": 500.0, "speaker": "Ana", "text": "eta theta completamente distinto", "decision": "newline"}
+{"v": 2, "seq": 5, "frame": 2, "t": 1700000000.8, "wall_ms": 1700000000800, "mono_ms": 800.0, "read_ms": 500.0, "speaker": "Ana", "text": "eta theta completamente distinto", "decision": "dup_exact"}
+{"v": 2, "seq": 6, "frame": 2, "t": 1700000000.8, "wall_ms": 1700000000800, "mono_ms": 800.0, "read_ms": 500.0, "speaker": "Luis", "text": "delta epsilon zeta eta", "decision": "grow"}
+{"v": 2, "seq": 7, "frame": 2, "t": 1700000000.8, "wall_ms": 1700000000800, "mono_ms": 800.0, "read_ms": 500.0, "speaker": "Ana", "text": "eta theta completamente distinto", "decision": "committed", "first_mono_ms": 300.0, "last_mono_ms": 300.0}
+{"v": 2, "seq": 8, "frame": 2, "t": 1700000000.8, "wall_ms": 1700000000800, "mono_ms": 800.0, "read_ms": 500.0, "speaker": "Ana", "text": "alpha beta gamma", "decision": "newline"}
+{"v": 2, "seq": 9, "frame": 3, "t": 1700000002.4, "wall_ms": 1700000002400, "mono_ms": 2400.0, "read_ms": 500.0, "speaker": "Ana", "text": "alpha beta gamma", "decision": "dup_exact"}
+{"v": 2, "seq": 10, "frame": 3, "t": 1700000002.4, "wall_ms": 1700000002400, "mono_ms": 2400.0, "read_ms": 500.0, "speaker": "Ana", "text": "alpha beta gamma", "decision": "dup_committed_skip", "first_mono_ms": 800.0, "last_mono_ms": 800.0}
+{"v": 2, "seq": 11, "frame": 3, "t": 1700000002.4, "wall_ms": 1700000002400, "mono_ms": 2400.0, "read_ms": 500.0, "speaker": "Ana", "text": "iota kappa lambda mu", "decision": "newline"}
+{"v": 2, "seq": 12, "frame": 3, "t": 1700000002.4, "wall_ms": 1700000002400, "mono_ms": 2400.0, "read_ms": 500.0, "speaker": "Luis", "text": "delta epsilon zeta eta", "decision": "committed", "first_mono_ms": 300.0, "last_mono_ms": 800.0}
+{"v": 2, "seq": 13, "frame": 4, "t": 1700000005.4, "wall_ms": 1700000005400, "mono_ms": 5400.0, "read_ms": 500.0, "speaker": "Luis", "text": "fin", "decision": "new_open"}
+{"v": 2, "seq": 14, "frame": 4, "t": 1700000005.4, "wall_ms": 1700000005400, "mono_ms": 5400.0, "read_ms": 500.0, "speaker": "Ana", "text": "iota kappa lambda mu", "decision": "committed", "first_mono_ms": 2400.0, "last_mono_ms": 2400.0}
+{"v": 2, "seq": 15, "frame": null, "t": 1700000010.4, "wall_ms": 1700000010400, "mono_ms": 10400.0, "read_ms": null, "speaker": "Luis", "text": "fin", "decision": "committed", "first_mono_ms": 5400.0, "last_mono_ms": 5400.0}

@@ -1,0 +1,86 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "zoom",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "ConfMultiTabContentWndClass",
+          "handle": 1,
+          "pid": 5001,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de producto",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "ya se activaron",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Ana, ya se activaron",
+                            "role": "ListItem"
+                          }
+                        ],
+                        "name": "Closed caption",
+                        "role": "List"
+                      }
+                    ],
+                    "class": "ZConfCCRecieveWndExClass",
+                    "role": "Window"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "ConfMultiTabContentWndClass",
+      "handle": 1,
+      "pid": 5001,
+      "process": "Zoom.exe",
+      "title": "Reuni\u00f3n de producto",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "name": "Silenciar",
+                    "role": "Button"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

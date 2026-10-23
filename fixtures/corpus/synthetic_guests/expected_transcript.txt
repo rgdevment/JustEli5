@@ -1,0 +1,8 @@
+[Invitado sin nombre]: Hola, soy un invitado externo del cliente
+[Invitado sin nombre]: Hello, I am joining from the vendor side
+[Ana Pérez]: Bienvenidos
+[]: Alguien sin nombre habla aquí
+[Invitado sin nombre]: Can you hear me?
+[]: texto sin hablante
+[Invitado sin nombre]: Sí, se escucha bien
+[Ana Pérez]: Gracias

@@ -1,0 +1,4 @@
+{
+  "reason": "time.time() ran 0.9 ms ahead of the stamp at the debounce boundary, so a replay that derives now from the stamp commits one frame late",
+  "strict": "fail"
+}

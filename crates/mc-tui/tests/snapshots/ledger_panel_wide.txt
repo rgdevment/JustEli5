@@ -1,0 +1,24 @@
+● REC  attached: Weekly sync | Microsoft Teams  consent: flag                                                   00:01:35
+┌Transcript────────────────────────────────────────────────────────────┐┌Ledger────────────────────────────────────────┐
+│[00:03] Ana: Bom dia a todos, vamos começar.                          ││Topic                                         │
+│[00:12] Bruno: Eu já mandei o relatório ontem.                        ││• Bloqueo del deploy en staging [#1 #2]       │
+│[00:21] Carla: Perfeito, obrigada.                                    ││Decisions (2)                                 │
+│[00:30] Ana: Então o primeiro ponto é o orçamento.                    ││• Cerrar el pipeline el viernes [#2]          │
+│                                                                      ││• Mover la demo al martes (inferred) [#3 #4 #5│
+│                                                                      ││  #6 #7 …]                                    │
+│                                                                      ││Commitments (1)                               │
+│                                                                      ││• Bruno: enviar el informe de ayer (el        │
+│                                                                      ││  viernes) [#1]                               │
+│                                                                      ││Open questions (1)                            │
+│                                                                      ││• ¿Quién avisa al cliente del retraso? [#3]   │
+│                                                                      ││                                              │
+│                                                                      ││                                              │
+│                                                                      ││                                              │
+│                                                                      ││                                              │
+│                                                                      ││                                              │
+│                                                                      ││                                              │
+│                                                                      ││                                              │
+│                                                                      ││                                              │
+│                                                                      ││                                              │
+└──────────────────────────────────────────────────────────────────────┘└──────────────────────────────────────────────┘
+q stop  p pause  n note  m mark  c fix  s name  l panel  ↑↓ scroll  ? help

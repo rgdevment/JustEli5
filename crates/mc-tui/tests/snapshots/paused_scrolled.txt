@@ -1,0 +1,24 @@
+● REC  attached: Weekly sync | Microsoft Teams  consent: flag           00:01:15
+┌Transcript (paused)───────────────────────────────────────────────────────────┐
+│[00:14] Bruno: Linha número 8                                                 │
+│[00:16] Ana: Linha número 9                                                   │
+│[00:18] Bruno: Linha número 10                                                │
+│[00:20] Ana: Linha número 11                                                  │
+│[00:22] Bruno: Linha número 12                                                │
+│[00:24] Ana: Linha número 13                                                  │
+│[00:26] Bruno: Linha número 14                                                │
+│[00:28] Ana: Linha número 15                                                  │
+│[00:30] Bruno: Linha número 16                                                │
+│[00:32] Ana: Linha número 17                                                  │
+│[00:34] Bruno: Linha número 18                                                │
+│[00:36] Ana: Linha número 19                                                  │
+│[00:38] Bruno: Linha número 20                                                │
+│[00:40] Ana: Linha número 21                                                  │
+│[00:42] Bruno: Linha número 22                                                │
+│[00:44] Ana: Linha número 23                                                  │
+│[00:46] Bruno: Linha número 24                                                │
+│[00:48] Ana: Linha número 25                                                  │
+│[00:50] Bruno: Linha número 26                                                │
+│[00:52] Ana: Linha número 27                                                  │
+└──────────────────────────────────────────────────────────────────────────────┘
+q stop  p pause  n note  m mark  c fix  s name  ↑↓ PgUp/PgDn scroll  ? help

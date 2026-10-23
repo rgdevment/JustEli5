@@ -1,0 +1,44 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Groups at depth 18."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Ana Garc\u00eda",
+          "Groups at depth 18."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Groups at depth 18."
+        ],
+        [
+          "Luis P\u00e9rez",
+          "Second group, same depth."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis P\u00e9rez",
+          "Second group, same depth."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

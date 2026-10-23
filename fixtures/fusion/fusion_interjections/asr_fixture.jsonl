@@ -1,0 +1,14 @@
+{"v": 1, "ch": "mic", "start_ms": 2245, "end_ms": 5332, "text": "Creo que el sprint también depende de QA", "lang": "es", "conf": -0.257, "no_speech": 0.056}
+{"v": 1, "ch": "system", "start_ms": 5601, "end_ms": 6292, "text": "Ok", "lang": "es", "conf": -0.535, "no_speech": 0.056}
+{"v": 1, "ch": "system", "start_ms": 6794, "end_ms": 9890, "text": "Yo hice done ayer y ya está done", "lang": "es", "conf": -0.184, "no_speech": 0.068}
+{"v": 1, "ch": "mic", "start_ms": 10155, "end_ms": 10871, "text": "Perfecto", "lang": "es", "conf": -0.587, "no_speech": 0.032}
+{"v": 1, "ch": "system", "start_ms": 11962, "end_ms": 14977, "text": "Tengo un bloqueo con el pipeline de QA", "lang": "es", "conf": -0.129, "no_speech": 0.032}
+{"v": 1, "ch": "system", "start_ms": 15324, "end_ms": 16061, "text": "Mm, sí", "lang": "es", "conf": -0.282, "no_speech": 0.053}
+{"v": 1, "ch": "mic", "start_ms": 16883, "end_ms": 19508, "text": "¿Alguien puede hacer push de este cambio?", "lang": "es", "conf": -0.491, "no_speech": 0.017}
+{"v": 1, "ch": "system", "start_ms": 19802, "end_ms": 20502, "text": "Sí", "lang": "es", "conf": -0.203, "no_speech": 0.048}
+{"v": 1, "ch": "system", "start_ms": 21885, "end_ms": 24854, "text": "¿Alguien puede hacer pull request de este cambio?", "lang": "es", "conf": -0.197, "no_speech": 0.039}
+{"v": 1, "ch": "mic", "start_ms": 25227, "end_ms": 25887, "text": "Mm, sí", "lang": "es", "conf": -0.376, "no_speech": 0.046}
+{"v": 1, "ch": "system", "start_ms": 27180, "end_ms": 29495, "text": "Necesitamos hacer bug antes del sprint", "lang": "es", "conf": -0.198, "no_speech": 0.039}
+{"v": 1, "ch": "system", "start_ms": 29794, "end_ms": 30455, "text": "Ok", "lang": "es", "conf": -0.325, "no_speech": 0.055}
+{"v": 1, "ch": "mic", "start_ms": 32018, "end_ms": 34720, "text": "Quedamos en cerrar el merge el lunes", "lang": "es", "conf": -0.491, "no_speech": 0.037}
+{"v": 1, "ch": "system", "start_ms": 34978, "end_ms": 35731, "text": "Claro", "lang": "es", "conf": -0.215, "no_speech": 0.067}

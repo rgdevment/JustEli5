@@ -1,0 +1,6 @@
+[Ana]: emoji 😀 con 👨‍👩 ZWJ
+[Ana]: café en NFC
+[Ana]: café en NFD
+[Luis]: İstanbul y Straße
+[Luis]: con tab y salto crudo
+[Marta]: ΑΣ final

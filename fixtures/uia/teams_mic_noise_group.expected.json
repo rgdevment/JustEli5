@@ -1,0 +1,26 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Mar\u00eda Soto",
+          "microphone check, one two"
+        ],
+        [
+          "Luis P\u00e9rez",
+          "Hola a todos"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis P\u00e9rez",
+          "Hola a todos"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

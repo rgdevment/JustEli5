@@ -1,0 +1,52 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic: named controls (not Lists) that look like captions; no caption list, so nothing is read.",
+  "platform": "zoom",
+  "script": [],
+  "version": 1,
+  "windows": [
+    {
+      "class": "ConfMultiTabContentWndClass",
+      "handle": 1,
+      "pid": 5001,
+      "process": "Zoom.exe",
+      "title": "Reuni\u00f3n semanal",
+      "tree": {
+        "children": [
+          {
+            "name": "Closed caption",
+            "role": "Button"
+          },
+          {
+            "name": "Closed caption",
+            "role": "Text"
+          },
+          {
+            "children": [
+              {
+                "name": "Subt\u00edtulos",
+                "role": "Group"
+              },
+              {
+                "name": "Silenciar",
+                "role": "Button"
+              }
+            ],
+            "role": "Pane"
+          },
+          {
+            "name": "Ana, hola a todos",
+            "role": "ListItem"
+          },
+          {
+            "name": "Subtitles",
+            "role": "Edit"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

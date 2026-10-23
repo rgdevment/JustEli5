@@ -1,0 +1,24 @@
+■ ENDED (source_ended)  ended  consent: flag                            00:01:35
+┌Confirm (lines 13-30 of 30)───────────────────────────────────────────────────┐
+│task: Ana: tarea número 13 -> Trabajo                                         │
+│task: Ana: tarea número 14 -> Trabajo                                         │
+│task: Ana: tarea número 15 -> Trabajo                                         │
+│task: Ana: tarea número 16 -> Trabajo                                         │
+│task: Ana: tarea número 17 -> Trabajo                                         │
+│task: Ana: tarea número 18 -> Trabajo                                         │
+│task: Ana: tarea número 19 -> Trabajo                                         │
+│task: Ana: tarea número 20 -> Trabajo                                         │
+│task: Ana: tarea número 21 -> Trabajo                                         │
+│task: Ana: tarea número 22 -> Trabajo                                         │
+│task: Ana: tarea número 23 -> Trabajo                                         │
+│task: Ana: tarea número 24 -> Trabajo                                         │
+│task: Ana: tarea número 25 -> Trabajo                                         │
+│task: Ana: tarea número 26 -> Trabajo                                         │
+│task: Ana: tarea número 27 -> Trabajo                                         │
+│task: Ana: tarea número 28 -> Trabajo                                         │
+│task: Ana: tarea número 29 -> Trabajo                                         │
+│task: Ana: tarea número 30 -> Trabajo                                         │
+│                                                                              │
+│Publish this to Tisty?                                                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+↑↓ PgUp/PgDn scroll  Enter publish  Esc cancel

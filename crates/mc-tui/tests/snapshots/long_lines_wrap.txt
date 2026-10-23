@@ -1,0 +1,24 @@
+● REC  attached: Weekly sync | Microsoft Teams  consent: flag           00:00:12
+┌Transcript────────────────────────────────────────────────────────────────────┐
+│[00:05] Ana: Esta é uma frase muito longa para comprovar que o texto quebra em│
+│várias linhas dentro da moldura sem sair da largura do terminal, e que a      │
+│continuação fica alinhada à esquerda do painel de transcrição, sem invadir a  │
+│borda direita.                                                                │
+│[00:09] Bruno:                                                                │
+│supercalifragilisticexpialidocious_pneumonoultramicroscopicsilicovolcanoconios│
+│is_extra                                                                      │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+q stop  p pause  n note  m mark  c fix  s name  ↑↓ PgUp/PgDn scroll  ? help

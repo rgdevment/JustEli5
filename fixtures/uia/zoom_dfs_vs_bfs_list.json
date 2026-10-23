@@ -1,0 +1,313 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic: caption window DFS-first at depth 3 (its List direct, nested at depth 2, or at depth 4 via the fallback) beats a shallower one at depth 1 found later.",
+  "platform": "zoom",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "ConfMultiTabContentWndClass",
+          "handle": 2,
+          "pid": 5002,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de producto",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "name": "primera reuni\u00f3n del d\u00eda",
+                                            "role": "Edit"
+                                          }
+                                        ],
+                                        "role": "Pane"
+                                      }
+                                    ],
+                                    "name": "Ana, primera reuni\u00f3n del d\u00eda",
+                                    "role": "ListItem"
+                                  },
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "name": "s\u00ed, se escucha",
+                                            "role": "Edit"
+                                          }
+                                        ],
+                                        "role": "Pane"
+                                      }
+                                    ],
+                                    "name": "Luis, s\u00ed, se escucha",
+                                    "role": "ListItem"
+                                  }
+                                ],
+                                "name": "Closed caption",
+                                "role": "List"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "class": "ZConfCCRecieveWndExClass",
+                        "role": "Window"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "otra ventana",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Pedro, otra ventana",
+                        "role": "ListItem"
+                      }
+                    ],
+                    "name": "Closed caption",
+                    "role": "List"
+                  }
+                ],
+                "class": "ZConfCCRecieveWndExClass",
+                "role": "Window"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    },
+    {
+      "windows": [
+        {
+          "class": "ConfMultiTabContentWndClass",
+          "handle": 2,
+          "pid": 5002,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de producto",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "name": "primera reuni\u00f3n del d\u00eda",
+                                                    "role": "Edit"
+                                                  }
+                                                ],
+                                                "role": "Pane"
+                                              }
+                                            ],
+                                            "name": "Ana, primera reuni\u00f3n del d\u00eda",
+                                            "role": "ListItem"
+                                          },
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "name": "s\u00ed, se escucha",
+                                                    "role": "Edit"
+                                                  }
+                                                ],
+                                                "role": "Pane"
+                                              }
+                                            ],
+                                            "name": "Luis, s\u00ed, se escucha",
+                                            "role": "ListItem"
+                                          }
+                                        ],
+                                        "name": "Closed caption",
+                                        "role": "List"
+                                      }
+                                    ],
+                                    "role": "Pane"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "class": "ZConfCCRecieveWndExClass",
+                        "role": "Window"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "otra ventana",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Pedro, otra ventana",
+                        "role": "ListItem"
+                      }
+                    ],
+                    "name": "Closed caption",
+                    "role": "List"
+                  }
+                ],
+                "class": "ZConfCCRecieveWndExClass",
+                "role": "Window"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "ConfMultiTabContentWndClass",
+      "handle": 2,
+      "pid": 5002,
+      "process": "Zoom.exe",
+      "title": "Reuni\u00f3n de producto",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "primera reuni\u00f3n del d\u00eda",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Ana, primera reuni\u00f3n del d\u00eda",
+                            "role": "ListItem"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "s\u00ed, se escucha",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Luis, s\u00ed, se escucha",
+                            "role": "ListItem"
+                          }
+                        ],
+                        "name": "Closed caption",
+                        "role": "List"
+                      }
+                    ],
+                    "class": "ZConfCCRecieveWndExClass",
+                    "role": "Window"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Pane"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "otra ventana",
+                            "role": "Edit"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "name": "Pedro, otra ventana",
+                    "role": "ListItem"
+                  }
+                ],
+                "name": "Closed caption",
+                "role": "List"
+              }
+            ],
+            "class": "ZConfCCRecieveWndExClass",
+            "role": "Window"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "meet-copilot.corpus/1",
+  "session_id": "72cc9bcb5c61468e8093d15452cd52fd",
+  "app": {
+    "version": "2.0",
+    "git_commit": null
+  },
+  "python": "synthetic",
+  "os": {
+    "system": "synthetic",
+    "release": "",
+    "version": "",
+    "machine": ""
+  },
+  "platform_requested": "teams",
+  "capture_source": "FakeSource",
+  "meeting_name": "Fuente de un solo nodo",
+  "clock": {
+    "t0_wall_ms": 1700000000000,
+    "mono_source": "synthetic",
+    "t0_utc_iso": "2023-11-14T22:13:20.000+00:00"
+  },
+  "started_wall_ms": 1700000000000,
+  "started_utc_iso": "2023-11-14T22:13:20.000+00:00",
+  "ended_wall_ms": 1700000009700,
+  "ended_utc_iso": "2023-11-14T22:13:29.700+00:00",
+  "ended_mono_ms": 9700.0,
+  "end_reason": "stop",
+  "libs": {
+    "soundcard": null,
+    "numpy": null,
+    "uiautomation": null
+  },
+  "captions": {
+    "capture_all_nodes": false,
+    "file": "captions.jsonl",
+    "schema": 2,
+    "anonymous_label": "Invitado sin nombre",
+    "anonymous_aliases": [
+      "usuario desconocido",
+      "unknown user"
+    ]
+  },
+  "audio": {
+    "mic": {
+      "enabled": false,
+      "status": "disabled"
+    },
+    "system": {
+      "enabled": false,
+      "status": "disabled"
+    }
+  }
+}

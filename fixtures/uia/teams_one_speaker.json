@@ -1,0 +1,88 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "teams",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "TeamsWebView",
+          "handle": 1,
+          "pid": 4001,
+          "process": "ms-teams.exe",
+          "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "Ana Garc\u00eda",
+                            "role": "Text"
+                          },
+                          {
+                            "name": "Hola a todos, empiezo la reuni\u00f3n. Hoy vemos el presupuesto.",
+                            "role": "Text"
+                          }
+                        ],
+                        "role": "Group"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "Ana Garc\u00eda",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Hola a todos, empiezo la reuni\u00f3n.",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

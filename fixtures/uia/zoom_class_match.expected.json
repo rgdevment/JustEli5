@@ -1,0 +1,52 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "hola a todos"
+        ],
+        [
+          "Speaker 2 (Sala)",
+          "\u00bflistos?"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Speaker 2 (Sala)",
+          "\u00bflistos?"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de producto"
+      },
+      "meeting_name": "Reuni\u00f3n de producto"
+    },
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "hola a todos"
+        ],
+        [
+          "Speaker 2 (Sala)",
+          "\u00bflistos?"
+        ],
+        [
+          "Luis",
+          "buenas tardes"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis",
+          "buenas tardes"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de producto"
+      },
+      "meeting_name": "Reuni\u00f3n de producto"
+    }
+  ]
+}

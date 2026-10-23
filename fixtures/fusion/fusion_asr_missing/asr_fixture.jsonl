@@ -1,0 +1,9 @@
+{"v": 1, "ch": "mic", "start_ms": 2276, "end_ms": 5342, "text": "Tengo un bloqueo con el push de QA", "lang": "es", "conf": -0.446, "no_speech": 0.049}
+{"v": 1, "ch": "system", "start_ms": 7043, "end_ms": 10140, "text": "Yo hice done ayer y ya esta bloqueado", "lang": "es", "conf": -0.217, "no_speech": 0.036}
+{"v": 1, "ch": "mic", "start_ms": 15415, "end_ms": 18064, "text": "¿Alguien puede hacer pipeline de este cambio?", "lang": "es", "conf": -0.115, "no_speech": 0.065}
+{"v": 1, "ch": "system", "start_ms": 19896, "end_ms": 22141, "text": "Necesitamos hacer merge antes del demo", "lang": "es", "conf": -0.596, "no_speech": 0.033}
+{"v": 1, "ch": "system", "start_ms": 23464, "end_ms": 25703, "text": "Necesitamos hacer deploy antes del sprint", "lang": "es", "conf": -0.138, "no_speech": 0.034}
+{"v": 1, "ch": "system", "start_ms": 30269, "end_ms": 33291, "text": "Creo que el merge también depende de staging", "lang": "es", "conf": -0.231, "no_speech": 0.012}
+{"v": 1, "ch": "system", "start_ms": 33988, "end_ms": 36722, "text": "Quedamos en cerrar el deploy el viernes", "lang": "es", "conf": -0.577, "no_speech": 0.017}
+{"v": 1, "ch": "mic", "start_ms": 37729, "end_ms": 41150, "text": "Voy a revisar el bug despues de la reunión", "lang": "es", "conf": -0.569, "no_speech": 0.058}
+{"v": 1, "ch": "system", "start_ms": 46748, "end_ms": 49722, "text": "Tengo un bloqueo con el rollback de produccion", "lang": "es", "conf": -0.531, "no_speech": 0.028}

@@ -1,0 +1,5 @@
+selectors v5
+windows:
+  [0] TeamsWebView                 pid 4001   ms-teams.exe     Reunión xxx Xxx | Microsoft Teams
+teams: window [0] (Meeting), discovery 1 ms / 12 nodes, container [0, 0], poll 1 ms / 10 nodes, 3 captions
+advice: Teams tree is tiny: Chromium accessibility may be off. Retry in a few seconds, or start Narrator once.

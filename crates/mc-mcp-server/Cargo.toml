@@ -1,0 +1,20 @@
+[package]
+name = "mc-mcp-server"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+mc-analyst = { path = "../mc-analyst" }
+mc-core = { path = "../mc-core" }
+mc-engine = { path = "../mc-engine" }
+mc-store = { path = "../mc-store" }
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+
+[dev-dependencies]
+tempfile = "3.27.0"

@@ -1,0 +1,24 @@
+■ ENDED (source_ended)  ended  consent: flag                            00:01:35
+┌Save to Tisty─────────────────────────────────────────────────────────────────┐
+│Publish the minutes and the commitments to Tisty.                             │
+│                                                                              │
+│Folder (must exist): Reuniones_                                               │
+│List (empty: inbox): Trabajo                                                  │
+│                                                                              │
+│You will see what will be created before anything is sent.                    │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+Enter next/preview  Tab switch field  Esc back

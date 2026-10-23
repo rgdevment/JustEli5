@@ -1,0 +1,40 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana",
+          "hola a todos"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Ana",
+          "hola a todos"
+        ]
+      ],
+      "discover": {
+        "attached": "Zoom Help Center - Google Chrome"
+      },
+      "meeting_name": "Zoom Help Center - Google Chrome"
+    },
+    {
+      "captions_all": [
+        [
+          "Luis",
+          "s\u00ed, lo veo"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis",
+          "s\u00ed, lo veo"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de equipo"
+      },
+      "meeting_name": "Reuni\u00f3n de equipo"
+    }
+  ]
+}

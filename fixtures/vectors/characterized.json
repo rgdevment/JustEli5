@@ -1,0 +1,9833 @@
+[
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": false,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_a_new_text_opens_track"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "9f4ab665f964c98f",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_anonymous_speaker_is_normalized_and_ingested[Unknown User]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Usuario desconocido",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Usuario desconocido"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "speaker_raw": "Usuario desconocido"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "9f4ab665f964c98f",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_anonymous_speaker_is_normalized_and_ingested[Usuario desconocido]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     0.5
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "dup_exact",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_b_same_text_is_dup_exact_and_keeps_original_timestamp"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola a",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     0.3
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.3
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.51
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_c_growing_line_replaces_without_duplicating"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "bakloc grooming de hoy",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "bakloc grooming de hoy"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "bakloc grooming de hoy",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Ana",
+     "backlog grooming de hoy",
+     0.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "merge_p0.09_r0.93",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "backlog grooming de hoy"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "backlog grooming de hoy",
+        "ts": 0.2
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.41
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: backlog grooming de hoy"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "backlog grooming de hoy"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "backlog grooming de hoy"
+      ]
+     ],
+     "recent_hash": "7e8f819c85f8628e",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_d_correction_is_merged_into_one_line[bakloc grooming de hoy-backlog grooming de hoy]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "el bakloc grooming",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "el bakloc grooming"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "el bakloc grooming",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Ana",
+     "el backlog grooming",
+     0.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "merge_p0.28_r0.92",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "el backlog grooming"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "el backlog grooming",
+        "ts": 0.2
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.41
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: el backlog grooming"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "el backlog grooming"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "el backlog grooming"
+      ]
+     ],
+     "recent_hash": "38e1ae6bc07cd5ac",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_d_correction_is_merged_into_one_line[el bakloc grooming-el backlog grooming]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "bakloc",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "bakloc"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "bakloc",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Ana",
+     "backlog grooming",
+     0.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: bakloc"
+    ],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "bakloc"
+     },
+     {
+      "decision": "newline",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "backlog grooming"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "bakloc"
+      ]
+     ],
+     "recent_hash": "420f419d8d0f5e42",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "backlog grooming",
+        "ts": 0.2
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_d_short_correction_with_growth_currently_splits_into_two_lines"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola a todos, empecemos con la agenda.",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos, empecemos con la agenda."
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos, empecemos con la agenda.",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Ana",
+     "Mi presupuesto para Q3 cierra el viernes.",
+     0.5
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos, empecemos con la agenda."
+    ],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos, empecemos con la agenda."
+     },
+     {
+      "decision": "newline",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Mi presupuesto para Q3 cierra el viernes."
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.5,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos empecemos con la agenda"
+      ]
+     ],
+     "recent_hash": "784436dc1304b2db",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Mi presupuesto para Q3 cierra el viernes.",
+        "ts": 0.5
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.71
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Mi presupuesto para Q3 cierra el viernes."
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Mi presupuesto para Q3 cierra el viernes."
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.5,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos empecemos con la agenda"
+      ],
+      [
+       "Ana",
+       "mi presupuesto para q3 cierra el viernes"
+      ]
+     ],
+     "recent_hash": "e7fb8eb6ae8d17dc",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_e_distinct_sentences_produce_newline_and_two_committed_lines"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": false,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.19
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "check_snapshot",
+    "records": [],
+    "returns": null,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_f_line_commits_after_debounce_not_before"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": false,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": null,
+    "op": "flush",
+    "records": [],
+    "returns": null,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "flush",
+    "records": [],
+    "returns": null,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_flush_commits_pending_tracks_and_returns_block"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     5.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 5.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 5.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     6.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "dup_committed_skip",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 5.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_g_already_committed_line_is_not_recommitted[Hola a todos]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola a todos",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Ana",
+     "hola a todos!",
+     5.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "hola a todos!"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 5.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "hola a todos!",
+        "ts": 5.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     6.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [
+     {
+      "decision": "dup_committed_skip",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "hola a todos!"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 5.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_g_already_committed_line_is_not_recommitted[hola a todos!]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": false,
+   "init_time_pinned": true,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [
+     "Ana",
+     "Hola",
+     0.0
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     "Luis",
+     "Buenas tardes",
+     0.5
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "ingest",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.5,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ],
+      [
+       "Luis",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Luis",
+       {
+        "text": "Buenas tardes",
+        "ts": 0.5
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.2
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.5,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola"
+      ]
+     ],
+     "recent_hash": "f25376fc4821dc6c",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ],
+      [
+       "Luis",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Luis",
+       {
+        "text": "Buenas tardes",
+        "ts": 0.5
+       }
+      ]
+     ]
+    },
+    "time_seen": []
+   },
+   {
+    "args": [
+     1.71
+    ],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Luis]: Buenas tardes"
+    ],
+    "observations": null,
+    "op": "commit_stale",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.5,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [
+      [
+       "Ana",
+       "hola"
+      ],
+      [
+       "Luis",
+       "buenas tardes"
+      ]
+     ],
+     "recent_hash": "4144a9311170eae3",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "Ana",
+       null
+      ],
+      [
+       "Luis",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_h_speakers_have_independent_tracks"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "..."
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "no_alnum",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "..."
+     }
+    ],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 1,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [],
+     "tracks": []
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_i_punctuation_only_text_is_discarded_by_update"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.3
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.3
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.3
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.6
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.51
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_j_update_reads_source_and_records_decisions"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "",
+     "track_raw": [
+      [
+       "",
+       ""
+      ]
+     ],
+     "tracks": [
+      [
+       "",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "8492af9981c2ae12",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "",
+     "track_raw": [
+      [
+       "",
+       ""
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_k_missing_speaker_with_valid_text_becomes_empty_speaker[]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       null,
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "8492af9981c2ae12",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [
+      [
+       "",
+       null
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_k_missing_speaker_with_valid_text_becomes_empty_speaker[None]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       ""
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "empty_text",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": ""
+     }
+    ],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 1,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [],
+     "tracks": []
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_l_empty_text_is_recorded_as_empty_text[]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       null
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "empty_text",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": null
+     }
+    ],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 1,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [],
+     "tracks": []
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_l_empty_text_is_recorded_as_empty_text[None]"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "Hola"
+      ],
+      [
+       "Ana",
+       "Buenas"
+      ],
+      [
+       "Ana",
+       "..."
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola"
+     },
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Buenas"
+     },
+     {
+      "decision": "no_alnum",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "..."
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 1,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 3,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ],
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Hola",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Ana",
+       {
+        "text": "Buenas",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_m_mixed_frame_counts_reads_discards_and_decisions"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": false,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": false
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "single",
+     "value": [
+      "Usuario desconocido",
+      "Hola a todos"
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Usuario desconocido"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_n_single_caption_anonymous_speaker_is_ingested"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": false,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": false
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "single",
+     "value": [
+      null,
+      null
+     ]
+    },
+    "op": "update",
+    "records": [],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 0,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": null,
+     "track_raw": [],
+     "tracks": []
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_characterization.py::test_n_single_caption_null_tuple_produces_no_observation"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Usuario desconocido",
+       "hola equipo"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Usuario desconocido"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "hola equipo"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "hola equipo",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: hola equipo"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "speaker_raw": "Usuario desconocido"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "hola equipo"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola equipo"
+      ]
+     ],
+     "recent_hash": "94e706c2a85eb2c6",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_a_guest_line_commits_under_guest_label_without_discard"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": false,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "hola"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "hola",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "hola equipo ya"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "hola equipo ya",
+        "ts": 0.3
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.3
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: hola equipo ya"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola equipo ya"
+      ]
+     ],
+     "recent_hash": "8fff9e51c180f0b6",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.51
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola equipo ya"
+      ]
+     ],
+     "recent_hash": "8fff9e51c180f0b6",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     10.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_b_growing_guest_line_is_committed_once"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": false,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "Hola a todos, empecemos con la agenda."
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Hola a todos, empecemos con la agenda.",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: Hola a todos, empecemos con la agenda."
+    ],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Usuario desconocido",
+       "Mi presupuesto para Q3 cierra el viernes."
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.5,
+     "last_caption_time": 0.5,
+     "reads": 2,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola a todos empecemos con la agenda"
+      ]
+     ],
+     "recent_hash": "40a07213b417db6e",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Mi presupuesto para Q3 cierra el viernes.",
+        "ts": 0.5
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.5
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: Mi presupuesto para Q3 cierra el viernes."
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.5,
+     "last_caption_time": 0.5,
+     "reads": 2,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola a todos empecemos con la agenda"
+      ],
+      [
+       "Invitado sin nombre",
+       "mi presupuesto para q3 cierra el viernes"
+      ]
+     ],
+     "recent_hash": "aa214496d8d051f2",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.71
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_c_two_guests_with_distinct_phrases_produce_two_lines"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "otra cosa"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "otra cosa"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.2,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Invitado sin nombre",
+       {
+        "text": "otra cosa",
+        "ts": 0.2
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.2
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos",
+     "[Invitado sin nombre]: otra cosa"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "committed",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "otra cosa"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.2,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Invitado sin nombre",
+       "otra cosa"
+      ]
+     ],
+     "recent_hash": "14bb5e853b38556c",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     10.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_commit_does_not_inherit_speaker_raw_from_other_speaker"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ],
+      [
+       "Unknown User",
+       "Buenas tardes"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Buenas tardes"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Buenas tardes",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos",
+     "[Invitado sin nombre]: Buenas tardes"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "committed",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Buenas tardes"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Invitado sin nombre",
+       "buenas tardes"
+      ]
+     ],
+     "recent_hash": "30955d538446a039",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_d_named_and_guest_in_same_frame_keep_separate_tracks"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "Hola a todos y bienvenidos a la reunion de hoy"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola a todos y bienvenidos a la reunion de hoy"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Hola a todos y bienvenidos a la reunion de hoy",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: Hola a todos y bienvenidos a la reunion de hoy"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Usuario desconocido",
+       "Pasemos al tema del presupuesto trimestral"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola a todos y bienvenidos a la reunion de hoy"
+     },
+     {
+      "decision": "newline",
+      "kwargs": {
+       "speaker_raw": "Usuario desconocido"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Pasemos al tema del presupuesto trimestral"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.2,
+     "reads": 2,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola a todos y bienvenidos a la reunion de hoy"
+      ]
+     ],
+     "recent_hash": "1868b9ea62f97051",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Pasemos al tema del presupuesto trimestral",
+        "ts": 0.2
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.2
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_divergent_commit_keeps_alias_that_wrote_the_line"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "Hola"
+      ],
+      [
+       "usuario desconocido",
+       "..."
+      ],
+      [
+       "Ana",
+       ""
+      ],
+      [
+       null,
+       "texto sin hablante"
+      ],
+      [
+       "Ana",
+       null
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "Hola"
+     },
+     {
+      "decision": "no_alnum",
+      "kwargs": {
+       "speaker_raw": "usuario desconocido"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "..."
+     },
+     {
+      "decision": "empty_text",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": ""
+     },
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "",
+      "text": "texto sin hablante"
+     },
+     {
+      "decision": "empty_text",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": null
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 3,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 5,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ],
+      [
+       "",
+       null
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "Hola",
+        "ts": 0.0
+       }
+      ],
+      [
+       "",
+       {
+        "text": "texto sin hablante",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_e_recorder_never_gets_excluded_speaker"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "hola equipo"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "hola equipo"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "hola equipo",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: hola equipo"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "hola equipo"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "Invitado sin nombre",
+       "hola equipo"
+      ]
+     ],
+     "recent_hash": "94e706c2a85eb2c6",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Unknown User",
+     "track_raw": [
+      [
+       "Invitado sin nombre",
+       "Unknown User"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_f_bis_guest_new_open_and_committed_keep_speaker_raw"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Unknown User",
+       "..."
+      ],
+      [
+       "Ana",
+       "..."
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "no_alnum",
+      "kwargs": {
+       "speaker_raw": "Unknown User"
+      },
+      "speaker": "Invitado sin nombre",
+      "text": "..."
+     },
+     {
+      "decision": "no_alnum",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "..."
+     }
+    ],
+    "returns": false,
+    "stamps": [],
+    "state": {
+     "discarded": 2,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [],
+     "tracks": []
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_f_punctuation_only_guest_text_is_still_no_alnum"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos mas"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos mas"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos mas",
+        "ts": 0.3
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.3
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos mas"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos mas"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos mas"
+      ]
+     ],
+     "recent_hash": "c631d0641e09051b",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.51
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_f_ter_normal_speaker_never_receives_speaker_raw"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": false,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 5.0,
+     "last_caption_time": 5.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola",
+        "ts": 5.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     5.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Usuario desconocido",
+       "ok"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 10.0,
+     "last_caption_time": 10.0,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola"
+      ]
+     ],
+     "recent_hash": "f25376fc4821dc6c",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": [
+      [
+       "Invitado sin nombre",
+       {
+        "text": "ok",
+        "ts": 10.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     10.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Invitado sin nombre]: ok"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 10.0,
+     "last_caption_time": 10.0,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola"
+      ],
+      [
+       "Invitado sin nombre",
+       "ok"
+      ]
+     ],
+     "recent_hash": "4168dd0039cac0fe",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Usuario desconocido",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Invitado sin nombre",
+       "Usuario desconocido"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     20.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_guests.py::test_g_guest_only_frame_refreshes_last_caption_time"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "bakloc grooming de hoy"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "bakloc grooming de hoy"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "bakloc grooming de hoy",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "backlog grooming de hoy"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "merge_p0.09_r0.93",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "backlog grooming de hoy"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "backlog grooming de hoy",
+        "ts": 0.3
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.3
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: backlog grooming de hoy"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 200.0
+       },
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 300.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "backlog grooming de hoy"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "backlog grooming de hoy"
+      ]
+     ],
+     "recent_hash": "7e8f819c85f8628e",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.51
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_10_merge_keeps_first_and_extends_last"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "hola equipo"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "hola equipo"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "hola equipo",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola equipo."
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "dup_norm_longer",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola equipo."
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.2,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola equipo.",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.2
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola equipo."
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 200.0
+       },
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 300.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola equipo."
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.2,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola equipo"
+      ]
+     ],
+     "recent_hash": "a2df15ab4df515b9",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_11_dup_norm_longer_extends_last"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "dup_exact",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": false,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.1
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "dup_exact",
+      "kwargs": {
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 300.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": false,
+    "stamps": [
+     {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.2,
+     "reads": 3,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.2
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 100.0
+       },
+       "frame": 4,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 400.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 400.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 4,
+     "frame_stamp": {
+      "mono_ms": 400.0,
+      "wall_ms": 1000003
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.2,
+     "reads": 3,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_12_dup_exact_does_not_extend_last"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       ""
+      ],
+      [
+       "Luis",
+       "..."
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "empty_text",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": ""
+     },
+     {
+      "decision": "no_alnum",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Luis",
+      "text": "..."
+     }
+    ],
+    "returns": false,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 2,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Luis",
+     "track_raw": [],
+     "tracks": []
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Marta",
+       "¡!"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "no_alnum",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Marta",
+      "text": "¡!"
+     }
+    ],
+    "returns": false,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 3,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 3,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Marta",
+     "track_raw": [],
+     "tracks": []
+    },
+    "time_seen": [
+     0.1
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_13_discard_records_carry_stamp_and_frame_of_their_update"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": false,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": false
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "single",
+     "value": [
+      "Ana",
+      "Hola a todos"
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": false
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "single",
+     "value": [
+      "Ana",
+      "Hola a todos"
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "dup_exact",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": false,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.1
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_14_single_caption_path_records_carry_stamp_and_frame"
+ },
+ {
+  "excluded": "raises:RuntimeError",
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Luis",
+       "Buenos dias equipo"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Luis",
+      "text": "Buenos dias equipo"
+     }
+    ],
+    "returns": {
+     "raises": "RuntimeError"
+    },
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.1,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ],
+      [
+       "Luis",
+       [
+        200.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Luis",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Luis",
+       {
+        "text": "Buenos dias equipo",
+        "ts": 0.1
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.1
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos",
+     "[Luis]: Buenos dias equipo"
+    ],
+    "observations": null,
+    "op": "flush",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 100.0
+       },
+       "frame": null,
+       "stamp": {
+        "mono_ms": 500.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 200.0,
+        "last_mono_ms": 200.0
+       },
+       "frame": null,
+       "stamp": {
+        "mono_ms": 500.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Luis",
+      "text": "Buenos dias equipo"
+     }
+    ],
+    "returns": null,
+    "stamps": [
+     {
+      "mono_ms": 500.0,
+      "wall_ms": 1000002
+     },
+     {
+      "mono_ms": 500.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.1,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Luis",
+       "buenos dias equipo"
+      ]
+     ],
+     "recent_hash": "48d5d015344886e6",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Luis",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_15_exception_mid_update_does_not_leak_frame_into_flush"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Luis",
+       "Buenos dias equipo"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Luis",
+      "text": "Buenos dias equipo"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.1,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ],
+      [
+       "Luis",
+       [
+        200.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Luis",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Luis",
+       {
+        "text": "Buenos dias equipo",
+        "ts": 0.1
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.1
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos",
+     "[Luis]: Buenos dias equipo"
+    ],
+    "observations": null,
+    "op": "flush",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 100.0
+       },
+       "frame": null,
+       "stamp": {
+        "mono_ms": 500.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 200.0,
+        "last_mono_ms": 200.0
+       },
+       "frame": null,
+       "stamp": {
+        "mono_ms": 500.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Luis",
+      "text": "Buenos dias equipo"
+     }
+    ],
+    "returns": null,
+    "stamps": [
+     {
+      "mono_ms": 500.0,
+      "wall_ms": 1000002
+     },
+     {
+      "mono_ms": 500.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.1,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Luis",
+       "buenos dias equipo"
+      ]
+     ],
+     "recent_hash": "48d5d015344886e6",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Luis",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_16_check_snapshot_force_flush_matches_flush"
+ },
+ {
+  "excluded": null,
+  "index": 1,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.1
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Luis",
+       "Buenos dias equipo"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Luis",
+      "text": "Buenos dias equipo"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.1,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ],
+      [
+       "Luis",
+       [
+        200.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Luis",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Luis",
+       {
+        "text": "Buenos dias equipo",
+        "ts": 0.1
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.1
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {
+     "force_flush": true
+    },
+    "lines_committed": [
+     "[Ana]: Hola a todos",
+     "[Luis]: Buenos dias equipo"
+    ],
+    "observations": null,
+    "op": "check_snapshot",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 100.0
+       },
+       "frame": null,
+       "stamp": {
+        "mono_ms": 500.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 200.0,
+        "last_mono_ms": 200.0
+       },
+       "frame": null,
+       "stamp": {
+        "mono_ms": 500.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Luis",
+      "text": "Buenos dias equipo"
+     }
+    ],
+    "returns": null,
+    "stamps": [
+     {
+      "mono_ms": 500.0,
+      "wall_ms": 1000002
+     },
+     {
+      "mono_ms": 500.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.1,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Luis",
+       "buenos dias equipo"
+      ]
+     ],
+     "recent_hash": "48d5d015344886e6",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Luis",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_16_check_snapshot_force_flush_matches_flush"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ],
+      [
+       "Luis",
+       "Buenos dias equipo"
+      ],
+      [
+       "Marta",
+       "Empecemos ya"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Luis",
+      "text": "Buenos dias equipo"
+     },
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Marta",
+      "text": "Empecemos ya"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 3,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ],
+      [
+       "Luis",
+       [
+        100.0,
+        100.0
+       ]
+      ],
+      [
+       "Marta",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Marta",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ],
+      [
+       "Marta",
+       "Marta"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Luis",
+       {
+        "text": "Buenos dias equipo",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Marta",
+       {
+        "text": "Empecemos ya",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_1_observations_of_one_update_share_stamp_frame_and_read_ms"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "hola"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "hola"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "hola",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "hola a"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "hola a"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.1,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "hola a",
+        "ts": 0.1
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.1
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 300.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.2,
+     "reads": 3,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        300.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "hola a todos",
+        "ts": 0.2
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.2
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_2_frame_increments_one_per_update"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": false,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Revisemos el presupuesto trimestral"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "newline",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Revisemos el presupuesto trimestral"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.4,
+     "last_caption_time": 0.4,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Revisemos el presupuesto trimestral",
+        "ts": 0.4
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.4
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Revisemos el presupuesto trimestral"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {},
+      "speaker": "Ana",
+      "text": "Revisemos el presupuesto trimestral"
+     }
+    ],
+    "returns": true,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.4,
+     "last_caption_time": 0.4,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Ana",
+       "revisemos el presupuesto trimestral"
+      ]
+     ],
+     "recent_hash": "d69adf4aeaeaa6d7",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.61
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": null,
+    "op": "flush",
+    "records": [],
+    "returns": null,
+    "stamps": [],
+    "state": {
+     "discarded": 0,
+     "frame": 0,
+     "frame_stamp": null,
+     "last_activity_time": 0.4,
+     "last_caption_time": 0.4,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Ana",
+       "revisemos el presupuesto trimestral"
+      ]
+     ],
+     "recent_hash": "d69adf4aeaeaa6d7",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_3_without_clock_no_record_has_timeline_keys"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola equipo"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola equipo"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola equipo",
+        "ts": 0.3
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.3
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola equipo ya"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 300.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola equipo ya"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 300.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 0.6,
+     "last_caption_time": 0.6,
+     "reads": 3,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        300.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola equipo ya",
+        "ts": 0.6
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.6
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola equipo ya"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 300.0
+       },
+       "frame": 4,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 301.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola equipo ya"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 301.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 4,
+     "frame_stamp": {
+      "mono_ms": 301.0,
+      "wall_ms": 1000003
+     },
+     "last_activity_time": 0.6,
+     "last_caption_time": 0.6,
+     "reads": 3,
+     "recent": [
+      [
+       "Ana",
+       "hola equipo ya"
+      ]
+     ],
+     "recent_hash": "8b021131b5d4651f",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.8099999999999998
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_4_committed_line_spans_first_to_last_mono_of_its_growth"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 150.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 150.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 150.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.2,
+     "last_caption_time": 0.2,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        150.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.2
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.2
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Revisemos el presupuesto trimestral"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 150.0
+       },
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     },
+     {
+      "decision": "newline",
+      "kwargs": {
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Revisemos el presupuesto trimestral"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 0.4,
+     "last_caption_time": 0.4,
+     "reads": 3,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [
+      [
+       "Ana",
+       [
+        200.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Revisemos el presupuesto trimestral",
+        "ts": 0.4
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.4
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Revisemos el presupuesto trimestral"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 200.0,
+        "last_mono_ms": 200.0
+       },
+       "frame": 4,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 201.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Ana",
+      "text": "Revisemos el presupuesto trimestral"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 201.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 4,
+     "frame_stamp": {
+      "mono_ms": 201.0,
+      "wall_ms": 1000003
+     },
+     "last_activity_time": 0.4,
+     "last_caption_time": 0.4,
+     "reads": 3,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Ana",
+       "revisemos el presupuesto trimestral"
+      ]
+     ],
+     "recent_hash": "d69adf4aeaeaa6d7",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.61
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_5_divergent_line_commits_with_its_span_and_b_gets_fresh_span"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 400.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 400.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 400.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        400.0,
+        400.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": null,
+    "op": "flush",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 400.0,
+        "last_mono_ms": 400.0
+       },
+       "frame": null,
+       "stamp": {
+        "mono_ms": 500.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": null,
+    "stamps": [
+     {
+      "mono_ms": 500.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 400.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": []
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_6_flush_commit_has_no_frame_and_stamp_from_clock_now"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "hola a"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "hola a"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "hola a",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Luis",
+       "buenos dias"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 110.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Luis",
+      "text": "buenos dias"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 110.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 110.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.1,
+     "last_caption_time": 0.1,
+     "reads": 2,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ],
+      [
+       "Luis",
+       [
+        110.0,
+        110.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Luis",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "hola a",
+        "ts": 0.0
+       }
+      ],
+      [
+       "Luis",
+       {
+        "text": "buenos dias",
+        "ts": 0.1
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.1
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "grow",
+      "kwargs": {
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 3,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        200.0
+       ]
+      ],
+      [
+       "Luis",
+       [
+        110.0,
+        110.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "hola a todos",
+        "ts": 0.3
+       }
+      ],
+      [
+       "Luis",
+       {
+        "text": "buenos dias",
+        "ts": 0.1
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.3
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Luis]: buenos dias",
+     "[Ana]: hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 110.0,
+        "last_mono_ms": 110.0
+       },
+       "frame": 4,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 300.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Luis",
+      "text": "buenos dias"
+     },
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 200.0
+       },
+       "frame": 4,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 300.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Ana",
+      "text": "hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 300.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 4,
+     "frame_stamp": {
+      "mono_ms": 300.0,
+      "wall_ms": 1000003
+     },
+     "last_activity_time": 0.3,
+     "last_caption_time": 0.3,
+     "reads": 3,
+     "recent": [
+      [
+       "Luis",
+       "buenos dias"
+      ],
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "6395945f25610819",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ],
+      [
+       "Luis",
+       "Luis"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.51
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_7_two_speakers_have_independent_spans"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 100.0
+       },
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 150.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 150.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 150.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 200.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 200.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 200.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 2.0,
+     "last_caption_time": 2.0,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [
+      [
+       "Ana",
+       [
+        200.0,
+        200.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 2.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     2.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "dup_committed_skip",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 200.0,
+        "last_mono_ms": 200.0
+       },
+       "frame": 4,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 250.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 250.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 4,
+     "frame_stamp": {
+      "mono_ms": 250.0,
+      "wall_ms": 1000003
+     },
+     "last_activity_time": 2.0,
+     "last_caption_time": 2.0,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     3.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_8_dup_committed_skip_carries_first_and_last"
+ },
+ {
+  "excluded": null,
+  "index": 0,
+  "init": {
+   "has_clock": true,
+   "has_recorder": true,
+   "init_time_pinned": false,
+   "read_all_nodes": true,
+   "time_at_init": 0.0
+  },
+  "ops": [
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Hola a todos"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 1,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 100.0,
+        "wall_ms": 1000000
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 1,
+     "frame_stamp": {
+      "mono_ms": 100.0,
+      "wall_ms": 1000000
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [],
+     "recent_hash": "cbf29ce484222325",
+     "recent_len": 0,
+     "span": [
+      [
+       "Ana",
+       [
+        100.0,
+        100.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Hola a todos",
+        "ts": 0.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     0.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Hola a todos"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 100.0,
+        "last_mono_ms": 100.0
+       },
+       "frame": 2,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 150.0,
+        "wall_ms": 1000001
+       }
+      },
+      "speaker": "Ana",
+      "text": "Hola a todos"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 150.0,
+      "wall_ms": 1000001
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 2,
+     "frame_stamp": {
+      "mono_ms": 150.0,
+      "wall_ms": 1000001
+     },
+     "last_activity_time": 0.0,
+     "last_caption_time": 0.0,
+     "reads": 1,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     1.21
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [],
+    "observations": {
+     "mode": "all",
+     "value": [
+      [
+       "Ana",
+       "Tema nuevo distinto"
+      ]
+     ]
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "new_open",
+      "kwargs": {
+       "frame": 3,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 500.0,
+        "wall_ms": 1000002
+       }
+      },
+      "speaker": "Ana",
+      "text": "Tema nuevo distinto"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 500.0,
+      "wall_ms": 1000002
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 3,
+     "frame_stamp": {
+      "mono_ms": 500.0,
+      "wall_ms": 1000002
+     },
+     "last_activity_time": 2.0,
+     "last_caption_time": 2.0,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ]
+     ],
+     "recent_hash": "68eae4b257b95f52",
+     "recent_len": 1,
+     "span": [
+      [
+       "Ana",
+       [
+        500.0,
+        500.0
+       ]
+      ]
+     ],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": [
+      [
+       "Ana",
+       {
+        "text": "Tema nuevo distinto",
+        "ts": 2.0
+       }
+      ]
+     ]
+    },
+    "time_seen": [
+     2.0
+    ]
+   },
+   {
+    "args": [],
+    "cfg": {
+     "debounce": 1.2,
+     "merge_similarity": 0.8,
+     "read_all_nodes": true
+    },
+    "kwargs": {},
+    "lines_committed": [
+     "[Ana]: Tema nuevo distinto"
+    ],
+    "observations": {
+     "mode": "all",
+     "value": []
+    },
+    "op": "update",
+    "records": [
+     {
+      "decision": "committed",
+      "kwargs": {
+       "extra": {
+        "first_mono_ms": 500.0,
+        "last_mono_ms": 500.0
+       },
+       "frame": 4,
+       "read_ms": 500.0,
+       "stamp": {
+        "mono_ms": 550.0,
+        "wall_ms": 1000003
+       }
+      },
+      "speaker": "Ana",
+      "text": "Tema nuevo distinto"
+     }
+    ],
+    "returns": true,
+    "stamps": [
+     {
+      "mono_ms": 550.0,
+      "wall_ms": 1000003
+     }
+    ],
+    "state": {
+     "discarded": 0,
+     "frame": 4,
+     "frame_stamp": {
+      "mono_ms": 550.0,
+      "wall_ms": 1000003
+     },
+     "last_activity_time": 2.0,
+     "last_caption_time": 2.0,
+     "reads": 2,
+     "recent": [
+      [
+       "Ana",
+       "hola a todos"
+      ],
+      [
+       "Ana",
+       "tema nuevo distinto"
+      ]
+     ],
+     "recent_hash": "c6a4e75d8375dacf",
+     "recent_len": 2,
+     "span": [],
+     "speaker_raw": "Ana",
+     "track_raw": [
+      [
+       "Ana",
+       "Ana"
+      ]
+     ],
+     "tracks": []
+    },
+    "time_seen": [
+     3.21
+    ]
+   }
+  ],
+  "origin": "tests/test_manager_timeline.py::test_9_span_is_cleared_after_commit"
+ }
+]

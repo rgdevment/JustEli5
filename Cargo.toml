@@ -1,0 +1,39 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/mc-core",
+    "crates/mc-reconcile",
+    "crates/mc-store",
+    "crates/mc-memory",
+    "crates/mc-captions",
+    "crates/mc-audio",
+    "crates/mc-asr",
+    "crates/mc-fusion",
+    "crates/mc-eval",
+    "crates/mc-models",
+    "crates/mc-llm",
+    "crates/mc-mcp-client",
+    "crates/mc-analyst",
+    "crates/mc-engine",
+    "crates/mc-tui",
+    "crates/mc-mcp-server",
+    "crates/mc-cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.97"
+license = "AGPL-3.0-only"
+publish = false
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+# The parity suites replay thousands of reconciliations; optimise only the
+# crates that do the heavy lifting (dependencies and debug checks stay as is).
+[profile.test.package.mc-reconcile]
+opt-level = 2

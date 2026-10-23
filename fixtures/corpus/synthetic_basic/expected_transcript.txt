@@ -1,0 +1,4 @@
+[Ana Pérez]: Buenos días a todos, vamos a empezar con la daily
+[Luis]: Yo tengo un bloqueo con el deploy de staging
+[Marta]: Yo hice push ayer, esta done
+[Ana Pérez]: Perfecto, entonces seguimos

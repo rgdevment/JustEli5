@@ -1,0 +1,53 @@
+{
+  "schema": "meet-copilot.corpus/1",
+  "session_id": "b32fb6133e5541abb1178ec4ed41f460",
+  "app": {
+    "version": "2.0",
+    "git_commit": "b1121db"
+  },
+  "python": "3.13.16",
+  "os": {
+    "system": "Linux",
+    "release": "6.18.44-fc-v139",
+    "version": "#1 SMP PREEMPT_DYNAMIC @0",
+    "machine": "x86_64"
+  },
+  "platform_requested": "teams",
+  "capture_source": "FakeSource",
+  "meeting_name": "Daily",
+  "clock": {
+    "t0_wall_ms": 1700000000000,
+    "mono_source": "perf_counter_ns",
+    "t0_utc_iso": "2023-11-14T22:13:20.000+00:00"
+  },
+  "started_wall_ms": 1700000000000,
+  "started_utc_iso": "2023-11-14T22:13:20.000+00:00",
+  "ended_wall_ms": 1700000001500,
+  "ended_utc_iso": "2023-11-14T22:13:21.500+00:00",
+  "ended_mono_ms": 1500.0,
+  "end_reason": "stop",
+  "libs": {
+    "soundcard": null,
+    "numpy": "2.5.3",
+    "uiautomation": null
+  },
+  "captions": {
+    "file": "captions.jsonl",
+    "schema": 2,
+    "anonymous_label": "Invitado sin nombre",
+    "anonymous_aliases": [
+      "usuario desconocido",
+      "unknown user"
+    ]
+  },
+  "audio": {
+    "mic": {
+      "enabled": false,
+      "status": "disabled"
+    },
+    "system": {
+      "enabled": false,
+      "status": "disabled"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "zoom",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "ZPPTMainFrmWndClassEx",
+          "handle": 1,
+          "pid": 5001,
+          "process": "Zoom.exe",
+          "title": "Zoom Workplace",
+          "tree": {
+            "role": "Window"
+          }
+        },
+        {
+          "class": "Chrome_WidgetWin_1",
+          "handle": 2,
+          "pid": 6002,
+          "process": "chrome.exe",
+          "title": "Zoom Help Center - Google Chrome",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "hola a todos",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Ana, hola a todos",
+                            "role": "ListItem"
+                          }
+                        ],
+                        "name": "Closed caption",
+                        "role": "List"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        },
+        {
+          "class": "ZPContentViewWndClass",
+          "handle": 3,
+          "pid": 5003,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de equipo",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "s\u00ed, lo veo",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Luis, s\u00ed, lo veo",
+                            "role": "ListItem"
+                          }
+                        ],
+                        "name": "Closed caption",
+                        "role": "List"
+                      }
+                    ],
+                    "class": "ZConfCCRecieveWndExClass",
+                    "role": "Window"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "ZPPTMainFrmWndClassEx",
+      "handle": 1,
+      "pid": 5001,
+      "process": "Zoom.exe",
+      "title": "Zoom Workplace",
+      "tree": {
+        "role": "Window"
+      }
+    },
+    {
+      "class": "Notepad",
+      "handle": 10,
+      "pid": 6010,
+      "process": "notepad.exe",
+      "title": "Sin t\u00edtulo - Bloc de notas",
+      "tree": {
+        "role": "Window"
+      }
+    },
+    {
+      "class": "Chrome_WidgetWin_1",
+      "handle": 2,
+      "pid": 6002,
+      "process": "chrome.exe",
+      "title": "Zoom Help Center - Google Chrome",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "hola a todos",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Ana, hola a todos",
+                        "role": "ListItem"
+                      }
+                    ],
+                    "name": "Closed caption",
+                    "role": "List"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

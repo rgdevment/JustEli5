@@ -1,0 +1,88 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "teams",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "TeamsWebView",
+          "handle": 2,
+          "pid": 4002,
+          "process": "ms-teams.exe",
+          "title": "Microsoft Teams meeting | Pinned window",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "Jane Doe",
+                            "role": "Text"
+                          },
+                          {
+                            "name": "Can you hear me?",
+                            "role": "Text"
+                          }
+                        ],
+                        "role": "Group"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Captions | Weekly sync | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "John Smith",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Good morning, everyone.",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

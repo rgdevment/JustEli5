@@ -1,0 +1,8 @@
+# Hashes and parity vectors are taken over the bytes, so a Windows checkout keeps LF.
+* text=auto eol=lf
+fixtures/vectors/*.json -text
+fixtures/corpus/** -text
+fixtures/uia/** -text
+crates/**/tests/golden/** -text
+crates/**/tests/snapshots/** -text
+fixtures/fusion/** -text

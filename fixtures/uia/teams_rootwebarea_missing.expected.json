@@ -1,0 +1,48 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Sin \u00e1rea web en el \u00e1rbol."
+        ],
+        [
+          "Luis P\u00e9rez",
+          "Pero la ventana s\u00ed."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis P\u00e9rez",
+          "Pero la ventana s\u00ed."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Sin \u00e1rea web en el \u00e1rbol."
+        ],
+        [
+          "Luis P\u00e9rez",
+          "Pero la ventana s\u00ed."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis P\u00e9rez",
+          "Pero la ventana s\u00ed."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

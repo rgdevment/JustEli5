@@ -1,0 +1,23 @@
+name: The CLI the window carries
+description: >-
+  `externalBin` in tauri.conf.json makes `eli5` a build-time requirement of the window, so
+  anything that bundles it needs the CLI, built with Whisper, in src-tauri/binaries first.
+
+inputs:
+  target:
+    description: Rust target the CLI is built for, empty for the host.
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        SIDECAR_TARGET: ${{ inputs.target }}
+      run: |
+        if [ -n "$SIDECAR_TARGET" ]; then
+          node apps/mc-gui/scripts/prepare-mc.mjs --target "$SIDECAR_TARGET"
+        else
+          node apps/mc-gui/scripts/prepare-mc.mjs
+        fi

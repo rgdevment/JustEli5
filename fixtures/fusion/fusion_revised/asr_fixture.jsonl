@@ -1,0 +1,12 @@
+{"v": 1, "ch": "mic", "start_ms": 2683, "end_ms": 4967, "text": "Necesitamos hacer hotfix antes del sprint", "lang": "es", "conf": -0.133, "no_speech": 0.02}
+{"v": 1, "ch": "system", "start_ms": 6355, "end_ms": 9010, "text": "Quedamos en cerrar el ticket el viernes", "lang": "es", "conf": -0.492, "no_speech": 0.042}
+{"v": 1, "ch": "system", "start_ms": 10697, "end_ms": 13379, "text": "¿Alguien puede hacer pipeline de este cambio?", "lang": "es", "conf": -0.527, "no_speech": 0.035}
+{"v": 1, "ch": "mic", "start_ms": 14176, "end_ms": 16880, "text": "¿Alguien puede hacer push de este cambio?", "lang": "es", "conf": -0.323, "no_speech": 0.024}
+{"v": 1, "ch": "system", "start_ms": 17462, "end_ms": 20520, "text": "Manana termino el push y lo dejo bloqueado", "lang": "es", "conf": -0.157, "no_speech": 0.069}
+{"v": 1, "ch": "system", "start_ms": 21140, "end_ms": 24251, "text": "Tengo un bloqueo con el merge de produccion", "lang": "es", "conf": -0.228, "no_speech": 0.064}
+{"v": 1, "ch": "mic", "start_ms": 25577, "end_ms": 28623, "text": "Yo hice ticket ayer y ya está done", "lang": "es", "conf": -0.399, "no_speech": 0.042}
+{"v": 1, "ch": "system", "start_ms": 30289, "end_ms": 33298, "text": "Tengo un bloqueo con el standup de QA", "lang": "es", "conf": -0.108, "no_speech": 0.068}
+{"v": 1, "ch": "system", "start_ms": 34018, "end_ms": 36304, "text": "Necesitamos hacer hotfix antes del release", "lang": "es", "conf": -0.453, "no_speech": 0.012}
+{"v": 1, "ch": "mic", "start_ms": 36967, "end_ms": 40038, "text": "Creo que el rollback también depende de QA", "lang": "es", "conf": -0.475, "no_speech": 0.036}
+{"v": 1, "ch": "system", "start_ms": 41406, "end_ms": 44476, "text": "Mañana termino el release y lo dejo done", "lang": "es", "conf": -0.383, "no_speech": 0.039}
+{"v": 1, "ch": "system", "start_ms": 45342, "end_ms": 47965, "text": "Quedamos en cerrar el release el viernes", "lang": "es", "conf": -0.403, "no_speech": 0.048}

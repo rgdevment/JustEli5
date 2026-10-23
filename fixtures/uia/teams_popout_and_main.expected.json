@@ -1,0 +1,40 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Estoy en la sala de espera."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Ana Garc\u00eda",
+          "Estoy en la sala de espera."
+        ]
+      ],
+      "discover": {
+        "attached": "Subt\u00edtulos | Reuni\u00f3n X | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n X | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "Luis P\u00e9rez",
+          "Hola a todos."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis P\u00e9rez",
+          "Hola a todos."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

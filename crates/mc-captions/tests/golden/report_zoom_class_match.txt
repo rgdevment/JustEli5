@@ -1,0 +1,5 @@
+selectors v5
+windows:
+  [0] Chrome_WidgetWin_1           pid 6001   chrome.exe       Zoom - Google Chrome
+  [1] ConfMultiTabContentWndClass  pid 5002   Zoom.exe         Reunión xx xxxxxxxx
+zoom: window [1] (Meeting), discovery 2 ms / 10 nodes, container [0, 0, 0], poll 2 ms / 7 nodes, 2 captions

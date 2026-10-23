@@ -1,0 +1,1767 @@
+{
+  "format": "mc-uia-zoom-items",
+  "note": "synthetic",
+  "vectors": [
+    {
+      "edits": [
+        "hola a todos"
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "hola a todos"
+      ],
+      "name": "Speaker 2 (Room, X), hola a todos"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), hi"
+      ],
+      "name": "Speaker 2 (Room, X), hi"
+    },
+    {
+      "edits": [
+        "hi there"
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "hi there"
+      ],
+      "name": "Speaker 2 (Room, X), hi there"
+    },
+    {
+      "edits": [
+        "hi"
+      ],
+      "expected": null,
+      "name": "Speaker 2 (Room, X), hi"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 1 (Room)",
+        "Speaker 1 (Room), hola"
+      ],
+      "name": "Speaker 1 (Room), hola"
+    },
+    {
+      "edits": [
+        "hola"
+      ],
+      "expected": [
+        "Speaker 1 (Room)",
+        "hola"
+      ],
+      "name": "Speaker 1 (Room), hola"
+    },
+    {
+      "edits": [
+        "buenos d\u00edas"
+      ],
+      "expected": [
+        "Speaker 10 (Sala Norte)",
+        "buenos d\u00edas"
+      ],
+      "name": "Speaker 10 (Sala Norte), buenos d\u00edas"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, hola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Ana",
+        "Ana, hola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "hola, qu\u00e9 tal"
+      ],
+      "expected": [
+        "Ana",
+        "hola, qu\u00e9 tal"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "xx",
+        "hola mundo!"
+      ],
+      "expected": [
+        "Ana",
+        "hola mundo!"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "abcd",
+        "wxyz"
+      ],
+      "expected": [
+        "Ana",
+        "abcd"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "hola",
+        "hola"
+      ],
+      "expected": [
+        "Ana",
+        "hola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, ok"
+      ],
+      "name": "Ana, ok"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, okay"
+      ],
+      "name": "Ana, okay"
+    },
+    {
+      "edits": [
+        "ok, muy bien"
+      ],
+      "expected": [
+        "Ana",
+        "ok, muy bien"
+      ],
+      "name": "Ana, ok"
+    },
+    {
+      "edits": [],
+      "expected": null,
+      "name": ""
+    },
+    {
+      "edits": [
+        "hola"
+      ],
+      "expected": [
+        null,
+        "hola"
+      ],
+      "name": ""
+    },
+    {
+      "edits": [],
+      "expected": null,
+      "name": "   "
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "Ana,"
+      ],
+      "name": "Ana,"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana,"
+      ],
+      "name": "Ana,   "
+    },
+    {
+      "edits": [],
+      "expected": [
+        "An",
+        "Ana,,  hola"
+      ],
+      "name": "Ana,,  hola"
+    },
+    {
+      "edits": [
+        "hola"
+      ],
+      "expected": [
+        "An",
+        "hola"
+      ],
+      "name": "Ana,, hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, Luis, hola"
+      ],
+      "name": "Ana, Luis, hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "Ana hola"
+      ],
+      "name": "Ana hola"
+    },
+    {
+      "edits": [
+        "Ana hola"
+      ],
+      "expected": [
+        null,
+        "Ana hola"
+      ],
+      "name": "Ana hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+    },
+    {
+      "edits": [
+        "hola"
+      ],
+      "expected": [
+        null,
+        "hola"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker\u00a02 (Sala)",
+        "Speaker\u00a02 (Sala), hola"
+      ],
+      "name": "Speaker\u00a02 (Sala), hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker \u0663 (Sala)",
+        "Speaker \u0663 (Sala), hola"
+      ],
+      "name": "Speaker \u0663 (Sala), hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker \uff12 (Sala)",
+        "Speaker \uff12 (Sala), hola"
+      ],
+      "name": "Speaker \uff12 (Sala), hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana,\u00a0hola"
+      ],
+      "name": "Ana,\u00a0hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana,\u3000hola"
+      ],
+      "name": "Ana,\u3000hola\u3000"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, hola\nmundo"
+      ],
+      "name": "Ana, hola\nmundo"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana\n, hola"
+      ],
+      "name": "Ana\n, hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, \nhola"
+      ],
+      "name": "Ana, \nhola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana,\thola"
+      ],
+      "name": "Ana,\thola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "Ana, \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "\ud83d\ude42 Ana",
+        "\ud83d\ude42 Ana, hola \ud83d\udc4b"
+      ],
+      "name": "\ud83d\ude42 Ana, hola \ud83d\udc4b"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Dr. (Ana)",
+        "Dr. (Ana), hola"
+      ],
+      "name": "Dr. (Ana), hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 2 (Room))",
+        "Speaker 2 (Room)), hola"
+      ],
+      "name": "Speaker 2 (Room)), hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 2 (Room, X",
+        "Speaker 2 (Room, X),"
+      ],
+      "name": "Speaker 2 (Room, X), "
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X),"
+      ],
+      "name": "Speaker 2 (Room, X),  "
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, a"
+      ],
+      "name": "Ana, a"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, ab"
+      ],
+      "name": "Ana, ab"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, abc"
+      ],
+      "name": "Ana, abc"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, \u00e9\u00e9"
+      ],
+      "name": "Ana, \u00e9\u00e9"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, \ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "Ana, \ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, e\u0301\u0301"
+      ],
+      "name": "Ana, e\u0301\u0301"
+    },
+    {
+      "edits": [
+        "hola  "
+      ],
+      "expected": [
+        "Ana",
+        "hola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "  hola"
+      ],
+      "expected": [
+        "Ana",
+        "hola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "\u00a0\u00a0hola\u00a0"
+      ],
+      "expected": [
+        "Ana",
+        "hola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "\u200bhola"
+      ],
+      "expected": [
+        "Ana",
+        "\u200bhola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "Zo\u00eb \u00d1and\u00fa, s\u00ed"
+      ],
+      "expected": [
+        "Ana",
+        "Zo\u00eb \u00d1and\u00fa, s\u00ed"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "Speaker 1 (Room), hola"
+      ],
+      "expected": [
+        "Speaker 1 (Room)",
+        "Speaker 1 (Room), hola"
+      ],
+      "name": "Speaker 1 (Room), hola"
+    },
+    {
+      "edits": [
+        "buenos d\u00edas a todos, empecemos"
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "buenos d\u00edas a todos, empecemos"
+      ],
+      "name": "Luis P\u00e9rez, buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "this is a much longer edit text than the name"
+      ],
+      "expected": [
+        "Ana",
+        "this is a much longer edit text than the name"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana,\u001chola"
+      ],
+      "name": "Ana,\u001chola"
+    },
+    {
+      "edits": [
+        "hola"
+      ],
+      "expected": [
+        "Ana",
+        "hola"
+      ],
+      "name": "Ana,\u001chola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana,\u0085hola"
+      ],
+      "name": "Ana,\u0085hola"
+    },
+    {
+      "edits": [
+        "\u0085hola"
+      ],
+      "expected": [
+        "Ana",
+        "hola"
+      ],
+      "name": "Ana,\u0085hola"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 1\u001c(Room)",
+        "Speaker 1\u001c(Room),\u001cx hello"
+      ],
+      "name": "Speaker 1\u001c(Room),\u001cx hello"
+    },
+    {
+      "edits": [
+        "x hello"
+      ],
+      "expected": [
+        "Speaker 1\u001c(Room)",
+        "x hello"
+      ],
+      "name": "Speaker 1\u001c(Room),\u001cx hello"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, hola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Ana",
+        "Ana, hola"
+      ],
+      "name": "Ana, hola"
+    },
+    {
+      "edits": [
+        "h"
+      ],
+      "expected": null,
+      "name": "Ana hola"
+    },
+    {
+      "edits": [
+        "ok de prueba extra"
+      ],
+      "expected": [
+        "Ana",
+        "ok de prueba extra"
+      ],
+      "name": "Ana, ok"
+    },
+    {
+      "edits": [
+        "ok"
+      ],
+      "expected": null,
+      "name": "Ana ok"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, buenos d\u00edas"
+      ],
+      "name": "Ana, buenos d\u00edas"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Ana",
+        "Ana, buenos d\u00edas"
+      ],
+      "name": "Ana, buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "b"
+      ],
+      "expected": null,
+      "name": "Ana buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "expected": [
+        "Ana",
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "name": "Ana, \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "expected": [
+        null,
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "Ana \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, a, b, c"
+      ],
+      "name": "Ana, a, b, c"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Ana",
+        "Ana, a, b, c"
+      ],
+      "name": "Ana, a, b, c"
+    },
+    {
+      "edits": [
+        "a"
+      ],
+      "expected": null,
+      "name": "Ana a, b, c"
+    },
+    {
+      "edits": [
+        "  espacios   de prueba extra"
+      ],
+      "expected": [
+        "Ana",
+        "espacios   de prueba extra"
+      ],
+      "name": "Ana,   espacios  "
+    },
+    {
+      "edits": [
+        "  espacios  "
+      ],
+      "expected": [
+        null,
+        "espacios"
+      ],
+      "name": "Ana   espacios  "
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Ana",
+        "Ana, l\u00ednea\nnueva"
+      ],
+      "name": "Ana, l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Ana",
+        "Ana, l\u00ednea\nnueva"
+      ],
+      "name": "Ana, l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "l"
+      ],
+      "expected": null,
+      "name": "Ana l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "expected": [
+        "Ana",
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "name": "Ana, \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57"
+      ],
+      "expected": [
+        null,
+        "\u4e2d\u6587\u5b57"
+      ],
+      "name": "Ana \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Luis P\u00e9rez",
+        "Luis P\u00e9rez, hola"
+      ],
+      "name": "Luis P\u00e9rez, hola"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "Luis P\u00e9rez, hola"
+      ],
+      "name": "Luis P\u00e9rez, hola"
+    },
+    {
+      "edits": [
+        "h"
+      ],
+      "expected": null,
+      "name": "Luis P\u00e9rez hola"
+    },
+    {
+      "edits": [
+        "ok de prueba extra"
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "ok de prueba extra"
+      ],
+      "name": "Luis P\u00e9rez, ok"
+    },
+    {
+      "edits": [
+        "ok"
+      ],
+      "expected": null,
+      "name": "Luis P\u00e9rez ok"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Luis P\u00e9rez",
+        "Luis P\u00e9rez, buenos d\u00edas"
+      ],
+      "name": "Luis P\u00e9rez, buenos d\u00edas"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "Luis P\u00e9rez, buenos d\u00edas"
+      ],
+      "name": "Luis P\u00e9rez, buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "b"
+      ],
+      "expected": null,
+      "name": "Luis P\u00e9rez buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "name": "Luis P\u00e9rez, \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "expected": [
+        null,
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "Luis P\u00e9rez \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Luis P\u00e9rez",
+        "Luis P\u00e9rez, a, b, c"
+      ],
+      "name": "Luis P\u00e9rez, a, b, c"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "Luis P\u00e9rez, a, b, c"
+      ],
+      "name": "Luis P\u00e9rez, a, b, c"
+    },
+    {
+      "edits": [
+        "a"
+      ],
+      "expected": null,
+      "name": "Luis P\u00e9rez a, b, c"
+    },
+    {
+      "edits": [
+        "  espacios   de prueba extra"
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "espacios   de prueba extra"
+      ],
+      "name": "Luis P\u00e9rez,   espacios  "
+    },
+    {
+      "edits": [
+        "  espacios  "
+      ],
+      "expected": [
+        null,
+        "espacios"
+      ],
+      "name": "Luis P\u00e9rez   espacios  "
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Luis P\u00e9rez",
+        "Luis P\u00e9rez, l\u00ednea\nnueva"
+      ],
+      "name": "Luis P\u00e9rez, l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "Luis P\u00e9rez, l\u00ednea\nnueva"
+      ],
+      "name": "Luis P\u00e9rez, l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "l"
+      ],
+      "expected": null,
+      "name": "Luis P\u00e9rez l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "expected": [
+        "Luis P\u00e9rez",
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "name": "Luis P\u00e9rez, \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57"
+      ],
+      "expected": [
+        null,
+        "\u4e2d\u6587\u5b57"
+      ],
+      "name": "Luis P\u00e9rez \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), hola"
+      ],
+      "name": "Speaker 2 (Room, X), hola"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), hola"
+      ],
+      "name": "Speaker 2 (Room, X), hola"
+    },
+    {
+      "edits": [
+        "h"
+      ],
+      "expected": null,
+      "name": "Speaker 2 (Room, X) hola"
+    },
+    {
+      "edits": [
+        "ok de prueba extra"
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "ok de prueba extra"
+      ],
+      "name": "Speaker 2 (Room, X), ok"
+    },
+    {
+      "edits": [
+        "ok"
+      ],
+      "expected": null,
+      "name": "Speaker 2 (Room, X) ok"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), buenos d\u00edas"
+      ],
+      "name": "Speaker 2 (Room, X), buenos d\u00edas"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), buenos d\u00edas"
+      ],
+      "name": "Speaker 2 (Room, X), buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "b"
+      ],
+      "expected": null,
+      "name": "Speaker 2 (Room, X) buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "name": "Speaker 2 (Room, X), \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "expected": [
+        "Speaker 2 (Room",
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "Speaker 2 (Room, X) \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), a, b, c"
+      ],
+      "name": "Speaker 2 (Room, X), a, b, c"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), a, b, c"
+      ],
+      "name": "Speaker 2 (Room, X), a, b, c"
+    },
+    {
+      "edits": [
+        "a"
+      ],
+      "expected": null,
+      "name": "Speaker 2 (Room, X) a, b, c"
+    },
+    {
+      "edits": [
+        "  espacios   de prueba extra"
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "espacios   de prueba extra"
+      ],
+      "name": "Speaker 2 (Room, X),   espacios  "
+    },
+    {
+      "edits": [
+        "  espacios  "
+      ],
+      "expected": [
+        "Speaker 2 (Room",
+        "espacios"
+      ],
+      "name": "Speaker 2 (Room, X)   espacios  "
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), l\u00ednea\nnueva"
+      ],
+      "name": "Speaker 2 (Room, X), l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "Speaker 2 (Room, X), l\u00ednea\nnueva"
+      ],
+      "name": "Speaker 2 (Room, X), l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "l"
+      ],
+      "expected": null,
+      "name": "Speaker 2 (Room, X) l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "expected": [
+        "Speaker 2 (Room, X)",
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "name": "Speaker 2 (Room, X), \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57"
+      ],
+      "expected": [
+        "Speaker 2 (Room",
+        "\u4e2d\u6587\u5b57"
+      ],
+      "name": "Speaker 2 (Room, X) \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "Speaker 10 (Sala), hola"
+      ],
+      "name": "Speaker 10 (Sala), hola"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "Speaker 10 (Sala), hola"
+      ],
+      "name": "Speaker 10 (Sala), hola"
+    },
+    {
+      "edits": [
+        "h"
+      ],
+      "expected": null,
+      "name": "Speaker 10 (Sala) hola"
+    },
+    {
+      "edits": [
+        "ok de prueba extra"
+      ],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "ok de prueba extra"
+      ],
+      "name": "Speaker 10 (Sala), ok"
+    },
+    {
+      "edits": [
+        "ok"
+      ],
+      "expected": null,
+      "name": "Speaker 10 (Sala) ok"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "Speaker 10 (Sala), buenos d\u00edas"
+      ],
+      "name": "Speaker 10 (Sala), buenos d\u00edas"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "Speaker 10 (Sala), buenos d\u00edas"
+      ],
+      "name": "Speaker 10 (Sala), buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "b"
+      ],
+      "expected": null,
+      "name": "Speaker 10 (Sala) buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "name": "Speaker 10 (Sala), \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "expected": [
+        null,
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "Speaker 10 (Sala) \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "Speaker 10 (Sala), a, b, c"
+      ],
+      "name": "Speaker 10 (Sala), a, b, c"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "Speaker 10 (Sala), a, b, c"
+      ],
+      "name": "Speaker 10 (Sala), a, b, c"
+    },
+    {
+      "edits": [
+        "a"
+      ],
+      "expected": null,
+      "name": "Speaker 10 (Sala) a, b, c"
+    },
+    {
+      "edits": [
+        "  espacios   de prueba extra"
+      ],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "espacios   de prueba extra"
+      ],
+      "name": "Speaker 10 (Sala),   espacios  "
+    },
+    {
+      "edits": [
+        "  espacios  "
+      ],
+      "expected": [
+        null,
+        "espacios"
+      ],
+      "name": "Speaker 10 (Sala)   espacios  "
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "Speaker 10 (Sala), l\u00ednea\nnueva"
+      ],
+      "name": "Speaker 10 (Sala), l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "Speaker 10 (Sala), l\u00ednea\nnueva"
+      ],
+      "name": "Speaker 10 (Sala), l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "l"
+      ],
+      "expected": null,
+      "name": "Speaker 10 (Sala) l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "expected": [
+        "Speaker 10 (Sala)",
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "name": "Speaker 10 (Sala), \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57"
+      ],
+      "expected": [
+        null,
+        "\u4e2d\u6587\u5b57"
+      ],
+      "name": "Speaker 10 (Sala) \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "hola"
+      ],
+      "name": "hola"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        null,
+        "hola"
+      ],
+      "name": "hola"
+    },
+    {
+      "edits": [
+        "h"
+      ],
+      "expected": null,
+      "name": "hola"
+    },
+    {
+      "edits": [
+        "ok de prueba extra"
+      ],
+      "expected": [
+        null,
+        "ok de prueba extra"
+      ],
+      "name": "ok"
+    },
+    {
+      "edits": [
+        "ok"
+      ],
+      "expected": null,
+      "name": "ok"
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "buenos d\u00edas"
+      ],
+      "name": "buenos d\u00edas"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        null,
+        "buenos d\u00edas"
+      ],
+      "name": "buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "b"
+      ],
+      "expected": null,
+      "name": "buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "expected": [
+        null,
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "name": "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "expected": [
+        null,
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "a, b, c"
+      ],
+      "name": "a, b, c"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        null,
+        "a, b, c"
+      ],
+      "name": "a, b, c"
+    },
+    {
+      "edits": [
+        "a"
+      ],
+      "expected": null,
+      "name": "a, b, c"
+    },
+    {
+      "edits": [
+        "  espacios   de prueba extra"
+      ],
+      "expected": [
+        null,
+        "espacios   de prueba extra"
+      ],
+      "name": "  espacios  "
+    },
+    {
+      "edits": [
+        "  espacios  "
+      ],
+      "expected": [
+        null,
+        "espacios"
+      ],
+      "name": "  espacios  "
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "l\u00ednea\nnueva"
+      ],
+      "name": "l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        null,
+        "l\u00ednea\nnueva"
+      ],
+      "name": "l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "l"
+      ],
+      "expected": null,
+      "name": "l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "expected": [
+        null,
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "name": "\u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57"
+      ],
+      "expected": [
+        null,
+        "\u4e2d\u6587\u5b57"
+      ],
+      "name": "\u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, hola"
+    },
+    {
+      "edits": [
+        "h"
+      ],
+      "expected": null,
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX hola"
+    },
+    {
+      "edits": [
+        "ok de prueba extra"
+      ],
+      "expected": [
+        null,
+        "ok de prueba extra"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, ok"
+    },
+    {
+      "edits": [
+        "ok"
+      ],
+      "expected": null,
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ok"
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, buenos d\u00edas"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, buenos d\u00edas"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, buenos d\u00edas"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "b"
+      ],
+      "expected": null,
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "expected": [
+        null,
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "expected": [
+        null,
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, a, b, c"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, a, b, c"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, a, b, c"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, a, b, c"
+    },
+    {
+      "edits": [
+        "a"
+      ],
+      "expected": null,
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX a, b, c"
+    },
+    {
+      "edits": [
+        "  espacios   de prueba extra"
+      ],
+      "expected": [
+        null,
+        "espacios   de prueba extra"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX,   espacios  "
+    },
+    {
+      "edits": [
+        "  espacios  "
+      ],
+      "expected": [
+        null,
+        "espacios"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   espacios  "
+    },
+    {
+      "edits": [],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, l\u00ednea\nnueva"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        null,
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, l\u00ednea\nnueva"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "l"
+      ],
+      "expected": null,
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX l\u00ednea\nnueva"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "expected": [
+        null,
+        "\u4e2d\u6587\u5b57 de prueba extra"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX, \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [
+        "\u4e2d\u6587\u5b57"
+      ],
+      "expected": [
+        null,
+        "\u4e2d\u6587\u5b57"
+      ],
+      "name": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \u4e2d\u6587\u5b57"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Dr. (Ana)",
+        "Dr. (Ana), hola"
+      ],
+      "name": "Dr. (Ana), hola"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Dr. (Ana)",
+        "Dr. (Ana), hola"
+      ],
+      "name": "Dr. (Ana), hola"
+    },
+    {
+      "edits": [
+        "h"
+      ],
+      "expected": null,
+      "name": "Dr. (Ana) hola"
+    },
+    {
+      "edits": [
+        "ok de prueba extra"
+      ],
+      "expected": [
+        "Dr. (Ana)",
+        "ok de prueba extra"
+      ],
+      "name": "Dr. (Ana), ok"
+    },
+    {
+      "edits": [
+        "ok"
+      ],
+      "expected": null,
+      "name": "Dr. (Ana) ok"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Dr. (Ana)",
+        "Dr. (Ana), buenos d\u00edas"
+      ],
+      "name": "Dr. (Ana), buenos d\u00edas"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Dr. (Ana)",
+        "Dr. (Ana), buenos d\u00edas"
+      ],
+      "name": "Dr. (Ana), buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "b"
+      ],
+      "expected": null,
+      "name": "Dr. (Ana) buenos d\u00edas"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "expected": [
+        "Dr. (Ana)",
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42 de prueba extra"
+      ],
+      "name": "Dr. (Ana), \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "expected": [
+        null,
+        "\ud83d\ude42\ud83d\ude42\ud83d\ude42"
+      ],
+      "name": "Dr. (Ana) \ud83d\ude42\ud83d\ude42\ud83d\ude42"
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Dr. (Ana)",
+        "Dr. (Ana), a, b, c"
+      ],
+      "name": "Dr. (Ana), a, b, c"
+    },
+    {
+      "edits": [
+        ""
+      ],
+      "expected": [
+        "Dr. (Ana)",
+        "Dr. (Ana), a, b, c"
+      ],
+      "name": "Dr. (Ana), a, b, c"
+    },
+    {
+      "edits": [
+        "a"
+      ],
+      "expected": null,
+      "name": "Dr. (Ana) a, b, c"
+    },
+    {
+      "edits": [
+        "  espacios   de prueba extra"
+      ],
+      "expected": [
+        "Dr. (Ana)",
+        "espacios   de prueba extra"
+      ],
+      "name": "Dr. (Ana),   espacios  "
+    },
+    {
+      "edits": [
+        "  espacios  "
+      ],
+      "expected": [
+        null,
+        "espacios"
+      ],
+      "name": "Dr. (Ana)   espacios  "
+    },
+    {
+      "edits": [],
+      "expected": [
+        "Dr. (Ana)",
+        "Dr. (Ana), l\u00ednea\nnueva"
+      ],
+      "name": "Dr. (Ana), l\u00ednea\nnueva"
+    }
+  ],
+  "version": 1
+}

@@ -1,0 +1,15 @@
+{"v": 1, "ch": "mic", "start_ms": 7504, "end_ms": 10133, "text": "Quedamos en en cerrar el bug el viernes", "lang": "es", "conf": -0.237, "no_speech": 0.039}
+{"v": 1, "ch": "mic", "start_ms": 13160, "end_ms": 14960, "text": "Subtítulos realizados por la comunidad de Amara.org", "lang": "es", "conf": -1.425, "no_speech": 0.718}
+{"v": 1, "ch": "system", "start_ms": 16144, "end_ms": 19184, "text": "Yo hice release ayer y ya esta listo", "lang": "es", "conf": -0.261, "no_speech": 0.064}
+{"v": 1, "ch": "system", "start_ms": 22200, "end_ms": 24000, "text": "¡Suscríbete!", "lang": "es", "conf": -1.129, "no_speech": 0.827}
+{"v": 1, "ch": "mic", "start_ms": 25216, "end_ms": 28214, "text": "Tengo un bloqueo con el release de staging", "lang": "es", "conf": -0.397, "no_speech": 0.054}
+{"v": 1, "ch": "mic", "start_ms": 31240, "end_ms": 33040, "text": "¡Suscríbete!", "lang": "es", "conf": -0.757, "no_speech": 0.409}
+{"v": 1, "ch": "system", "start_ms": 34214, "end_ms": 37694, "text": "Voy a revisar el pipeline después de la reunión", "lang": "es", "conf": -0.254, "no_speech": 0.062}
+{"v": 1, "ch": "mic", "start_ms": 40660, "end_ms": 42460, "text": "Gracias.", "lang": "es", "conf": -1.162, "no_speech": 0.756}
+{"v": 1, "ch": "mic", "start_ms": 43677, "end_ms": 45953, "text": "Necesitamos hacer push antes del release", "lang": "es", "conf": -0.454, "no_speech": 0.061}
+{"v": 1, "ch": "system", "start_ms": 48940, "end_ms": 50740, "text": "you", "lang": "es", "conf": -1.389, "no_speech": 0.799}
+{"v": 1, "ch": "system", "start_ms": 51924, "end_ms": 54247, "text": "Necesitamos hacer deploy antes del demo", "lang": "es", "conf": -0.218, "no_speech": 0.056}
+{"v": 1, "ch": "system", "start_ms": 57220, "end_ms": 59020, "text": "Subtítulos realizados por la comunidad de Amara.org", "lang": "es", "conf": -0.836, "no_speech": 0.429}
+{"v": 1, "ch": "mic", "start_ms": 60249, "end_ms": 63634, "text": "Voy a revisar el bug después de la reunión", "lang": "es", "conf": -0.584, "no_speech": 0.042}
+{"v": 1, "ch": "mic", "start_ms": 66640, "end_ms": 68440, "text": "Subtítulos realizados por la comunidad de Amara.org", "lang": "es", "conf": -1.254, "no_speech": 0.904}
+{"v": 1, "ch": "system", "start_ms": 69635, "end_ms": 71900, "text": "Necesitamos hacer ticket antes del release", "lang": "es", "conf": -0.208, "no_speech": 0.017}

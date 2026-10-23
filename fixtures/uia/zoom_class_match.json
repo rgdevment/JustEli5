@@ -1,0 +1,203 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "zoom",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "Chrome_WidgetWin_1",
+          "handle": 1,
+          "pid": 6001,
+          "process": "chrome.exe",
+          "title": "Zoom - Google Chrome",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "name": "Zoom",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        },
+        {
+          "class": "ConfMultiTabContentWndClass",
+          "handle": 2,
+          "pid": 5002,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de producto",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "hola a todos",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Ana Garc\u00eda, hola a todos",
+                            "role": "ListItem"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "\u00bflistos?",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Speaker 2 (Sala), \u00bflistos?",
+                            "role": "ListItem"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "buenas tardes",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Luis, buenas tardes",
+                            "role": "ListItem"
+                          }
+                        ],
+                        "name": "Closed caption",
+                        "role": "List"
+                      }
+                    ],
+                    "class": "ZConfCCRecieveWndExClass",
+                    "role": "Window"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "Chrome_WidgetWin_1",
+      "handle": 1,
+      "pid": 6001,
+      "process": "chrome.exe",
+      "title": "Zoom - Google Chrome",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "name": "Zoom",
+                    "role": "Text"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    },
+    {
+      "class": "ConfMultiTabContentWndClass",
+      "handle": 2,
+      "pid": 5002,
+      "process": "Zoom.exe",
+      "title": "Reuni\u00f3n de producto",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "hola a todos",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Ana Garc\u00eda, hola a todos",
+                        "role": "ListItem"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "\u00bflistos?",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Speaker 2 (Sala), \u00bflistos?",
+                        "role": "ListItem"
+                      }
+                    ],
+                    "name": "Closed caption",
+                    "role": "List"
+                  }
+                ],
+                "class": "ZConfCCRecieveWndExClass",
+                "role": "Window"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+deploy
+push
+sprint
+merge
+rollback
+pull request
+backlog
+standup
+hotfix
+staging
+pipeline
+release
+bug
+ticket
+done

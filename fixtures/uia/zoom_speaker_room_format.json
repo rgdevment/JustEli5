@@ -1,0 +1,164 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "zoom",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "ConfMultiTabContentWndClass",
+          "handle": 1,
+          "pid": 5001,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de producto",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "hola a todos",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Speaker 1 (Room), hola a todos",
+                            "role": "ListItem"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "\u00bfnos ve?",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Speaker 2 (Room, X), \u00bfnos ve?",
+                            "role": "ListItem"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "s\u00ed, claro",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Speaker 3 (Room), s\u00ed, claro",
+                            "role": "ListItem"
+                          }
+                        ],
+                        "name": "Closed caption",
+                        "role": "List"
+                      }
+                    ],
+                    "class": "ZConfCCRecieveWndExClass",
+                    "role": "Window"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "ConfMultiTabContentWndClass",
+      "handle": 1,
+      "pid": 5001,
+      "process": "Zoom.exe",
+      "title": "Reuni\u00f3n de producto",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "hola a todos",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Speaker 1 (Room), hola a todos",
+                        "role": "ListItem"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "\u00bfnos ve?",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Speaker 2 (Room, X), \u00bfnos ve?",
+                        "role": "ListItem"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "ok",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Speaker 1 (Room), ok",
+                        "role": "ListItem"
+                      }
+                    ],
+                    "name": "Closed caption",
+                    "role": "List"
+                  }
+                ],
+                "class": "ZConfCCRecieveWndExClass",
+                "role": "Window"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

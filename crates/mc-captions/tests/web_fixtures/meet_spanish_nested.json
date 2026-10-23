@@ -1,0 +1,139 @@
+{
+ "format": "mc-uia-tree",
+ "version": 1,
+ "platform": "meet",
+ "app": "Google Meet (synthetic)",
+ "anonymized": false,
+ "note": "synthetic; Spanish labels, nested groups",
+ "windows": [
+  {
+   "handle": 1,
+   "title": "Meet – abc-defg-hij - Microsoft Edge",
+   "class": "Chrome_WidgetWin_1",
+   "pid": 7010,
+   "process": "msedge.exe",
+   "tree": {
+    "role": "Window",
+    "children": [
+     {
+      "role": "Pane",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Other",
+          "children": [
+           {
+            "role": "TabItem",
+            "name": "Meet – abc-defg-hij"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Document",
+            "aid": "RootWebArea",
+            "children": [
+             {
+              "role": "Group",
+              "children": [
+               {
+                "role": "Group",
+                "name": "Subtítulos",
+                "children": [
+                 {
+                  "role": "Text",
+                  "name": "Ir al final"
+                 },
+                 {
+                  "role": "Group",
+                  "children": [
+                   {
+                    "role": "Group",
+                    "children": [
+                     {
+                      "role": "Image"
+                     },
+                     {
+                      "role": "Group",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "Ana García"
+                       }
+                      ]
+                     }
+                    ]
+                   },
+                   {
+                    "role": "Group",
+                    "children": [
+                     {
+                      "role": "Text",
+                      "name": "Buenos días a todos,"
+                     },
+                     {
+                      "role": "Text",
+                      "name": "empezamos."
+                     }
+                    ]
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Group",
+                  "children": [
+                   {
+                    "role": "Group",
+                    "children": [
+                     {
+                      "role": "Image"
+                     },
+                     {
+                      "role": "Group",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "Luis Pérez"
+                       }
+                      ]
+                     }
+                    ]
+                   },
+                   {
+                    "role": "Group",
+                    "children": [
+                     {
+                      "role": "Text",
+                      "name": "Tengo una duda."
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "script": []
+}

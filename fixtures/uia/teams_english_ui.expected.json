@@ -1,0 +1,40 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "John Smith",
+          "Good morning, everyone."
+        ]
+      ],
+      "captions_last": [
+        [
+          "John Smith",
+          "Good morning, everyone."
+        ]
+      ],
+      "discover": {
+        "attached": "Captions | Weekly sync | Microsoft Teams"
+      },
+      "meeting_name": "Weekly sync | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "Jane Doe",
+          "Can you hear me?"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Jane Doe",
+          "Can you hear me?"
+        ]
+      ],
+      "discover": {
+        "attached": "Microsoft Teams meeting | Pinned window"
+      },
+      "meeting_name": "Microsoft Teams meeting"
+    }
+  ]
+}

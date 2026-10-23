@@ -1,0 +1,44 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "",
+          "Hola sin nombre"
+        ]
+      ],
+      "captions_last": [
+        [
+          "",
+          "Hola sin nombre"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "",
+          "Hola sin nombre"
+        ],
+        [
+          "",
+          "Segunda l\u00ednea sin nombre"
+        ]
+      ],
+      "captions_last": [
+        [
+          "",
+          "Segunda l\u00ednea sin nombre"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

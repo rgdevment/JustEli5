@@ -1,0 +1,5 @@
+{
+  "llm": { "provider": "claude-cli", "model": "sonnet" },
+  "tisty": { "folder": "Trabajo / Meets", "list": "Trabajo" },
+  "fusion": { "me": "" }
+}

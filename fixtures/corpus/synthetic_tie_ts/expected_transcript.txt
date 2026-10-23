@@ -1,0 +1,6 @@
+[B]: cuatro cinco seis
+[A]: uno dos tres
+[A]: y otra distinta tambien
+[B]: completamente otra cosa aqui
+[B]: tercera tanda para B distinta
+[A]: tercera tanda para A diferente

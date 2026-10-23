@@ -1,0 +1,24 @@
+● REC  attached: Weekly sync | Microsoft Teams  consent: flag           00:01:35
+┌Transcript────────────────────────────────────────────────────────────────────┐
+│[00:03] Ana: Bom dia a todos, vamos começar.                                  │
+│[00:12] Bruno: Eu já mandei o relatório ontem.                                │
+│[00:21] Carla: Perfeito, obrigada.                                            │
+│[00:30] Ana: Então o primeiro ponto é o orçamento.                            │
+│              ┌Help────────────────────────────────────────────┐              │
+│              │q / Ctrl-C   stop the capture                   │              │
+│              │p            pause / follow                     │              │
+│              │↑ ↓ PgUp PgDn scroll                            │              │
+│              │End          back to the newest                 │              │
+│              │n            add a note                         │              │
+│              │m            mark this moment                   │              │
+│              │c            correct a term                     │              │
+│              │s            rename a speaker                   │              │
+│              │any key      close this help                    │              │
+│              └────────────────────────────────────────────────┘              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+q stop  p pause  n note  m mark  c fix  s name  ↑↓ PgUp/PgDn scroll  ? help

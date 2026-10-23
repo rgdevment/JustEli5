@@ -1,0 +1,5 @@
+[Invitado sin nombre]: uno dos tres cuatro cinco
+[Invitado sin nombre]: seis siete completamente otra cosa y sigue
+[Invitado sin nombre]: otra frase distinta para el primero
+[Invitado sin nombre]: tercer alias del mismo invitado
+[Ana]: voz con nombre

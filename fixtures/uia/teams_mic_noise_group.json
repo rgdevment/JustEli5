@@ -1,0 +1,137 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "teams",
+  "script": [],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "Ana Garc\u00eda",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Micr\u00f3fono silenciado",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Luis P\u00e9rez",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Microphone is off",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Ana Garc\u00eda",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Muted",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Mar\u00eda Soto",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "microphone check, one two",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Ana Garc\u00eda",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Silenciado por el anfitri\u00f3n",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Luis P\u00e9rez",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "M\u00e1s",
+                        "role": "Button"
+                      },
+                      {
+                        "name": "Hola a todos",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Solo uno",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Ana Garc\u00eda",
+                        "role": "Text"
+                      },
+                      {
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

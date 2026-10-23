@@ -1,0 +1,113 @@
+{
+  "format": "mc-uia-tree",
+  "version": 1,
+  "platform": "teams",
+  "app": "Microsoft Teams",
+  "anonymized": true,
+  "note": "anonymised by mc doctor --dump",
+  "windows": [
+    {
+      "handle": 1,
+      "title": "Reunión xxx Xxx | Microsoft Teams",
+      "class": "TeamsWebView",
+      "pid": 4000,
+      "process": "ms-teams.exe",
+      "tree": {
+        "role": "Window",
+        "name": "",
+        "aid": "",
+        "class": "",
+        "children": [
+          {
+            "role": "Pane",
+            "name": "",
+            "aid": "",
+            "class": "",
+            "children": [
+              {
+                "role": "Document",
+                "name": "",
+                "aid": "RootWebArea",
+                "class": "",
+                "children": [
+                  {
+                    "role": "Group",
+                    "name": "",
+                    "aid": "",
+                    "class": "",
+                    "children": [
+                      {
+                        "role": "Text",
+                        "name": "Speaker A",
+                        "aid": "",
+                        "class": ""
+                      },
+                      {
+                        "role": "Text",
+                        "name": "Xxxx x xxxxx.",
+                        "aid": "",
+                        "class": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "handle": 2,
+      "title": "Subtítulos | Reunión X | Microsoft Teams",
+      "class": "TeamsWebView",
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "tree": {
+        "role": "Window",
+        "name": "",
+        "aid": "",
+        "class": "",
+        "children": [
+          {
+            "role": "Pane",
+            "name": "",
+            "aid": "",
+            "class": "",
+            "children": [
+              {
+                "role": "Document",
+                "name": "",
+                "aid": "RootWebArea",
+                "class": "",
+                "children": [
+                  {
+                    "role": "Group",
+                    "name": "",
+                    "aid": "",
+                    "class": "",
+                    "children": [
+                      {
+                        "role": "Text",
+                        "name": "Speaker B",
+                        "aid": "",
+                        "class": ""
+                      },
+                      {
+                        "role": "Text",
+                        "name": "Xxxxx xx xx xxxx xx xxxxxx.",
+                        "aid": "",
+                        "class": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "script": []
+}

@@ -1,0 +1,48 @@
+name: Prepare the build
+description: Rust toolchain, the tools whisper.cpp builds with, and the release version stamped everywhere it is written.
+
+inputs:
+  version:
+    description: Version to stamp into both Cargo workspaces and tauri.conf.json.
+    required: true
+  targets:
+    description: Rust targets to install, comma separated.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: ./.github/actions/toolchain
+      with:
+        targets: ${{ inputs.targets }}
+
+    - uses: ./.github/actions/whisper-tools
+
+    - name: Stamp the version
+      shell: bash
+      env:
+        VERSION: ${{ inputs.version }}
+      run: |
+        version="$VERSION"
+        gui=apps/mc-gui/src-tauri
+
+        cargo fetch --locked --offline 2>/dev/null || cargo fetch --locked
+        (cd "$gui" && { cargo fetch --locked --offline 2>/dev/null || cargo fetch --locked; })
+
+        # The first `version =` of each manifest: [workspace.package] at the root, [package] in the GUI.
+        # perl, because the `0,/re/` address that stops sed at the first match is GNU only.
+        for manifest in Cargo.toml "$gui/Cargo.toml"; do
+          V="$version" perl -0pi -e 's/^version = .*$/version = "$ENV{V}"/m' "$manifest"
+          if ! grep -q "^version = \"$version\"\$" "$manifest"; then
+            echo "::error::could not stamp $version into $manifest"
+            exit 1
+          fi
+        done
+
+        # tauri.conf.json carries its own version, which names the installer and answers the updater.
+        jq --arg v "$version" '.version = $v' "$gui/tauri.conf.json" > "$RUNNER_TEMP/tauri.conf.json"
+        mv "$RUNNER_TEMP/tauri.conf.json" "$gui/tauri.conf.json"
+        test "$(jq -r .version "$gui/tauri.conf.json")" = "$version"
+
+        cargo update --workspace --offline
+        (cd "$gui" && cargo update --workspace --offline)

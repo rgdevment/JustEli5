@@ -1,0 +1,62 @@
+name: Caches
+
+on: # zizmor: ignore[dangerous-triggers] the sweep deletes caches by ref and never checks out the pull request
+  pull_request_target:
+    types: [closed]
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "List what would go, delete nothing."
+        type: boolean
+        default: true
+
+permissions: {}
+
+jobs:
+  sweep:
+    name: a closed pull request takes its caches with it
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      actions: write
+    steps:
+      - name: Everything written under this pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          REF: refs/pull/${{ github.event.pull_request.number }}/merge
+        run: gh cache delete --all --ref "$REF" --succeed-on-no-caches
+
+  generations:
+    name: one generation of each cache, and nothing a tag left behind
+    if: >-
+      github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+      || (github.event_name == 'workflow_run'
+      && github.event.workflow_run.event == 'push'
+      && github.event.workflow_run.head_branch == 'main'
+      && github.event.workflow_run.head_repository.full_name == github.repository
+      && github.event.workflow_run.conclusion != 'cancelled')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      actions: write
+      contents: read
+    concurrency:
+      group: cache-generations
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: What no build will ask for again
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: python3 scripts/generations.py

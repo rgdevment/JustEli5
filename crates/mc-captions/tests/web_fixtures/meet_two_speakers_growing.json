@@ -1,0 +1,573 @@
+{
+ "format": "mc-uia-tree",
+ "version": 1,
+ "platform": "meet",
+ "app": "Google Meet (synthetic)",
+ "anonymized": false,
+ "note": "synthetic; browser with several tabs, only the active one is the meeting",
+ "windows": [
+  {
+   "handle": 1,
+   "title": "Inbox (3) - Gmail - Google Chrome",
+   "class": "Chrome_WidgetWin_1",
+   "pid": 7001,
+   "process": "chrome.exe",
+   "tree": {
+    "role": "Window",
+    "children": [
+     {
+      "role": "Pane",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Other",
+          "children": [
+           {
+            "role": "TabItem",
+            "name": "Inbox (3) - Gmail"
+           },
+           {
+            "role": "TabItem",
+            "name": "Meet - abc-defg-hij"
+           },
+           {
+            "role": "TabItem",
+            "name": "Docs"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Document",
+            "aid": "RootWebArea",
+            "children": [
+             {
+              "role": "Group",
+              "children": [
+               {
+                "role": "Text",
+                "name": "Compose"
+               },
+               {
+                "role": "Text",
+                "name": "Meet - abc-defg-hij invite"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "handle": 2,
+   "title": "Meet - abc-defg-hij - Google Chrome",
+   "class": "Chrome_WidgetWin_1",
+   "pid": 7002,
+   "process": "chrome.exe",
+   "tree": {
+    "role": "Window",
+    "children": [
+     {
+      "role": "Pane",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Other",
+          "children": [
+           {
+            "role": "TabItem",
+            "name": "Inbox (3) - Gmail"
+           },
+           {
+            "role": "TabItem",
+            "name": "Meet - abc-defg-hij"
+           },
+           {
+            "role": "TabItem",
+            "name": "Docs"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Document",
+            "aid": "RootWebArea",
+            "children": [
+             {
+              "role": "Group",
+              "children": [
+               {
+                "role": "Button",
+                "name": "Leave call"
+               },
+               {
+                "role": "Group",
+                "name": "Captions",
+                "children": [
+                 {
+                  "role": "Button",
+                  "name": "Turn off captions (c)"
+                 },
+                 {
+                  "role": "Group",
+                  "children": [
+                   {
+                    "role": "Group",
+                    "children": [
+                     {
+                      "role": "Image"
+                     },
+                     {
+                      "role": "Text",
+                      "name": "Ana García"
+                     },
+                     {
+                      "role": "Text",
+                      "name": "Hello everyone."
+                     }
+                    ]
+                   },
+                   {
+                    "role": "Group",
+                    "children": [
+                     {
+                      "role": "Image"
+                     },
+                     {
+                      "role": "Text",
+                      "name": "Luis Pérez"
+                     },
+                     {
+                      "role": "Text",
+                      "name": "Good morning."
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "script": [
+  {
+   "windows": [
+    {
+     "handle": 1,
+     "title": "Inbox (3) - Gmail - Google Chrome",
+     "class": "Chrome_WidgetWin_1",
+     "pid": 7001,
+     "process": "chrome.exe",
+     "tree": {
+      "role": "Window",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Other",
+            "children": [
+             {
+              "role": "TabItem",
+              "name": "Inbox (3) - Gmail"
+             },
+             {
+              "role": "TabItem",
+              "name": "Meet - abc-defg-hij"
+             },
+             {
+              "role": "TabItem",
+              "name": "Docs"
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Pane",
+            "children": [
+             {
+              "role": "Document",
+              "aid": "RootWebArea",
+              "children": [
+               {
+                "role": "Group",
+                "children": [
+                 {
+                  "role": "Text",
+                  "name": "Compose"
+                 },
+                 {
+                  "role": "Text",
+                  "name": "Meet - abc-defg-hij invite"
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "handle": 2,
+     "title": "Meet - abc-defg-hij - Google Chrome",
+     "class": "Chrome_WidgetWin_1",
+     "pid": 7002,
+     "process": "chrome.exe",
+     "tree": {
+      "role": "Window",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Other",
+            "children": [
+             {
+              "role": "TabItem",
+              "name": "Inbox (3) - Gmail"
+             },
+             {
+              "role": "TabItem",
+              "name": "Meet - abc-defg-hij"
+             },
+             {
+              "role": "TabItem",
+              "name": "Docs"
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Pane",
+            "children": [
+             {
+              "role": "Document",
+              "aid": "RootWebArea",
+              "children": [
+               {
+                "role": "Group",
+                "children": [
+                 {
+                  "role": "Button",
+                  "name": "Leave call"
+                 },
+                 {
+                  "role": "Group",
+                  "name": "Captions",
+                  "children": [
+                   {
+                    "role": "Button",
+                    "name": "Turn off captions (c)"
+                   },
+                   {
+                    "role": "Group",
+                    "children": [
+                     {
+                      "role": "Group",
+                      "children": [
+                       {
+                        "role": "Image"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Ana García"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Hello everyone. Let us start with the budget"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Group",
+                      "children": [
+                       {
+                        "role": "Image"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Luis Pérez"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Good morning."
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "windows": [
+    {
+     "handle": 1,
+     "title": "Inbox (3) - Gmail - Google Chrome",
+     "class": "Chrome_WidgetWin_1",
+     "pid": 7001,
+     "process": "chrome.exe",
+     "tree": {
+      "role": "Window",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Other",
+            "children": [
+             {
+              "role": "TabItem",
+              "name": "Inbox (3) - Gmail"
+             },
+             {
+              "role": "TabItem",
+              "name": "Meet - abc-defg-hij"
+             },
+             {
+              "role": "TabItem",
+              "name": "Docs"
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Pane",
+            "children": [
+             {
+              "role": "Document",
+              "aid": "RootWebArea",
+              "children": [
+               {
+                "role": "Group",
+                "children": [
+                 {
+                  "role": "Text",
+                  "name": "Compose"
+                 },
+                 {
+                  "role": "Text",
+                  "name": "Meet - abc-defg-hij invite"
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "handle": 2,
+     "title": "Meet - abc-defg-hij - Google Chrome",
+     "class": "Chrome_WidgetWin_1",
+     "pid": 7002,
+     "process": "chrome.exe",
+     "tree": {
+      "role": "Window",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Other",
+            "children": [
+             {
+              "role": "TabItem",
+              "name": "Inbox (3) - Gmail"
+             },
+             {
+              "role": "TabItem",
+              "name": "Meet - abc-defg-hij"
+             },
+             {
+              "role": "TabItem",
+              "name": "Docs"
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Pane",
+            "children": [
+             {
+              "role": "Document",
+              "aid": "RootWebArea",
+              "children": [
+               {
+                "role": "Group",
+                "children": [
+                 {
+                  "role": "Button",
+                  "name": "Leave call"
+                 },
+                 {
+                  "role": "Group",
+                  "name": "Captions",
+                  "children": [
+                   {
+                    "role": "Button",
+                    "name": "Turn off captions (c)"
+                   },
+                   {
+                    "role": "Group",
+                    "children": [
+                     {
+                      "role": "Group",
+                      "children": [
+                       {
+                        "role": "Image"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Ana García"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Hello everyone. Let us start with the budget."
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Group",
+                      "children": [
+                       {
+                        "role": "Image"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Luis Pérez"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Good morning."
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Group",
+                      "children": [
+                       {
+                        "role": "Image"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "María Soto"
+                       },
+                       {
+                        "role": "Text",
+                        "name": "Can you hear me?"
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

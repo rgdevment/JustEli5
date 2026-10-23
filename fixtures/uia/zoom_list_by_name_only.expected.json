@@ -1,0 +1,26 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Speaker 2 (Sala)",
+          "\u00bfQu\u00e9 tal?"
+        ],
+        [
+          "Ana Garc\u00eda",
+          "todo bien"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Ana Garc\u00eda",
+          "todo bien"
+        ]
+      ],
+      "discover": {
+        "attached": "Webinar semanal"
+      },
+      "meeting_name": "Webinar semanal"
+    }
+  ]
+}

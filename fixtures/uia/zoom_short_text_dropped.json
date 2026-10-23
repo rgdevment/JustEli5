@@ -1,0 +1,194 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "zoom",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "ConfMultiTabContentWndClass",
+          "handle": 1,
+          "pid": 5001,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de producto",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "ok",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Ana, ok",
+                            "role": "ListItem"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "hola",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Ana, hola",
+                            "role": "ListItem"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "a",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Luis, a",
+                            "role": "ListItem"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "abc",
+                                    "role": "Edit"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "name": "Luis, abc",
+                            "role": "ListItem"
+                          }
+                        ],
+                        "name": "Closed caption",
+                        "role": "List"
+                      }
+                    ],
+                    "class": "ZConfCCRecieveWndExClass",
+                    "role": "Window"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "ConfMultiTabContentWndClass",
+      "handle": 1,
+      "pid": 5001,
+      "process": "Zoom.exe",
+      "title": "Reuni\u00f3n de producto",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "ok",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Ana, ok",
+                        "role": "ListItem"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "hola",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Ana, hola",
+                        "role": "ListItem"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "a",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Luis, a",
+                        "role": "ListItem"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "abc",
+                                "role": "Edit"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "name": "Luis, abc",
+                        "role": "ListItem"
+                      }
+                    ],
+                    "name": "Closed caption",
+                    "role": "List"
+                  }
+                ],
+                "class": "ZConfCCRecieveWndExClass",
+                "role": "Window"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

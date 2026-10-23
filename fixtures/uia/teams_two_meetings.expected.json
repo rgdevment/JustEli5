@@ -1,0 +1,40 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Luis P\u00e9rez",
+          "Segunda reuni\u00f3n."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis P\u00e9rez",
+          "Segunda reuni\u00f3n."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n B | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n B | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Primera reuni\u00f3n."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Ana Garc\u00eda",
+          "Primera reuni\u00f3n."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n A | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n A | Microsoft Teams"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "teams",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "TeamsWebView",
+          "handle": 1,
+          "pid": 4001,
+          "process": "ms-teams.exe",
+          "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "Participantes (3)",
+                            "role": "Text"
+                          }
+                        ],
+                        "role": "Group"
+                      },
+                      {
+                        "children": [
+                          {
+                            "name": "Ana",
+                            "role": "Text"
+                          },
+                          {
+                            "name": "Ya se activaron los subt\u00edtulos.",
+                            "role": "Text"
+                          }
+                        ],
+                        "role": "Group"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "Participantes (3)",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Chat",
+                        "role": "Text"
+                      },
+                      {
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "name": "Reuni\u00f3n semanal",
+                    "role": "Text"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

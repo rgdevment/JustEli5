@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JustEli5</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>JustEli5</h1>
+      <nav id="tabs" class="tabs">
+        <button class="tab active" data-tab="meeting">Reunión</button>
+        <button class="tab" data-tab="memory">Memoria</button>
+        <button class="tab" data-tab="config">Configuración</button>
+      </nav>
+    </header>
+    <div id="update" class="update hidden"></div>
+
+    <main>
+      <section id="view-prepare" class="view">
+        <div class="card">
+          <h2>Reunión</h2>
+          <label class="field">
+            <span>Nombre de la reunión</span>
+            <input id="name" list="recent-names" placeholder="Por ejemplo: Daily de equipo" autocomplete="off" />
+            <datalist id="recent-names"></datalist>
+          </label>
+          <div class="field">
+            <span>¿Dónde es la reunión?</span>
+            <div id="platforms" class="pills"></div>
+            <div class="row">
+              <small id="detected" class="muted">Buscando reuniones abiertas…</small>
+              <button id="detect" class="link">Volver a detectar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Audio</h2>
+          <div class="toggles">
+            <label class="toggle"><input type="checkbox" id="record-audio" /> Grabar audio</label>
+            <label class="toggle"><input type="checkbox" id="live-asr" /> Whisper en vivo</label>
+            <label class="toggle" title="Pasa Whisper por toda la grabación al terminar: en CPU puede tardar horas">
+              <input type="checkbox" id="final-pass" /> Pasada final de Whisper
+            </label>
+            <label class="toggle"><input type="checkbox" id="analyst" /> Analista en vivo (IA)</label>
+            <label class="toggle"><input type="checkbox" id="tisty" /> Guardar en Tisty al final</label>
+          </div>
+          <small id="tisty-target" class="muted"></small>
+          <div class="grid2">
+            <label class="field">
+              <span>Micrófono</span>
+              <select id="mic-device"></select>
+            </label>
+            <label class="field">
+              <span>Audio de la reunión</span>
+              <select id="system-device"></select>
+            </label>
+          </div>
+          <div class="row">
+            <button id="audio-test">Probar audio (10 s)</button>
+            <small id="audio-test-state" class="muted"></small>
+          </div>
+          <div id="audio-test-result" class="meters hidden"></div>
+        </div>
+
+        <div class="card">
+          <h2>Contexto o instrucciones para la IA</h2>
+          <textarea id="context" rows="4" placeholder="Por ejemplo: es la revisión del sprint 42; me interesan los compromisos de backend."></textarea>
+          <small class="muted">Lo reciben el analista en vivo y la minuta.</small>
+        </div>
+
+        <div class="card">
+          <h2>Vocabulario</h2>
+          <small class="muted">Términos ambiguos o que se transcriben mal: se corrigen en la transcripción y van al glosario de la minuta.</small>
+          <div id="vocab-prepare"></div>
+        </div>
+
+        <div class="card">
+          <div class="row spread">
+            <h2>Estado</h2>
+            <button id="recheck" class="link">Comprobar de nuevo</button>
+          </div>
+          <ul id="checks" class="checks"></ul>
+          <div id="prereqs" class="hidden">
+            <h3>Para compilar eli5</h3>
+            <ul id="prereq-list" class="checks"></ul>
+          </div>
+        </div>
+
+        <div class="start">
+          <button id="start" class="primary big" disabled>Empezar</button>
+          <p id="start-error" class="bad hidden"></p>
+          <small class="muted">Al empezar confirmas que los participantes saben que se graba.</small>
+        </div>
+      </section>
+
+      <section id="view-capture" class="view hidden">
+        <div class="card">
+          <div class="row spread">
+            <h2 id="capture-title">Grabando</h2>
+            <span id="elapsed" class="elapsed">00:00</span>
+          </div>
+          <p id="capture-state" class="muted">Buscando la reunión…</p>
+          <div class="follow">
+            <ul id="captions" class="captions"></ul>
+            <button id="captions-end" class="jump hidden">ir al final</button>
+          </div>
+          <details>
+            <summary class="muted small">Whisper (respaldo del audio)</summary>
+            <div class="follow">
+              <ul id="asr-lines" class="captions asr-list"></ul>
+              <button id="asr-lines-end" class="jump hidden">ir al final</button>
+            </div>
+          </details>
+        </div>
+        <div class="card">
+          <div class="row">
+            <input id="note-text" placeholder="Escribe una nota y pulsa Nota (pega o arrastra una imagen)" />
+            <button id="note">Nota</button>
+            <button id="mark">Marcar momento</button>
+            <button id="stop" class="danger">Terminar</button>
+          </div>
+          <div id="note-image" class="note-image hidden">
+            <img id="note-image-preview" alt="Imagen de la nota" />
+            <button id="note-image-clear" class="link">quitar imagen</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Participantes</h2>
+          <small class="muted">El rol de cada uno se recuerda entre reuniones y lo recibe la minuta.</small>
+          <ul id="live-people" class="people"></ul>
+          <h3>Nombran a alguien que no está</h3>
+          <div id="live-named"></div>
+        </div>
+        <div class="card">
+          <h2>Memoria</h2>
+          <small class="muted">Lo que corrijas ahora lo usa el analista enseguida y las próximas reuniones.</small>
+          <div id="live-memory"></div>
+        </div>
+        <div class="card">
+          <h2>Eventos</h2>
+          <ul id="events" class="events"></ul>
+        </div>
+      </section>
+
+      <section id="view-post" class="view hidden">
+        <div class="card">
+          <h2>Procesando la reunión</h2>
+          <ol id="steps" class="steps"></ol>
+        </div>
+        <div id="post-done" class="card hidden">
+          <h2>Listo</h2>
+          <p>Minuta: <code id="minutes-path"></code></p>
+          <div class="row">
+            <button id="open-minutes" class="primary">Abrir minuta</button>
+            <button id="open-session">Abrir carpeta de la sesión</button>
+            <button id="new-meeting">Nueva reunión</button>
+          </div>
+          <div id="ambiguous" class="hidden">
+            <p class="warn">La memoria no supo qué significa aquí: <span id="ambiguous-list"></span></p>
+            <button id="ambiguous-open" type="button">Revisar en Memoria</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-setup" class="view hidden">
+        <div class="card">
+          <p id="setup-count" class="muted setup-step"></p>
+          <h2 id="setup-title"></h2>
+          <p id="setup-hint" class="muted"></p>
+          <div id="setup-body"></div>
+          <p id="setup-error" class="bad hidden"></p>
+          <div class="row spread">
+            <button id="setup-skip" type="button">Omitir</button>
+            <div class="row">
+              <button id="setup-back" type="button">Atrás</button>
+              <button id="setup-next" class="primary" type="button">Siguiente</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-memory" class="view hidden">
+        <div class="card">
+          <h2>Memoria</h2>
+          <p class="muted">Los términos y las personas que se recuerdan entre reuniones. Cada minuta propone lo que
+            aprendió; lo que confirmas o corriges aquí la IA ya no lo cambia.</p>
+          <div class="pills memory-sections">
+            <button id="memory-terms" class="pill selected" type="button">Términos</button>
+            <button id="memory-people" class="pill" type="button">Personas</button>
+          </div>
+          <div class="row memory-filters">
+            <input id="memory-query" placeholder="Buscar por nombre, forma o significado" />
+            <select id="memory-state">
+              <option value="">Todos</option>
+              <option value="proposed">Por revisar</option>
+              <option value="confirmed">Confirmados</option>
+            </select>
+          </div>
+          <div class="row">
+            <button id="memory-new" type="button">Nuevo término</button>
+            <button id="memory-confirm" type="button" disabled>Confirmar seleccionados</button>
+            <button id="memory-merge" type="button" disabled>Unir seleccionados</button>
+          </div>
+          <p id="memory-state-text" class="muted"></p>
+          <ul id="memory-list" class="memory-list"></ul>
+        </div>
+        <div id="memory-editor" class="card hidden"></div>
+      </section>
+
+      <section id="view-config" class="view hidden">
+        <div class="card">
+          <div class="row spread">
+            <h2>Configuración de eli5</h2>
+            <button id="open-setup" type="button">Asistente de configuración</button>
+          </div>
+          <p class="muted">Archivo: <code id="config-path"></code></p>
+          <p id="config-missing" class="warn hidden">
+            Todavía no tienes configuración; se usan los valores por defecto.
+            <button id="config-create">Crear desde el ejemplo</button>
+          </p>
+          <p id="config-error" class="bad hidden"></p>
+          <form id="config-form" class="config"></form>
+          <div class="row">
+            <button id="config-save" class="primary">Guardar</button>
+            <button id="config-reload">Descartar cambios</button>
+            <small id="config-state" class="muted"></small>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="job-dialog">
+      <h2 id="job-title"></h2>
+      <p id="job-text"></p>
+      <code id="job-command" class="command"></code>
+      <pre id="job-output" class="output hidden"></pre>
+      <div class="row">
+        <button id="job-run" class="primary">Ejecutar</button>
+        <button id="job-close">Cancelar</button>
+      </div>
+    </dialog>
+  </body>
+</html>

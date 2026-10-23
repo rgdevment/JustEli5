@@ -1,0 +1,7 @@
+{"v": 2, "seq": 1, "frame": 1, "t": 1700000000.4, "wall_ms": 1700000000400, "mono_ms": 400.0, "read_ms": 500.0, "speaker": "Luis", "text": "Otra voz", "decision": "new_open"}
+{"v": 2, "seq": 2, "frame": 2, "t": 1700000000.8, "wall_ms": 1700000000800, "mono_ms": 800.0, "read_ms": 500.0, "speaker": "Ana Pérez", "text": "Primera frase completa", "decision": "new_open"}
+{"v": 2, "seq": 3, "frame": 3, "t": 1700000002.3, "wall_ms": 1700000002300, "mono_ms": 2300.0, "read_ms": 500.0, "speaker": "Luis", "text": "Otra voz que sigue", "decision": "grow"}
+{"v": 2, "seq": 4, "frame": 3, "t": 1700000002.3, "wall_ms": 1700000002300, "mono_ms": 2300.0, "read_ms": 500.0, "speaker": "Ana Pérez", "text": "Primera frase completa", "decision": "committed", "first_mono_ms": 800.0, "last_mono_ms": 800.0}
+{"v": 2, "seq": 5, "frame": 5, "t": 1700000004.7, "wall_ms": 1700000004700, "mono_ms": 4700.0, "read_ms": 500.0, "speaker": "Ana Pérez", "text": "Cierre", "decision": "new_open"}
+{"v": 2, "seq": 6, "frame": 5, "t": 1700000004.7, "wall_ms": 1700000004700, "mono_ms": 4700.0, "read_ms": 500.0, "speaker": "Luis", "text": "Otra voz que sigue", "decision": "committed", "first_mono_ms": 400.0, "last_mono_ms": 2300.0}
+{"v": 2, "seq": 7, "frame": null, "t": 1700000009.7, "wall_ms": 1700000009700, "mono_ms": 9700.0, "read_ms": null, "speaker": "Ana Pérez", "text": "Cierre", "decision": "committed", "first_mono_ms": 4700.0, "last_mono_ms": 4700.0}

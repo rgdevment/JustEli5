@@ -1,0 +1,20 @@
+[package]
+name = "mc-fusion"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+mc-asr = { path = "../mc-asr" }
+mc-core = { path = "../mc-core" }
+mc-reconcile = { path = "../mc-reconcile" }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+
+[dev-dependencies]
+mc-engine = { path = "../mc-engine" }

@@ -1,0 +1,21 @@
+[package]
+name = "mc-tui"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+mc-analyst = { path = "../mc-analyst" }
+mc-captions = { path = "../mc-captions" }
+mc-core = { path = "../mc-core" }
+mc-engine = { path = "../mc-engine" }
+ratatui = "0.30"
+unicode-width = "0.2"
+
+[dev-dependencies]
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }

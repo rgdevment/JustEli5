@@ -1,0 +1,1666 @@
+{
+ "format": "mc-uia-tree",
+ "version": 1,
+ "platform": "meet",
+ "app": "Google Meet",
+ "anonymized": true,
+ "note": "real Chrome tree of a local Meet-like page (anonymised by mc doctor --dump); Chrome flattens the role-less wrappers",
+ "windows": [
+  {
+   "handle": 1,
+   "title": "Meet - xxx-xxxx-xxx - Xxxxxx Xxxxxx",
+   "class": "Chrome_WidgetWin_1",
+   "pid": 4000,
+   "process": "chrome.exe",
+   "tree": {
+    "role": "Window",
+    "name": "",
+    "aid": "",
+    "class": "",
+    "children": [
+     {
+      "role": "Pane",
+      "name": "",
+      "aid": "",
+      "class": "Xxxxxxxxxxxx X0X Xxxxxx"
+     },
+     {
+      "role": "Pane",
+      "name": "Meet - xxx-xxxx-xxx - Xxxxxx Xxxxxx",
+      "aid": "",
+      "class": "XxxxxxxXxxxXxxx",
+      "children": [
+       {
+        "role": "Pane",
+        "name": "",
+        "aid": "",
+        "class": "XxxXxxxxxXxxx",
+        "children": [
+         {
+          "role": "Pane",
+          "name": "",
+          "aid": "",
+          "class": "XxxxxxxXxxxxXxxxXxx",
+          "children": [
+           {
+            "role": "Pane",
+            "name": "",
+            "aid": "",
+            "class": "XxxxxxxXxxxxxxXxxxxxXxxxxxxxx",
+            "children": [
+             {
+              "role": "Button",
+              "name": "Xxxxxxxxx",
+              "aid": "xxxx_0",
+              "class": "XxxxxxxXxxxxxxXxxxxx"
+             },
+             {
+              "role": "Button",
+              "name": "Xxxxxxxxx",
+              "aid": "xxxx_0",
+              "class": "XxxxxxxXxxxxxxXxxxxx"
+             },
+             {
+              "role": "Button",
+              "name": "Xxxxxxxxx",
+              "aid": "xxxx_0",
+              "class": "XxxxxxxXxxxxxxXxxxxx"
+             },
+             {
+              "role": "Button",
+              "name": "Xxxxxx",
+              "aid": "xxxx_0",
+              "class": "XxxxxxxXxxxxxxXxxxxx"
+             }
+            ]
+           },
+           {
+            "role": "Pane",
+            "name": "",
+            "aid": "",
+            "class": "XxxxxxxXxxx",
+            "children": [
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxXxxxxxxxxxXxxxxxXxxx"
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxXxxxxxxxxXxxx",
+              "children": [
+               {
+                "role": "ToolBar",
+                "name": "",
+                "aid": "xxxx_0000",
+                "class": "XxxxxxxXxxx",
+                "children": [
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxXxxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxxxx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxXxxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxx x xxxxxx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxx xxxxxxx xx xxxxx xxxxxxxx",
+                  "aid": "",
+                  "class": "XxxxxXxxxXxxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Group",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxXxxx",
+                  "children": [
+                   {
+                    "role": "Button",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxxxxxXxxxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxxx",
+                    "aid": "xxxx_0000",
+                    "class": "XxxxxxxxXxxxXxxx",
+                    "children": [
+                     {
+                      "role": "Text",
+                      "name": "",
+                      "aid": "",
+                      "class": "XXXxxxxxxXxxx"
+                     }
+                    ]
+                   },
+                   {
+                    "role": "Edit",
+                    "name": "Xxxxx xx xxxxxxxxxxx x xx xxxxxxxx ",
+                    "aid": "xxxx_0000",
+                    "class": "XxxxxxxXxxxXxxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "Xxxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "Xxxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxxxXxxxxxxXxxx",
+                    "children": [
+                     {
+                      "role": "Text",
+                      "name": "",
+                      "aid": "",
+                      "class": "XXXxxxxxxXxxx"
+                     }
+                    ]
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxxXxxxxxxXxxxxXxxx",
+                    "children": [
+                     {
+                      "role": "Text",
+                      "name": "",
+                      "aid": "",
+                      "class": "XXXxxxxxxXxxx"
+                     }
+                    ]
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "XXXxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxXxxxxxXxxxxxxxxXxxx",
+                    "children": [
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     },
+                     {
+                      "role": "Button",
+                      "name": "Xxxxxx xxxx xxxxxxx x xxxxxxxxxx",
+                      "aid": "",
+                      "class": "XxxxXxxxxxXxxx",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "",
+                        "aid": "",
+                        "class": "XXXxxxxxxXxxx"
+                       }
+                      ]
+                     }
+                    ]
+                   },
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxx xxxxxxx",
+                    "aid": "",
+                    "class": "XxxxxXxxxxx"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "Xxxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxxxxXxxxxxxXxxxxxx",
+                  "children": [
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxxxxxxx",
+                    "aid": "xxxx_0000",
+                    "class": "XxxxxxxxxxXxxxxxxXxxxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxx xxxxx xxxxxxx",
+                    "aid": "",
+                    "class": "XxxxxxxXxxxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxXxxxxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxXxxxxxxXxxxxxxXxxxxxxxx",
+                  "children": [
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxxXxxxxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxx xx xxxxxxx xxxxxxxx",
+                  "aid": "",
+                  "class": "XxxxxxxXxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxx xx xxxxxxxx xx xxxxxxxxxxx",
+                  "aid": "",
+                  "class": "XxxxxxxxxxxXxxxxxxxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxxxx xx xxxxxx, xxx xxxxxx x xxx",
+                  "aid": "",
+                  "class": "XxxxxXxxxxxxXxxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxXxxXxxxxXxxxxxxXxxxxxxxx",
+                  "children": [
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxXxxxXxxxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxxxx xxx xxxxxx",
+                    "aid": "",
+                    "class": "XxxxxxxXxxxXxxxxXxxxXxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxx Xxxxxx xx Xxxxxx",
+                  "aid": "",
+                  "class": "XxxxxxxXxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxxxXxxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxxx xxxxxxx xx xx xxxxx xx xxxxxxxxxxxx",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxx xxxxxxxxx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxxxxXxxXxxxXxxxxx"
+                 }
+                ]
+               },
+               {
+                "role": "ToolBar",
+                "name": "Xxxxxxxxxx",
+                "aid": "xxxx_0000",
+                "class": "XxxxxxxxXxxXxxx",
+                "children": [
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxxxxxxxx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxxxxxx xxxxxxxxxxxxx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxxxxxXxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "ToolBar",
+                  "name": "Xxxxxx xx xxxxxxxx xxxxxxxxx",
+                  "aid": "",
+                  "class": "XxxxxXxxXxxxxXxx",
+                  "children": [
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxx xx xxxxxxxx",
+                    "aid": "",
+                    "class": "XxxxxXxxXxxxxXxxxxxxxXxxxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Separator",
+                  "name": "Xxxxxxxxx",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxXxxx::XxxxxxXxxxxxxxxXxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxx xxx xxxxxxxxxx xxxxxxx",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxxXxxxxxXxxx"
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxx xxx xxxxxxxxxx",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxxxxxXxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Separator",
+                  "name": "Xxxxxxxxx",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxXxxx::XxxxxxXxxxxxxxxXxxx"
+                 }
+                ]
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxxxXxxxxxxxx"
+               }
+              ]
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxxXxxxxxxxXxxx",
+              "children": [
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxXxxxxxxxXxxxxxxxxxXxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "Chrome_WidgetWin_1",
+                "children": [
+                 {
+                  "role": "Document",
+                  "name": "",
+                  "aid": "xxxx_0000",
+                  "class": "XxxXxxx",
+                  "children": [
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxXxxxXxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "Xxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "Xxxxxx Xxxxxx Xxxxxx",
+                  "aid": "000",
+                  "class": "Xxxxxx_XxxxxxXxxxxxXxxxXXXX",
+                  "children": [
+                   {
+                    "role": "Document",
+                    "name": "Meet - xxx-xxxx-xxx",
+                    "aid": "RootWebArea",
+                    "class": "",
+                    "children": [
+                     {
+                      "role": "Group",
+                      "name": "",
+                      "aid": "",
+                      "class": "",
+                      "children": [
+                       {
+                        "role": "Text",
+                        "name": "Reunión xx xxxxxx",
+                        "aid": "",
+                        "class": "",
+                        "children": [
+                         {
+                          "role": "Text",
+                          "name": "Reunión xx xxxxxx",
+                          "aid": "",
+                          "class": ""
+                         }
+                        ]
+                       },
+                       {
+                        "role": "Group",
+                        "name": "Subtítulos",
+                        "aid": "xx",
+                        "class": "",
+                        "children": [
+                         {
+                          "role": "Group",
+                          "name": "",
+                          "aid": "",
+                          "class": "xxxx",
+                          "children": [
+                           {
+                            "role": "Text",
+                            "name": "Xxx Xxxxx",
+                            "aid": "",
+                            "class": ""
+                           }
+                          ]
+                         },
+                         {
+                          "role": "Group",
+                          "name": "",
+                          "aid": "x0",
+                          "class": "xxx",
+                          "children": [
+                           {
+                            "role": "Text",
+                            "name": "Xxxx xxxxxx, xxxxxxxxx xx xxxxx.",
+                            "aid": "",
+                            "class": ""
+                           }
+                          ]
+                         },
+                         {
+                          "role": "Group",
+                          "name": "",
+                          "aid": "",
+                          "class": "xxxx",
+                          "children": [
+                           {
+                            "role": "Text",
+                            "name": "Xxxx",
+                            "aid": "",
+                            "class": ""
+                           }
+                          ]
+                         },
+                         {
+                          "role": "Group",
+                          "name": "",
+                          "aid": "x0",
+                          "class": "xxx",
+                          "children": [
+                           {
+                            "role": "Text",
+                            "name": "Xxx xxxxxx xx xxxxxxx x xxxxxx xx xxxxxx xx Xxxx, xxxxx xx xxxxx xxxx.",
+                            "aid": "",
+                            "class": ""
+                           }
+                          ]
+                         }
+                        ]
+                       }
+                      ]
+                     }
+                    ]
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxxxxxxx"
+                 },
+                 {
+                  "role": "Document",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxXxxXxxxxxXxxXxxx",
+                  "children": [
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxXxxxXxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxXxxxxxxxxxXxxxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxXxxxxxxxXxxxxxxxxXxxxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxXxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "Xxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxXxxxxxxXxxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxXxxxxxxxXxxxXxxxXxxxxxx",
+                  "children": [
+                   {
+                    "role": "Text",
+                    "name": "xxxxxxx xxxxx x xxxxxxxxxx",
+                    "aid": "",
+                    "class": "Xxxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxx xxxx xxxxx",
+                    "aid": "",
+                    "class": "XxxxxXxxxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxxxxxxxXxxxxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxxxxxXxxxxxXxxx"
+                 }
+                ]
+               },
+               {
+                "role": "Separator",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxXxxxxxxxXxxxxxXxxx",
+                "children": [
+                 {
+                  "role": "Slider",
+                  "name": "Xxxxxxxxxxx xx xxxxxx xx xx xxxxx xxxxxxxx (xxxxxxxxxxx)",
+                  "aid": "",
+                  "class": "XxxxxXxxxxxxxXxxxxxXxxxxx"
+                 }
+                ]
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "Chrome_WidgetWin_1",
+                "children": [
+                 {
+                  "role": "Document",
+                  "name": "",
+                  "aid": "xxxx_0000",
+                  "class": "XxxXxxx",
+                  "children": [
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxXxxxXxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "Xxxx"
+                 },
+                 {
+                  "role": "Document",
+                  "name": "",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxxxxxXxxXxxx",
+                  "children": [
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxXxxxXxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxxxxxxx"
+                 },
+                 {
+                  "role": "Document",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxXxxXxxxxxXxxXxxx",
+                  "children": [
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxxxxXxxxXxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxXxxxxxxxxxXxxxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "xxxx_0000",
+                  "class": "XxxxXxxxxxxxXxxxxxxxxXxxxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxXxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "Xxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxXxxxxxxXxxxxxXxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxXxxxxxxxXxxxXxxxXxxxxxx",
+                  "children": [
+                   {
+                    "role": "Text",
+                    "name": "",
+                    "aid": "",
+                    "class": "Xxxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxx xxxx xxxxx",
+                    "aid": "",
+                    "class": "XxxxxXxxxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxxxxxxxXxxxxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxxxxxXxxxxxxXxxxxxXxxx"
+                 }
+                ]
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxXxxxxxxxXxxxXxxxxxXxxx",
+                "children": [
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "Xxxx",
+                  "children": [
+                   {
+                    "role": "Text",
+                    "name": "Xxxxx xxxxx xxxxxxxx",
+                    "aid": "",
+                    "class": "Xxxxx"
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxxxXxxxxxxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxxxXxxxxxxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxxxXxxxxxxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxXxxxxxxxXxxxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "xxxx_0000",
+                "class": "Xxxx"
+               }
+              ]
+             },
+             {
+              "role": "Group",
+              "name": "Xxxxxxxxxx xx xxxxx xx xxxxxxxxxxx",
+              "aid": "xxxx_0000",
+              "class": "XxxxXxxXxxxxxxxxXxxx",
+              "children": [
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxxXxxxxx"
+               }
+              ]
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxxxXxxxxxxXxxx",
+              "children": [
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxXxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxXxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxXxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxXxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxXxxxxXxxx"
+               }
+              ]
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxXxxxx",
+              "children": [
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxxXxxxxxXxxx"
+               },
+               {
+                "role": "Slider",
+                "name": "Xxxxxxxxxxx xx xxxxxx xxx xxxxx xxxxxxx (xxxxxxxxxxx)",
+                "aid": "",
+                "class": "XxxxXxxxxXxxxxxXxxx"
+               }
+              ]
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxxxxxxxXxxXxxxxXxxxxxXxxxXxx",
+              "children": [
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxXxxxxXxxxxXxxxxx",
+                "children": [
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxxxx xx xxxxxxxx",
+                  "aid": "",
+                  "class": "XxxXxxxxXxxxXxxxXxxxxx"
+                 }
+                ]
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "xxxx_00",
+                "class": "XxxXxxxx",
+                "children": [
+                 {
+                  "role": "Tab",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxXxxxxxxxxXxxx",
+                  "children": [
+                   {
+                    "role": "TabItem",
+                    "name": "Xxx xx xxxxxxx xx Meet - xxx-xxxx-xxx: 00,0 XX",
+                    "aid": "xxxx_00",
+                    "class": "Xxx",
+                    "children": [
+                     {
+                      "role": "Button",
+                      "name": "Xxxxxxxxx xxxxxxx",
+                      "aid": "",
+                      "class": "XxxxxXxxxxxxxxXxxxxx"
+                     },
+                     {
+                      "role": "Button",
+                      "name": "Xxxxxx",
+                      "aid": "",
+                      "class": "XxxXxxxxXxxxxx"
+                     }
+                    ]
+                   },
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "Xxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxXxxxx::XxxXxxxXxxxxxxXxxx"
+                 }
+                ]
+               },
+               {
+                "role": "Button",
+                "name": "Xxxxx xxxxxxx",
+                "aid": "",
+                "class": "XxxXxxxxXxxxxxxXxxxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxXxxxXxxxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxXxxxxXxxxxxXxxxxxxxx",
+                "children": [
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxxXxxXxxxxXxxxxxxXxxxxxxxx",
+                  "children": [
+                   {
+                    "role": "Pane",
+                    "name": "",
+                    "aid": "",
+                    "class": "XxxXxxxXxxxxxxxxXxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxxxx xxx xxxxxx",
+                    "aid": "",
+                    "class": "XxxXxxxxXxxxXxxxxXxxxXxxx"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Button",
+                  "name": "Xxxxx Xxxxxx xx Xxxxxx",
+                  "aid": "",
+                  "class": "XxxXxxxxXxxxXxxxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "Xxxxxxxxx"
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "role": "Tab",
+              "name": "",
+              "aid": "",
+              "class": "XxxxxxxxXxxXxxxxXxxxxxXxxx",
+              "children": [
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxxxXxxXxxxxXxxXxxxxxxxx",
+                "children": [
+                 {
+                  "role": "Button",
+                  "name": "Xxxxxxx xxxxxxxx (Xxxx+Xxxxx+X)",
+                  "aid": "",
+                  "class": "XxxXxxxxxxxxXxxxxx"
+                 },
+                 {
+                  "role": "Pane",
+                  "name": "",
+                  "aid": "",
+                  "class": "XxxXxxxxXxxxxXxxxxx",
+                  "children": [
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxx xx xxxxxxxx",
+                    "aid": "",
+                    "class": "XxxXxxxxXxxxXxxxXxxxxx"
+                   },
+                   {
+                    "role": "Button",
+                    "name": "Xxxxxxxx xx xxxxxxxx",
+                    "aid": "",
+                    "class": "XxxXxxxxXxxxXxxxXxxxxx"
+                   }
+                  ]
+                 }
+                ]
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "Xxxxxxxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxxxXxxXxxxxXxxxxxXxxxxxxxx",
+                "children": [
+                 {
+                  "role": "Button",
+                  "name": "Xxxxx xxxxxxx",
+                  "aid": "",
+                  "class": "XxxXxxXxxxxx"
+                 }
+                ]
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "Xxxx"
+               },
+               {
+                "role": "Slider",
+                "name": "Xxxxxxxxxxx xx xxxxxx xx xxxxx xx xxxxxxxx xxxxxxxx (xxxxxxxxxxx)",
+                "aid": "",
+                "class": "XxxxxxXxxx"
+               },
+               {
+                "role": "Pane",
+                "name": "",
+                "aid": "",
+                "class": "XxxxxxXxxxxXxxx"
+               }
+              ]
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxxxXxxxxxxxXxxxxx"
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxxxXxxxxxxxXxxxxx"
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "Xxxx"
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxxXxxx"
+             },
+             {
+              "role": "Pane",
+              "name": "",
+              "aid": "",
+              "class": "XxxxxXxxx"
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "role": "Pane",
+          "name": "",
+          "aid": "",
+          "class": "XxxXxxxxxxxxXxxxxxxXxxx"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "script": []
+}

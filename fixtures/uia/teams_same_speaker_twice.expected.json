@@ -1,0 +1,48 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Hola"
+        ],
+        [
+          "Ana Garc\u00eda",
+          "\u00bfMe escuchan?"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Ana Garc\u00eda",
+          "\u00bfMe escuchan?"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "Ana Garc\u00eda",
+          "Hola"
+        ],
+        [
+          "Ana Garc\u00eda",
+          "\u00bfMe escuchan?"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Ana Garc\u00eda",
+          "\u00bfMe escuchan?"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

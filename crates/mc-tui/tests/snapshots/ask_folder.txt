@@ -1,0 +1,24 @@
+■ ENDED (source_ended)  ended  consent: flag                            00:01:35
+┌Save as .md───────────────────────────────────────────────────────────────────┐
+│Save the .md in this folder:                                                  │
+│                                                                              │
+│/home/ana/meetings/Notas_                                                     │
+│                                                                              │
+│An existing file is never overwritten.                                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+Enter save  Esc back

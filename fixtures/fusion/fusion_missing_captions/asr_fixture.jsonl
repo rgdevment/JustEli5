@@ -1,0 +1,14 @@
+{"v": 1, "ch": "mic", "start_ms": 2035, "end_ms": 5084, "text": "Manana termino el bug y lo dejo bloqueado", "lang": "es", "conf": -0.305, "no_speech": 0.038}
+{"v": 1, "ch": "system", "start_ms": 6652, "end_ms": 10110, "text": "Voy a revisar el bug después de la reunión", "lang": "es", "conf": -0.598, "no_speech": 0.021}
+{"v": 1, "ch": "system", "start_ms": 10787, "end_ms": 14208, "text": "Voy a revisar el push despues de la reunión", "lang": "es", "conf": -0.529, "no_speech": 0.063}
+{"v": 1, "ch": "mic", "start_ms": 14966, "end_ms": 17938, "text": "Creo que el ticket también depende de producción", "lang": "es", "conf": -0.445, "no_speech": 0.023}
+{"v": 1, "ch": "system", "start_ms": 19525, "end_ms": 22555, "text": "Tengo un bloqueo con el merge de staging", "lang": "es", "conf": -0.375, "no_speech": 0.067}
+{"v": 1, "ch": "system", "start_ms": 24196, "end_ms": 27621, "text": "Voy a revisar el rollback después de la reunión", "lang": "es", "conf": -0.184, "no_speech": 0.058}
+{"v": 1, "ch": "mic", "start_ms": 28819, "end_ms": 31087, "text": "Necesitamos hacer release antes del sprint", "lang": "es", "conf": -0.581, "no_speech": 0.047}
+{"v": 1, "ch": "system", "start_ms": 32709, "end_ms": 34966, "text": "Necesitamos hacer rollback antes del release", "lang": "es", "conf": -0.565, "no_speech": 0.018}
+{"v": 1, "ch": "system", "start_ms": 35898, "end_ms": 38562, "text": "Quedamos en en cerrar el ticket el lunes", "lang": "es", "conf": -0.516, "no_speech": 0.067}
+{"v": 1, "ch": "mic", "start_ms": 39628, "end_ms": 43022, "text": "Voy a revisar el standup después de la reunión", "lang": "es", "conf": -0.577, "no_speech": 0.061}
+{"v": 1, "ch": "system", "start_ms": 44185, "end_ms": 47201, "text": "Creo que el deploy tambien depende de producción", "lang": "es", "conf": -0.202, "no_speech": 0.032}
+{"v": 1, "ch": "system", "start_ms": 48348, "end_ms": 51323, "text": "Yo hice release ayer y ya esta bloqueado", "lang": "es", "conf": -0.215, "no_speech": 0.012}
+{"v": 1, "ch": "mic", "start_ms": 53165, "end_ms": 56149, "text": "Yo hice hotfix ayer y ya está done", "lang": "es", "conf": -0.336, "no_speech": 0.056}
+{"v": 1, "ch": "system", "start_ms": 56952, "end_ms": 59620, "text": "Quedamos en en cerrar el ticket el lunes", "lang": "es", "conf": -0.295, "no_speech": 0.014}

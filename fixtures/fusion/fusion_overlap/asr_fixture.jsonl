@@ -1,0 +1,12 @@
+{"v": 1, "ch": "system", "start_ms": 2137, "end_ms": 5210, "text": "Manana termino el staging y lo dejo listo", "lang": "es", "conf": -0.192, "no_speech": 0.035}
+{"v": 1, "ch": "mic", "start_ms": 4230, "end_ms": 6908, "text": "Quedamos en cerrar el merge el martes", "lang": "es", "conf": -0.364, "no_speech": 0.053}
+{"v": 1, "ch": "system", "start_ms": 8067, "end_ms": 10375, "text": "Necesitamos hacer ticket antes del release", "lang": "es", "conf": -0.454, "no_speech": 0.028}
+{"v": 1, "ch": "system", "start_ms": 11419, "end_ms": 14829, "text": "Voy a revisar el deploy despues de la reunión", "lang": "es", "conf": -0.377, "no_speech": 0.051}
+{"v": 1, "ch": "mic", "start_ms": 13854, "end_ms": 16110, "text": "Necesitamos hacer ticket antes del release", "lang": "es", "conf": -0.266, "no_speech": 0.048}
+{"v": 1, "ch": "system", "start_ms": 17295, "end_ms": 20394, "text": "Yo hice rollback ayer y ya esta done", "lang": "es", "conf": -0.548, "no_speech": 0.051}
+{"v": 1, "ch": "system", "start_ms": 21201, "end_ms": 25009, "text": "Voy a revisar el pull request después de la reunión", "lang": "es", "conf": -0.476, "no_speech": 0.058}
+{"v": 1, "ch": "mic", "start_ms": 24009, "end_ms": 26305, "text": "Necesitamos hacer hotfix antes del demo", "lang": "es", "conf": -0.154, "no_speech": 0.027}
+{"v": 1, "ch": "system", "start_ms": 27446, "end_ms": 30090, "text": "¿Alguien puede hacer deploy de este cambio?", "lang": "es", "conf": -0.154, "no_speech": 0.049}
+{"v": 1, "ch": "system", "start_ms": 31483, "end_ms": 33798, "text": "Necesitamos hacer rollback antes del sprint", "lang": "es", "conf": -0.45, "no_speech": 0.048}
+{"v": 1, "ch": "mic", "start_ms": 32758, "end_ms": 35810, "text": "Yo hice bug ayer y ya esta done", "lang": "es", "conf": -0.28, "no_speech": 0.011}
+{"v": 1, "ch": "system", "start_ms": 37014, "end_ms": 39295, "text": "Necesitamos hacer sprint antes del demo", "lang": "es", "conf": -0.525, "no_speech": 0.038}

@@ -1,0 +1,60 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "teams",
+  "script": [],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "Unknown User",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Hello everyone.",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Usuario desconocido",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Hola a todos.",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

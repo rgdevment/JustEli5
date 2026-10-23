@@ -1,0 +1,26 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Speaker A",
+          "xxxx x xxxxx"
+        ],
+        [
+          "Speaker B",
+          "\u00bfxxxxxx?"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Speaker B",
+          "\u00bfxxxxxx?"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n xx xxxxxxxx"
+      },
+      "meeting_name": "Reuni\u00f3n xx xxxxxxxx"
+    }
+  ]
+}

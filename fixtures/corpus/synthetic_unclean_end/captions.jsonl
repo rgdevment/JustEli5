@@ -1,0 +1,6 @@
+{"v": 2, "seq": 1, "frame": 1, "t": 1700000000.3, "wall_ms": 1700000000300, "mono_ms": 300.0, "read_ms": 500.0, "speaker": "Ana", "text": "primera frase de la reunion", "decision": "new_open"}
+{"v": 2, "seq": 2, "frame": 2, "t": 1700000001.9, "wall_ms": 1700000001900, "mono_ms": 1900.0, "read_ms": 500.0, "speaker": "Luis", "text": "segunda frase distinta de otra voz", "decision": "new_open"}
+{"v": 2, "seq": 3, "frame": 2, "t": 1700000001.9, "wall_ms": 1700000001900, "mono_ms": 1900.0, "read_ms": 500.0, "speaker": "Ana", "text": "primera frase de la reunion", "decision": "committed", "first_mono_ms": 300.0, "last_mono_ms": 300.0}
+{"v": 2, "seq": 4, "frame": 3, "t": 1700000003.5, "wall_ms": 1700000003500, "mono_ms": 3500.0, "read_ms": 500.0, "speaker": "Ana", "text": "tercera frase todavia abierta", "decision": "new_open"}
+{"v": 2, "seq": 5, "frame": 3, "t": 1700000003.5, "wall_ms": 1700000003500, "mono_ms": 3500.0, "read_ms": 500.0, "speaker": "Luis", "text": "segunda frase distinta de otra voz", "decision": "committed", "first_mono_ms": 1900.0, "last_mono_ms": 1900.0}
+{"v": 2, "seq": 6, "frame": 4, "t": 1700000003.8, "wall_ms": 1700000003800, "mono_ms": 3800.0, "read_ms": 500.0, "speaker": "Ana", "text": "tercera frase todavia abierta y creciendo", "decision"

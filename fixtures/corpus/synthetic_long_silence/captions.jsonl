@@ -1,0 +1,6 @@
+{"v": 2, "seq": 1, "frame": 1, "t": 1700000000.3, "wall_ms": 1700000000300, "mono_ms": 300.0, "read_ms": 500.0, "speaker": "Ana", "text": "Voy a decir algo importante", "decision": "new_open"}
+{"v": 2, "seq": 2, "frame": 2, "t": 1700000000.6, "wall_ms": 1700000000600, "mono_ms": 600.0, "read_ms": 500.0, "speaker": "Luis", "text": "Yo respondo con otra cosa distinta", "decision": "new_open"}
+{"v": 2, "seq": 3, "frame": 11, "t": 1700000001.5, "wall_ms": 1700000001500, "mono_ms": 1500.0, "read_ms": 500.0, "speaker": "Ana", "text": "Voy a decir algo importante", "decision": "committed", "first_mono_ms": 300.0, "last_mono_ms": 300.0}
+{"v": 2, "seq": 4, "frame": 14, "t": 1700000001.8, "wall_ms": 1700000001800, "mono_ms": 1800.0, "read_ms": 500.0, "speaker": "Luis", "text": "Yo respondo con otra cosa distinta", "decision": "committed", "first_mono_ms": 600.0, "last_mono_ms": 600.0}
+{"v": 2, "seq": 5, "frame": 43, "t": 1700000004.9, "wall_ms": 1700000004900, "mono_ms": 4900.0, "read_ms": 500.0, "speaker": "Ana", "text": "Ya volvi", "decision": "new_open"}
+{"v": 2, "seq": 6, "frame": 44, "t": 1700000006.9, "wall_ms": 1700000006900, "mono_ms": 6900.0, "read_ms": 500.0, "speaker": "Ana", "text": "Ya volvi", "decision": "committed", "first_mono_ms": 4900.0, "last_mono_ms": 4900.0}

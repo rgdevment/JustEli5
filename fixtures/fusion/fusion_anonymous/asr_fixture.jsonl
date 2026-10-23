@@ -1,0 +1,12 @@
+{"v": 1, "ch": "mic", "start_ms": 3334, "end_ms": 5613, "text": "Necesitamos hacer sprint antes del release", "lang": "es", "conf": -0.17, "no_speech": 0.032}
+{"v": 1, "ch": "system", "start_ms": 7183, "end_ms": 10215, "text": "Yo hice backlog ayer y ya está done", "lang": "es", "conf": -0.383, "no_speech": 0.047}
+{"v": 1, "ch": "system", "start_ms": 11396, "end_ms": 14472, "text": "Creo que el release también depende de QA", "lang": "es", "conf": -0.581, "no_speech": 0.011}
+{"v": 1, "ch": "system", "start_ms": 15788, "end_ms": 18455, "text": "El bug falló en produccion otra vez", "lang": "es", "conf": -0.483, "no_speech": 0.069}
+{"v": 1, "ch": "mic", "start_ms": 19466, "end_ms": 22116, "text": "Quedamos en en cerrar el deploy el lunes", "lang": "es", "conf": -0.151, "no_speech": 0.069}
+{"v": 1, "ch": "system", "start_ms": 23437, "end_ms": 26450, "text": "Creo que el push tambien depende de staging", "lang": "es", "conf": -0.113, "no_speech": 0.038}
+{"v": 1, "ch": "system", "start_ms": 27725, "end_ms": 31161, "text": "Tengo un bloqueo con el pull request de QA", "lang": "es", "conf": -0.214, "no_speech": 0.033}
+{"v": 1, "ch": "system", "start_ms": 32922, "end_ms": 35556, "text": "¿Alguien puede hacer release de este cambio?", "lang": "es", "conf": -0.21, "no_speech": 0.018}
+{"v": 1, "ch": "mic", "start_ms": 36792, "end_ms": 39832, "text": "Yo hice standup ayer y ya esta bloqueado", "lang": "es", "conf": -0.595, "no_speech": 0.067}
+{"v": 1, "ch": "system", "start_ms": 40609, "end_ms": 43672, "text": "Yo hice backlog ayer y ya esta listo", "lang": "es", "conf": -0.576, "no_speech": 0.051}
+{"v": 1, "ch": "system", "start_ms": 44356, "end_ms": 46616, "text": "Necesitamos hacer deploy antes del release", "lang": "es", "conf": -0.238, "no_speech": 0.053}
+{"v": 1, "ch": "system", "start_ms": 48373, "end_ms": 50703, "text": "Necesitamos hacer sprint antes del demo", "lang": "es", "conf": -0.497, "no_speech": 0.013}

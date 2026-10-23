@@ -1,0 +1,14 @@
+{"v": 1, "ch": "system", "start_ms": 2368, "end_ms": 5439, "text": "Tengo un bloqueo con el merge de QA", "lang": "es", "conf": -0.302, "no_speech": 0.022}
+{"v": 1, "ch": "system", "start_ms": 6428, "end_ms": 9028, "text": "Necesitamos hacer pull request antes del demo", "lang": "es", "conf": -0.382, "no_speech": 0.019}
+{"v": 1, "ch": "mic", "start_ms": 10218, "end_ms": 13270, "text": "Tengo un bloqueo con el staging de staging", "lang": "es", "conf": -0.159, "no_speech": 0.052}
+{"v": 1, "ch": "system", "start_ms": 14282, "end_ms": 17400, "text": "Creo que el ticket también depende de staging", "lang": "es", "conf": -0.225, "no_speech": 0.022}
+{"v": 1, "ch": "mic", "start_ms": 18705, "end_ms": 21698, "text": "Manana termino el deploy y lo dejo bloqueado", "lang": "es", "conf": -0.439, "no_speech": 0.064}
+{"v": 1, "ch": "system", "start_ms": 22791, "end_ms": 26216, "text": "Yo hice pull request ayer y ya esta done", "lang": "es", "conf": -0.248, "no_speech": 0.012}
+{"v": 1, "ch": "mic", "start_ms": 27746, "end_ms": 30722, "text": "Mañana termino el done y lo dejo bloqueado", "lang": "es", "conf": -0.446, "no_speech": 0.026}
+{"v": 1, "ch": "system", "start_ms": 31809, "end_ms": 34485, "text": "Quedamos en cerrar el pipeline el viernes", "lang": "es", "conf": -0.55, "no_speech": 0.037}
+{"v": 1, "ch": "mic", "start_ms": 36194, "end_ms": 39274, "text": "Tengo un bloqueo con el hotfix de QA", "lang": "es", "conf": -0.401, "no_speech": 0.07}
+{"v": 1, "ch": "system", "start_ms": 40657, "end_ms": 43674, "text": "Tengo un bloqueo con el merge de staging", "lang": "es", "conf": -0.176, "no_speech": 0.02}
+{"v": 1, "ch": "system", "start_ms": 44890, "end_ms": 47975, "text": "Mañana termino el merge y lo dejo bloqueado", "lang": "es", "conf": -0.525, "no_speech": 0.013}
+{"v": 1, "ch": "system", "start_ms": 48479, "end_ms": 51588, "text": "Yo hice deploy ayer y ya está listo", "lang": "es", "conf": -0.464, "no_speech": 0.051}
+{"v": 1, "ch": "mic", "start_ms": 52077, "end_ms": 54723, "text": "El bug falló en producción otra vez", "lang": "es", "conf": -0.321, "no_speech": 0.014}
+{"v": 1, "ch": "mic", "start_ms": 55488, "end_ms": 58176, "text": "Quedamos en cerrar el bug el martes", "lang": "es", "conf": -0.127, "no_speech": 0.054}

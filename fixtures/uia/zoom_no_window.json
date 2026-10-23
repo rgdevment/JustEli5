@@ -1,0 +1,25 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "zoom",
+  "script": [
+    {
+      "windows": []
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "Notepad",
+      "handle": 10,
+      "pid": 6010,
+      "process": "notepad.exe",
+      "title": "Sin t\u00edtulo - Bloc de notas",
+      "tree": {
+        "role": "Window"
+      }
+    }
+  ]
+}

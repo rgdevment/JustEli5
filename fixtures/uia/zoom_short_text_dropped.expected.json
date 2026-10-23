@@ -1,0 +1,48 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana",
+          "hola"
+        ],
+        [
+          "Luis",
+          "abc"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis",
+          "abc"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de producto"
+      },
+      "meeting_name": "Reuni\u00f3n de producto"
+    },
+    {
+      "captions_all": [
+        [
+          "Ana",
+          "hola"
+        ],
+        [
+          "Luis",
+          "abc"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis",
+          "abc"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de producto"
+      },
+      "meeting_name": "Reuni\u00f3n de producto"
+    }
+  ]
+}

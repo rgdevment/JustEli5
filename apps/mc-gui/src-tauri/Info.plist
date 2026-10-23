@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>JustEli5 graba tu micrófono durante la reunión si activas «Grabar audio».</string>
+  <key>NSAudioCaptureUsageDescription</key>
+  <string>JustEli5 graba el audio de la aplicación de la reunión si activas «Grabar audio».</string>
+</dict>
+</plist>

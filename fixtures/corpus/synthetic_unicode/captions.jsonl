@@ -1,0 +1,13 @@
+{"v": 2, "seq": 1, "frame": 1, "t": 1700000000.3, "wall_ms": 1700000000300, "mono_ms": 300.0, "read_ms": 500.0, "speaker": "Ana", "text": "日本語のテキストだけ", "decision": "no_alnum"}
+{"v": 2, "seq": 2, "frame": 2, "t": 1700000001.9, "wall_ms": 1700000001900, "mono_ms": 1900.0, "read_ms": 500.0, "speaker": "Ana", "text": "emoji 😀 con 👨‍👩 ZWJ", "decision": "new_open"}
+{"v": 2, "seq": 3, "frame": 3, "t": 1700000003.5, "wall_ms": 1700000003500, "mono_ms": 3500.0, "read_ms": 500.0, "speaker": "Ana", "text": "emoji 😀 con 👨‍👩 ZWJ", "decision": "committed", "first_mono_ms": 1900.0, "last_mono_ms": 1900.0}
+{"v": 2, "seq": 4, "frame": 3, "t": 1700000003.5, "wall_ms": 1700000003500, "mono_ms": 3500.0, "read_ms": 500.0, "speaker": "Ana", "text": "café en NFC", "decision": "newline"}
+{"v": 2, "seq": 5, "frame": 4, "t": 1700000003.8, "wall_ms": 1700000003800, "mono_ms": 3800.0, "read_ms": 500.0, "speaker": "Ana", "text": "café en NFC", "decision": "committed", "first_mono_ms": 3500.0, "last_mono_ms": 3500.0}
+{"v": 2, "seq": 6, "frame": 4, "t": 1700000003.8, "wall_ms": 1700000003800, "mono_ms": 3800.0, "read_ms": 500.0, "speaker": "Ana", "text": "café en NFD", "decision": "newline"}
+{"v": 2, "seq": 7, "frame": 5, "t": 1700000005.4, "wall_ms": 1700000005400, "mono_ms": 5400.0, "read_ms": 500.0, "speaker": "Luis", "text": "İstanbul y Straße", "decision": "new_open"}
+{"v": 2, "seq": 8, "frame": 5, "t": 1700000005.4, "wall_ms": 1700000005400, "mono_ms": 5400.0, "read_ms": 500.0, "speaker": "Ana", "text": "café en NFD", "decision": "committed", "first_mono_ms": 3800.0, "last_mono_ms": 3800.0}
+{"v": 2, "seq": 9, "frame": 6, "t": 1700000007.0, "wall_ms": 1700000007000, "mono_ms": 7000.0, "read_ms": 500.0, "speaker": "Luis", "text": "İstanbul y Straße", "decision": "committed", "first_mono_ms": 5400.0, "last_mono_ms": 5400.0}
+{"v": 2, "seq": 10, "frame": 6, "t": 1700000007.0, "wall_ms": 1700000007000, "mono_ms": 7000.0, "read_ms": 500.0, "speaker": "Luis", "text": "con tab y salto crudo", "decision": "newline"}
+{"v": 2, "seq": 11, "frame": 7, "t": 1700000008.6, "wall_ms": 1700000008600, "mono_ms": 8600.0, "read_ms": 500.0, "speaker": "Marta", "text": "ΑΣ final", "decision": "new_open"}
+{"v": 2, "seq": 12, "frame": 7, "t": 1700000008.6, "wall_ms": 1700000008600, "mono_ms": 8600.0, "read_ms": 500.0, "speaker": "Luis", "text": "con tab y salto crudo", "decision": "committed", "first_mono_ms": 7000.0, "last_mono_ms": 7000.0}
+{"v": 2, "seq": 13, "frame": 8, "t": 1700000011.6, "wall_ms": 1700000011600, "mono_ms": 11600.0, "read_ms": 500.0, "speaker": "Marta", "text": "ΑΣ final", "decision": "committed", "first_mono_ms": 8600.0, "last_mono_ms": 8600.0}

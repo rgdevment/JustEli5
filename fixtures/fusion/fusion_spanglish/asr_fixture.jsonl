@@ -1,0 +1,12 @@
+{"v": 1, "ch": "mic", "start_ms": 2199, "end_ms": 5692, "text": "Creo que el pull request también depende de QA", "lang": "es", "conf": -0.406, "no_speech": 0.068}
+{"v": 1, "ch": "system", "start_ms": 7217, "end_ms": 10286, "text": "I will check the push after the meeting", "lang": "en", "conf": -0.358, "no_speech": 0.045}
+{"v": 1, "ch": "system", "start_ms": 11115, "end_ms": 14116, "text": "Manana termino el rollback y lo dejo bloqueado", "lang": "es", "conf": -0.462, "no_speech": 0.037}
+{"v": 1, "ch": "mic", "start_ms": 15003, "end_ms": 17626, "text": "¿Alguien puede hacer done de este cambio?", "lang": "es", "conf": -0.223, "no_speech": 0.013}
+{"v": 1, "ch": "system", "start_ms": 18908, "end_ms": 23150, "text": "Let us close the merge on viernes if nothing blocks us", "lang": "en", "conf": -0.525, "no_speech": 0.061}
+{"v": 1, "ch": "system", "start_ms": 24662, "end_ms": 27762, "text": "Quedamos en cerrar el pull request el lunes", "lang": "es", "conf": -0.441, "no_speech": 0.029}
+{"v": 1, "ch": "mic", "start_ms": 28623, "end_ms": 31676, "text": "Creo que el bug tambien depende de produccion", "lang": "es", "conf": -0.325, "no_speech": 0.015}
+{"v": 1, "ch": "system", "start_ms": 32757, "end_ms": 35810, "text": "The hotfix is ready for review on QA", "lang": "en", "conf": -0.339, "no_speech": 0.035}
+{"v": 1, "ch": "system", "start_ms": 37546, "end_ms": 40586, "text": "Manana termino el pipeline y lo dejo done", "lang": "es", "conf": -0.518, "no_speech": 0.011}
+{"v": 1, "ch": "mic", "start_ms": 41697, "end_ms": 44703, "text": "Yo hice merge ayer y ya esta bloqueado", "lang": "es", "conf": -0.193, "no_speech": 0.03}
+{"v": 1, "ch": "system", "start_ms": 46174, "end_ms": 49648, "text": "Can you share the hotfix link in the chat", "lang": "en", "conf": -0.522, "no_speech": 0.037}
+{"v": 1, "ch": "system", "start_ms": 51267, "end_ms": 54304, "text": "El pull request falló en staging otra vez", "lang": "es", "conf": -0.183, "no_speech": 0.058}

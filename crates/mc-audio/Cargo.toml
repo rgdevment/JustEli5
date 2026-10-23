@@ -1,0 +1,41 @@
+[package]
+name = "mc-audio"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+mc-core = { path = "../mc-core" }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = { version = "1.0.154", features = ["float_roundtrip"] }
+# The real-time sample ring; pure code, tested on every platform.
+rtrb = "0.4.0"
+
+[dev-dependencies]
+tempfile = "3.27.0"
+
+# Real devices only exist on the platforms we ship; Linux builds (CI, tests) skip them.
+[target.'cfg(any(windows, target_os = "macos"))'.dependencies]
+cpal = "0.18.2"
+# Process names for the meeting-app lookup.
+sysinfo = { version = "0.39.6", default-features = false, features = ["system"] }
+
+[target.'cfg(windows)'.dependencies]
+wasapi = "0.26.0"
+
+# objc2 family (the line cpal already pulls in): Core Audio process taps (14.4+) and ScreenCaptureKit (13+).
+[target.'cfg(target_os = "macos")'.dependencies]
+block2 = "0.6.2"
+dispatch2 = "0.3.0"
+objc2 = "0.6.5"
+objc2-core-audio = "0.3.2"
+objc2-core-audio-types = "0.3.2"
+objc2-core-foundation = "0.3.2"
+objc2-core-media = "0.3.2"
+objc2-foundation = "0.3.2"
+objc2-screen-capture-kit = "0.3.2"

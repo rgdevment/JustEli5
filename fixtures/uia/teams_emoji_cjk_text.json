@@ -1,0 +1,86 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "teams",
+  "script": [],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "\u7530\u4e2d \u592a\u90ce",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "\u4f1a\u8b70\u3092\u59cb\u3081\u307e\u3059 \ud83d\ude42",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "\ud83d\udc69\u200d\ud83d\udcbb Ana",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "\ud83d\udc4d\ud83c\udffd de acuerdo",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Luis P\u00e9rez",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "\u3053\u3093\u306b\u3061\u306f\u3001\u7686\u3055\u3093",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  },
+                  {
+                    "children": [
+                      {
+                        "name": "Mar\u00eda Soto",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "e\u0301 combinado, \u00f1and\u00fa",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

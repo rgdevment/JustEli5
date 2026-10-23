@@ -1,0 +1,52 @@
+{
+  "worlds": [
+    {
+      "captions_all": [
+        [
+          "Ana",
+          "Ana, hola a todos"
+        ],
+        [
+          "Luis P\u00e9rez",
+          "Luis P\u00e9rez, buenos d\u00edas"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis P\u00e9rez",
+          "Luis P\u00e9rez, buenos d\u00edas"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de producto"
+      },
+      "meeting_name": "Reuni\u00f3n de producto"
+    },
+    {
+      "captions_all": [
+        [
+          "Ana",
+          "Ana, hola a todos"
+        ],
+        [
+          "Luis P\u00e9rez",
+          "buenos d\u00edas"
+        ],
+        [
+          "Mar\u00eda Soto",
+          "Mar\u00eda Soto, ok"
+        ]
+      ],
+      "captions_last": [
+        [
+          "Mar\u00eda Soto",
+          "Mar\u00eda Soto, ok"
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n de producto"
+      },
+      "meeting_name": "Reuni\u00f3n de producto"
+    }
+  ]
+}

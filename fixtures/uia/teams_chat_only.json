@@ -1,0 +1,125 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "teams",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "TeamsWebView",
+          "handle": 1,
+          "pid": 4001,
+          "process": "ms-teams.exe",
+          "title": "Chat | Microsoft Teams",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "name": "Ana",
+                            "role": "Text"
+                          },
+                          {
+                            "name": "Esto no es una reuni\u00f3n.",
+                            "role": "Text"
+                          }
+                        ],
+                        "role": "Group"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        },
+        {
+          "class": "TeamsWebView",
+          "handle": 2,
+          "pid": 4002,
+          "process": "ms-teams.exe",
+          "title": "Teams and channels | Microsoft Teams",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "name": "Canal general",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        },
+        {
+          "class": "Chrome_WidgetWin_1",
+          "handle": 3,
+          "pid": 6003,
+          "process": "chrome.exe",
+          "title": "Reuni\u00f3n - Microsoft Teams - Google Chrome",
+          "tree": {
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Chat | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "name": "Ana",
+                        "role": "Text"
+                      },
+                      {
+                        "name": "Esto no es una reuni\u00f3n.",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Group"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

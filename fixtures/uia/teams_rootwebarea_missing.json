@@ -1,0 +1,147 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic",
+  "platform": "teams",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "TeamsWebView",
+          "handle": 1,
+          "pid": 4001,
+          "process": "ms-teams.exe",
+          "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "name": "Ana Garc\u00eda",
+                                    "role": "Text"
+                                  },
+                                  {
+                                    "name": "Sin \u00e1rea web en el \u00e1rbol.",
+                                    "role": "Text"
+                                  }
+                                ],
+                                "role": "Group"
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "name": "Luis P\u00e9rez",
+                                    "role": "Text"
+                                  },
+                                  {
+                                    "name": "Pero la ventana s\u00ed.",
+                                    "role": "Text"
+                                  }
+                                ],
+                                "role": "Group"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              },
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "name": "Sin subt\u00edtulos aqu\u00ed",
+                        "role": "Text"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "name": "Ana Garc\u00eda",
+                                "role": "Text"
+                              },
+                              {
+                                "name": "Sin \u00e1rea web en el \u00e1rbol.",
+                                "role": "Text"
+                              }
+                            ],
+                            "role": "Group"
+                          },
+                          {
+                            "children": [
+                              {
+                                "name": "Luis P\u00e9rez",
+                                "role": "Text"
+                              },
+                              {
+                                "name": "Pero la ventana s\u00ed.",
+                                "role": "Text"
+                              }
+                            ],
+                            "role": "Group"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

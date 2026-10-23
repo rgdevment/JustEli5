@@ -1,0 +1,22 @@
+{"v": 1, "ch": "mic", "start_ms": 3262, "end_ms": 5765, "text": "Necesitamos hacer done antes del sprint, Quedamos", "lang": "es", "conf": -0.563, "no_speech": 0.016}
+{"v": 1, "ch": "mic", "start_ms": 5765, "end_ms": 8269, "text": "en en cerrar el push el viernes", "lang": "es", "conf": -0.563, "no_speech": 0.016}
+{"v": 1, "ch": "system", "start_ms": 9328, "end_ms": 10836, "text": "Yo hice done ayer", "lang": "es", "conf": -0.312, "no_speech": 0.015}
+{"v": 1, "ch": "system", "start_ms": 10836, "end_ms": 12345, "text": "y ya está done", "lang": "es", "conf": -0.312, "no_speech": 0.015}
+{"v": 1, "ch": "system", "start_ms": 13255, "end_ms": 16285, "text": "Tengo un bloqueo con el pull request de", "lang": "es", "conf": -0.156, "no_speech": 0.06}
+{"v": 1, "ch": "system", "start_ms": 16285, "end_ms": 19695, "text": "QA, Manana termino el backlog y lo dejo bloqueado", "lang": "es", "conf": -0.156, "no_speech": 0.06}
+{"v": 1, "ch": "system", "start_ms": 20078, "end_ms": 20798, "text": "Mm, sí", "lang": "es", "conf": -0.403, "no_speech": 0.053}
+{"v": 1, "ch": "mic", "start_ms": 21951, "end_ms": 24594, "text": "El pipeline falló en producción otra vez", "lang": "es", "conf": -0.569, "no_speech": 0.05}
+{"v": 1, "ch": "system", "start_ms": 25149, "end_ms": 27799, "text": "Tengo un bloqueo con el hotfix de", "lang": "es", "conf": -0.339, "no_speech": 0.066}
+{"v": 1, "ch": "system", "start_ms": 27799, "end_ms": 30450, "text": "QA, Necesitamos hacer staging antes del demo", "lang": "es", "conf": -0.339, "no_speech": 0.066}
+{"v": 1, "ch": "system", "start_ms": 32228, "end_ms": 35686, "text": "Necesitamos hacer release antes del demo Perfecto", "lang": "es", "conf": -0.537, "no_speech": 0.042}
+{"v": 1, "ch": "mic", "start_ms": 36431, "end_ms": 39084, "text": "¿Alguien puede hacer staging de este cambio?,", "lang": "es", "conf": -0.598, "no_speech": 0.028}
+{"v": 1, "ch": "mic", "start_ms": 39084, "end_ms": 42118, "text": "Creo que el deploy también depende de staging", "lang": "es", "conf": -0.598, "no_speech": 0.028}
+{"v": 1, "ch": "system", "start_ms": 43493, "end_ms": 46133, "text": "¿Alguien puede hacer bug de este cambio?", "lang": "es", "conf": -0.199, "no_speech": 0.026}
+{"v": 1, "ch": "system", "start_ms": 47050, "end_ms": 50116, "text": "Mañana termino el merge y lo dejo done,", "lang": "es", "conf": -0.348, "no_speech": 0.036}
+{"v": 1, "ch": "system", "start_ms": 50116, "end_ms": 53182, "text": "Mañana termino el bug y lo dejo listo", "lang": "es", "conf": -0.348, "no_speech": 0.036}
+{"v": 1, "ch": "system", "start_ms": 53547, "end_ms": 54215, "text": "Mm, sí", "lang": "es", "conf": -0.505, "no_speech": 0.055}
+{"v": 1, "ch": "mic", "start_ms": 55754, "end_ms": 57276, "text": "Creo que el staging", "lang": "es", "conf": -0.397, "no_speech": 0.042}
+{"v": 1, "ch": "mic", "start_ms": 57276, "end_ms": 58798, "text": "tambien depende de QA", "lang": "es", "conf": -0.397, "no_speech": 0.042}
+{"v": 1, "ch": "system", "start_ms": 59373, "end_ms": 62428, "text": "Yo hice standup ayer y ya esta done,", "lang": "es", "conf": -0.573, "no_speech": 0.012}
+{"v": 1, "ch": "system", "start_ms": 62428, "end_ms": 65484, "text": "Creo que el merge tambien depende de staging", "lang": "es", "conf": -0.573, "no_speech": 0.012}
+{"v": 1, "ch": "system", "start_ms": 66579, "end_ms": 70275, "text": "¿Alguien puede hacer release de este cambio? Sí", "lang": "es", "conf": -0.413, "no_speech": 0.051}

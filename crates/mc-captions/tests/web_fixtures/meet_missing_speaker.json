@@ -1,0 +1,94 @@
+{
+ "format": "mc-uia-tree",
+ "version": 1,
+ "platform": "meet",
+ "app": "Google Meet (synthetic)",
+ "anonymized": false,
+ "note": "synthetic; a caption block without a speaker name",
+ "windows": [
+  {
+   "handle": 1,
+   "title": "Meet - abc-defg-hij - Google Chrome",
+   "class": "Chrome_WidgetWin_1",
+   "pid": 7020,
+   "process": "chrome.exe",
+   "tree": {
+    "role": "Window",
+    "children": [
+     {
+      "role": "Pane",
+      "children": [
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Other",
+          "children": [
+           {
+            "role": "TabItem",
+            "name": "Meet - abc-defg-hij"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "role": "Pane",
+        "children": [
+         {
+          "role": "Pane",
+          "children": [
+           {
+            "role": "Document",
+            "aid": "RootWebArea",
+            "children": [
+             {
+              "role": "Group",
+              "name": "Captions",
+              "children": [
+               {
+                "role": "Group",
+                "children": [
+                 {
+                  "role": "Group",
+                  "children": [
+                   {
+                    "role": "Text",
+                    "name": "Hello without a name"
+                   }
+                  ]
+                 },
+                 {
+                  "role": "Group",
+                  "children": [
+                   {
+                    "role": "Image"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "Luis Pérez"
+                   },
+                   {
+                    "role": "Text",
+                    "name": "Hi."
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "script": []
+}

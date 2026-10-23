@@ -1,0 +1,205 @@
+{
+  "anonymized": true,
+  "app": "Zoom Workplace (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic: caption window at depth 5 (world 0) is found; at depth 6 (world 1) it is not, with an unnamed list; at depth 6 with a named list (world 2) the fallback finds it.",
+  "platform": "zoom",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "ConfMultiTabContentWndClass",
+          "handle": 1,
+          "pid": 5001,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de producto",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "name": "hola a todos",
+                                                    "role": "Edit"
+                                                  }
+                                                ],
+                                                "role": "Pane"
+                                              }
+                                            ],
+                                            "name": "Ana, hola a todos",
+                                            "role": "ListItem"
+                                          }
+                                        ],
+                                        "role": "List"
+                                      }
+                                    ],
+                                    "class": "ZConfCCRecieveWndExClass",
+                                    "role": "Window"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    },
+    {
+      "windows": [
+        {
+          "class": "ConfMultiTabContentWndClass",
+          "handle": 1,
+          "pid": 5001,
+          "process": "Zoom.exe",
+          "title": "Reuni\u00f3n de producto",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "name": "hola a todos",
+                                                    "role": "Edit"
+                                                  }
+                                                ],
+                                                "role": "Pane"
+                                              }
+                                            ],
+                                            "name": "Ana, hola a todos",
+                                            "role": "ListItem"
+                                          }
+                                        ],
+                                        "name": "Closed caption",
+                                        "role": "List"
+                                      }
+                                    ],
+                                    "class": "ZConfCCRecieveWndExClass",
+                                    "role": "Window"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "ConfMultiTabContentWndClass",
+      "handle": 1,
+      "pid": 5001,
+      "process": "Zoom.exe",
+      "title": "Reuni\u00f3n de producto",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "name": "hola a todos",
+                                            "role": "Edit"
+                                          }
+                                        ],
+                                        "role": "Pane"
+                                      }
+                                    ],
+                                    "name": "Ana, hola a todos",
+                                    "role": "ListItem"
+                                  }
+                                ],
+                                "role": "List"
+                              }
+                            ],
+                            "class": "ZConfCCRecieveWndExClass",
+                            "role": "Window"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}

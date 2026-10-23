@@ -1,0 +1,20 @@
+● REC  attached: Weekly sync | Microsoft Teams  consent: flag                                         00:01:35
+┌Transcript──────────────────────────────────────────────────────┐┌Ledger────────────────────────────────────┐
+│[00:03] Ana: Bom dia a todos, vamos começar.                    ││Waiting for the first window…             │
+│[00:12] Bruno: Eu já mandei o relatório ontem.                  ││                                          │
+│[00:21] Carla: Perfeito, obrigada.                              ││                                          │
+│[00:30] Ana: Então o primeiro ponto é o orçamento.              ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││                                          │
+│                                                                ││! segments #0-#19 not analysed: the model │
+│                                                                ││did not answer in time                    │
+└────────────────────────────────────────────────────────────────┘└──────────────────────────────────────────┘
+q stop  p pause  n note  m mark  c fix  s name  l panel  ↑↓ scroll  ? help

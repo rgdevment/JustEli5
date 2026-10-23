@@ -1,0 +1,8 @@
+{"t": 1700000001.5, "speaker": "Ana García", "text": "Hola a todos", "decision": "new_open"}
+{"t": 1700000002.25, "speaker": "Ana García", "text": "Hola a todos, ¿me escuchan?", "decision": "grow"}
+{"t": 1700000003.0, "speaker": "Bob", "text": "", "decision": "empty_text"}
+{"t": 1700000004.125, "speaker": "Invitado", "text": "comillas \" y \\ y salto\n", "decision": "excluded_speaker"}
+{"t": 1700000005.5, "speaker": "Bob", "text": "Hola a todos, ¿me escuchan? Sí", "decision": "merge_p0.67_r0.67"}
+{"t": 1700000006.0, "speaker": "Bob", "text": "Hola a todos, ¿me escuchan? Sí", "decision": "dup_exact"}
+{"t": 1700000007.75, "speaker": "🎤 Ñoño", "text": "emoji 🎉 漢字", "decision": "committed"}
+{"t": 1700000008.0, "speaker": "Unknown User", "text": "Fin", "decision": "dup_committed_skip"}

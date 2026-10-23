@@ -1,0 +1,25 @@
+name: The stable toolchain
+description: Stable Rust brought up to date, with rustfmt and clippy, and whatever else a job asks for.
+
+inputs:
+  components:
+    description: More components to add, comma separated.
+    required: false
+    default: ""
+  targets:
+    description: Rust targets to add, comma separated.
+    required: false
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    # rust-toolchain.toml names components but no channel, so stable is named here and kept current.
+    - shell: bash
+      env:
+        COMPONENTS: ${{ inputs.components }}
+        TARGETS: ${{ inputs.targets }}
+      run: |
+        rustup toolchain install stable --no-self-update --component "rustfmt,clippy${COMPONENTS:+,$COMPONENTS}"
+        rustup default stable
+        if [ -n "$TARGETS" ]; then rustup target add ${TARGETS//,/ }; fi

@@ -1,0 +1,18 @@
+{
+ "anonymous_speaker_aliases": [
+  "usuario desconocido",
+  "unknown user"
+ ],
+ "anonymous_speaker_label": "Invitado sin nombre",
+ "capture_defaults": {
+  "context_overlap": 150,
+  "fuzzy_threshold": 0.8,
+  "line_debounce_sec": 1.2,
+  "merge_similarity": 0.8,
+  "min_words_for_timeout": 50,
+  "no_caption_warn_sec": 25,
+  "silence_timeout": 20,
+  "word_threshold": 350
+ },
+ "recent_committed_capacity": 80
+}

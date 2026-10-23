@@ -1,0 +1,30 @@
+{
+  "worlds": [
+    {
+      "captions_all": [],
+      "captions_last": [],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    },
+    {
+      "captions_all": [
+        [
+          "Luis P\u00e9rez",
+          "Ahora el documento A s\u00ed tiene subt\u00edtulos."
+        ]
+      ],
+      "captions_last": [
+        [
+          "Luis P\u00e9rez",
+          "Ahora el documento A s\u00ed tiene subt\u00edtulos."
+        ]
+      ],
+      "discover": {
+        "attached": "Reuni\u00f3n con Ana | Microsoft Teams"
+      },
+      "meeting_name": "Reuni\u00f3n con Ana | Microsoft Teams"
+    }
+  ]
+}

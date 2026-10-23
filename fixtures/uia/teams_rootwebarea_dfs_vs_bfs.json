@@ -1,0 +1,417 @@
+{
+  "anonymized": true,
+  "app": "Microsoft Teams (synthetic)",
+  "format": "mc-uia-tree",
+  "note": "synthetic: two RootWebArea documents. Search is depth-first pre-order, so the first one (A, depth 8, no captions) wins; the window fallback reads nothing (B's captions are at depth 26). Breadth-first would pick B (depth 2) and read its captions. World 1: A has a caption.",
+  "platform": "teams",
+  "script": [
+    {
+      "windows": [
+        {
+          "class": "TeamsWebView",
+          "handle": 1,
+          "pid": 4001,
+          "process": "ms-teams.exe",
+          "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+          "tree": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "aid": "RootWebArea",
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "name": "Luis P\u00e9rez",
+                                                    "role": "Text"
+                                                  },
+                                                  {
+                                                    "name": "Ahora el documento A s\u00ed tiene subt\u00edtulos.",
+                                                    "role": "Text"
+                                                  }
+                                                ],
+                                                "role": "Group"
+                                              }
+                                            ],
+                                            "role": "Document"
+                                          }
+                                        ],
+                                        "role": "Pane"
+                                      }
+                                    ],
+                                    "role": "Pane"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              },
+              {
+                "children": [
+                  {
+                    "aid": "RootWebArea",
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [
+                                                              {
+                                                                "children": [
+                                                                  {
+                                                                    "children": [
+                                                                      {
+                                                                        "children": [
+                                                                          {
+                                                                            "children": [
+                                                                              {
+                                                                                "children": [
+                                                                                  {
+                                                                                    "children": [
+                                                                                      {
+                                                                                        "children": [
+                                                                                          {
+                                                                                            "children": [
+                                                                                              {
+                                                                                                "children": [
+                                                                                                  {
+                                                                                                    "children": [
+                                                                                                      {
+                                                                                                        "children": [
+                                                                                                          {
+                                                                                                            "children": [
+                                                                                                              {
+                                                                                                                "children": [
+                                                                                                                  {
+                                                                                                                    "children": [
+                                                                                                                      {
+                                                                                                                        "name": "Ana Garc\u00eda",
+                                                                                                                        "role": "Text"
+                                                                                                                      },
+                                                                                                                      {
+                                                                                                                        "name": "Subt\u00edtulo a profundidad 24 bajo el documento B.",
+                                                                                                                        "role": "Text"
+                                                                                                                      }
+                                                                                                                    ],
+                                                                                                                    "role": "Group"
+                                                                                                                  }
+                                                                                                                ],
+                                                                                                                "role": "Pane"
+                                                                                                              }
+                                                                                                            ],
+                                                                                                            "role": "Pane"
+                                                                                                          }
+                                                                                                        ],
+                                                                                                        "role": "Pane"
+                                                                                                      }
+                                                                                                    ],
+                                                                                                    "role": "Pane"
+                                                                                                  }
+                                                                                                ],
+                                                                                                "role": "Pane"
+                                                                                              }
+                                                                                            ],
+                                                                                            "role": "Pane"
+                                                                                          }
+                                                                                        ],
+                                                                                        "role": "Pane"
+                                                                                      }
+                                                                                    ],
+                                                                                    "role": "Pane"
+                                                                                  }
+                                                                                ],
+                                                                                "role": "Pane"
+                                                                              }
+                                                                            ],
+                                                                            "role": "Pane"
+                                                                          }
+                                                                        ],
+                                                                        "role": "Pane"
+                                                                      }
+                                                                    ],
+                                                                    "role": "Pane"
+                                                                  }
+                                                                ],
+                                                                "role": "Pane"
+                                                              }
+                                                            ],
+                                                            "role": "Pane"
+                                                          }
+                                                        ],
+                                                        "role": "Pane"
+                                                      }
+                                                    ],
+                                                    "role": "Pane"
+                                                  }
+                                                ],
+                                                "role": "Pane"
+                                              }
+                                            ],
+                                            "role": "Pane"
+                                          }
+                                        ],
+                                        "role": "Pane"
+                                      }
+                                    ],
+                                    "role": "Pane"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Document"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Window"
+          }
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "windows": [
+    {
+      "class": "TeamsWebView",
+      "handle": 1,
+      "pid": 4001,
+      "process": "ms-teams.exe",
+      "title": "Reuni\u00f3n con Ana | Microsoft Teams",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "aid": "RootWebArea",
+                                        "children": [
+                                          {
+                                            "name": "Vista previa del documento A",
+                                            "role": "Text"
+                                          }
+                                        ],
+                                        "role": "Document"
+                                      }
+                                    ],
+                                    "role": "Pane"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Pane"
+              }
+            ],
+            "role": "Pane"
+          },
+          {
+            "children": [
+              {
+                "aid": "RootWebArea",
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "children": [
+                                      {
+                                        "children": [
+                                          {
+                                            "children": [
+                                              {
+                                                "children": [
+                                                  {
+                                                    "children": [
+                                                      {
+                                                        "children": [
+                                                          {
+                                                            "children": [
+                                                              {
+                                                                "children": [
+                                                                  {
+                                                                    "children": [
+                                                                      {
+                                                                        "children": [
+                                                                          {
+                                                                            "children": [
+                                                                              {
+                                                                                "children": [
+                                                                                  {
+                                                                                    "children": [
+                                                                                      {
+                                                                                        "children": [
+                                                                                          {
+                                                                                            "children": [
+                                                                                              {
+                                                                                                "children": [
+                                                                                                  {
+                                                                                                    "children": [
+                                                                                                      {
+                                                                                                        "children": [
+                                                                                                          {
+                                                                                                            "children": [
+                                                                                                              {
+                                                                                                                "children": [
+                                                                                                                  {
+                                                                                                                    "name": "Ana Garc\u00eda",
+                                                                                                                    "role": "Text"
+                                                                                                                  },
+                                                                                                                  {
+                                                                                                                    "name": "Subt\u00edtulo a profundidad 24 bajo el documento B.",
+                                                                                                                    "role": "Text"
+                                                                                                                  }
+                                                                                                                ],
+                                                                                                                "role": "Group"
+                                                                                                              }
+                                                                                                            ],
+                                                                                                            "role": "Pane"
+                                                                                                          }
+                                                                                                        ],
+                                                                                                        "role": "Pane"
+                                                                                                      }
+                                                                                                    ],
+                                                                                                    "role": "Pane"
+                                                                                                  }
+                                                                                                ],
+                                                                                                "role": "Pane"
+                                                                                              }
+                                                                                            ],
+                                                                                            "role": "Pane"
+                                                                                          }
+                                                                                        ],
+                                                                                        "role": "Pane"
+                                                                                      }
+                                                                                    ],
+                                                                                    "role": "Pane"
+                                                                                  }
+                                                                                ],
+                                                                                "role": "Pane"
+                                                                              }
+                                                                            ],
+                                                                            "role": "Pane"
+                                                                          }
+                                                                        ],
+                                                                        "role": "Pane"
+                                                                      }
+                                                                    ],
+                                                                    "role": "Pane"
+                                                                  }
+                                                                ],
+                                                                "role": "Pane"
+                                                              }
+                                                            ],
+                                                            "role": "Pane"
+                                                          }
+                                                        ],
+                                                        "role": "Pane"
+                                                      }
+                                                    ],
+                                                    "role": "Pane"
+                                                  }
+                                                ],
+                                                "role": "Pane"
+                                              }
+                                            ],
+                                            "role": "Pane"
+                                          }
+                                        ],
+                                        "role": "Pane"
+                                      }
+                                    ],
+                                    "role": "Pane"
+                                  }
+                                ],
+                                "role": "Pane"
+                              }
+                            ],
+                            "role": "Pane"
+                          }
+                        ],
+                        "role": "Pane"
+                      }
+                    ],
+                    "role": "Pane"
+                  }
+                ],
+                "role": "Document"
+              }
+            ],
+            "role": "Pane"
+          }
+        ],
+        "role": "Window"
+      }
+    }
+  ]
+}
