@@ -2,7 +2,7 @@
 import type { AudioReport, Check, ConfigFile, Detect, Doctor, Model, Prereq } from "./api";
 import { type State, verdict } from "./audio";
 import { el } from "./dom";
-import { isMac, permissionRows } from "./permissions";
+import { isMac, permissionRows, reportsAccessibility } from "./permissions";
 import { PLATFORMS, platformLabel } from "./platforms";
 import type { Settings } from "./settings";
 
@@ -162,7 +162,15 @@ function captionsRow(s: Snapshot, fix: Fixes, platform: string): Row {
   if (!s.detect) return pending(label);
   const again = { label: "Detectar", run: fix.redetect };
   if (s.detect instanceof Error) {
-    const actions = isMac ? [again, { label: "Pedir permiso", run: () => fix.askPermission("accessibility") }] : [again];
+    // Doctor's Accessibility row carries the fix when it is there; without it this row must.
+    const actions =
+      isMac && !reportsAccessibility(s.doctor)
+        ? [
+            again,
+            { label: "Pedir permiso", run: () => fix.askPermission("accessibility") },
+            { label: "Abrir ajustes", run: () => fix.openSettings("accessibility") },
+          ]
+        : [again];
     return { label, state: "bad", detail: s.detect.message, actions };
   }
   const found = s.detect.platforms.find((p) => p.platform === platform);

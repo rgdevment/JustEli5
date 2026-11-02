@@ -28,7 +28,7 @@ import { byId, show } from "./dom";
 import { confirmAndRun } from "./jobdialog";
 import { LiveMemory } from "./livememory";
 import { MemoryView } from "./memory";
-import { askArgs } from "./permissions";
+import { askArgs, permissionMissing } from "./permissions";
 import { platformLabel } from "./platforms";
 import { runPost } from "./post";
 import * as form from "./prepare";
@@ -84,8 +84,16 @@ export class App {
       this.showMeeting("prepare");
       this.refresh();
     };
+    // Permissions are granted in System Settings or a macOS dialog, outside this window.
+    window.addEventListener("focus", () => this.recheckPermissions());
     if (this.settings.setupDone) this.refresh();
     else this.openSetup();
+  }
+
+  private recheckPermissions(): void {
+    if (!permissionMissing(this.snapshot.doctor)) return;
+    this.loadDoctor();
+    if (this.snapshot.detect instanceof Error) this.detect();
   }
 
   /** The participant notes of older versions go into the memory, once; the memory keeps the mark. */
@@ -234,7 +242,7 @@ export class App {
     form.fillNames([...new Set([...this.settings.recentNames, ...fromSessions])]);
   }
 
-  /** macOS shows its own prompt while eli5 waits; then the checklist reads the answer. */
+  /** The Accessibility and Screen Recording answers come later: coming back to the window re-reads them. */
   private async askPermission(name: string): Promise<void> {
     await mcJson<unknown>(askArgs(name)).catch(() => null);
     this.loadDoctor();

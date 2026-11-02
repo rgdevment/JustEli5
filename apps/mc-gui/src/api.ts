@@ -12,6 +12,8 @@ export interface Check {
   name: string;
   status: "ok" | "warn" | "FAIL";
   detail: string;
+  /** Permission checks only: granted, denied, not_asked, restricted or missing. */
+  state?: string;
 }
 
 export interface Device {

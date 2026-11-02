@@ -238,9 +238,10 @@ const steps: Step[] = [
         await mcJson<unknown>(askArgs(name)).catch(() => null);
         rerender();
       };
-      const open = (page: string) => void openSettings(page).catch(() => {});
+      const open = (page: string) => void openSettings(page).catch((err) => alert(err));
       renderRows(list, permissionRows(doctor, true, ask, open));
-      return list;
+      const again = el("button", { textContent: "Volver a comprobar", type: "button", onclick: () => rerender() });
+      return el("div", {}, list, el("div", { className: "row" }, again));
     },
   },
   {
