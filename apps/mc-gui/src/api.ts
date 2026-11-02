@@ -16,6 +16,11 @@ export interface Check {
   state?: string;
 }
 
+/** One of doctor's checks by name; none while doctor is unread or failed. */
+export function findCheck(doctor: Doctor | Error | undefined, name: string): Check | undefined {
+  return doctor instanceof Error ? undefined : doctor?.checks.find((c) => c.name === name);
+}
+
 export interface Device {
   name: string;
   direction: "input" | "output";

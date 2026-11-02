@@ -1,8 +1,8 @@
 // The status checklist: what is ready (green), what needs a look (amber) and what is missing (red).
-import type { AudioReport, Check, ConfigFile, Detect, Doctor, Model, Prereq } from "./api";
+import { type AudioReport, type ConfigFile, type Detect, type Doctor, findCheck, type Model, type Prereq } from "./api";
 import { type State, verdict } from "./audio";
 import { el } from "./dom";
-import { isMac, permissionRows, reportsAccessibility } from "./permissions";
+import { isMac, permissionRows } from "./permissions";
 import { PLATFORMS, platformLabel } from "./platforms";
 import type { Settings } from "./settings";
 
@@ -43,10 +43,6 @@ export interface Fixes {
 
 const pending = (label: string): Row => ({ label, state: "warn", detail: "Comprobando…", actions: [] });
 
-function check(doctor: Doctor, name: string): Check | undefined {
-  return doctor.checks.find((c) => c.name === name);
-}
-
 function mcRow(s: Snapshot, fix: Fixes): Row {
   if (s.mcPath) return { label: "eli5", state: "ok", detail: s.mcPath, actions: [] };
   return {
@@ -62,7 +58,7 @@ function mcRow(s: Snapshot, fix: Fixes): Row {
 function configRow(s: Snapshot, fix: Fixes): Row {
   const label = "Configuración";
   if (!s.config || !s.doctor) return pending(label);
-  const failed = s.doctor instanceof Error ? undefined : check(s.doctor, "config");
+  const failed = findCheck(s.doctor, "config");
   if (s.doctor instanceof Error || failed?.status === "FAIL") {
     const detail = s.doctor instanceof Error ? s.doctor.message : (failed?.detail ?? "");
     return { label, state: "bad", detail, actions: [{ label: "Abrir configuración", run: fix.openConfig }] };
@@ -81,7 +77,7 @@ function configRow(s: Snapshot, fix: Fixes): Row {
 function whisperRow(s: Snapshot, fix: Fixes): Row {
   const label = "Whisper en eli5";
   if (!s.doctor) return pending(label);
-  const found = s.doctor instanceof Error ? undefined : check(s.doctor, "whisper");
+  const found = findCheck(s.doctor, "whisper");
   if (found?.status === "ok") return { label, state: "ok", detail: found.detail, actions: [] };
   return {
     label,
@@ -116,7 +112,7 @@ function llmRow(s: Snapshot, fix: Fixes): Row {
   const label = "Proveedor de IA";
   if (!s.doctor) return pending(label);
   if (s.doctor instanceof Error) return { label, state: "bad", detail: s.doctor.message, actions: [] };
-  const found = check(s.doctor, "llm");
+  const found = findCheck(s.doctor, "llm");
   if (found?.status === "ok") return { label, state: "ok", detail: found.detail, actions: [] };
   const provider = found?.detail.split(/[ :(]/)[0] ?? "";
   return {
@@ -131,8 +127,8 @@ function tistyRow(s: Snapshot): Row {
   const label = "Tisty";
   if (!s.doctor) return pending(label);
   if (s.doctor instanceof Error) return { label, state: "bad", detail: s.doctor.message, actions: [] };
-  const app = check(s.doctor, "tisty");
-  const server = check(s.doctor, "tisty_mcp");
+  const app = findCheck(s.doctor, "tisty");
+  const server = findCheck(s.doctor, "tisty_mcp");
   if (app?.status === "ok" && server?.status === "ok") {
     return { label, state: "ok", detail: server.detail, actions: [] };
   }
@@ -164,7 +160,7 @@ function captionsRow(s: Snapshot, fix: Fixes, platform: string): Row {
   if (s.detect instanceof Error) {
     // Doctor's Accessibility row carries the fix when it is there; without it this row must.
     const actions =
-      isMac && !reportsAccessibility(s.doctor)
+      isMac && !findCheck(s.doctor, "accessibility")
         ? [
             again,
             { label: "Pedir permiso", run: () => fix.askPermission("accessibility") },
@@ -190,7 +186,7 @@ function captionsRow(s: Snapshot, fix: Fixes, platform: string): Row {
   return { label, state: "bad", detail: `No están activados. ${how}`, actions: [again] };
 }
 
-export function rows(s: Snapshot, settings: Settings, fix: Fixes): Row[] {
+export function rows(s: Snapshot, settings: Settings, fix: Fixes, asking: ReadonlySet<string>): Row[] {
   const list = [mcRow(s, fix)];
   if (!s.mcPath) return list;
   list.push(configRow(s, fix));
@@ -203,7 +199,7 @@ export function rows(s: Snapshot, settings: Settings, fix: Fixes): Row[] {
   list.push(llmRow(s, fix));
   if (settings.tisty) list.push(tistyRow(s));
   if (s.doctor && !(s.doctor instanceof Error)) {
-    list.push(...permissionRows(s.doctor, settings.recordAudio, fix.askPermission, fix.openSettings));
+    list.push(...permissionRows(s.doctor, settings.recordAudio, asking, fix.askPermission, fix.openSettings));
   }
   if (settings.recordAudio) list.push(audioRow(s, fix, "mic"), audioRow(s, fix, "system"));
   list.push(captionsRow(s, fix, settings.platform));

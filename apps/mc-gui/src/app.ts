@@ -47,6 +47,11 @@ function failure(err: unknown): Error {
 
 export class App {
   private snapshot: Snapshot = { mcPath: null, mcSource: null };
+  /** Permissions whose macOS prompt is waiting for an answer. */
+  private asking = new Set<string>();
+  /** Doctor and detect runs overlap (focus, asks, refresh): only the newest result is kept. */
+  private doctorRun = 0;
+  private detectRun = 0;
   private models: Model[] = [];
   private meetingView: MeetingView = "prepare";
   private readonly config: ConfigView;
@@ -91,7 +96,7 @@ export class App {
   }
 
   private recheckPermissions(): void {
-    if (!permissionMissing(this.snapshot.doctor)) return;
+    if (!permissionMissing(this.snapshot.doctor, this.settings.recordAudio)) return;
     this.loadDoctor();
     if (this.snapshot.detect instanceof Error) this.detect();
   }
@@ -184,7 +189,7 @@ export class App {
 
   private render(): void {
     const s = this.snapshot;
-    renderRows(byId("checks"), rows(s, this.settings, this.fixes()));
+    renderRows(byId("checks"), rows(s, this.settings, this.fixes(), this.asking));
     form.renderPlatforms(this.settings.platform, s.detect instanceof Error ? undefined : s.detect, (id) => {
       this.settings = { ...this.settings, platform: id };
       saveSettings(this.settings);
@@ -224,7 +229,10 @@ export class App {
 
   private async loadDoctor(): Promise<void> {
     const args = this.settings.tisty ? ["doctor", "--tisty"] : ["doctor"];
-    this.snapshot.doctor = await mcJson<Doctor>(args).catch(failure);
+    const run = ++this.doctorRun;
+    const doctor = await mcJson<Doctor>(args).catch(failure);
+    if (run !== this.doctorRun) return;
+    this.snapshot.doctor = doctor;
     if (!(this.snapshot.doctor instanceof Error)) form.setTistyTarget(this.snapshot.doctor.tisty_target);
     this.render();
   }
@@ -244,7 +252,11 @@ export class App {
 
   /** The Accessibility and Screen Recording answers come later: coming back to the window re-reads them. */
   private async askPermission(name: string): Promise<void> {
+    if (this.asking.has(name)) return;
+    this.asking.add(name);
+    this.render();
     await mcJson<unknown>(askArgs(name)).catch(() => null);
+    this.asking.delete(name);
     this.loadDoctor();
     this.detect();
   }
@@ -252,7 +264,9 @@ export class App {
   async detect(): Promise<void> {
     this.snapshot.detect = undefined;
     this.render();
+    const run = ++this.detectRun;
     const detect = await mcJson<Detect>(["detect"]).catch(failure);
+    if (run !== this.detectRun) return;
     this.snapshot.detect = detect;
     if (!(detect instanceof Error)) {
       this.settings = { ...this.settings, platform: form.preferredPlatform(this.settings.platform, detect) };

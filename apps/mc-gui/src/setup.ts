@@ -154,6 +154,11 @@ function choice(label: string, detail: string, selected: boolean, missing: boole
 
 /** Re-renders the current step after a change that alters its own layout. */
 let rerender: () => void = () => {};
+/** The step on screen, so a late answer does not redraw another one. */
+let shownTitle = "";
+const PERMISSIONS_TITLE = "Permisos de macOS";
+/** Permissions whose macOS prompt is waiting for an answer. */
+const asking = new Set<string>();
 
 const steps: Step[] = [
   {
@@ -227,7 +232,7 @@ const steps: Step[] = [
       ),
   },
   {
-    title: "Permisos de macOS",
+    title: PERMISSIONS_TITLE,
     hint: "macOS pide permiso para leer los subtítulos y grabar el audio. «Pedir permiso» muestra su aviso; si ya lo rechazaste, actívalo en «Abrir ajustes».",
     skip: () => !isMac,
     body: async () => {
@@ -235,11 +240,15 @@ const steps: Step[] = [
       if (doctor instanceof Error) return el("p", { className: "bad", textContent: doctor.message });
       const list = el("ul", { className: "checks" });
       const ask = async (name: string) => {
-        await mcJson<unknown>(askArgs(name)).catch(() => null);
+        if (asking.has(name)) return;
+        asking.add(name);
         rerender();
+        await mcJson<unknown>(askArgs(name)).catch(() => null);
+        asking.delete(name);
+        if (shownTitle === PERMISSIONS_TITLE) rerender();
       };
       const open = (page: string) => void openSettings(page).catch((err) => alert(err));
-      renderRows(list, permissionRows(doctor, true, ask, open));
+      renderRows(list, permissionRows(doctor, true, asking, ask, open));
       const again = el("button", { textContent: "Volver a comprobar", type: "button", onclick: () => rerender() });
       return el("div", {}, list, el("div", { className: "row" }, again));
     },
@@ -421,6 +430,7 @@ export async function runSetup(settings: Settings): Promise<Settings> {
     const step = shown[index];
     byId("setup-count").textContent = `Paso ${index + 1} de ${shown.length}`;
     byId("setup-title").textContent = step.title;
+    shownTitle = step.title;
     byId("setup-hint").textContent = step.hint;
     show(error, false);
     back.disabled = index === 0;
