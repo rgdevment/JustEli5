@@ -23,7 +23,7 @@ import {
 import { renderProbe } from "./audio";
 import { runCapture } from "./capture";
 import { type Fixes, type Snapshot, renderPrereqs, renderRows, rows } from "./checks";
-import { type ConfigView, configView } from "./config";
+import { type ConfigView, configView, getAt } from "./config";
 import { byId, show } from "./dom";
 import { confirmAndRun } from "./jobdialog";
 import { LiveMemory } from "./livememory";
@@ -332,7 +332,7 @@ export class App {
     const title = `${this.settings.name || "Reunión"} · ${platformLabel(this.settings.platform)}`;
 
     this.showMeeting("capture");
-    const people = new LiveMemory();
+    const people = new LiveMemory(await this.myName());
     people.mount((query) => this.openMemory(query));
     const capture = await runCapture(this.captureArgs(contextFile), title, people);
     if (!capture.sessionDir) {
@@ -353,6 +353,14 @@ export class App {
       tisty: this.settings.tisty,
     });
     this.showResult(capture.sessionDir, post.minutes, post.ambiguous);
+  }
+
+  /** Read when the meeting starts: the setup or the Configuración tab may have changed it since. */
+  private async myName(): Promise<string | null> {
+    const me = await configLoad()
+      .then((config) => getAt(config.value, "fusion.me"))
+      .catch(() => null);
+    return typeof me === "string" && me.trim() ? me.trim() : null;
   }
 
   private showResult(sessionDir: string, minutes: string | null, ambiguous: string[]): void {

@@ -12,12 +12,18 @@ function failed(err: unknown): string {
 
 export class LiveMemory {
   private seen = new Set<string>();
+  /** The people already known in this meeting: they tell a shared name apart. */
+  private present: number[] = [];
   private send: Send = () => {};
+
+  /** `me` is the user's name as the setup wrote it. */
+  constructor(private readonly me: string | null) {}
 
   /** Fills the card; `openMemory` shows the Memoria tab with a search. */
   mount(openMemory: (query: string) => void): void {
     byId("live-people").replaceChildren();
     this.seen.clear();
+    this.present = [];
     const heard = el("input", { placeholder: "Teams escribe (p. ej. beri dex)" });
     const correct = el("input", { placeholder: "Debería decir (p. ej. Verídex)" });
     const fix = el("button", { type: "button", textContent: "Corregir" });
@@ -90,28 +96,57 @@ export class LiveMemory {
     this.send = send;
   }
 
-  /** A speaker of this meeting: gets a row, with the role the memory knows, the first time. */
+  /** A speaker of this meeting gets a row the first time; the user does not, their role is in the setup. */
   see(speaker: string): void {
     const who = speaker.trim();
     if (!who || this.seen.has(who)) return;
     this.seen.add(who);
-    const role = el("input", { placeholder: "Rol o cargo" });
+    if (this.me && isMe(who, this.me)) return;
+    const row = el("li", {}, nameCell(who), el("small", { className: "muted", textContent: "buscando…" }));
+    byId("live-people").append(row);
+    this.lookUp(who).then(({ id, role }) =>
+      id !== null && role ? this.showKnown(row, who, id, role) : this.ask(row, who, id, ""),
+    );
+  }
+
+  /** The person the memory has for `who` and their role; unknown when it cannot tell or fails. */
+  private async lookUp(who: string): Promise<{ id: number | null; role: string | null }> {
+    try {
+      const id = await resolve("person", who, this.present);
+      if (id === null) return { id, role: null };
+      this.present.push(id);
+      return { id, role: roleOf((await showEntry(id)).entry) };
+    } catch {
+      return { id: null, role: null };
+    }
+  }
+
+  /** Someone the memory knows with a role: nothing to ask, only something to correct. */
+  private showKnown(row: HTMLLIElement, who: string, id: number, role: string): void {
+    const fix = el("button", { className: "link", type: "button", textContent: "Corregir" });
+    fix.onclick = () => this.ask(row, who, id, role);
+    row.replaceChildren(
+      nameCell(who),
+      el("span", { textContent: role }),
+      fix,
+      el("small", { className: "muted", textContent: "de otras reuniones" }),
+    );
+  }
+
+  /** Asks for the role and the real name: someone new, someone with no role yet, or a correction. */
+  private ask(row: HTMLLIElement, who: string, known: number | null, current: string): void {
+    let id = known;
+    const role = el("input", { value: current, placeholder: "Rol o cargo" });
     const real = el("input", { placeholder: "Nombre real (si Teams lo escribe mal)" });
     const state = el("small", { className: "muted" });
-    let id: number | null = null;
-    resolve("person", who)
-      .then(async (known) => {
-        id = known;
-        if (known !== null && !role.value) role.value = roleOf((await showEntry(known)).entry) ?? "";
-      })
-      .catch(() => {});
     role.onchange = async () => {
       const value = role.value.trim();
-      if (!value) return;
+      if (!value || value === current) return;
       try {
         const saved =
           id === null ? await change(["add", "person", who, "--role", value]) : await change(["edit", String(id), "--role", value]);
         id = saved?.id ?? id;
+        if (id !== null && !this.present.includes(id)) this.present.push(id);
         state.textContent = "guardado";
       } catch (err) {
         state.textContent = failed(err);
@@ -123,8 +158,25 @@ export class LiveMemory {
       this.send(`s ${who} => ${name}`);
       state.textContent = `ahora es ${name}`;
     };
-    byId("live-people").append(
-      el("li", {}, el("span", { className: "who", textContent: who, title: who }), role, real, state),
-    );
+    row.replaceChildren(nameCell(who), role, real, state);
+    if (current) role.focus();
   }
+}
+
+function nameCell(who: string): HTMLElement {
+  return el("span", { className: "who", textContent: who, title: who });
+}
+
+/** Every word of `me` is in `who`, as the minutes decide it: «Mario Hidalgo» is «Mario Rodrigo Hidalgo Garcia». */
+function isMe(who: string, me: string): boolean {
+  const words = (text: string) =>
+    text
+      .normalize("NFD")
+      .replace(/\p{M}/gu, "")
+      .toLowerCase()
+      .split(/[^\p{L}\p{N}]+/u)
+      .filter(Boolean);
+  const mine = words(me);
+  const theirs = new Set(words(who));
+  return mine.length > 0 && mine.every((w) => theirs.has(w));
 }
