@@ -364,7 +364,7 @@ jobs:
     name: justeli5-macos-installer (${{ matrix.arch }})
     needs: [version, tested]
     if: needs.version.outputs.macos == 'true'
-    # Each chip builds on its own: whisper.cpp is compiled natively rather than cross-compiled.
+    # Apple Silicon only: Intel Macs are left out, and whisper.cpp is compiled natively.
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 75
     strategy:
@@ -374,9 +374,6 @@ jobs:
           - target: aarch64-apple-darwin
             arch: aarch64
             runner: macos-latest
-          - target: x86_64-apple-darwin
-            arch: x86_64
-            runner: macos-15-intel
     env:
       TARGET: ${{ matrix.target }}
       ARCH: ${{ matrix.arch }}
@@ -614,13 +611,11 @@ jobs:
           status=0
           want="dist/justeli5-installer-$v-windows-x86_64.exe"
           if [ "$MACOS" = "true" ]; then
-            for arch in aarch64 x86_64; do
-              want="$want dist/justeli5-$v-macos-$arch.app.tar.gz"
-              if [ ! -s "dist/justeli5-installer-$v-macos-$arch.dmg" ]; then
-                echo "::error::the macOS $arch disk image is missing"
-                status=1
-              fi
-            done
+            want="$want dist/justeli5-$v-macos-aarch64.app.tar.gz"
+            if [ ! -s "dist/justeli5-installer-$v-macos-aarch64.dmg" ]; then
+              echo "::error::the macOS disk image is missing"
+              status=1
+            fi
           fi
           for one in $want; do
             if [ ! -s "$one" ]; then
@@ -646,8 +641,7 @@ jobs:
 
           jq -r '.plugins.updater.pubkey' apps/mc-gui/src-tauri/tauri.conf.json | base64 -d > feed.pub
           for one in "dist/justeli5-installer-$v-windows-x86_64.exe" \
-                     "dist/justeli5-$v-macos-aarch64.app.tar.gz" \
-                     "dist/justeli5-$v-macos-x86_64.app.tar.gz"; do
+                     "dist/justeli5-$v-macos-aarch64.app.tar.gz"; do
             [ -s "$one" ] || continue
             base64 -d < "$one.sig" > one.minisig
             if ! minisign -Vm "$one" -p feed.pub -x one.minisig; then
@@ -769,7 +763,6 @@ jobs:
           base="https://github.com/${{ github.repository }}/releases/download/${GITHUB_REF_NAME}"
           win="justeli5-installer-$v-windows-x86_64.exe"
           arm="justeli5-$v-macos-aarch64.app.tar.gz"
-          intel="justeli5-$v-macos-x86_64.app.tar.gz"
 
           if [ ! -s "dist/$win.sig" ]; then
             echo "::error::no updater signature for $v; the release would offer an update nobody can take"
@@ -777,8 +770,7 @@ jobs:
           fi
           ws=$(cat "dist/$win.sig")
           as=$(cat "dist/$arm.sig" 2>/dev/null || true)
-          is=$(cat "dist/$intel.sig" 2>/dev/null || true)
-          if [ "$MACOS" = "true" ] && { [ -z "$as" ] || [ -z "$is" ]; }; then
+          if [ "$MACOS" = "true" ] && [ -z "$as" ]; then
             echo "::error::no updater signature for a Mac, so no Mac would be offered $v"
             exit 1
           fi
@@ -786,11 +778,9 @@ jobs:
                 --arg n "https://github.com/${{ github.repository }}/releases/tag/${GITHUB_REF_NAME}" \
                 --arg wu "$base/$win" --arg ws "$ws" \
                 --arg au "$base/$arm" --arg as "$as" \
-                --arg iu "$base/$intel" --arg is "$is" \
             '{version: $v, notes: $n, platforms:
                ({"windows-x86_64": {url: $wu, signature: $ws}}
-                + (if $as == "" then {} else {"darwin-aarch64": {url: $au, signature: $as}} end)
-                + (if $is == "" then {} else {"darwin-x86_64": {url: $iu, signature: $is}} end))}' \
+                + (if $as == "" then {} else {"darwin-aarch64": {url: $au, signature: $as}} end))}' \
             > "$RUNNER_TEMP/channel.json"
           cat "$RUNNER_TEMP/channel.json"
 
