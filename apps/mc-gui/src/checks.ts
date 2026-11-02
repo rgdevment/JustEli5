@@ -2,6 +2,7 @@
 import type { AudioReport, Check, ConfigFile, Detect, Doctor, Model, Prereq } from "./api";
 import { type State, verdict } from "./audio";
 import { el } from "./dom";
+import { isMac, permissionRows } from "./permissions";
 import { PLATFORMS, platformLabel } from "./platforms";
 import type { Settings } from "./settings";
 
@@ -36,10 +37,9 @@ export interface Fixes {
   pullModel: (name: string) => void;
   testAudio: () => void;
   openSettings: (page: string) => void;
+  askPermission: (name: string) => void;
   redetect: () => void;
 }
-
-const isMac = navigator.userAgent.includes("Mac");
 
 const pending = (label: string): Row => ({ label, state: "warn", detail: "Comprobando…", actions: [] });
 
@@ -162,7 +162,7 @@ function captionsRow(s: Snapshot, fix: Fixes, platform: string): Row {
   if (!s.detect) return pending(label);
   const again = { label: "Detectar", run: fix.redetect };
   if (s.detect instanceof Error) {
-    const actions = isMac ? [again, { label: "Permiso de accesibilidad", run: () => fix.openSettings("accessibility") }] : [again];
+    const actions = isMac ? [again, { label: "Pedir permiso", run: () => fix.askPermission("accessibility") }] : [again];
     return { label, state: "bad", detail: s.detect.message, actions };
   }
   const found = s.detect.platforms.find((p) => p.platform === platform);
@@ -194,6 +194,9 @@ export function rows(s: Snapshot, settings: Settings, fix: Fixes): Row[] {
   }
   list.push(llmRow(s, fix));
   if (settings.tisty) list.push(tistyRow(s));
+  if (s.doctor && !(s.doctor instanceof Error)) {
+    list.push(...permissionRows(s.doctor, settings.recordAudio, fix.askPermission, fix.openSettings));
+  }
   if (settings.recordAudio) list.push(audioRow(s, fix, "mic"), audioRow(s, fix, "system"));
   list.push(captionsRow(s, fix, settings.platform));
   return list;

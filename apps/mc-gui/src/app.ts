@@ -28,6 +28,7 @@ import { byId, show } from "./dom";
 import { confirmAndRun } from "./jobdialog";
 import { LiveMemory } from "./livememory";
 import { MemoryView } from "./memory";
+import { askArgs } from "./permissions";
 import { platformLabel } from "./platforms";
 import { runPost } from "./post";
 import * as form from "./prepare";
@@ -168,6 +169,7 @@ export class App {
       pullModel: (name) => this.pullModel(name),
       testAudio: () => this.testAudio(),
       openSettings: (page) => openSettings(page).catch((err) => alert(err)),
+      askPermission: (name) => this.askPermission(name),
       redetect: () => this.detect(),
     };
   }
@@ -230,6 +232,13 @@ export class App {
     const status = await mcJson<{ sessions: { meeting_name: string | null }[] }>(["status"]).catch(() => null);
     const fromSessions = (status?.sessions ?? []).map((s) => s.meeting_name ?? "").filter(Boolean);
     form.fillNames([...new Set([...this.settings.recentNames, ...fromSessions])]);
+  }
+
+  /** macOS shows its own prompt while eli5 waits; then the checklist reads the answer. */
+  private async askPermission(name: string): Promise<void> {
+    await mcJson<unknown>(askArgs(name)).catch(() => null);
+    this.loadDoctor();
+    this.detect();
   }
 
   async detect(): Promise<void> {

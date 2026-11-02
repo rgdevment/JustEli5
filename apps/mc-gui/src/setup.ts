@@ -9,12 +9,15 @@ import {
   configLoad,
   configSave,
   mcJson,
+  openSettings,
   spawnMc,
 } from "./api";
 import { renderProbe } from "./audio";
+import { renderRows } from "./checks";
 import { getAt, setAt } from "./config";
 import { byId, el, show } from "./dom";
 import { confirmAndRun } from "./jobdialog";
+import { askArgs, isMac, permissionRows } from "./permissions";
 import { PLATFORMS, platformLabel } from "./platforms";
 import type { Settings } from "./settings";
 
@@ -222,6 +225,23 @@ const steps: Step[] = [
           }),
         ),
       ),
+  },
+  {
+    title: "Permisos de macOS",
+    hint: "macOS pide permiso para leer los subtítulos y grabar el audio. «Pedir permiso» muestra su aviso; si ya lo rechazaste, actívalo en «Abrir ajustes».",
+    skip: () => !isMac,
+    body: async () => {
+      const doctor = await mcJson<Doctor>(["doctor"]).catch((err: Error) => err);
+      if (doctor instanceof Error) return el("p", { className: "bad", textContent: doctor.message });
+      const list = el("ul", { className: "checks" });
+      const ask = async (name: string) => {
+        await mcJson<unknown>(askArgs(name)).catch(() => null);
+        rerender();
+      };
+      const open = (page: string) => void openSettings(page).catch(() => {});
+      renderRows(list, permissionRows(doctor, true, ask, open));
+      return list;
+    },
   },
   {
     title: "Tisty",
