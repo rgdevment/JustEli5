@@ -179,6 +179,12 @@ fn valid_name(name: &str) -> bool {
             .all(|c| c.is_ascii_alphanumeric() || matches!(c, '.' | '_' | '-'))
 }
 
+/// Windows answers "access denied" while another holder is still deleting the marker.
+fn marker_taken(error: &std::io::Error) -> bool {
+    error.kind() == std::io::ErrorKind::AlreadyExists
+        || (cfg!(windows) && error.kind() == std::io::ErrorKind::PermissionDenied)
+}
+
 fn hex(bytes: &[u8]) -> String {
     bytes.iter().map(|b| format!("{b:02x}")).collect()
 }
@@ -292,7 +298,7 @@ impl ModelStore {
                 .open(&marker)
             {
                 Ok(_) => break,
-                Err(e) if e.kind() == std::io::ErrorKind::AlreadyExists => {
+                Err(e) if marker_taken(&e) => {
                     // A marker older than a minute belongs to a dead process.
                     let stale = std::fs::metadata(&marker)
                         .and_then(|m| m.modified())
