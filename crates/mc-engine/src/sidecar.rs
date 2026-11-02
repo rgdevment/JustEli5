@@ -201,9 +201,9 @@ mod tests {
     fn speaker_names_accumulate_and_a_broken_file_is_no_mapping() {
         let dir = tempfile::tempdir().unwrap();
         assert!(read_speaker_names(dir.path()).is_empty());
-        set_speaker_name(dir.path(), "Unknown", "Mario").unwrap();
+        set_speaker_name(dir.path(), "Unknown", "Daniel").unwrap();
         let names = set_speaker_name(dir.path(), "Ana R.", "Ana").unwrap();
-        assert_eq!(display_name(&names, "Unknown"), "Mario");
+        assert_eq!(display_name(&names, "Unknown"), "Daniel");
         assert_eq!(display_name(&names, "Luis"), "Luis");
         assert_eq!(read_speaker_names(dir.path()), names);
         std::fs::write(dir.path().join(SPEAKER_NAMES_FILE), "{broken").unwrap();

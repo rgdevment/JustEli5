@@ -119,7 +119,7 @@ mod tests {
         let mut person = Concept {
             id: 1,
             kind: Kind::Person,
-            name: "Raul Medina".to_string(),
+            name: "Joaquin Navarro".to_string(),
             meaning: None,
             state: State::Confirmed,
             forms: Vec::new(),

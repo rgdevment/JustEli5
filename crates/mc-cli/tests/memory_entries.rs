@@ -26,15 +26,15 @@ fn the_first_use_takes_in_the_users_glossary() {
     fs::create_dir_all(sb.data()).unwrap();
     fs::write(
         sb.data().join("glossary.json"),
-        r#"{"Verídex": {"aliases": ["beri dex"], "meaning": "herramienta interna"}}"#,
+        r#"{"Kóradex": {"aliases": ["gora dex"], "meaning": "herramienta interna"}}"#,
     )
     .unwrap();
     let list = ok(&sb, &["memory", "list"]);
     let entry = &list["entries"][0];
-    assert_eq!(entry["name"], "Verídex");
+    assert_eq!(entry["name"], "Kóradex");
     assert_eq!(entry["meaning"], "herramienta interna");
     assert_eq!(entry["state"], "confirmed");
-    assert_eq!(entry["forms"][1]["text"], "beri dex");
+    assert_eq!(entry["forms"][1]["text"], "gora dex");
 }
 
 #[test]
@@ -62,21 +62,21 @@ fn add_correct_merge_and_resolve_from_the_command_line() {
             "orden de compra",
         ],
     ));
-    let raul = ok(
+    let joaquin = ok(
         &sb,
         &[
             "memory",
             "add",
             "person",
-            "Raul Medina",
+            "Joaquin Navarro",
             "--forms",
-            "MEDINA Raul, Raul M.",
+            "NAVARRO Joaquin, Joaquin N.",
             "--role",
             "Product Owner",
         ],
     );
-    assert_eq!(raul["entry"]["roles"][0]["role"], "Product Owner");
-    assert_eq!(raul["entry"]["forms"].as_array().unwrap().len(), 3);
+    assert_eq!(joaquin["entry"]["roles"][0]["role"], "Product Owner");
+    assert_eq!(joaquin["entry"]["forms"].as_array().unwrap().len(), 3);
 
     let both = ok(&sb, &["memory", "resolve", "term", "order"]);
     assert_eq!(both["resolution"], "ambiguous");
@@ -117,7 +117,7 @@ fn the_windows_people_are_taken_in_once() {
     let file = sb.path("people.json");
     fs::write(
         &file,
-        r#"{"Raul Medina": "Product Owner", "Kiran Sharma": "Tech Manager"}"#,
+        r#"{"Joaquin Navarro": "Product Owner", "Priya Nair": "Tech Manager"}"#,
     )
     .unwrap();
     let first = ok(&sb, &["memory", "adopt-people", path_str(&file)]);
@@ -125,14 +125,14 @@ fn the_windows_people_are_taken_in_once() {
     let again = ok(&sb, &["memory", "adopt-people", path_str(&file)]);
     assert_eq!(again["adopted"], 0);
     let people = ok(&sb, &["memory", "list", "--kind", "person"]);
-    let raul = people["entries"]
+    let joaquin = people["entries"]
         .as_array()
         .unwrap()
         .iter()
-        .find(|p| p["name"] == "Raul Medina")
+        .find(|p| p["name"] == "Joaquin Navarro")
         .unwrap();
-    assert_eq!(raul["roles"][0]["role"], "Product Owner");
-    assert_eq!(raul["state"], "confirmed");
+    assert_eq!(joaquin["roles"][0]["role"], "Product Owner");
+    assert_eq!(joaquin["state"], "confirmed");
 }
 
 #[test]
@@ -144,9 +144,9 @@ fn people_named_by_a_nickname_reach_the_minutes_but_not_a_first_name_someone_pre
             "memory",
             "add",
             "person",
-            "Carolina Soto",
+            "Paula Vera",
             "--forms",
-            "Caro",
+            "Pau",
             "--role",
             "Product Owner",
         ],
@@ -164,8 +164,8 @@ fn people_named_by_a_nickname_reach_the_minutes_but_not_a_first_name_someone_pre
     let named = mc_cli::cmd::memory::named_people(
         &cfg,
         &["Luis Pérez".to_string()],
-        &["Luis, pregúntale a Caro por el Figma", "y avísale a Luis"],
+        &["Luis, pregúntale a Pau por el Figma", "y avísale a Luis"],
     )
     .unwrap();
-    assert_eq!(named, ["- Caro: Carolina Soto (Product Owner)"]);
+    assert_eq!(named, ["- Pau: Paula Vera (Product Owner)"]);
 }

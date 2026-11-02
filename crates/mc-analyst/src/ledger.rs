@@ -315,7 +315,7 @@ pub fn same_commitment(a: (&str, &str), b: (&str, &str)) -> bool {
 }
 
 /// Whether `who` names the person called `me`: every word of `me` is in `who`, so
-/// "Mario Hidalgo" is "Mario Hidalgo Rojas" too, whatever the case or accents.
+/// "Daniel Ibarra" is "Daniel Ibarra Lagos" too, whatever the case or accents.
 pub fn is_me(who: &str, me: &str) -> bool {
     let words = |t: &str| -> std::collections::BTreeSet<String> {
         normalise(t)
@@ -337,10 +337,10 @@ mod tests {
 
     #[test]
     fn the_user_is_known_by_every_word_of_the_configured_name() {
-        assert!(is_me("Mario Hidalgo Rojas", "mario hidalgo"));
-        assert!(is_me("MARIO  HIDALGO", "Mario Hidalgo"));
-        assert!(!is_me("Mario Torres Vidal", "Mario Hidalgo"));
-        assert!(!is_me("Mario Hidalgo", "  "));
+        assert!(is_me("Daniel Ibarra Lagos", "daniel ibarra"));
+        assert!(is_me("DANIEL  IBARRA", "Daniel Ibarra"));
+        assert!(!is_me("Daniel Fuentes Vidal", "Daniel Ibarra"));
+        assert!(!is_me("Daniel Ibarra", "  "));
     }
 
     #[test]

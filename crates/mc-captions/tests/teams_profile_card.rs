@@ -15,7 +15,7 @@ fn group(speaker: &str, text: &str) -> UiNode {
 #[test]
 fn profile_card_labels_and_bios_are_not_captions() {
     let root = UiNode::new(Role::Document, "").with_children(vec![
-        group("Raul Ignacio Medina Carrasco", "Correcto, lo vemos el jueves."),
+        group("Joaquin Esteban Navarro Pinto", "Correcto, lo vemos el jueves."),
         group("Organización", "Administrador"),
         group(
             "Me gusta el ciclismo de montaña, la fotografía de paisajes y cocinar para mis amigos los fines de semana, y",
@@ -35,7 +35,7 @@ fn profile_card_labels_and_bios_are_not_captions() {
     assert_eq!(
         speakers,
         [
-            "Raul Ignacio Medina Carrasco",
+            "Joaquin Esteban Navarro Pinto",
             "Hector E Cortes V",
             "J. Pérez"
         ]

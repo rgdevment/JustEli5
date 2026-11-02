@@ -731,7 +731,7 @@ fn teams_meeting_name_strips_decorations() {
     );
     // The main window on the Activity or Chat pane names the chat on screen, not the meeting.
     assert_eq!(
-        name("Actividad | B2B-Falabella-Hito2: Sincronización | Microsoft Teams"),
+        name("Actividad | B2B-Acme-Hito2: Sincronización | Microsoft Teams"),
         None
     );
     assert_eq!(name("Chat | Ana Soto | Microsoft Teams"), None);

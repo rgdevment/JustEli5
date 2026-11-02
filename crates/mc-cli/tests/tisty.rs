@@ -11,7 +11,7 @@ use mc_cli::cli::{Io, Os, run};
 use serde_json::{Value, json};
 
 const FAKE: &str = env!("CARGO_BIN_EXE_mc-cli-fake-mcp");
-const ME: &str = "Mario Hidalgo";
+const ME: &str = "Daniel Ibarra";
 
 const MINUTES: &str = "---\ndate: 2023-11-14\ntitle: \"Daily de equipo\"\nsession: \"s1\"\nparticipants: [\"Ana\", \"Luis\"]\ntags: []\n---\n# Daily de equipo\n\n## Resumen\n\nHubo bloqueos [#0].\n\n## Compromisos\n\n- [ ] @Ana: cerrar el bug (el martes) [#3]\n- [ ] @Luis: revisar el PR (2024-03-05) [#4]\n";
 
@@ -33,9 +33,9 @@ impl Fixture {
         fs::create_dir_all(&minutes).unwrap();
         fs::write(minutes.join("minutes.md"), MINUTES).unwrap();
         let commitments = json!([
-            {"id": "c1", "who": "Mario Hidalgo", "what": "cerrar el bug", "due": "el martes",
+            {"id": "c1", "who": "Daniel Ibarra", "what": "cerrar el bug", "due": "el martes",
              "evidence": [3], "inferred": false, "source": "s1#c1"},
-            {"id": "c2", "who": "Mario Hidalgo", "what": "revisar el PR", "due": "2024-03-05",
+            {"id": "c2", "who": "Daniel Ibarra", "what": "revisar el PR", "due": "2024-03-05",
              "evidence": [4], "inferred": false, "source": "s1#c2"},
             {"id": "c3", "who": "Luis", "what": "mirar los logs", "due": null,
              "evidence": [5], "inferred": false, "source": "s1#c3"},

@@ -201,8 +201,8 @@ mod tests {
                          "carry over": {"aliases": []}}"#;
         assert_eq!(parse_glossary(object).unwrap(), ["Pipeline", "carry over"]);
         assert_eq!(
-            parse_glossary(r#"["CIAM", " SAGA ", ""]"#).unwrap(),
-            ["CIAM", "SAGA"]
+            parse_glossary(r#"["CIAM", " ORBE ", ""]"#).unwrap(),
+            ["CIAM", "ORBE"]
         );
     }
 
@@ -228,7 +228,7 @@ mod tests {
 
     #[test]
     fn broken_json_is_an_error_not_a_plain_text_glossary() {
-        assert!(parse_glossary(r#"["CIAM", "SAGA",]"#).is_err());
+        assert!(parse_glossary(r#"["CIAM", "ORBE",]"#).is_err());
         assert!(parse_glossary(r#"{"Pipeline": {"aliases": [],}}"#).is_err());
         assert!(parse_glossary("[unterminated").is_err());
     }
