@@ -1,5 +1,4 @@
-// The meeting name, checked against the meetings already held: written a little differently it
-// would start a new series, so the user is asked whether they meant one of them.
+// A name typed a little differently would start a new series, so the user is asked which they meant.
 import { mcJson } from "./api";
 import { byId, el, show } from "./dom";
 
@@ -29,8 +28,15 @@ export class SeriesQuestion {
   /** Names the user already answered for, so they are not asked twice. */
   private settled = new Set<string>();
 
-  /** `pick` writes the chosen series' name into the form; `tisty` asks Tisty too. */
+  /** The series picked for the name now in the form: its key, since its title may map elsewhere. */
+  private picked: { title: string; key: string } | null = null;
+
   constructor(private readonly pick: (title: string) => void) {}
+
+  /** The key of the series the user picked, while the form still holds the name they picked. */
+  chosenKey(name: string): string | null {
+    return this.picked?.title === name ? this.picked.key : null;
+  }
 
   async ask(name: string, tisty: boolean): Promise<void> {
     const box = byId("name-match");
@@ -55,6 +61,7 @@ export class SeriesQuestion {
           textContent: s.title,
           onclick: () => {
             answered(s.title);
+            this.picked = { title: s.title, key: s.key };
             this.pick(s.title);
           },
         }),

@@ -1379,6 +1379,8 @@ fn a_manual_series_is_never_overridden_and_series_list_in_order() {
     let list = store.list_series().unwrap();
     let keys: Vec<(&str, u64)> = list.iter().map(|s| (s.key.as_str(), s.sessions)).collect();
     assert_eq!(keys, [("x", 1), ("y", 1)]);
+    let names: Vec<Option<&str>> = list.iter().map(|s| s.last_name.as_deref()).collect();
+    assert_eq!(names, [Some("Sync con cliente"), Some("Daily de equipo")]);
     let members = store.series_sessions("x").unwrap();
     assert_eq!(members.len(), 1);
     assert_eq!(members[0].session_id, sb);

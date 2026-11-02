@@ -26,6 +26,8 @@ pub struct TeamsSel {
     pub walk_depths: Vec<usize>,
     pub title_prefixes: Vec<String>,
     pub title_suffixes: Vec<String>,
+    /// The main window showing a pane: its title names the chat on screen, not the meeting.
+    pub pane_prefixes: Vec<String>,
     pub cache_ttl_s: f64,
 }
 
@@ -60,21 +62,18 @@ impl Default for TeamsSel {
             root_automation_id: "RootWebArea".to_string(),
             root_depths: vec![10, 15, 20],
             walk_depths: vec![14, 20, 25],
-            // The main window names the meeting between the pane it shows and the app's name.
             title_prefixes: strings(&[
                 "Subtítulos | ",
                 "Subtitulos | ",
                 "Captions | ",
                 "Subtitles | ",
-                "Actividad | ",
-                "Activity | ",
-                "Chat | ",
             ]),
             title_suffixes: strings(&[
                 " | Microsoft Teams",
                 " | Ventana anclada",
                 " | Pinned window",
             ]),
+            pane_prefixes: strings(&["Actividad | ", "Activity | ", "Chat | "]),
             cache_ttl_s: 10.0,
         }
     }
@@ -308,7 +307,7 @@ impl Selectors {
     pub fn validate(&self) -> Result<(), String> {
         let t = &self.teams;
         let z = &self.zoom;
-        let lists: [(&str, &Vec<String>); 23] = [
+        let lists: [(&str, &Vec<String>); 24] = [
             ("teams.classes", &t.classes),
             ("teams.caption_keywords", &t.caption_keywords),
             ("teams.meeting_keywords", &t.meeting_keywords),
@@ -316,6 +315,7 @@ impl Selectors {
             ("teams.noise", &t.noise),
             ("teams.title_prefixes", &t.title_prefixes),
             ("teams.title_suffixes", &t.title_suffixes),
+            ("teams.pane_prefixes", &t.pane_prefixes),
             ("zoom.meeting_classes", &z.meeting_classes),
             ("zoom.title_hints", &z.title_hints),
             ("zoom.list_name_hints", &z.list_name_hints),

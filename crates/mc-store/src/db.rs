@@ -208,6 +208,8 @@ pub struct SeriesSummary {
     pub key: String,
     pub sessions: u64,
     pub last_wall_ms: Option<i64>,
+    /// The name of its newest session that has one.
+    pub last_name: Option<String>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -1110,10 +1112,13 @@ impl Store {
         Ok(row.and_then(|(key, origin)| Some((key, SeriesOrigin::parse(&origin)?))))
     }
 
-    /// Every series with its session count and the start of its newest session.
+    /// Every series with its session count, the start of its newest session and its newest name.
     pub fn list_series(&self) -> Result<Vec<SeriesSummary>, StoreError> {
         let mut statement = self.conn.prepare(
-            "SELECT r.series_key, COUNT(*), MAX(s.started_wall_ms)
+            "SELECT r.series_key, COUNT(*), MAX(s.started_wall_ms),
+                    (SELECT n.meeting_name FROM series rn JOIN sessions n ON n.id = rn.session
+                     WHERE rn.series_key = r.series_key AND n.meeting_name IS NOT NULL
+                     ORDER BY n.started_wall_ms DESC, n.session_id DESC LIMIT 1)
              FROM series r JOIN sessions s ON s.id = r.session
              GROUP BY r.series_key ORDER BY r.series_key",
         )?;
@@ -1122,6 +1127,7 @@ impl Store {
                 key: row.get(0)?,
                 sessions: row.get::<_, i64>(1)?.max(0) as u64,
                 last_wall_ms: row.get(2)?,
+                last_name: row.get(3)?,
             })
         })?;
         Ok(rows.collect::<Result<_, _>>()?)

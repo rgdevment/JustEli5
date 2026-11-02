@@ -2,9 +2,13 @@
 // getting wrong, and a search. Corrections go through the capture, so this meeting's analyst
 // uses them at once, and into the memory, so the next meetings do too.
 import { byId, el } from "./dom";
-import { change, listEntries, resolve, roleOf, showEntry } from "./memorydata";
+import { change, listEntries, resolve, roleOf, showEntry, whoIs } from "./memorydata";
 
 type Send = (line: string) => void;
+
+type Found =
+  | { state: "known"; id: number; role: string | null }
+  | { state: "unknown" | "ambiguous" | "failed" };
 
 function failed(err: unknown): string {
   return err instanceof Error ? err.message : String(err);
@@ -15,12 +19,14 @@ export class LiveMemory {
   /** The people already known in this meeting: they tell a shared name apart. */
   private present: number[] = [];
   private send: Send = () => {};
+  private openMemory: (query: string) => void = () => {};
 
   /** `me` is the user's name as the setup wrote it. */
   constructor(private readonly me: string | null) {}
 
   /** Fills the card; `openMemory` shows the Memoria tab with a search. */
   mount(openMemory: (query: string) => void): void {
+    this.openMemory = openMemory;
     byId("live-people").replaceChildren();
     this.seen.clear();
     this.present = [];
@@ -104,21 +110,31 @@ export class LiveMemory {
     if (this.me && isMe(who, this.me)) return;
     const row = el("li", {}, nameCell(who), el("small", { className: "muted", textContent: "buscando…" }));
     byId("live-people").append(row);
-    this.lookUp(who).then(({ id, role }) =>
-      id !== null && role ? this.showKnown(row, who, id, role) : this.ask(row, who, id, ""),
-    );
+    this.lookUp(who).then((found) => {
+      if (found.state === "known" && found.role) this.showKnown(row, who, found.id, found.role);
+      else if (found.state === "known") this.ask(row, who, found.id, "");
+      else if (found.state === "unknown") this.ask(row, who, null, "");
+      else this.showUnsure(row, who, found.state);
+    });
   }
 
-  /** The person the memory has for `who` and their role; unknown when it cannot tell or fails. */
-  private async lookUp(who: string): Promise<{ id: number | null; role: string | null }> {
+  private async lookUp(who: string): Promise<Found> {
     try {
-      const id = await resolve("person", who, this.present);
-      if (id === null) return { id, role: null };
-      this.present.push(id);
-      return { id, role: roleOf((await showEntry(id)).entry) };
+      const found = await whoIs("person", who, this.present);
+      if (found.resolution !== "known") return { state: found.resolution };
+      this.present.push(found.id);
+      return { state: "known", id: found.id, role: roleOf((await showEntry(found.id)).entry) };
     } catch {
-      return { id: null, role: null };
+      return { state: "failed" };
     }
+  }
+
+  /** Several people share the name, or the memory did not answer: a new entry would only add another. */
+  private showUnsure(row: HTMLLIElement, who: string, state: "ambiguous" | "failed"): void {
+    const open = el("button", { className: "link", type: "button", textContent: "Ver en Memoria" });
+    open.onclick = () => this.openMemory(who);
+    const why = state === "ambiguous" ? "varias personas se llaman así" : "no se pudo consultar la memoria";
+    row.replaceChildren(nameCell(who), el("small", { className: "muted", textContent: why }), open);
   }
 
   /** Someone the memory knows with a role: nothing to ask, only something to correct. */
@@ -167,7 +183,7 @@ function nameCell(who: string): HTMLElement {
   return el("span", { className: "who", textContent: who, title: who });
 }
 
-/** Every word of `me` is in `who`, as the minutes decide it: «Mario Hidalgo» is «Mario Rodrigo Hidalgo Garcia». */
+/** «Mario Hidalgo» is «Mario Rodrigo Hidalgo Garcia»; a one-word name would also hide every other Mario. */
 function isMe(who: string, me: string): boolean {
   const words = (text: string) =>
     text
@@ -176,7 +192,7 @@ function isMe(who: string, me: string): boolean {
       .toLowerCase()
       .split(/[^\p{L}\p{N}]+/u)
       .filter(Boolean);
-  const mine = words(me);
-  const theirs = new Set(words(who));
-  return mine.length > 0 && mine.every((w) => theirs.has(w));
+  const [mine, theirs] = [words(me), words(who)];
+  if (mine.length < 2) return mine.join(" ") === theirs.join(" ");
+  return mine.every((w) => theirs.includes(w));
 }

@@ -729,10 +729,12 @@ fn teams_meeting_name_strips_decorations() {
         name("Reunión con Ana | Microsoft Teams").as_deref(),
         Some("Reunión con Ana")
     );
+    // The main window on the Activity or Chat pane names the chat on screen, not the meeting.
     assert_eq!(
-        name("Actividad | B2B-Falabella-Hito2: Sincronización | Microsoft Teams").as_deref(),
-        Some("B2B-Falabella-Hito2: Sincronización")
+        name("Actividad | B2B-Falabella-Hito2: Sincronización | Microsoft Teams"),
+        None
     );
+    assert_eq!(name("Chat | Ana Soto | Microsoft Teams"), None);
     assert_eq!(name(""), None);
     assert_eq!(name("Captions | "), None);
     assert_eq!(name("Captions |    "), None);

@@ -30,6 +30,8 @@ pub struct MinutesPlan {
     pub legacy_series_title: String,
     /// The series document already known for this meeting (from a previous publish).
     pub series_doc: Option<String>,
+    /// The meeting's series, written into the document's properties so the next one finds it.
+    pub series_key: Option<String>,
     pub series_body: String,
     pub page_title: String,
     pub page_body: String,
@@ -488,19 +490,44 @@ fn series_body(title: &str, props: &Properties, body: &str) -> String {
     out
 }
 
+impl MinutesPlan {
+    /// The series document as written: its properties when the series is known, then its body.
+    pub fn series_document(&self) -> String {
+        let properties = self.series_key.as_deref().map(meet_properties);
+        properties.unwrap_or_default() + &self.series_body
+    }
+}
+
 /// The properties that mark a series document as a meeting's, so the next one can be offered it.
-pub fn meet_properties(series_key: &str) -> String {
+fn meet_properties(series_key: &str) -> String {
     format!("---\n{MEET_TYPE}\n{SERIES_PROPERTY} {series_key}\n---\n")
 }
 
 const MEET_TYPE: &str = "type: meet";
 const SERIES_PROPERTY: &str = "series:";
 
+/// A document's properties block, when it opens with one, and the text after it.
+pub fn split_properties(document: &str) -> (Option<&str>, &str) {
+    let opened = ["---\r\n", "---\n"]
+        .iter()
+        .find_map(|open| document.strip_prefix(open));
+    let Some(rest) = opened else {
+        return (None, document);
+    };
+    let close = ["\n---\r\n", "\n---\n"]
+        .iter()
+        .filter_map(|c| rest.find(c).map(|at| (at, c.len())))
+        .min();
+    match close {
+        Some((at, len)) => (Some(&rest[..at]), &rest[at + len..]),
+        None => (None, document),
+    }
+}
+
 /// The series key a document's properties carry when they say it is a meeting's.
 pub fn meet_series_key(document: &str) -> Option<String> {
-    let header = document.replace("\r\n", "\n");
-    let (header, _) = header.strip_prefix("---\n")?.split_once("\n---")?;
-    let lines: Vec<&str> = header.lines().map(str::trim).collect();
+    let (header, _) = split_properties(document);
+    let lines: Vec<&str> = header?.lines().map(str::trim).collect();
     if !lines.contains(&MEET_TYPE) {
         return None;
     }
@@ -530,6 +557,7 @@ pub fn build_plan(minutes_md: &str, commitments: &[CommitmentRecord], target: &T
         series_body: series_body(&series_title, &props, &body),
         legacy_series_title: format!("{} — minutas", props.title),
         series_doc: None,
+        series_key: None,
         page_body: to_tisty_markdown(&page_title, &props, &body),
         images: image_refs(&body),
         series_title,
@@ -615,7 +643,7 @@ impl Plan {
         let m = &self.minutes;
         json!({
             "minutes": {
-                "folder": m.folder, "series_title": m.series_title, "series_body": m.series_body,
+                "folder": m.folder, "series_title": m.series_title, "series_body": m.series_document(),
                 "page_title": m.page_title, "page_body": m.page_body,
             },
             "parent": self.parent.as_ref().map(task_json),
@@ -699,6 +727,39 @@ mod tests {
         assert_eq!(
             meet_series_key("Daily\n\ntype: meet\nseries: daily\n"),
             None
+        );
+    }
+
+    #[test]
+    fn the_properties_block_is_told_apart_from_the_text() {
+        assert_eq!(
+            split_properties("---\ntype: meet\n---\nDaily\n"),
+            (Some("type: meet"), "Daily\n")
+        );
+        assert_eq!(
+            split_properties("---\r\ntype: meet\r\n---\r\nDaily\r\n"),
+            (Some("type: meet\r"), "Daily\r\n")
+        );
+        assert_eq!(split_properties("Daily\n---\n"), (None, "Daily\n---\n"));
+        assert_eq!(
+            split_properties("---\nsin cierre\n"),
+            (None, "---\nsin cierre\n")
+        );
+    }
+
+    #[test]
+    fn the_series_document_opens_with_its_properties_only_when_the_series_is_known() {
+        let mut plan = build_plan(MINUTES, &[], &target());
+        assert!(
+            plan.minutes
+                .series_document()
+                .starts_with("Daily de equipo\n")
+        );
+        plan.minutes.series_key = Some("daily de equipo".into());
+        let document = plan.minutes.series_document();
+        assert!(
+            document
+                .starts_with("---\ntype: meet\nseries: daily de equipo\n---\nDaily de equipo\n")
         );
     }
 

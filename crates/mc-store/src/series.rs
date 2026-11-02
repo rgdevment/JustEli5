@@ -110,8 +110,7 @@ fn same_word(a: &str, b: &str) -> bool {
     a == b || (a.chars().count() >= 4 && b.chars().count() >= 4 && edit_distance(&a, &b) <= 1)
 }
 
-/// How alike two meeting names are, from 0 to 1: mostly how much of the shorter one the longer
-/// one holds, so «B2B Falabella Hito 2» is close to «Actividad | B2B-Falabella-Hito2: Sincronización».
+/// Mostly how much of the shorter name the longer holds, so a name with more words still matches.
 pub fn name_similarity(a: &str, b: &str) -> f64 {
     let (a, b) = (telling_words(a), telling_words(b));
     let (short, long) = if a.len() <= b.len() {

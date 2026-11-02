@@ -81,6 +81,13 @@ pub fn pick_by(
 
 /// The meeting's name from the window title, without Teams' own decorations.
 pub fn meeting_name(title: &str, sel: &TeamsSel) -> Option<String> {
+    if sel
+        .pane_prefixes
+        .iter()
+        .any(|p| title.starts_with(p.as_str()))
+    {
+        return None;
+    }
     let mut name = title;
     for prefix in &sel.title_prefixes {
         if let Some(rest) = name.strip_prefix(prefix.as_str()) {

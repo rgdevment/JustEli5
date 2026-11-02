@@ -17,7 +17,7 @@ use crate::config::Config;
 use crate::publish::tisty::{TistyPublisher, resolve};
 use crate::publish::{
     Abort, AbortKind, ItemKind, Plan, PublishReport, Publisher, Status, Target, build_plan,
-    meet_properties, parse_properties,
+    parse_properties,
 };
 
 pub struct Prepared {
@@ -131,13 +131,17 @@ pub fn prepare(
     let commitments: Vec<CommitmentRecord> = read_json(&minutes_dir.join("commitments.json"))?;
     let mut plan = build_plan(&markdown, &commitments, target);
     let (props, _) = parse_properties(&markdown);
-    let series_key = series_for_name(&props.title, &ctx.cfg.series_rules).map(|(key, _)| key);
+    // The index knows a series chosen by hand; the name alone only guesses it.
+    let indexed = open_store(&ctx.cfg)
+        .ok()
+        .and_then(|store| store.series_of(&props.session).ok().flatten());
+    let series_key = indexed
+        .map(|(key, _)| key)
+        .or_else(|| series_for_name(&props.title, &ctx.cfg.series_rules).map(|(key, _)| key));
     plan.minutes.series_doc = series_key
         .as_ref()
         .and_then(|key| series_docs(&ctx.cfg).get(key).cloned());
-    if let Some(key) = &series_key {
-        plan.minutes.series_body = meet_properties(key) + &plan.minutes.series_body;
-    }
+    plan.minutes.series_key.clone_from(&series_key);
     // Picture paths in the minutes are relative to their folder; Tisty needs the file itself.
     for (_, path) in &mut plan.minutes.images {
         *path = minutes_dir.join(&*path).display().to_string();

@@ -338,6 +338,7 @@ export class App {
     const contextFile = await contextWrite(this.settings.context);
     const title = `${this.settings.name || "Reunión"} · ${platformLabel(this.settings.platform)}`;
 
+    const seriesKey = this.seriesQuestion.chosenKey(this.settings.name);
     this.showMeeting("capture");
     const people = new LiveMemory(await this.myName());
     people.mount((query) => this.openMemory(query));
@@ -349,6 +350,8 @@ export class App {
       return;
     }
 
+    // Before the minutes, which carry over the series; failing, they still come out under the name's.
+    if (seriesKey) await runMc(["series", "set", capture.sessionDir, seriesKey]).catch(() => null);
     this.showMeeting("post");
     show(byId("post-done"), false);
     // Who each participant is now lives in the memory, which the minutes read on their own.

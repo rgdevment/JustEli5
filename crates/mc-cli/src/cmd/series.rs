@@ -139,23 +139,17 @@ struct Known {
 }
 
 fn local_series(store: &Store) -> Result<Vec<Known>, CliError> {
-    let mut known = Vec::new();
-    for s in store.list_series()? {
-        let title = store
-            .series_sessions(&s.key)?
-            .into_iter()
-            .rev()
-            .find_map(|m| m.meeting_name)
-            .unwrap_or_else(|| s.key.clone());
-        known.push(Known {
+    Ok(store
+        .list_series()?
+        .into_iter()
+        .map(|s| Known {
+            title: s.last_name.unwrap_or_else(|| s.key.clone()),
             key: s.key,
-            title,
             sessions: s.sessions,
             last_wall_ms: s.last_wall_ms,
             in_tisty: false,
-        });
-    }
-    Ok(known)
+        })
+        .collect())
 }
 
 /// Tisty's titles win: they are what the person sees and may have renamed.
@@ -185,8 +179,7 @@ fn add_tisty_series(ctx: &Ctx<'_>, known: &mut Vec<Known>) -> Result<(), String>
     Ok(())
 }
 
-/// The series a meeting name belongs to, or the ones it may have been meant as: a name typed a
-/// little differently would otherwise start a new series.
+/// A name typed a little differently would otherwise start a new series.
 fn find_alike(ctx: &Ctx<'_>, io: &mut Io<'_>, name: &str) -> Result<u8, CliError> {
     let key = series_for_name(name, &ctx.cfg.series_rules).map(|(key, _)| key);
     let store = indexed_store(&ctx.cfg, None)?;
