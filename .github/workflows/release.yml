@@ -81,7 +81,6 @@ jobs:
       HAS_APPLE_ID: ${{ secrets.APPLE_ID != '' }}
       HAS_APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD != '' }}
       HAS_APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID != '' }}
-      HAS_APPLE_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY != '' }}
       HAS_UPDATER_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY != '' }}
       HAS_UPDATER_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD != '' }}
       HAS_PFX: ${{ secrets.PFX_BASE64 != '' }}
@@ -101,9 +100,6 @@ jobs:
             { [ "$HAS_APPLE_APP_PASSWORD" != "true" ] || [ "$HAS_APPLE_TEAM_ID" != "true" ]; }; then
             fail "APPLE_ID is set but APPLE_APP_PASSWORD or APPLE_TEAM_ID is empty"
           fi
-          if [ "$HAS_P12" = "true" ] && [ "$HAS_APPLE_IDENTITY" != "true" ]; then
-            fail "MACOS_CERTIFICATE_P12 is set but APPLE_SIGNING_IDENTITY is empty: the app would be bundled unsigned"
-          fi
           if [ "$HAS_UPDATER_KEY" = "true" ] && [ "$HAS_UPDATER_PASSWORD" != "true" ]; then
             echo "::notice::the updater key carries no password; that is fine if it was made without one"
           fi
@@ -120,7 +116,6 @@ jobs:
             if [ "$BUILD_MACOS" = "true" ]; then
               want MACOS_CERTIFICATE_P12 "$HAS_P12"
               want MACOS_CERTIFICATE_PASSWORD "$HAS_P12_PASSWORD"
-              want APPLE_SIGNING_IDENTITY "$HAS_APPLE_IDENTITY"
               want APPLE_ID "$HAS_APPLE_ID"
               want APPLE_APP_PASSWORD "$HAS_APPLE_APP_PASSWORD"
               want APPLE_TEAM_ID "$HAS_APPLE_TEAM_ID"
@@ -430,12 +425,18 @@ jobs:
           rm -f "$CERT_PATH"
           echo "KEYCHAIN_PATH=$KEYCHAIN_PATH" >> "$GITHUB_ENV"
 
-      # With APPLE_SIGNING_IDENTITY the bundler signs the window and eli5 with the hardened
-      # runtime and Entitlements.plist; notarisation is done below, on the finished files.
+          identity=$(security find-identity -v -p codesigning "$KEYCHAIN_PATH" \
+            | grep "Developer ID Application" | head -1 | awk '{print $2}')
+          if [ -z "$identity" ]; then
+            echo "::error::the certificate went in but no Developer ID Application came out of it"
+            exit 1
+          fi
+          echo "APPLE_SIGNING_IDENTITY=$identity" >> "$GITHUB_ENV"
+
+      # The bundler signs the window and eli5 with the identity read off the certificate and Entitlements.plist.
       - name: Bundle
         working-directory: apps/mc-gui
         env:
-          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         run: |
