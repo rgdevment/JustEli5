@@ -221,7 +221,20 @@ fn permission_checks(accessibility: Option<bool>, audio: Option<AudioAccess>) ->
 /// Whether this build can recognise speech; without it `transcribe` and `--live-asr` refuse.
 fn whisper_check() -> Check {
     if cfg!(feature = "whisper") {
-        check("whisper", "ok", "Whisper engine built in")
+        let device = if cfg!(target_os = "macos") {
+            "Metal"
+        } else if cfg!(feature = "cuda") {
+            "CUDA"
+        } else if cfg!(feature = "vulkan") {
+            "Vulkan"
+        } else {
+            "CPU"
+        };
+        check(
+            "whisper",
+            "ok",
+            format!("Whisper engine built in ({device})"),
+        )
     } else {
         check(
             "whisper",
