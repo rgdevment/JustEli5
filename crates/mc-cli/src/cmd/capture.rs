@@ -834,12 +834,12 @@ mod tests {
             matches!(parse_command("n revisar costos"), Some(Command::Note(t)) if t == "revisar costos")
         );
         assert!(matches!(
-            parse_command("t beri dex => Verídex"),
-            Some(Command::Fix { heard, correct }) if heard == "beri dex" && correct == "Verídex"
+            parse_command("t gora dex => Kóradex"),
+            Some(Command::Fix { heard, correct }) if heard == "gora dex" && correct == "Kóradex"
         ));
         assert!(matches!(
-            parse_command("S MEDINA Raul=>Raul Medina"),
-            Some(Command::Name { from, to }) if from == "MEDINA Raul" && to == "Raul Medina"
+            parse_command("S NAVARRO Joaquin=>Joaquin Navarro"),
+            Some(Command::Name { from, to }) if from == "NAVARRO Joaquin" && to == "Joaquin Navarro"
         ));
         assert!(parse_command("t solo").is_none());
         assert!(parse_command("t => x").is_none());

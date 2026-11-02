@@ -167,7 +167,7 @@ pub fn known_roles(
 }
 
 /// The known people who did not attend but whose name, short name or nickname was said, as
-/// `- Caro: Carolina Soto (Product Owner de Pagos)`: the model then knows who they are.
+/// `- Pau: Paula Vera (Product Owner de Pagos)`: the model then knows who they are.
 pub fn named_people(
     cfg: &Config,
     attendees: &[String],

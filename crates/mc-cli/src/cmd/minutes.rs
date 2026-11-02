@@ -59,7 +59,7 @@ fn learn(ctx: &Ctx<'_>, dir: &str, series: Option<&str>, learned: &mc_analyst::L
 
 /// The user's context plus what the memory knows of the people: the roles of who spoke, so the
 /// participants table has them even when nobody says them, and who the names said in the meeting
-/// are («Caro» is Carolina). A memory that cannot be read adds nothing.
+/// are («Pau» is Paula). A memory that cannot be read adds nothing.
 fn with_people(context: String, roles: &[(String, String)], named: &[String]) -> String {
     let mut blocks = vec![context.trim().to_string()];
     if !roles.is_empty() {

@@ -114,7 +114,7 @@ struct Export {
 }
 
 /// The key a form is looked up by, blind to case, accents and spacing: Whisper splits and joins
-/// words, so "Beri dex", "beri-dex" and "Beridex" are one form.
+/// words, so "Gora dex", "gora-dex" and "Goradex" are one form.
 fn key_of(text: &str) -> Result<String, MemoryError> {
     let key = fold(text);
     if key.is_empty() {

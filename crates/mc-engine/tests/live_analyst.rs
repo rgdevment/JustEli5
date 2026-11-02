@@ -220,7 +220,7 @@ fn accepted_fixes_and_speaker_names_reach_the_model() {
         },
     )
     .unwrap();
-    mc_engine::sidecar::set_speaker_name(dir.path(), "Unknown", "Mario").unwrap();
+    mc_engine::sidecar::set_speaker_name(dir.path(), "Unknown", "Daniel").unwrap();
     let llm = FakeLlm::new(["{}"]);
     let analyst = LiveAnalyst::start(spec(llm.clone(), 1), dir.path().to_path_buf());
     analyst.push(segment(0, "Unknown"));
@@ -230,7 +230,7 @@ fn accepted_fixes_and_speaker_names_reach_the_model() {
         user.contains("BEGIN UNTRUSTED FIXES") && user.contains("\"meets\" -> \"Meet\""),
         "{user}"
     );
-    assert!(user.contains("[#0] Mario: texto 0"), "{user}");
+    assert!(user.contains("[#0] Daniel: texto 0"), "{user}");
 }
 
 #[test]
@@ -241,7 +241,7 @@ fn what_the_user_corrects_during_the_meeting_reaches_the_next_window() {
     let mut taught = 0;
     with_refresh.refresh = Some(Box::new(move |background: &mut Background| {
         taught += 1;
-        background.glossary = vec![format!("Verídex{taught}")];
+        background.glossary = vec![format!("Kóradex{taught}")];
     }));
     let analyst = LiveAnalyst::start(with_refresh, dir.path().to_path_buf());
     analyst.push(segment(0, "Ana"));
@@ -251,7 +251,7 @@ fn what_the_user_corrects_during_the_meeting_reaches_the_next_window() {
     let requests = llm.requests();
     assert!(requests.len() >= 2);
     for (n, request) in requests.iter().enumerate() {
-        let glossary = format!("Verídex{}", n + 1);
+        let glossary = format!("Kóradex{}", n + 1);
         assert!(request.user.contains(&glossary), "{}", request.user);
     }
 }

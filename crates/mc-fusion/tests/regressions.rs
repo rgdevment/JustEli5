@@ -312,7 +312,7 @@ fn a_huge_pair_is_left_to_the_captions_instead_of_exhausting_memory() {
 fn an_acronym_the_captions_wrote_in_lowercase_gets_its_capitals_when_the_audio_says_it() {
     let captions = [cap(
         "Ana",
-        "empezamos la daily del equipo saga.",
+        "empezamos la daily del equipo orbe.",
         1200.0,
         4000.0,
     )];
@@ -320,28 +320,33 @@ fn an_acronym_the_captions_wrote_in_lowercase_gets_its_capitals_when_the_audio_s
         "system",
         1000.0,
         4200.0,
-        "empezamos la daily del equipo Saga",
+        "empezamos la daily del equipo Orbe",
     )];
-    let result = fuse(&captions, &heard, &cfg(&["SAGA", "Daily"]));
+    let result = fuse(&captions, &heard, &cfg(&["ORBE", "Daily"]));
     assert_eq!(
-        result.segments[0].text, "empezamos la daily del equipo SAGA.",
+        result.segments[0].text, "empezamos la daily del equipo ORBE.",
         "the acronym is restored and a plain word keeps the caption's casing"
     );
 }
 
 #[test]
 fn a_form_the_user_taught_becomes_its_term_even_when_the_audio_says_nothing_else() {
-    let captions = [cap("Raul", "Lo valida Beri dex, siempre.", 2200.0, 4200.0)];
-    let heard = [asr("system", 1000.0, 3800.0, "Lo valida beri dex siempre")];
+    let captions = [cap(
+        "Joaquin",
+        "Lo valida Gora dex, siempre.",
+        2200.0,
+        4200.0,
+    )];
+    let heard = [asr("system", 1000.0, 3800.0, "Lo valida gora dex siempre")];
     let config = FusionConfig {
-        aliases: vec![("beri dex".into(), "Verídex".into())],
-        ..cfg(&["Verídex"])
+        aliases: vec![("gora dex".into(), "Kóradex".into())],
+        ..cfg(&["Kóradex"])
     };
     let result = fuse(&captions, &heard, &config);
-    assert_eq!(result.segments[0].text, "Lo valida Verídex, siempre.");
-    let without = fuse(&captions, &heard, &cfg(&["Verídex"]));
+    assert_eq!(result.segments[0].text, "Lo valida Kóradex, siempre.");
+    let without = fuse(&captions, &heard, &cfg(&["Kóradex"]));
     assert!(
-        without.segments[0].text.contains("Beri dex"),
+        without.segments[0].text.contains("Gora dex"),
         "taught forms only"
     );
 }
