@@ -1,5 +1,7 @@
 use std::path::PathBuf;
 
+use mc_audio::permission::AudioAccess;
+use mc_captions::ui::ax_map::PERMISSION_HELP;
 use mc_captions::ui::dump::{DumpOptions, dump as dump_trees};
 use mc_captions::ui::report::{format_report, uia_report};
 use mc_captions::ui::{FakeBackend, Fixture, Platform, UiBackend};
@@ -135,6 +137,10 @@ pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
 
     checks.push(llm_check(ctx));
     checks.push(whisper_check());
+    checks.extend(permission_checks(
+        mc_captions::accessibility_trusted(ctx.args.flag("ax-prompt")),
+        mc_audio::audio_access(),
+    ));
 
     let failed = checks.iter().any(|c| c.status == "FAIL");
     let mut human: String = checks
@@ -188,6 +194,28 @@ fn tisty_mcp_check(program: &Option<PathBuf>, args: &[String]) -> Check {
         ),
         Health::Broken(detail) => check("tisty_mcp", "warn", detail),
     }
+}
+
+/// The macOS privacy permissions; a missing one only warns, since only what needs it fails.
+fn permission_checks(accessibility: Option<bool>, audio: Option<AudioAccess>) -> Vec<Check> {
+    let mut checks: Vec<Check> = accessibility
+        .into_iter()
+        .map(|trusted| {
+            if trusted {
+                check("accessibility", "ok", "allowed: the captions can be read")
+            } else {
+                check("accessibility", "warn", PERMISSION_HELP)
+            }
+        })
+        .collect();
+    checks.extend(
+        audio
+            .map(mc_audio::permission::lines)
+            .unwrap_or_default()
+            .into_iter()
+            .map(|line| check(line.name, if line.ok { "ok" } else { "warn" }, line.detail)),
+    );
+    checks
 }
 
 /// Whether this build can recognise speech; without it `transcribe` and `--live-asr` refuse.
@@ -445,4 +473,55 @@ fn audio_section(ctx: &Ctx<'_>) -> Result<(String, Option<serde_json::Value>, bo
     let value = json!({"available": true, "devices": devices, "probe": probe});
     let unusable = probe.unusable();
     Ok((text, Some(value), unusable))
+}
+
+#[cfg(test)]
+mod tests {
+    use mc_audio::permission::Access;
+
+    use super::*;
+
+    fn names(checks: &[Check]) -> Vec<(&str, &str)> {
+        checks.iter().map(|c| (c.name, c.status)).collect()
+    }
+
+    #[test]
+    fn no_permission_lines_where_the_os_keeps_none() {
+        assert!(permission_checks(None, None).is_empty());
+    }
+
+    #[test]
+    fn missing_permissions_warn_and_say_where_to_allow_them() {
+        let audio = AudioAccess {
+            microphone: Access::Denied,
+            screen_recording: Some(false),
+        };
+        let checks = permission_checks(Some(false), Some(audio));
+        assert_eq!(
+            names(&checks),
+            [
+                ("accessibility", "warn"),
+                ("microphone", "warn"),
+                ("screen_recording", "warn")
+            ]
+        );
+        assert!(
+            checks[0]
+                .detail
+                .contains("Privacy & Security > Accessibility")
+        );
+    }
+
+    #[test]
+    fn granted_permissions_are_ok() {
+        let audio = AudioAccess {
+            microphone: Access::Granted,
+            screen_recording: None,
+        };
+        let checks = permission_checks(Some(true), Some(audio));
+        assert_eq!(
+            names(&checks),
+            [("accessibility", "ok"), ("microphone", "ok")]
+        );
+    }
 }

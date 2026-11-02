@@ -14,9 +14,12 @@ mod mac_backend;
 #[cfg(target_os = "macos")]
 mod mac_ffi;
 #[cfg(target_os = "macos")]
+mod mac_permission;
+#[cfg(target_os = "macos")]
 mod mac_sck;
 #[cfg(target_os = "macos")]
 mod mac_tap;
+pub mod permission;
 pub mod probe;
 pub mod procmatch;
 pub mod recorder;
@@ -48,6 +51,14 @@ pub fn default_backend() -> Option<std::sync::Arc<dyn AudioBackend>> {
     #[cfg(target_os = "macos")]
     return Some(std::sync::Arc::new(mac_backend::MacBackend::new()));
     #[cfg(not(any(windows, target_os = "macos")))]
+    None
+}
+
+/// The macOS audio permissions of this process; `None` where the OS does not keep them per app.
+pub fn audio_access() -> Option<permission::AudioAccess> {
+    #[cfg(target_os = "macos")]
+    return Some(mac_backend::audio_access());
+    #[cfg(not(target_os = "macos"))]
     None
 }
 

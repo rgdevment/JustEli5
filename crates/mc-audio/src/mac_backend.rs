@@ -8,8 +8,10 @@ use objc2_foundation::NSProcessInfo;
 
 use crate::cpal_backend::CpalBackend;
 use crate::devices::DeviceInfo;
+use crate::mac_permission;
 use crate::mac_sck::SckSource;
 use crate::mac_tap::{TapSource, Target, is_running_output};
+use crate::permission::AudioAccess;
 use crate::procmatch::{self, Choice, MACOS_APPS, Proc, snapshot};
 use crate::silence::SilenceAlert;
 use crate::source::{AudioBackend, AudioSource};
@@ -49,6 +51,16 @@ fn tap_target(choice: Choice) -> Target {
     match choice {
         Choice::Process { label, pid, .. } => Target::App { label, root: pid },
         Choice::Everything { .. } => Target::Everything,
+    }
+}
+
+/// Screen Recording is asked only where ScreenCaptureKit is the first choice; the tap's own
+/// permission (System Audio Recording) has no public query, `doctor --audio` tries it instead.
+pub fn audio_access() -> AudioAccess {
+    let sck_first = mechanisms_for(os_version())[0] == Mechanism::ScreenCaptureKit;
+    AudioAccess {
+        microphone: mac_permission::microphone(),
+        screen_recording: sck_first.then(mac_permission::screen_recording),
     }
 }
 
