@@ -2,7 +2,7 @@
 import { type AudioReport, type ConfigFile, type Detect, type Doctor, findCheck, type Model, type Prereq } from "./api";
 import { type State, verdict } from "./audio";
 import { el } from "./dom";
-import { isMac, permissionRows } from "./permissions";
+import { type Asks, isMac, permissionRows } from "./permissions";
 import { PLATFORMS, platformLabel } from "./platforms";
 import type { Settings } from "./settings";
 
@@ -186,7 +186,7 @@ function captionsRow(s: Snapshot, fix: Fixes, platform: string): Row {
   return { label, state: "bad", detail: `No están activados. ${how}`, actions: [again] };
 }
 
-export function rows(s: Snapshot, settings: Settings, fix: Fixes, asking: ReadonlySet<string>): Row[] {
+export function rows(s: Snapshot, settings: Settings, fix: Fixes, asks: Asks): Row[] {
   const list = [mcRow(s, fix)];
   if (!s.mcPath) return list;
   list.push(configRow(s, fix));
@@ -199,7 +199,7 @@ export function rows(s: Snapshot, settings: Settings, fix: Fixes, asking: Readon
   list.push(llmRow(s, fix));
   if (settings.tisty) list.push(tistyRow(s));
   if (s.doctor && !(s.doctor instanceof Error)) {
-    list.push(...permissionRows(s.doctor, settings.recordAudio, asking, fix.askPermission, fix.openSettings));
+    list.push(...permissionRows(s.doctor, settings.recordAudio, asks, fix.askPermission, fix.openSettings));
   }
   if (settings.recordAudio) list.push(audioRow(s, fix, "mic"), audioRow(s, fix, "system"));
   list.push(captionsRow(s, fix, settings.platform));

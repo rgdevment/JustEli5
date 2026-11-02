@@ -546,7 +546,7 @@ fn dispatch(
         Ok(cfg) => cfg,
         // Doctor exists to diagnose a broken configuration: report, don't abort.
         Err(err) if command == "doctor" => {
-            return cmd::doctor::broken_config(&err, io, json_output);
+            return cmd::doctor::broken_config(&err, &parsed, io, json_output);
         }
         Err(err) => return Err(err),
     };

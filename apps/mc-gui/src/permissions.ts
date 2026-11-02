@@ -1,5 +1,5 @@
 // macOS privacy permissions, read from `eli5 doctor`, for the checklist and the wizard.
-import { type Check, type Doctor, findCheck } from "./api";
+import { type Check, type Doctor, findCheck, mcJson } from "./api";
 import type { Action, Row } from "./checks";
 
 export const isMac = navigator.userAgent.includes("Mac");
@@ -11,8 +11,8 @@ interface Permission {
   page: string;
   /** Needed only when audio is recorded. */
   audio: boolean;
-  /** Whether macOS shows its prompt again while the permission is missing (it never does once denied). */
-  asksAgain: boolean;
+  /** When macOS shows its prompt besides never-asked: on every request, on the first only, or never. */
+  asks: "always" | "once" | "never";
   missing: string;
 }
 
@@ -22,7 +22,7 @@ const PERMISSIONS: Permission[] = [
     label: "Permiso de Accesibilidad",
     page: "accessibility",
     audio: false,
-    asksAgain: true,
+    asks: "always",
     missing: "Sin él no se leen los subtítulos. Actívalo para JustEli5 en Ajustes del Sistema > Privacidad y seguridad > Accesibilidad.",
   },
   {
@@ -30,7 +30,7 @@ const PERMISSIONS: Permission[] = [
     label: "Permiso de Micrófono",
     page: "microphone",
     audio: true,
-    asksAgain: false,
+    asks: "never",
     missing: "Sin él macOS graba silencio sin avisar. Actívalo para JustEli5 en Ajustes del Sistema > Privacidad y seguridad > Micrófono.",
   },
   {
@@ -38,16 +38,39 @@ const PERMISSIONS: Permission[] = [
     label: "Permiso de Grabación de pantalla",
     page: "screen",
     audio: true,
-    // macOS only tells granted from missing here, so asking is offered and shows the prompt if it never did.
-    asksAgain: true,
+    // macOS only tells granted from missing here, so asking is offered once: it prompts only if it never did.
+    asks: "once",
     missing:
       "En esta versión de macOS el audio de la reunión se graba con él. Actívalo para JustEli5 en Ajustes del Sistema > Privacidad y seguridad > Grabación de pantalla y audio del sistema.",
   },
 ];
 
-/** Shows macOS's own prompt for one permission; for the microphone eli5 waits for the answer. */
-export function askArgs(name: string): string[] {
-  return ["doctor", "--ask-permission", name];
+/** The permissions being asked for now, and those already asked for in this window. */
+export interface Asks {
+  asking: Set<string>;
+  asked: Set<string>;
+}
+
+export const newAsks = (): Asks => ({ asking: new Set(), asked: new Set() });
+
+/** Shows macOS's own prompt (eli5 waits for the microphone answer) and returns doctor's report after it. */
+export async function askFor(asks: Asks, name: string, redraw: () => void): Promise<Doctor | null> {
+  if (asks.asking.has(name)) return null;
+  asks.asking.add(name);
+  redraw();
+  const doctor = await mcJson<Doctor>(["doctor", "--ask-permission", name]).catch(() => null);
+  asks.asking.delete(name);
+  asks.asked.add(name);
+  return doctor;
+}
+
+const isPermission = (name: string) => PERMISSIONS.some((p) => p.name === name);
+
+/** `base` with the permission lines of `fresh`, which is newer. */
+export function withPermissions(base: Doctor | Error | undefined, fresh: Doctor): Doctor {
+  if (!base || base instanceof Error) return fresh;
+  const others = base.checks.filter((c) => !isPermission(c.name));
+  return { ...base, checks: [...others, ...fresh.checks.filter((c) => isPermission(c.name))] };
 }
 
 function detail(permission: Permission, check: Check): string {
@@ -78,10 +101,17 @@ export function permissionMissing(doctor: Doctor | Error | undefined, recordAudi
   return relevant(doctor, recordAudio).some(([, check]) => check.status !== "ok");
 }
 
-function actions(permission: Permission, check: Check, ask: (name: string) => void, open: (page: string) => void): Action[] {
+function actions(
+  permission: Permission,
+  check: Check,
+  asked: ReadonlySet<string>,
+  ask: (name: string) => void,
+  open: (page: string) => void,
+): Action[] {
   if (check.status === "ok" || check.state === "restricted") return [];
   const settings = { label: "Abrir ajustes", run: () => open(permission.page) };
-  const askable = check.state === "not_asked" || permission.asksAgain;
+  const askable =
+    check.state === "not_asked" || permission.asks === "always" || (permission.asks === "once" && !asked.has(permission.name));
   return askable ? [{ label: "Pedir permiso", run: () => ask(permission.name) }, settings] : [settings];
 }
 
@@ -89,15 +119,15 @@ function actions(permission: Permission, check: Check, ask: (name: string) => vo
 export function permissionRows(
   doctor: Doctor,
   recordAudio: boolean,
-  asking: ReadonlySet<string>,
+  asks: Asks,
   ask: (name: string) => void,
   open: (page: string) => void,
 ): Row[] {
   return relevant(doctor, recordAudio).map(([permission, check]) => {
-    if (asking.has(permission.name)) {
+    if (asks.asking.has(permission.name)) {
       return { label: permission.label, state: "warn", detail: "Esperando tu respuesta en el aviso de macOS…", actions: [] };
     }
     const ok = check.status === "ok";
-    return { label: permission.label, state: ok ? "ok" : "bad", detail: detail(permission, check), actions: actions(permission, check, ask, open) };
+    return { label: permission.label, state: ok ? "ok" : "bad", detail: detail(permission, check), actions: actions(permission, check, asks.asked, ask, open) };
   });
 }

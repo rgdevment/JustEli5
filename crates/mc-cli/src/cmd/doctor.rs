@@ -7,6 +7,7 @@ use mc_captions::ui::report::{format_report, uia_report};
 use mc_captions::ui::{FakeBackend, Fixture, Platform, UiBackend};
 use serde_json::json;
 
+use crate::args::Parsed;
 use crate::cli::{CliError, Ctx, Env, Io, Os, emit};
 use crate::config::display;
 use crate::publish::tisty::{self, Health, resolve};
@@ -34,6 +35,10 @@ impl Check {
             state: Some(state),
             ..self
         }
+    }
+
+    fn line(&self) -> String {
+        format!("{:<5} {:<11} {}\n", self.status, self.name, self.detail)
     }
 
     fn json(&self) -> serde_json::Value {
@@ -71,25 +76,28 @@ fn writable(dir: &std::path::Path) -> Result<(), String> {
     removed.map_err(|e| e.to_string())
 }
 
-/// The configuration did not load: report that and stop.
-pub fn broken_config(err: &CliError, io: &mut Io<'_>, json_output: bool) -> Result<u8, CliError> {
-    let human = format!(
-        "FAIL  config      {}\n      (other checks skipped until the configuration loads)\n",
-        err.message()
-    );
+/// The configuration did not load: report that, and the permissions, which do not depend on it.
+pub fn broken_config(
+    err: &CliError,
+    args: &Parsed,
+    io: &mut Io<'_>,
+    json_output: bool,
+) -> Result<u8, CliError> {
+    let mut checks = vec![check("config", "FAIL", err.message())];
+    checks.extend(asked_permission_checks(args)?);
+    let mut human: String = checks.iter().map(Check::line).collect();
+    human.push_str("      (other checks skipped until the configuration loads)\n");
     let value = json!({
-        "checks": [{"name": "config", "status": "FAIL", "detail": err.message()}],
+        "checks": checks.iter().map(Check::json).collect::<Vec<_>>(),
         "ok": false,
     });
     emit(io, json_output, human, value)?;
     Ok(1)
 }
 
-pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
-    if !ctx.args.positional.is_empty() {
-        return Err(CliError::usage("usage: eli5 doctor"));
-    }
-    let ask = ctx.args.value("ask-permission");
+/// Asks macOS for what `--ask-permission` names, then reports every permission.
+fn asked_permission_checks(args: &Parsed) -> Result<Vec<Check>, CliError> {
+    let ask = args.value("ask-permission");
     if let Some(name) = ask
         && !ASKABLE.contains(&name)
     {
@@ -103,6 +111,24 @@ pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
             "--ask-permission only applies on macOS, the one system that keeps these permissions per app",
         ));
     }
+    match ask {
+        Some("microphone") => mc_audio::request_microphone(),
+        Some("screen_recording") => mc_audio::request_screen_recording(),
+        _ => {}
+    }
+    // The run's only Accessibility prompt: `--uia` and `--dump` then read without asking again.
+    let prompt = args.flag("ax-prompt") || ask == Some("accessibility");
+    Ok(permission_checks(
+        mc_captions::accessibility_trusted(prompt),
+        mc_audio::audio_access(),
+    ))
+}
+
+pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
+    if !ctx.args.positional.is_empty() {
+        return Err(CliError::usage("usage: eli5 doctor"));
+    }
+    let permissions = asked_permission_checks(&ctx.args)?;
     let cfg = &ctx.cfg;
     let mut checks = Vec::new();
 
@@ -174,23 +200,10 @@ pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
 
     checks.push(llm_check(ctx));
     checks.push(whisper_check());
-    match ask {
-        Some("microphone") => mc_audio::request_microphone(),
-        Some("screen_recording") => mc_audio::request_screen_recording(),
-        _ => {}
-    }
-    // The run's only Accessibility prompt: `--uia` and `--dump` then read without asking again.
-    let prompt = ctx.args.flag("ax-prompt") || ask == Some("accessibility");
-    checks.extend(permission_checks(
-        mc_captions::accessibility_trusted(prompt),
-        mc_audio::audio_access(),
-    ));
+    checks.extend(permissions);
 
     let failed = checks.iter().any(|c| c.status == "FAIL");
-    let mut human: String = checks
-        .iter()
-        .map(|c| format!("{:<5} {:<11} {}\n", c.status, c.name, c.detail))
-        .collect();
+    let mut human: String = checks.iter().map(Check::line).collect();
     let (uia_text, uia_value) = uia_section(ctx)?;
     human.push_str(&uia_text);
     let (audio_text, audio_value, audio_unusable) = audio_section(ctx)?;
