@@ -98,6 +98,11 @@ pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
             ASKABLE.join(", ")
         )));
     }
+    if ask.is_some() && !cfg!(target_os = "macos") {
+        return Err(CliError::usage(
+            "--ask-permission only applies on macOS, the one system that keeps these permissions per app",
+        ));
+    }
     let cfg = &ctx.cfg;
     let mut checks = Vec::new();
 

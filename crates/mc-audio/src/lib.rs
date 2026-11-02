@@ -57,7 +57,7 @@ pub fn default_backend() -> Option<std::sync::Arc<dyn AudioBackend>> {
 /// The macOS audio permissions of this process; `None` where the OS does not keep them per app.
 pub fn audio_access() -> Option<permission::AudioAccess> {
     #[cfg(target_os = "macos")]
-    return Some(mac_backend::audio_access());
+    return Some(mac_backend::MacBackend::new().audio_access());
     #[cfg(not(target_os = "macos"))]
     None
 }

@@ -761,16 +761,13 @@ mod doctor {
                 "whisper"
             ]
         );
-        // Only macOS keeps privacy permissions per app.
-        let expected: &[&str] = if cfg!(target_os = "macos") {
-            &["accessibility", "microphone", "screen_recording"]
+        // Only macOS keeps privacy permissions per app; Screen Recording depends on its version.
+        if cfg!(target_os = "macos") {
+            assert_eq!(permissions[..2], ["accessibility", "microphone"]);
+            assert!(permissions[2..].iter().all(|n| *n == "screen_recording"));
         } else {
-            &[]
-        };
-        assert!(
-            permissions.iter().all(|name| expected.contains(name)),
-            "{permissions:?}"
-        );
+            assert!(permissions.is_empty(), "{permissions:?}");
+        }
         for check in value["checks"].as_array().unwrap() {
             assert!(check["status"].is_string());
             assert!(check["detail"].is_string());
@@ -789,6 +786,19 @@ mod doctor {
         let out = s.mc(&["doctor", "--ask-permission", "camera"]);
         assert_eq!(out.code, 2);
         assert!(out.stderr.contains("screen_recording"), "{}", out.stderr);
+    }
+
+    #[cfg(not(target_os = "macos"))]
+    #[test]
+    fn asking_for_a_permission_is_refused_off_macos() {
+        let s = Sandbox::new();
+        let out = s.mc(&["doctor", "--ask-permission", "microphone"]);
+        assert_eq!(out.code, 2);
+        assert!(
+            out.stderr.contains("only applies on macOS"),
+            "{}",
+            out.stderr
+        );
     }
 }
 

@@ -54,20 +54,6 @@ fn tap_target(choice: Choice) -> Target {
     }
 }
 
-/// The tap's own permission has no public query; `doctor --audio` tries it instead.
-pub fn audio_access() -> AudioAccess {
-    let chain = mechanisms_for(os_version());
-    AudioAccess {
-        microphone: mac_permission::microphone(),
-        screen_recording: chain
-            .contains(&Mechanism::ScreenCaptureKit)
-            .then(|| Screen {
-                granted: mac_permission::screen_recording(),
-                fallback: chain[0] != Mechanism::ScreenCaptureKit,
-            }),
-    }
-}
-
 /// Whether any other process is playing sound right now.
 fn something_is_playing() -> bool {
     let own = std::process::id();
@@ -80,6 +66,20 @@ impl MacBackend {
     pub fn new() -> Self {
         Self {
             version: os_version(),
+        }
+    }
+
+    /// The tap's own permission has no public query; `doctor --audio` tries it instead.
+    pub fn audio_access(&self) -> AudioAccess {
+        let chain = mechanisms_for(self.version);
+        AudioAccess {
+            microphone: mac_permission::microphone(),
+            screen_recording: chain
+                .contains(&Mechanism::ScreenCaptureKit)
+                .then(|| Screen {
+                    granted: mac_permission::screen_recording(),
+                    fallback: chain[0] != Mechanism::ScreenCaptureKit,
+                }),
         }
     }
 
