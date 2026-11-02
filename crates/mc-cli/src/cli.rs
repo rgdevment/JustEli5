@@ -239,12 +239,14 @@ commands:
   export <session> --tisty [--tisty-folder F] [--tisty-list L] [--yes] [--dry-run]
                                       publish the newest minutes (made first if missing) and one task
                                       per commitment to Tisty; shows the plan and asks unless --yes/--json
-  doctor [--tisty] [--ax-prompt] [--uia] [--dump FILE [--window N] [--raw]] [--source fake-uia:F]
+  doctor [--tisty] [--ax-prompt] [--ask-permission accessibility|microphone|screen_recording]
+         [--uia] [--dump FILE [--window N] [--raw]] [--source fake-uia:F]
          [--audio [--audio-seconds S] [--audio-source wav:M[,S]] [--mic-device D] [--system-device D]]
          [--llm-provider P] [--llm-model M]
                                       check configuration, environment and (macOS) privacy permissions;
                                       inspect/dump UI trees; listen to the audio channels (levels, echo);
-                                      --ax-prompt asks macOS to show the Accessibility prompt
+                                      --ask-permission makes macOS show that permission's prompt
+                                      (waits for the microphone answer); --ax-prompt is accessibility
   detect [--ax-prompt]                which meeting platforms have a window open now and whether
                                       their captions are on (exit 1 when none is found)
   compare <runA> <runB>               compare two runs
@@ -435,6 +437,7 @@ fn command_spec(name: &str) -> Option<Spec> {
                 "audio-seconds",
                 "llm-provider",
                 "llm-model",
+                "ask-permission",
             ],
             flags: &["uia", "raw", "force", "audio", "ax-prompt", "tisty"],
         },

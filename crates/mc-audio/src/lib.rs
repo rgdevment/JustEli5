@@ -62,6 +62,18 @@ pub fn audio_access() -> Option<permission::AudioAccess> {
     None
 }
 
+/// Shows the macOS microphone prompt if it never showed, waiting for the answer; nothing elsewhere.
+pub fn request_microphone() {
+    #[cfg(target_os = "macos")]
+    mac_permission::request_microphone();
+}
+
+/// Shows the macOS Screen Recording prompt if it never showed; nothing elsewhere.
+pub fn request_screen_recording() {
+    #[cfg(target_os = "macos")]
+    mac_permission::request_screen_recording();
+}
+
 #[cfg(windows)]
 mod system {
     use crate::cpal_backend::CpalBackend;

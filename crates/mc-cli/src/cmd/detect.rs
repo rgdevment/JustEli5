@@ -36,7 +36,7 @@ pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
     if !ctx.args.positional.is_empty() {
         return Err(CliError::usage("usage: eli5 detect [--json]"));
     }
-    let mut backend = ui_backend(ctx)?;
+    let mut backend = ui_backend(ctx, ctx.args.flag("ax-prompt"))?;
     let started = std::time::Instant::now();
     let mut timer = move || started.elapsed().as_secs_f64() * 1000.0;
     let report = uia_report(
