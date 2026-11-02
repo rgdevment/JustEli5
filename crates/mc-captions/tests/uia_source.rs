@@ -617,7 +617,7 @@ fn source_names_and_meeting_name_before_discovery() {
 
     let mut teams = teams;
     attached(&mut teams);
-    assert_eq!(teams.meeting_name().as_deref(), Some(TEAMS_TITLE));
+    assert_eq!(teams.meeting_name().as_deref(), Some("Reunión con Ana"));
 }
 
 // --------------------------------------------- (i) fixtures and tree model
@@ -727,8 +727,14 @@ fn teams_meeting_name_strips_decorations() {
     assert_eq!(name("\t  Team \n").as_deref(), Some("Team"));
     assert_eq!(
         name("Reunión con Ana | Microsoft Teams").as_deref(),
-        Some(TEAMS_TITLE)
+        Some("Reunión con Ana")
     );
+    // The main window on the Activity or Chat pane names the chat on screen, not the meeting.
+    assert_eq!(
+        name("Actividad | B2B-Falabella-Hito2: Sincronización | Microsoft Teams"),
+        None
+    );
+    assert_eq!(name("Chat | Ana Soto | Microsoft Teams"), None);
     assert_eq!(name(""), None);
     assert_eq!(name("Captions | "), None);
     assert_eq!(name("Captions |    "), None);

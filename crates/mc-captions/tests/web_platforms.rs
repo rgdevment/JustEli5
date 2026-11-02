@@ -155,10 +155,7 @@ fn teams_web_and_teams_desktop_are_not_confused() {
         "Reunión de equipo | Microsoft Teams - Microsoft Edge"
     );
     assert_eq!(web.window_pid(), Some(7101));
-    assert_eq!(
-        web.meeting_name().as_deref(),
-        Some("Reunión de equipo | Microsoft Teams")
-    );
+    assert_eq!(web.meeting_name().as_deref(), Some("Reunión de equipo"));
     assert_eq!(
         read(&mut web),
         [

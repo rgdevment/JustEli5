@@ -1,6 +1,7 @@
 //! The Tisty adapter: `tisty mcp` over stdio (no port, no token). The person admits this
 //! assistant once in Tisty (Settings > Assistants); until then every call is rejected.
 
+use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 use std::time::Duration;
 
@@ -8,8 +9,8 @@ use mc_mcp_client::{McpClient, McpError, Timeouts};
 use serde_json::{Value, json};
 
 use super::{
-    Abort, AbortKind, Item, Plan, PublishReport, Publisher, Status, TaskPlan, page_item,
-    series_item, task_item,
+    Abort, AbortKind, Item, Plan, PublishReport, Publisher, Status, TaskPlan, meet_series_key,
+    page_item, series_item, split_properties, task_item,
 };
 use crate::cli::{Env, Os};
 
@@ -269,6 +270,76 @@ fn lookup(client: &mut McpClient, args: Value, title: &str) -> Result<Option<Str
     }
 }
 
+/// A meeting series Tisty already keeps: a document of `folder` whose properties say `type: meet`.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct TistySeries {
+    pub doc: String,
+    pub key: String,
+    pub title: String,
+}
+
+/// `published` (document id → series key) names the ones written before they had properties.
+pub fn meeting_series(
+    program: &Path,
+    args: &[String],
+    folder: &str,
+    published: &BTreeMap<String, String>,
+) -> Result<Vec<TistySeries>, String> {
+    let mut client = start(program, args).map_err(|a| a.message)?;
+    let found = list_meeting_series(&mut client, folder, published);
+    client.close();
+    found.map_err(|f| match f {
+        Failure::Refused(why) => why,
+        Failure::Abort(a) => a.message,
+    })
+}
+
+fn list_meeting_series(
+    client: &mut McpClient,
+    folder: &str,
+    published: &BTreeMap<String, String>,
+) -> Result<Vec<TistySeries>, Failure> {
+    let mut series = Vec::new();
+    let mut seen = 0;
+    loop {
+        let text = call(
+            client,
+            "docs",
+            json!({"folder": folder, "limit": 200, "after": seen}),
+        )?;
+        let answer: Value = serde_json::from_str(&text).unwrap_or_default();
+        let docs = answer["docs"].as_array().cloned().unwrap_or_default();
+        for doc in &docs {
+            let (Some(id), Some(title)) = (doc["doc"].as_str(), doc["title"].as_str()) else {
+                continue;
+            };
+            let key = match published.get(id) {
+                Some(key) => Some(key.clone()),
+                None => match call(client, "read_doc", json!({"doc": id, "chars": 400})) {
+                    Ok(head) => serde_json::from_str::<Value>(&head)
+                        .ok()
+                        .and_then(|v| v["body"].as_str().and_then(meet_series_key)),
+                    Err(Failure::Abort(stop)) => return Err(Failure::Abort(stop)),
+                    // One document Tisty will not show (locked, gone meanwhile) hides only itself.
+                    Err(Failure::Refused(_)) => None,
+                },
+            };
+            if let Some(key) = key {
+                series.push(TistySeries {
+                    doc: id.to_string(),
+                    key,
+                    title: title.to_string(),
+                });
+            }
+        }
+        seen += docs.len();
+        let total = answer["total"].as_u64().unwrap_or(0) as usize;
+        if docs.is_empty() || seen >= total {
+            return Ok(series);
+        }
+    }
+}
+
 /// The id Tisty gives a document it has just written.
 fn written_id(text: &str) -> Option<String> {
     let answer: Value = serde_json::from_str(text).ok()?;
@@ -296,7 +367,12 @@ fn find_series(client: &mut McpClient, plan: &Plan) -> Result<Option<String>, Fa
             return Ok(Some(id));
         }
     }
-    Ok(None)
+    // Written elsewhere under another title: its properties still name the series.
+    let Some(key) = &m.series_key else {
+        return Ok(None);
+    };
+    let series = list_meeting_series(client, &m.folder, &BTreeMap::new())?;
+    Ok(series.into_iter().find(|s| &s.key == key).map(|s| s.doc))
 }
 
 /// Writes the series document again with this publish's «Dónde va», keeping its title (the
@@ -315,13 +391,12 @@ fn refresh_series(
     let (Some(body), Some(print)) = (read["body"].as_str(), read["print"].as_str()) else {
         return Ok(());
     };
-    let title = body.lines().next().unwrap_or_default();
-    let rest = plan
-        .minutes
-        .series_body
-        .split_once('\n')
-        .map_or("", |(_, r)| r);
-    let args = json!({"doc": id, "print": print, "body": format!("{title}\n{rest}")});
+    let title = split_properties(body).1.lines().next().unwrap_or_default();
+    let written = plan.minutes.series_document();
+    let (properties, written) = split_properties(&written);
+    let rest = written.split_once('\n').map_or("", |(_, r)| r);
+    let properties = properties.map_or(String::new(), |p| format!("---\n{p}\n---\n"));
+    let args = json!({"doc": id, "print": print, "body": format!("{properties}{title}\n{rest}")});
     if let Err(why) = mutate(client, "write_doc", args, Vec::new(), report)? {
         let status = Status::Failed(format!("«Dónde va» was not updated: {why}"));
         report.items.push(series_item(plan, status));
@@ -354,7 +429,7 @@ fn ensure_series(
         refresh_series(client, plan, id, report)?;
         return Ok(found);
     }
-    let args = json!({"body": m.series_body, "folder": m.folder});
+    let args = json!({"body": m.series_document(), "folder": m.folder});
     let flight = vec![series_item(plan, Status::Created)];
     match mutate(client, "write_doc", args, flight, report)? {
         Ok(text) => {

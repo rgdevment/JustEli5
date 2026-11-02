@@ -118,6 +118,13 @@ fn yes_publishes_the_minutes_and_one_task_with_the_user_s_commitments_as_parts()
     let (series, page) = (&docs[0], &docs[1]);
     assert_eq!(series["folder"], "Reuniones");
     assert_eq!(series["title"], "Daily de equipo");
+    assert!(
+        series["body"]
+            .as_str()
+            .unwrap()
+            .starts_with("---\ntype: meet\nseries: daily de equipo\n---\nDaily de equipo\n"),
+        "the series document says it is a meeting's, so the next one can be offered it"
+    );
     assert_eq!(page["page_of"], series["id"]);
     assert!(
         page.get("folder").is_none(),
@@ -598,10 +605,84 @@ fn a_series_document_with_its_former_title_is_found_and_written_again_keeping_it
     let docs = f.state()["docs"].as_array().unwrap().clone();
     assert_eq!(docs.len(), 2, "no second series document");
     let body = docs[0]["body"].as_str().unwrap();
-    assert!(body.starts_with(&format!("{title}\n")), "{body}");
+    let head = format!("---\ntype: meet\nseries: daily de equipo\n---\n{title}\n");
+    assert!(body.starts_with(&head), "{body}");
     assert!(
         body.contains("Minutas de «Daily de equipo»") && body.contains("## Sesiones"),
         "{body}"
+    );
+
+    add_next_meeting(&f);
+    assert_eq!(publish(&f, &f.config(&[], json!({}))).code, 0);
+    let body = f.state()["docs"][0]["body"].as_str().unwrap().to_string();
+    assert!(
+        body.starts_with(&head),
+        "the title survives a second refresh: {body}"
+    );
+    assert_eq!(body.matches("type: meet").count(), 1, "{body}");
+}
+
+#[test]
+fn a_series_document_renamed_elsewhere_is_found_by_its_properties() {
+    let f = Fixture::new();
+    let body = "---\ntype: meet\nseries: daily de equipo\n---\nNuestra daily\n\n## Sesiones\n";
+    let old = json!({"docs": [{"id": "d0003", "title": "Nuestra daily", "folder": "Reuniones",
+        "body": body}], "tasks": []});
+    fs::write(&f.state, old.to_string()).unwrap();
+    let out = publish(&f, &f.config(&[], json!({})));
+    assert_eq!(out.code, 0, "{}", out.stdout);
+    assert_eq!(statuses(&out)[0], "existed");
+    let docs = f.state()["docs"].as_array().unwrap().clone();
+    assert_eq!(docs.len(), 2, "no second series document");
+    assert_eq!(docs[1]["page_of"], "d0003");
+}
+
+#[test]
+fn series_match_offers_the_meeting_series_tisty_keeps() {
+    let f = Fixture::new();
+    let state = json!({"docs": [
+        {"id": "d0001", "title": "Daily de equipo", "folder": "Reuniones",
+         "body": "---\ntype: meet\nseries: daily de equipo\n---\nDaily de equipo\n"},
+        {"id": "d0002", "title": "Daily de recetas", "folder": "Reuniones",
+         "body": "Daily de recetas\n\nNo es una reunión.\n"}], "tasks": []});
+    fs::write(&f.state, state.to_string()).unwrap();
+    let config = f.config(&[], json!({}));
+
+    let out = f.mc(
+        &config,
+        &["--json", "series", "match", "Daily equipo", "--tisty"],
+    );
+    assert_eq!(out.code, 0, "{}{}", out.stdout, out.stderr);
+    let answer = out.json();
+    assert_eq!(answer["exact"], Value::Null);
+    let alike = answer["alike"].as_array().unwrap();
+    assert_eq!(
+        alike.len(),
+        1,
+        "a document without the properties is no meeting: {answer}"
+    );
+    assert_eq!(alike[0]["key"], "daily de equipo");
+    assert_eq!(alike[0]["title"], "Daily de equipo");
+    assert_eq!(alike[0]["in_tisty"], true);
+
+    let exact = f.mc(
+        &config,
+        &[
+            "--json",
+            "series",
+            "match",
+            "Daily de equipo 21/10",
+            "--tisty",
+        ],
+    );
+    assert_eq!(exact.json()["exact"]["key"], "daily de equipo");
+    assert_eq!(exact.json()["alike"], json!([]));
+
+    let local = f.mc(&config, &["--json", "series", "match", "Daily equipo"]);
+    assert_eq!(
+        local.json()["alike"],
+        json!([]),
+        "Tisty is asked only with --tisty"
     );
 }
 

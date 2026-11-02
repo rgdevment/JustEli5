@@ -23,7 +23,7 @@ import {
 import { renderProbe } from "./audio";
 import { runCapture } from "./capture";
 import { type Fixes, type Snapshot, renderPrereqs, renderRows, rows } from "./checks";
-import { type ConfigView, configView } from "./config";
+import { type ConfigView, configView, getAt } from "./config";
 import { byId, show } from "./dom";
 import { confirmAndRun } from "./jobdialog";
 import { LiveMemory } from "./livememory";
@@ -31,6 +31,7 @@ import { MemoryView } from "./memory";
 import { platformLabel } from "./platforms";
 import { runPost } from "./post";
 import * as form from "./prepare";
+import { SeriesQuestion } from "./seriesquestion";
 import { type Settings, saveSettings, withRecentName } from "./settings";
 import { runSetup } from "./setup";
 import { mountVocabulary } from "./vocabulary";
@@ -49,6 +50,11 @@ export class App {
   private meetingView: MeetingView = "prepare";
   private readonly config: ConfigView;
   private readonly memory = new MemoryView();
+  private readonly seriesQuestion = new SeriesQuestion((title) => {
+    const name = byId<HTMLInputElement>("name");
+    name.value = title;
+    name.dispatchEvent(new Event("change"));
+  });
 
   constructor(private settings: Settings) {
     this.config = configView(
@@ -121,6 +127,7 @@ export class App {
     for (const id of ["record-audio", "live-asr", "final-pass", "analyst", "tisty", "name", "context"]) {
       byId(id).addEventListener("change", changed);
     }
+    byId("name").addEventListener("change", () => this.seriesQuestion.ask(this.settings.name, this.settings.tisty));
     for (const id of ["mic-device", "system-device"]) {
       byId(id).addEventListener("change", () => {
         changed();
@@ -331,8 +338,9 @@ export class App {
     const contextFile = await contextWrite(this.settings.context);
     const title = `${this.settings.name || "Reunión"} · ${platformLabel(this.settings.platform)}`;
 
+    const seriesKey = this.seriesQuestion.chosenKey(this.settings.name);
     this.showMeeting("capture");
-    const people = new LiveMemory();
+    const people = new LiveMemory(await this.myName());
     people.mount((query) => this.openMemory(query));
     const capture = await runCapture(this.captureArgs(contextFile), title, people);
     if (!capture.sessionDir) {
@@ -342,6 +350,8 @@ export class App {
       return;
     }
 
+    // Before the minutes, which carry over the series; failing, they still come out under the name's.
+    if (seriesKey) await runMc(["series", "set", capture.sessionDir, seriesKey]).catch(() => null);
     this.showMeeting("post");
     show(byId("post-done"), false);
     // Who each participant is now lives in the memory, which the minutes read on their own.
@@ -353,6 +363,14 @@ export class App {
       tisty: this.settings.tisty,
     });
     this.showResult(capture.sessionDir, post.minutes, post.ambiguous);
+  }
+
+  /** Read when the meeting starts: the setup or the Configuración tab may have changed it since. */
+  private async myName(): Promise<string | null> {
+    const me = await configLoad()
+      .then((config) => getAt(config.value, "fusion.me"))
+      .catch(() => null);
+    return typeof me === "string" && me.trim() ? me.trim() : null;
   }
 
   private showResult(sessionDir: string, minutes: string | null, ambiguous: string[]): void {

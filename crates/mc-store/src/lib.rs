@@ -16,4 +16,6 @@ pub use db::{
     fnv_extend,
 };
 pub use error::StoreError;
-pub use series::{SeriesOrigin, SeriesRule, clean_key, series_for_name, series_key, user_key};
+pub use series::{
+    SeriesOrigin, SeriesRule, clean_key, name_similarity, series_for_name, series_key, user_key,
+};

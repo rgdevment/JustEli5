@@ -239,7 +239,12 @@ fn read_doc(state: &Value, args: &Value) -> Value {
 
 fn write_doc(script: &Script, state: &mut Value, args: &Value) -> Value {
     let body = args["body"].as_str().unwrap_or_default();
-    let title = body.lines().next().unwrap_or_default().to_string();
+    // Like Tisty, the properties block at the top is not the title.
+    let shown = body
+        .strip_prefix("---\n")
+        .and_then(|rest| rest.split_once("\n---\n"))
+        .map_or(body, |(_, rest)| rest);
+    let title = shown.lines().next().unwrap_or_default().to_string();
     let docs = state["docs"].as_array_mut().expect("docs");
     if let Some(id) = args["doc"].as_str() {
         let Some(doc) = docs.iter_mut().find(|d| d["id"] == id) else {

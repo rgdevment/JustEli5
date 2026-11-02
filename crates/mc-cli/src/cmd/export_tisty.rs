@@ -30,7 +30,7 @@ pub struct Prepared {
 /// Series key → Tisty document id: the document is found by id even after it is renamed.
 const SERIES_DOCS_FILE: &str = "tisty_series.json";
 
-fn series_docs(cfg: &Config) -> BTreeMap<String, String> {
+pub fn series_docs(cfg: &Config) -> BTreeMap<String, String> {
     std::fs::read_to_string(cfg.data_dir.join(SERIES_DOCS_FILE))
         .ok()
         .and_then(|text| serde_json::from_str(&text).ok())
@@ -131,10 +131,17 @@ pub fn prepare(
     let commitments: Vec<CommitmentRecord> = read_json(&minutes_dir.join("commitments.json"))?;
     let mut plan = build_plan(&markdown, &commitments, target);
     let (props, _) = parse_properties(&markdown);
-    let series_key = series_for_name(&props.title, &ctx.cfg.series_rules).map(|(key, _)| key);
+    // The index knows a series chosen by hand; the name alone only guesses it.
+    let indexed = open_store(&ctx.cfg)
+        .ok()
+        .and_then(|store| store.series_of(&props.session).ok().flatten());
+    let series_key = indexed
+        .map(|(key, _)| key)
+        .or_else(|| series_for_name(&props.title, &ctx.cfg.series_rules).map(|(key, _)| key));
     plan.minutes.series_doc = series_key
         .as_ref()
         .and_then(|key| series_docs(&ctx.cfg).get(key).cloned());
+    plan.minutes.series_key.clone_from(&series_key);
     // Picture paths in the minutes are relative to their folder; Tisty needs the file itself.
     for (_, path) in &mut plan.minutes.images {
         *path = minutes_dir.join(&*path).display().to_string();

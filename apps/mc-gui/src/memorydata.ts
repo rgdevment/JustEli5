@@ -61,8 +61,17 @@ export async function change(args: string[]): Promise<Entry | null> {
   return (await mcJson<{ entry?: Entry }>(["memory", ...args])).entry ?? null;
 }
 
+export type Resolution = { resolution: "known"; id: number } | { resolution: "unknown" | "ambiguous" };
+
+/** What the memory makes of `text`; `present`, the people already known here, tells homonyms apart. */
+export async function whoIs(kind: Kind, text: string, present: number[] = []): Promise<Resolution> {
+  const args = ["memory", "resolve", kind, text];
+  if (present.length) args.push("--present", present.join(","));
+  return mcJson<Resolution>(args);
+}
+
 /** The entry of `kind` that `text` names here, when the memory can tell. */
 export async function resolve(kind: Kind, text: string): Promise<number | null> {
-  const found = await mcJson<{ resolution: string; id?: number }>(["memory", "resolve", kind, text]);
-  return found.resolution === "known" && typeof found.id === "number" ? found.id : null;
+  const found = await whoIs(kind, text);
+  return found.resolution === "known" ? found.id : null;
 }
