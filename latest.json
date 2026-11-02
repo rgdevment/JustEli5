@@ -1,14 +1,14 @@
 {
-  "version": "0.2.0",
-  "notes": "https://github.com/rgdevment/JustEli5/releases/tag/v0.2.0",
+  "version": "0.2.1",
+  "notes": "https://github.com/rgdevment/JustEli5/releases/tag/v0.2.1",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/rgdevment/JustEli5/releases/download/v0.2.0/justeli5-installer-0.2.0-windows-x86_64.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSTRXcW1DZ25uRmxyZGdWYlk4SE5HSEl0MmR5ZnJEcHRsaXB0UUtwWnJpYnN4Ymh6emN2cGF5ZDRrQWQyOGxoTWtSRVBlOHhNOExldHpvcncxSjZrQTdBUjVaV1hHUGdjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNjQ2NTQ0CWZpbGU6anVzdGVsaTUtaW5zdGFsbGVyLTAuMi4wLXdpbmRvd3MteDg2XzY0LmV4ZQpidXQvcWdQcEF3QzF2Y1hhNVloMWNtUlRyaWVLaUVlbjB0MlZMOU1PN05iZXVza3FZWjV3c1ljNGJSSkd3UmtnanlnaU1FMEhpdmUxNmVRNVltMUZDZz09Cg=="
+      "url": "https://github.com/rgdevment/JustEli5/releases/download/v0.2.1/justeli5-installer-0.2.1-windows-x86_64.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSTRXcW1DZ25uRnJkVWF1UlFTNk0wd0NzVGwxODlUZ2tmZTRqQ2JNbEc1YlI1eENMM2twMUlTSDNrazdVeGRWbk5veUFqOC9tbURHS0dPNSs1ZjJSZCt2dUtiRTNqS2dRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNjQ5ODk0CWZpbGU6anVzdGVsaTUtaW5zdGFsbGVyLTAuMi4xLXdpbmRvd3MteDg2XzY0LmV4ZQprUVB0eS9nNExWdVJKWEZ6UVFIZUlYbzBtckx2MklqUnROaVZTQWtacEZGZkZ1NVB4RkpMRElVbzNoZVVYWWNmQWNLeFEwdXkzYWRpSGJSc0I4KytDdz09Cg=="
     },
     "darwin-aarch64": {
-      "url": "https://github.com/rgdevment/JustEli5/releases/download/v0.2.0/justeli5-0.2.0-macos-aarch64.app.tar.gz",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSTRXcW1DZ25uRmxBby80c29YdE1ySEh6M1hidFhReVdHbTRVSXNhM2ZPUjJxUXNjY0pxTjVhVUJMdWFhQ0J0aWFoVzdWYkhPMVhBb3EzWGV5NjAyNEpoY3dVdVN4ZndjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNjQ2MzE0CWZpbGU6SnVzdEVsaTUuYXBwLnRhci5negp5MGQvRFphRi90QUFuVzFQcnZuRk1Gdnc0UDZYN3ZwejhhTTQ4T2tKYWEwa1FQR2wybTlhb2hJSHQzS0lLV0dZV1RRZlM4dWl2RFR1eExaRzBycWxCZz09Cg=="
+      "url": "https://github.com/rgdevment/JustEli5/releases/download/v0.2.1/justeli5-0.2.1-macos-aarch64.app.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSTRXcW1DZ25uRm9seVora0FmeDVacFZGeWNIWGtEcXl2cUV6eUFZSGJCN1JTM1dCeUwrS3Q2U1hIRXpPdmlRSHVZNHdERFg1ZEswSHlXdDBaMTZRV3dJbWZ1VFJVcUFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNjQ5NzM3CWZpbGU6SnVzdEVsaTUuYXBwLnRhci5negpmcWFEb2sxdU9uYzFmS2EvRDBFcnhXMzRGQlpYWVZ6RDdFY1dadExNRGR2Y2JXeFdOZEpQQWw2MjFBelJWSXFFejErM2ZWTlUvWFZCc3JONFpzV3hCdz09Cg=="
     }
   }
 }
