@@ -70,7 +70,7 @@ JustEli5 joins two sources instead of trusting one: the platform's captions for 
 Download the installer for your system from [Releases](https://github.com/rgdevment/JustEli5/releases):
 
 - **Windows** — `justeli5-installer-<version>-windows-x86_64.exe`. Installs for your user, without administrator rights, with a desktop and Start menu shortcut. It brings its own `eli5` command with Whisper: no Rust or compiler needed.
-- **macOS** — the `.dmg` for your Mac. Grant Accessibility (to read the captions) and Screen & System Audio Recording (to record the meeting audio) when asked.
+- **macOS** — the `.dmg` for your Mac. Grant Accessibility (to read the captions), Microphone and Screen & System Audio Recording (to record the meeting audio) when asked; the setup wizard and `eli5 doctor` show which ones are still missing.
 
 ### First run
 
@@ -149,7 +149,7 @@ The installer brings `eli5` (also answering to `mc`). Every command accepts `--j
 |---|---|
 | `eli5 capture --source <platform> [--audio] [--live-asr] [--analyst]` | records a meeting (also `eli5 tui` for a terminal interface with notes, marks and the analyst panel) |
 | `eli5 detect` | which meeting apps have a window open and whether their captions are on |
-| `eli5 doctor [--uia] [--audio] [--tisty]` | checks configuration, accessibility, audio and Tisty; `--dump FILE` saves an anonymised accessibility tree |
+| `eli5 doctor [--uia] [--audio] [--tisty]` | checks configuration, the macOS permissions, accessibility, audio and Tisty; `--dump FILE` saves an anonymised accessibility tree |
 | `eli5 run <session>` | rebuilds transcript and segments deterministically |
 | `eli5 transcribe <session>` · `eli5 fuse <session>` | Whisper's final pass and its fusion with the captions |
 | `eli5 analyze <session>` · `eli5 minutes <session>` | analysis and minutes with the configured agent |
