@@ -1022,6 +1022,22 @@ mod audit {
     }
 
     #[test]
+    fn a_broken_config_still_reads_the_permission_to_ask_for() {
+        let s = Sandbox::new();
+        let bad = s.path("bad.json");
+        std::fs::write(&bad, "{ not json").unwrap();
+        let out = s.mc(&[
+            "doctor",
+            "--config",
+            path_str(&bad),
+            "--ask-permission",
+            "camera",
+        ]);
+        assert_eq!(out.code, 2, "{}", out.stderr);
+        assert!(out.stderr.contains("screen_recording"), "{}", out.stderr);
+    }
+
+    #[test]
     fn export_json_without_out_is_one_json_document() {
         let s = Sandbox::new();
         let dir = s.imported_and_run("synthetic_basic");
