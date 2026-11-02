@@ -17,7 +17,7 @@ import { renderRows } from "./checks";
 import { getAt, setAt } from "./config";
 import { byId, el, show } from "./dom";
 import { confirmAndRun } from "./jobdialog";
-import { askArgs, isMac, permissionRows } from "./permissions";
+import { askFor, isMac, newAsks, permissionRows } from "./permissions";
 import { PLATFORMS, platformLabel } from "./platforms";
 import type { Settings } from "./settings";
 
@@ -87,6 +87,8 @@ interface Draft {
   systemDevice: string;
   liveAsr: boolean;
   finalPass: boolean;
+  /** Not asked here; it decides whether the audio permissions matter. */
+  recordAudio: boolean;
 }
 
 interface Step {
@@ -122,6 +124,7 @@ function draftFrom(config: Record<string, unknown>, s: Settings): Draft {
     systemDevice: s.systemDevice,
     liveAsr: s.liveAsr,
     finalPass: s.finalPass,
+    recordAudio: s.recordAudio,
   };
 }
 
@@ -157,8 +160,9 @@ let rerender: () => void = () => {};
 /** The step on screen, so a late answer does not redraw another one. */
 let shownTitle = "";
 const PERMISSIONS_TITLE = "Permisos de macOS";
-/** Permissions whose macOS prompt is waiting for an answer. */
-const asking = new Set<string>();
+const asks = newAsks();
+/** The last doctor report the permissions step showed; «Volver a comprobar» reads a new one. */
+let permissionsDoctor: Doctor | null = null;
 
 const steps: Step[] = [
   {
@@ -235,21 +239,23 @@ const steps: Step[] = [
     title: PERMISSIONS_TITLE,
     hint: "macOS pide permiso para leer los subtítulos y grabar el audio. «Pedir permiso» muestra su aviso; si ya lo rechazaste, actívalo en «Abrir ajustes».",
     skip: () => !isMac,
-    body: async () => {
-      const doctor = await mcJson<Doctor>(["doctor"]).catch((err: Error) => err);
+    body: async (d) => {
+      const doctor = permissionsDoctor ?? (await mcJson<Doctor>(["doctor"]).catch((err: Error) => err));
       if (doctor instanceof Error) return el("p", { className: "bad", textContent: doctor.message });
+      permissionsDoctor = doctor;
       const list = el("ul", { className: "checks" });
       const ask = async (name: string) => {
-        if (asking.has(name)) return;
-        asking.add(name);
-        rerender();
-        await mcJson<unknown>(askArgs(name)).catch(() => null);
-        asking.delete(name);
+        const fresh = await askFor(asks, name, () => shownTitle === PERMISSIONS_TITLE && rerender());
+        if (fresh) permissionsDoctor = fresh;
         if (shownTitle === PERMISSIONS_TITLE) rerender();
       };
       const open = (page: string) => void openSettings(page).catch((err) => alert(err));
-      renderRows(list, permissionRows(doctor, true, asking, ask, open));
-      const again = el("button", { textContent: "Volver a comprobar", type: "button", onclick: () => rerender() });
+      renderRows(list, permissionRows(doctor, d.recordAudio, asks, ask, open));
+      const recheck = () => {
+        permissionsDoctor = null;
+        rerender();
+      };
+      const again = el("button", { textContent: "Volver a comprobar", type: "button", onclick: recheck });
       return el("div", {}, list, el("div", { className: "row" }, again));
     },
   },
@@ -423,6 +429,9 @@ export async function runSetup(settings: Settings): Promise<Settings> {
   const error = byId("setup-error");
   const visible = () => steps.filter((step) => !step.skip?.(draft));
   let index = 0;
+  // Steps load slowly (doctor, agents): only the newest render may fill the body.
+  let renders = 0;
+  permissionsDoctor = null;
 
   const render = async () => {
     const shown = visible();
@@ -436,7 +445,9 @@ export async function runSetup(settings: Settings): Promise<Settings> {
     back.disabled = index === 0;
     next.textContent = index === shown.length - 1 ? "Listo" : "Siguiente";
     body.replaceChildren(el("p", { className: "muted", textContent: "Revisando…" }));
-    body.replaceChildren(await step.body(draft));
+    const run = ++renders;
+    const node = await step.body(draft);
+    if (run === renders) body.replaceChildren(node);
   };
   rerender = () => void render();
 

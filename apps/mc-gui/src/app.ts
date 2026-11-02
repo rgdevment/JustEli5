@@ -28,7 +28,7 @@ import { byId, show } from "./dom";
 import { confirmAndRun } from "./jobdialog";
 import { LiveMemory } from "./livememory";
 import { MemoryView } from "./memory";
-import { askArgs, permissionMissing } from "./permissions";
+import { askFor, newAsks, permissionMissing, withPermissions } from "./permissions";
 import { platformLabel } from "./platforms";
 import { runPost } from "./post";
 import * as form from "./prepare";
@@ -47,10 +47,11 @@ function failure(err: unknown): Error {
 
 export class App {
   private snapshot: Snapshot = { mcPath: null, mcSource: null };
-  /** Permissions whose macOS prompt is waiting for an answer. */
-  private asking = new Set<string>();
-  /** Doctor and detect runs overlap (focus, asks, refresh): only the newest result is kept. */
-  private doctorRun = 0;
+  private asks = newAsks();
+  /** Doctor runs overlap (refresh, focus, asks): each is numbered, and the snapshot keeps the newest of each part. */
+  private doctorReads = 0;
+  private wholeDoctorAt = 0;
+  private permissionsAt = 0;
   private detectRun = 0;
   private models: Model[] = [];
   private meetingView: MeetingView = "prepare";
@@ -95,10 +96,20 @@ export class App {
     else this.openSetup();
   }
 
-  private recheckPermissions(): void {
+  /** Plain `doctor`, never `--tisty`: only its permission lines are kept. */
+  private async recheckPermissions(): Promise<void> {
     if (!permissionMissing(this.snapshot.doctor, this.settings.recordAudio)) return;
-    this.loadDoctor();
     if (this.snapshot.detect instanceof Error) this.detect();
+    const read = ++this.doctorReads;
+    const fresh = await mcJson<Doctor>(["doctor"]).catch(() => null);
+    if (fresh) this.applyPermissions(read, fresh);
+  }
+
+  private applyPermissions(read: number, fresh: Doctor): void {
+    if (read < this.permissionsAt) return;
+    this.permissionsAt = read;
+    this.snapshot.doctor = withPermissions(this.snapshot.doctor, fresh);
+    this.render();
   }
 
   /** The participant notes of older versions go into the memory, once; the memory keeps the mark. */
@@ -189,7 +200,7 @@ export class App {
 
   private render(): void {
     const s = this.snapshot;
-    renderRows(byId("checks"), rows(s, this.settings, this.fixes(), this.asking));
+    renderRows(byId("checks"), rows(s, this.settings, this.fixes(), this.asks));
     form.renderPlatforms(this.settings.platform, s.detect instanceof Error ? undefined : s.detect, (id) => {
       this.settings = { ...this.settings, platform: id };
       saveSettings(this.settings);
@@ -229,10 +240,18 @@ export class App {
 
   private async loadDoctor(): Promise<void> {
     const args = this.settings.tisty ? ["doctor", "--tisty"] : ["doctor"];
-    const run = ++this.doctorRun;
+    const read = ++this.doctorReads;
     const doctor = await mcJson<Doctor>(args).catch(failure);
-    if (run !== this.doctorRun) return;
-    this.snapshot.doctor = doctor;
+    if (read < this.wholeDoctorAt) return;
+    this.wholeDoctorAt = read;
+    const current = this.snapshot.doctor;
+    // A newer permissions read (an ask, a focus) keeps its lines over this one's.
+    if (read < this.permissionsAt && !(doctor instanceof Error) && current && !(current instanceof Error)) {
+      this.snapshot.doctor = withPermissions(doctor, current);
+    } else {
+      this.snapshot.doctor = doctor;
+      this.permissionsAt = read;
+    }
     if (!(this.snapshot.doctor instanceof Error)) form.setTistyTarget(this.snapshot.doctor.tisty_target);
     this.render();
   }
@@ -252,13 +271,11 @@ export class App {
 
   /** The Accessibility and Screen Recording answers come later: coming back to the window re-reads them. */
   private async askPermission(name: string): Promise<void> {
-    if (this.asking.has(name)) return;
-    this.asking.add(name);
-    this.render();
-    await mcJson<unknown>(askArgs(name)).catch(() => null);
-    this.asking.delete(name);
-    this.loadDoctor();
-    this.detect();
+    const read = ++this.doctorReads;
+    const fresh = await askFor(this.asks, name, () => this.render());
+    if (fresh) this.applyPermissions(read, fresh);
+    else this.render();
+    if (name === "accessibility") this.detect();
   }
 
   async detect(): Promise<void> {
