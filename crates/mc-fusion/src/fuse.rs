@@ -274,7 +274,7 @@ fn dress_term(term: &str, replaced: &[Word]) -> String {
     format!("{lead}{head}{}{trail}", chars.as_str())
 }
 
-/// The caption words written as `term` when the term's capitals carry meaning (SAGA, CIAM,
+/// The caption words written as `term` when the term's capitals carry meaning (ORBE, CIAM,
 /// TypeScript) and the caption lost them; a plain capitalised word ("Daily") keeps its casing.
 fn recased(term: &str, replaced: &[Word]) -> Option<String> {
     let meaningful = term.chars().skip(1).any(char::is_uppercase);

@@ -413,7 +413,7 @@ mod tests {
         assert!(ANALYST_SYSTEM.contains("agendar, convocar o invitar a reuniones"));
         assert!(ANALYST_SYSTEM.contains("usa `update` con su id"));
         assert!(
-            !ANALYST_SYSTEM.contains("Mario"),
+            !ANALYST_SYSTEM.contains("Daniel"),
             "examples use neutral names"
         );
     }
@@ -421,12 +421,12 @@ mod tests {
     #[test]
     fn the_user_who_records_is_named_only_when_configured() {
         let named = Background {
-            me: Some(" Mario  Hidalgo ".into()),
+            me: Some(" Daniel  Ibarra ".into()),
             ..Background::default()
         };
         assert!(
             context_section(&named)
-                .contains("El usuario es «Mario Hidalgo»: solo las líneas cuyo hablante lleva ese nombre son suyas.")
+                .contains("El usuario es «Daniel Ibarra»: solo las líneas cuyo hablante lleva ese nombre son suyas.")
         );
         assert!(!context_section(&Background::default()).contains("Usuario que graba"));
     }
@@ -434,23 +434,24 @@ mod tests {
     #[test]
     fn the_user_is_told_apart_from_a_namesake_and_absent_users_get_no_lines() {
         let with = |people: &[&str]| Background {
-            me: Some("Mario Hidalgo".into()),
+            me: Some("Daniel Ibarra".into()),
             meeting: "«Daily», 2026-10-21.".into(),
             participants: people.iter().map(|p| p.to_string()).collect(),
             ..Background::default()
         };
-        let absent = context_section(&with(&["Luis Gómez", "Mario Torres Vidal"]));
+        let absent = context_section(&with(&["Luis Gómez", "Daniel Fuentes Vidal"]));
         assert!(absent.contains("NO aparece como hablante"), "{absent}");
         assert!(
-            absent
-                .contains("«Mario Torres Vidal» comparte su nombre de pila pero NO es el usuario.")
+            absent.contains(
+                "«Daniel Fuentes Vidal» comparte su nombre de pila pero NO es el usuario."
+            )
         );
         assert!(absent.contains(
-            "## Reunión\n«Daily», 2026-10-21. Participantes: Luis Gómez, Mario Torres Vidal."
+            "## Reunión\n«Daily», 2026-10-21. Participantes: Luis Gómez, Daniel Fuentes Vidal."
         ));
-        let present = context_section(&with(&["Mario Hidalgo Rojas", "Luis Gómez"]));
+        let present = context_section(&with(&["Daniel Ibarra Lagos", "Luis Gómez"]));
         assert!(
-            present.contains("habla como «Mario Hidalgo Rojas»"),
+            present.contains("habla como «Daniel Ibarra Lagos»"),
             "{present}"
         );
     }

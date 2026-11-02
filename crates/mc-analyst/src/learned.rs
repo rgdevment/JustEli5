@@ -59,7 +59,7 @@ pub(crate) fn people_lines(people: &str) -> (Vec<(String, String)>, String) {
     (roles, mentioned)
 }
 
-/// «Ignacia (PO Web), el Flaco (negocio)» as (name, role); a comma inside the
+/// «Florencia (PO Web), el Profe (negocio)» as (name, role); a comma inside the
 /// parentheses belongs to the role.
 pub(crate) fn mentioned_people(text: &str) -> Vec<(String, Option<String>)> {
     let mut items = Vec::new();
@@ -100,18 +100,21 @@ mod tests {
             [("RUT".to_string(), "Rol Único Tributario".to_string())]
         );
         let (roles, mentioned) =
-            people_lines("- Raul: Product Owner\nMencionados sin asistir: Ignacia (PO Web)");
-        assert_eq!(roles, [("Raul".to_string(), "Product Owner".to_string())]);
-        assert_eq!(mentioned, "Ignacia (PO Web)");
+            people_lines("- Joaquin: Product Owner\nMencionados sin asistir: Florencia (PO Web)");
+        assert_eq!(
+            roles,
+            [("Joaquin".to_string(), "Product Owner".to_string())]
+        );
+        assert_eq!(mentioned, "Florencia (PO Web)");
     }
 
     #[test]
     fn mentioned_people_keep_a_comma_inside_their_role() {
         assert_eq!(
-            mentioned_people("Ignacia (PO Web, pagos), el Flaco (negocio), Luis."),
+            mentioned_people("Florencia (PO Web, pagos), el Profe (negocio), Luis."),
             [
-                ("Ignacia".to_string(), Some("PO Web, pagos".to_string())),
-                ("el Flaco".to_string(), Some("negocio".to_string())),
+                ("Florencia".to_string(), Some("PO Web, pagos".to_string())),
+                ("el Profe".to_string(), Some("negocio".to_string())),
                 ("Luis".to_string(), None),
             ]
         );

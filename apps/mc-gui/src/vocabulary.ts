@@ -26,7 +26,7 @@ export function mountVocabulary(boxes: HTMLElement[]): void {
     }
   };
   boxes.forEach((box, i) => {
-    const term = el("input", { placeholder: "Término (p. ej. SAGA)" });
+    const term = el("input", { placeholder: "Término (p. ej. ORBE)" });
     const meaning = el("input", { placeholder: "Qué es (opcional)" });
     const heard = el("input", { placeholder: "Cómo se oye mal, separado por comas (opcional)" });
     const state = el("small", { className: "muted" });

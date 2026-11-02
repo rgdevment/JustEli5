@@ -678,7 +678,7 @@ mod tests {
             folder: "Reuniones".into(),
             list: Some("Trabajo".into()),
             tags: vec!["equipo".into(), "Reunión".into(), "dos palabras".into()],
-            me: Some("Mario Hidalgo".into()),
+            me: Some("Daniel Ibarra".into()),
         }
     }
 
@@ -712,16 +712,13 @@ mod tests {
     #[test]
     fn a_meeting_series_document_is_told_by_its_properties() {
         let body = format!(
-            "{}B2B Falabella Hito 2\n\n## Sesiones\n",
-            meet_properties("b2b falabella hito")
+            "{}B2B Acme Hito 2\n\n## Sesiones\n",
+            meet_properties("b2b acme hito")
         );
-        assert_eq!(
-            meet_series_key(&body).as_deref(),
-            Some("b2b falabella hito")
-        );
+        assert_eq!(meet_series_key(&body).as_deref(), Some("b2b acme hito"));
         assert_eq!(
             meet_series_key(&body.replace('\n', "\r\n")).as_deref(),
-            Some("b2b falabella hito")
+            Some("b2b acme hito")
         );
         assert_eq!(meet_series_key("---\nseries: x\n---\nNotas\n"), None);
         assert_eq!(
@@ -789,14 +786,14 @@ mod tests {
         let commitments = vec![
             commitment(
                 "c1",
-                "Mario Hidalgo Rojas",
+                "Daniel Ibarra Lagos",
                 "cerrar el bug",
                 Some("el martes"),
             ),
             commitment("c2", "Luis", "revisar el PR", Some("2024-03-05")),
             commitment(
                 "c3",
-                "mario hidalgo",
+                "daniel ibarra",
                 "mandar el informe",
                 Some("2024-03-05"),
             ),
@@ -861,7 +858,7 @@ mod tests {
         assert!(theirs.parent.is_none());
         let text = theirs.preview();
         assert!(
-            text.contains("tasks: none; no commitment is Mario Hidalgo's"),
+            text.contains("tasks: none; no commitment is Daniel Ibarra's"),
             "{text}"
         );
         assert!(
@@ -872,7 +869,7 @@ mod tests {
 
     #[test]
     fn inferred_commitments_never_become_tasks() {
-        let mut c = commitment("c1", "Mario Hidalgo", "x", None);
+        let mut c = commitment("c1", "Daniel Ibarra", "x", None);
         c.inferred = true;
         let plan = build_plan(MINUTES, &[c], &target());
         assert!(plan.parent.is_none() && plan.tasks.is_empty());
@@ -884,7 +881,7 @@ mod tests {
             MINUTES,
             &[commitment(
                 "c1",
-                "Mario Hidalgo",
+                "Daniel Ibarra",
                 "cerrar el bug",
                 Some("2024-03-05"),
             )],

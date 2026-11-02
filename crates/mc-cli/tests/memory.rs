@@ -735,7 +735,7 @@ fn the_minutes_teach_the_memory_and_the_series_tells_a_homonym_apart() {
     let dir = meeting(&sb, "s1", "Rediseño del panel 21/10", 21);
     let analyze = config(&sb, "l-a.json", &[r#"{"add": {}}"#], json!({}));
     ok(mc(&sb, &analyze, &["analyze", &dir]));
-    let draft = "## TL;DR\nok\n\n## Participantes\n- Luis: Product Owner\nMencionados sin asistir: el Flaco (negocio)\n\n## Glosario\n- Order: equipo de órdenes\n- RUT: Rol Único Tributario";
+    let draft = "## TL;DR\nok\n\n## Participantes\n- Luis: Product Owner\nMencionados sin asistir: el Profe (negocio)\n\n## Glosario\n- Order: equipo de órdenes\n- RUT: Rol Único Tributario";
     let minutes = config(&sb, "l-m.json", &[draft], json!({}));
     let made = ok(mc(&sb, &minutes, &["minutes", &dir]));
     assert_eq!(

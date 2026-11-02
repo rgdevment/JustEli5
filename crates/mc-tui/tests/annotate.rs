@@ -171,15 +171,15 @@ fn s_picks_a_current_speaker_and_asks_for_the_new_name() {
             input: String::new()
         })
     );
-    type_text(&mut app, "Mario");
+    type_text(&mut app, "Daniel");
     assert_eq!(
         press(&mut app, KeyCode::Enter),
         Effect::RenameSpeaker {
             from: "Unknown".into(),
-            to: "Mario".into()
+            to: "Daniel".into()
         }
     );
-    assert_eq!(app.name_of("Unknown"), "Mario");
+    assert_eq!(app.name_of("Unknown"), "Daniel");
     assert_eq!(app.name_of("Ana"), "Ana");
     // The colour belongs to the speaker, not to the name.
     assert_eq!(app.speaker_index("Unknown"), 1);
@@ -339,15 +339,15 @@ fn a_question_open_when_the_meeting_ends_is_saved_if_complete() {
     say(&mut app, "Unknown");
     press(&mut app, KeyCode::Char('s'));
     press(&mut app, KeyCode::Enter);
-    type_text(&mut app, "Mario");
+    type_text(&mut app, "Daniel");
     assert_eq!(
         feed(&mut app, ended()),
         Effect::RenameSpeaker {
             from: "Unknown".into(),
-            to: "Mario".into()
+            to: "Daniel".into()
         }
     );
-    assert_eq!(app.name_of("Unknown"), "Mario");
+    assert_eq!(app.name_of("Unknown"), "Daniel");
 
     // An unfinished correction cannot be saved: the user is told.
     let mut app = recording();

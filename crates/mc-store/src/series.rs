@@ -134,8 +134,8 @@ mod tests {
 
     #[test]
     fn names_written_a_little_differently_are_alike_and_other_meetings_are_not() {
-        let messy = "Actividad | B2B-Falabella-Hito2: Sincronización | Microsoft Teams";
-        assert!(name_similarity("B2B Falabella Hito 2", messy) >= 0.6);
+        let messy = "Actividad | B2B-Acme-Hito2: Sincronización | Microsoft Teams";
+        assert!(name_similarity("B2B Acme Hito 2", messy) >= 0.6);
         assert!(name_similarity("Daily equipo", "Daily de equipo") > 0.99);
         assert!(name_similarity("Sincronizacion pagos", "Sincronización de pago") >= 0.6);
         assert!(name_similarity("Retro pagos", "Retro login") < 0.6);

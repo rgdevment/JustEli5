@@ -623,8 +623,8 @@ fn participants(transcript: &[TranscriptSegment]) -> Vec<String> {
     seen
 }
 
-/// First name and first surname, skipping middle names and initials: «Mario Andres Hidalgo
-/// Rojas» → «Mario Hidalgo», «Antonia Elena Rosa Molina Herrera» → «Antonia Molina»,
+/// First name and first surname, skipping middle names and initials: «Daniel Ignacio Ibarra
+/// Lagos» → «Daniel Ibarra», «Antonia Elena Rosa Molina Herrera» → «Antonia Molina»,
 /// «Hector E Cortes V» → «Hector Cortes».
 fn short_name(name: &str) -> String {
     let words: Vec<&str> = name.split_whitespace().collect();
@@ -1297,7 +1297,7 @@ mod tests {
     fn the_minutes_hand_the_memory_their_terms_and_people() {
         let llm = FakeLlm::new([
             "{\"verdicts\": []}",
-            "## TL;DR\nok\n\n## Participantes\n- Ana: Product Owner\nMencionados sin asistir: el Flaco (negocio)\n\n## Glosario\n- **RUT**: Rol Único Tributario",
+            "## TL;DR\nok\n\n## Participantes\n- Ana: Product Owner\nMencionados sin asistir: el Profe (negocio)\n\n## Glosario\n- **RUT**: Rol Único Tributario",
         ]);
         let context = MinutesContext {
             me: Some("Luis".into()),
@@ -1324,7 +1324,7 @@ mod tests {
             [
                 ("Ana", Some("Product Owner"), true),
                 ("Luis", Some("Lead"), true),
-                ("el Flaco", Some("negocio"), false),
+                ("el Profe", Some("negocio"), false),
             ]
         );
     }
@@ -1630,11 +1630,14 @@ ok [#0]"
 
     #[test]
     fn names_are_first_name_and_first_surname() {
-        assert_eq!(short_name("Raul Ignacio Medina Carrasco"), "Raul Medina");
-        assert_eq!(short_name("Mario Andres Hidalgo Rojas"), "Mario Hidalgo");
+        assert_eq!(
+            short_name("Joaquin Esteban Navarro Pinto"),
+            "Joaquin Navarro"
+        );
+        assert_eq!(short_name("Daniel Ignacio Ibarra Lagos"), "Daniel Ibarra");
         assert_eq!(short_name("Hector E Cortes V"), "Hector Cortes");
-        assert_eq!(short_name("Mario Torres Vidal"), "Mario Torres");
-        assert_eq!(short_name("Kiran Sharma"), "Kiran Sharma");
+        assert_eq!(short_name("Daniel Fuentes Vidal"), "Daniel Fuentes");
+        assert_eq!(short_name("Priya Nair"), "Priya Nair");
         assert_eq!(
             short_name("Antonia Elena Rosa Molina Herrera"),
             "Antonia Molina"

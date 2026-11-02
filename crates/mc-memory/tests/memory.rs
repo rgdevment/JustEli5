@@ -19,31 +19,31 @@ fn known(resolution: Resolution) -> i64 {
 #[test]
 fn many_forms_name_one_term_whatever_the_case_or_accents() {
     let mut memory = Memory::open_in_memory().unwrap();
-    let veridex = memory
+    let koradex = memory
         .add(
             Kind::Term,
-            "Verídex",
+            "Kóradex",
             Some("herramienta interna"),
             State::Confirmed,
             1,
         )
         .unwrap();
     memory
-        .add_form(veridex, "Beri dex", State::Proposed)
+        .add_form(koradex, "Gora dex", State::Proposed)
         .unwrap();
     memory
-        .add_form(veridex, "el validador", State::Confirmed)
+        .add_form(koradex, "el validador", State::Confirmed)
         .unwrap();
 
     let none = Context::default();
-    for heard in ["veridex", "VERÍDEX", "beri-dex", "El validador"] {
+    for heard in ["koradex", "KÓRADEX", "gora-dex", "El validador"] {
         assert_eq!(
             known(memory.resolve(Kind::Term, heard, &none).unwrap()),
-            veridex
+            koradex
         );
     }
-    let forms: Vec<_> = memory.get(veridex).unwrap().forms;
-    assert_eq!(forms[0].text, "Verídex", "the name comes first");
+    let forms: Vec<_> = memory.get(koradex).unwrap().forms;
+    assert_eq!(forms[0].text, "Kóradex", "the name comes first");
     assert_eq!(forms.len(), 3);
 }
 
@@ -68,8 +68,8 @@ fn a_homonym_follows_the_series_and_the_people_it_came_up_with() {
             1,
         )
         .unwrap();
-    let kiran = memory
-        .add(Kind::Person, "Kiran Sharma", None, State::Confirmed, 1)
+    let priya = memory
+        .add(Kind::Person, "Priya Nair", None, State::Confirmed, 1)
         .unwrap();
     memory
         .record(team, &seen("s1", "rediseno del panel", 10))
@@ -78,7 +78,7 @@ fn a_homonym_follows_the_series_and_the_people_it_came_up_with() {
         .record(team, &seen("s2", "rediseno del panel", 20))
         .unwrap();
     memory
-        .record(kiran, &seen("s2", "rediseno del panel", 20))
+        .record(priya, &seen("s2", "rediseno del panel", 20))
         .unwrap();
     memory.record(purchase, &seen("s3", "compras", 30)).unwrap();
 
@@ -100,13 +100,13 @@ fn a_homonym_follows_the_series_and_the_people_it_came_up_with() {
         purchase
     );
 
-    // A new meeting with no series: Kiran being there is enough.
-    let with_kiran = Context {
+    // A new meeting with no series: Priya being there is enough.
+    let with_priya = Context {
         series: None,
-        present: vec![kiran],
+        present: vec![priya],
     };
     assert_eq!(
-        known(memory.resolve(Kind::Term, "Order", &with_kiran).unwrap()),
+        known(memory.resolve(Kind::Term, "Order", &with_priya).unwrap()),
         team
     );
 
@@ -123,43 +123,53 @@ fn a_homonym_follows_the_series_and_the_people_it_came_up_with() {
 fn two_people_with_one_name_and_one_person_with_many_forms() {
     let mut memory = Memory::open_in_memory().unwrap();
     let me = memory
-        .add(Kind::Person, "Mario Hidalgo", None, State::Confirmed, 1)
+        .add(Kind::Person, "Daniel Ibarra", None, State::Confirmed, 1)
         .unwrap();
     let other = memory
-        .add(Kind::Person, "Mario Torres", None, State::Confirmed, 1)
+        .add(Kind::Person, "Daniel Fuentes", None, State::Confirmed, 1)
         .unwrap();
-    memory.add_form(me, "Mario", State::Confirmed).unwrap();
-    memory.add_form(other, "Mario", State::Confirmed).unwrap();
-    let raul = memory
-        .add(Kind::Person, "Raul Medina", None, State::Confirmed, 1)
+    memory.add_form(me, "Daniel", State::Confirmed).unwrap();
+    memory.add_form(other, "Daniel", State::Confirmed).unwrap();
+    let joaquin = memory
+        .add(Kind::Person, "Joaquin Navarro", None, State::Confirmed, 1)
         .unwrap();
     memory
-        .add_form(raul, "MEDINA Raul", State::Proposed)
+        .add_form(joaquin, "NAVARRO Joaquin", State::Proposed)
         .unwrap();
-    memory.add_form(raul, "Raul M.", State::Proposed).unwrap();
+    memory
+        .add_form(joaquin, "Joaquin N.", State::Proposed)
+        .unwrap();
     memory.record(other, &seen("core", "core user", 5)).unwrap();
-    memory.record(raul, &seen("core", "core user", 5)).unwrap();
+    memory
+        .record(joaquin, &seen("core", "core user", 5))
+        .unwrap();
 
     let none = Context::default();
     assert_eq!(
-        known(memory.resolve(Kind::Person, "raul m", &none).unwrap()),
-        raul
+        known(memory.resolve(Kind::Person, "joaquin n", &none).unwrap()),
+        joaquin
     );
     assert!(matches!(
-        memory.resolve(Kind::Person, "Mario", &none).unwrap(),
+        memory.resolve(Kind::Person, "Daniel", &none).unwrap(),
         Resolution::Ambiguous { .. }
     ));
-    let with_raul = Context {
+    let with_joaquin = Context {
         series: None,
-        present: vec![raul],
+        present: vec![joaquin],
     };
     assert_eq!(
-        known(memory.resolve(Kind::Person, "Mario", &with_raul).unwrap()),
+        known(
+            memory
+                .resolve(Kind::Person, "Daniel", &with_joaquin)
+                .unwrap()
+        ),
         other
     );
     // A person is never a term.
     assert_eq!(
-        memory.resolve(Kind::Term, "Raul Medina", &none).unwrap(),
+        memory
+            .resolve(Kind::Term, "Joaquin Navarro", &none)
+            .unwrap(),
         Resolution::Unknown
     );
 }
@@ -205,17 +215,17 @@ fn moving_a_form_and_merging_two_entries() {
 #[test]
 fn roles_and_confirmation() {
     let mut memory = Memory::open_in_memory().unwrap();
-    let raul = memory
-        .add(Kind::Person, "Raul Medina", None, State::Proposed, 1)
+    let joaquin = memory
+        .add(Kind::Person, "Joaquin Navarro", None, State::Proposed, 1)
         .unwrap();
     memory
-        .set_role(raul, "Product Owner", 10, State::Proposed)
+        .set_role(joaquin, "Product Owner", 10, State::Proposed)
         .unwrap();
-    memory.confirm(raul, 11).unwrap();
+    memory.confirm(joaquin, 11).unwrap();
     memory
-        .set_role(raul, "Product Manager", 20, State::Proposed)
+        .set_role(joaquin, "Product Manager", 20, State::Proposed)
         .unwrap();
-    let person = memory.get(raul).unwrap();
+    let person = memory.get(joaquin).unwrap();
     assert_eq!(person.state, State::Confirmed);
     assert_eq!(
         person.role(),
@@ -234,33 +244,33 @@ fn search_lists_by_form_and_meaning_and_export_round_trips() {
     let dir = tempfile::tempdir().unwrap();
     let path = dir.path().join("memory.sqlite");
     let mut memory = Memory::open(&path).unwrap();
-    let veridex = memory
+    let koradex = memory
         .add(
             Kind::Term,
-            "Verídex",
+            "Kóradex",
             Some("Proveedor de validación"),
             State::Confirmed,
             1,
         )
         .unwrap();
     memory
-        .add_form(veridex, "Beri dex", State::Proposed)
+        .add_form(koradex, "Gora dex", State::Proposed)
         .unwrap();
-    memory.record(veridex, &seen("s1", "panel", 4)).unwrap();
-    let raul = memory
+    memory.record(koradex, &seen("s1", "panel", 4)).unwrap();
+    let joaquin = memory
         .add(
             Kind::Person,
-            "Raul Medina",
+            "Joaquin Navarro",
             Some("convoca a legal"),
             State::Proposed,
             1,
         )
         .unwrap();
     memory
-        .set_role(raul, "Product Owner", 4, State::Confirmed)
+        .set_role(joaquin, "Product Owner", 4, State::Confirmed)
         .unwrap();
 
-    assert_eq!(memory.list(None, Some("beri"), None).unwrap().len(), 1);
+    assert_eq!(memory.list(None, Some("gora"), None).unwrap().len(), 1);
     assert_eq!(
         memory.list(None, Some("VALIDACION"), None).unwrap().len(),
         1
@@ -271,7 +281,7 @@ fn search_lists_by_form_and_meaning_and_export_round_trips() {
     );
     assert_eq!(
         memory.list(None, None, Some(State::Proposed)).unwrap()[0].name,
-        "Raul Medina"
+        "Joaquin Navarro"
     );
 
     let backup = memory.export().unwrap();
@@ -287,7 +297,7 @@ fn search_lists_by_form_and_meaning_and_export_round_trips() {
 
     // Reopening keeps everything: the memory is never rebuilt.
     let reopened = Memory::open(&path).unwrap();
-    assert_eq!(reopened.sightings(veridex).unwrap().len(), 1);
+    assert_eq!(reopened.sightings(koradex).unwrap().len(), 1);
 }
 
 fn lesson(
@@ -333,32 +343,36 @@ fn minutes_teach_proposals_and_never_overwrite_what_the_user_confirmed() {
             "s1",
             "panel",
             &[
-                ("Raul Medina", Some("Product Owner"), true),
-                ("el Flaco", Some("negocio"), false),
+                ("Joaquin Navarro", Some("Product Owner"), true),
+                ("el Profe", Some("negocio"), false),
             ],
             &[
                 ("rut", "número de identificación"),
-                ("Verídex", "proveedor de validación"),
+                ("Kóradex", "proveedor de validación"),
             ],
         ))
         .unwrap();
-    assert_eq!(first.added.len(), 3, "Raul, el Flaco and Verídex are new");
+    assert_eq!(
+        first.added.len(),
+        3,
+        "Joaquin, el Profe and Kóradex are new"
+    );
     assert_eq!(first.seen, [rut]);
     let kept = memory.get(rut).unwrap();
     assert_eq!(kept.meaning.as_deref(), Some("Rol Único Tributario"));
     assert_eq!(kept.meetings, 1);
 
-    let raul = memory.candidates(Kind::Person, "raul medina").unwrap()[0];
-    let flaco = memory.candidates(Kind::Person, "El Flaco").unwrap()[0];
-    assert_eq!(memory.get(raul).unwrap().state, State::Proposed);
-    assert!(!memory.sightings(flaco).unwrap()[0].attended);
+    let joaquin = memory.candidates(Kind::Person, "joaquin navarro").unwrap()[0];
+    let profe = memory.candidates(Kind::Person, "El Profe").unwrap()[0];
+    assert_eq!(memory.get(joaquin).unwrap().state, State::Proposed);
+    assert!(!memory.sightings(profe).unwrap()[0].attended);
 
     // The same meeting again, and a second one: weight grows, roles do not repeat.
     memory
         .learn(&lesson(
             "s1",
             "panel",
-            &[("Raul Medina", Some("product owner"), true)],
+            &[("Joaquin Navarro", Some("product owner"), true)],
             &[],
         ))
         .unwrap();
@@ -366,13 +380,13 @@ fn minutes_teach_proposals_and_never_overwrite_what_the_user_confirmed() {
         .learn(&lesson(
             "s2",
             "panel",
-            &[("Raul Medina", Some("Product Owner"), true)],
+            &[("Joaquin Navarro", Some("Product Owner"), true)],
             &[],
         ))
         .unwrap();
-    let raul = memory.get(raul).unwrap();
-    assert_eq!(raul.meetings, 2);
-    assert_eq!(raul.roles.len(), 1);
+    let joaquin = memory.get(joaquin).unwrap();
+    assert_eq!(joaquin.meetings, 2);
+    assert_eq!(joaquin.roles.len(), 1);
 }
 
 #[test]
@@ -408,9 +422,9 @@ fn many_commands_opening_a_new_memory_at_once_all_get_it() {
                     let mut memory = Memory::open(&path).unwrap();
                     let entry = mc_memory::Adopted {
                         kind: Kind::Term,
-                        name: "Verídex".into(),
+                        name: "Kóradex".into(),
                         meaning: None,
-                        forms: vec!["beri dex".into()],
+                        forms: vec!["gora dex".into()],
                         role: None,
                     };
                     memory.adopt("glossary.json", &[entry], 1).unwrap()
@@ -511,18 +525,18 @@ fn tidying_joins_a_loose_entry_another_already_claims_and_leaves_homonyms() {
 #[test]
 fn a_name_the_minutes_list_as_a_term_is_left_to_the_person_it_names() {
     let mut memory = Memory::open_in_memory().unwrap();
-    let carolina = memory
-        .add(Kind::Person, "Carolina Soto", None, State::Confirmed, 1)
+    let paula = memory
+        .add(Kind::Person, "Paula Vera", None, State::Confirmed, 1)
         .unwrap();
-    memory.add_form(carolina, "Caro", State::Confirmed).unwrap();
+    memory.add_form(paula, "Pau", State::Confirmed).unwrap();
     let learnt = memory
         .learn(&lesson(
             "s1",
             "zeta",
             &[],
-            &[("Caro", "Product Owner de Pagos"), ("UAT", "pruebas")],
+            &[("Pau", "Product Owner de Pagos"), ("UAT", "pruebas")],
         ))
         .unwrap();
     assert_eq!(learnt.added.len(), 1, "only UAT");
-    assert!(memory.candidates(Kind::Term, "Caro").unwrap().is_empty());
+    assert!(memory.candidates(Kind::Term, "Pau").unwrap().is_empty());
 }

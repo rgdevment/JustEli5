@@ -7,7 +7,7 @@ pub struct Glossary {
     /// Folded words of each term, and the term as the user wrote it; the
     /// longest first so "pull request" wins over a one-word "pull".
     terms: Vec<(Vec<String>, String)>,
-    /// Folded words of a form the user taught for a term ("beri dex"), and that term.
+    /// Folded words of a form the user taught for a term ("gora dex"), and that term.
     aliases: Vec<(Vec<String>, String)>,
 }
 
@@ -126,16 +126,16 @@ mod tests {
     #[test]
     fn taught_forms_point_to_their_term_and_never_shadow_a_term() {
         let g = Glossary::with_aliases(
-            &["Verídex".into(), "Core".into()],
+            &["Kóradex".into(), "Core".into()],
             &[
-                ("beri dex".into(), "Verídex".into()),
+                ("gora dex".into(), "Kóradex".into()),
                 ("core".into(), "Core User".into()),
             ],
         );
-        let found = g.find_aliases(&keys("lo valida Beri dex y core"));
+        let found = g.find_aliases(&keys("lo valida Gora dex y core"));
         assert_eq!(found.len(), 1);
         assert_eq!((found[0].start, found[0].len), (2, 2));
-        assert_eq!(g.alias_term(found[0].term), "Verídex");
+        assert_eq!(g.alias_term(found[0].term), "Kóradex");
     }
 
     #[test]

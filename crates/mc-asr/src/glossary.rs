@@ -237,14 +237,14 @@ mod tests {
 
     #[test]
     fn a_meaning_is_kept_saved_and_the_user_s_wins_when_merged() {
-        let base = glossary(r#"{"SAGA": {"aliases": ["saga"], "meaning": "viejo"}}"#);
+        let base = glossary(r#"{"ORBE": {"aliases": ["orbe"], "meaning": "viejo"}}"#);
         let mut user = Glossary::default();
-        user.learn("saga", None);
-        assert!(user.explain("SAGA", "Servicio de cuentas"));
+        user.learn("orbe", None);
+        assert!(user.explain("ORBE", "Servicio de cuentas"));
         let merged = Glossary::merged(base, &user);
         assert_eq!(
             merged.meanings(),
-            [("SAGA".to_string(), "Servicio de cuentas".to_string())]
+            [("ORBE".to_string(), "Servicio de cuentas".to_string())]
         );
         let again = glossary(&merged.to_json());
         assert_eq!(again.meanings(), merged.meanings());

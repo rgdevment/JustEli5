@@ -30,8 +30,8 @@ export class LiveMemory {
     byId("live-people").replaceChildren();
     this.seen.clear();
     this.present = [];
-    const heard = el("input", { placeholder: "Teams escribe (p. ej. beri dex)" });
-    const correct = el("input", { placeholder: "Debería decir (p. ej. Verídex)" });
+    const heard = el("input", { placeholder: "Teams escribe (p. ej. gora dex)" });
+    const correct = el("input", { placeholder: "Debería decir (p. ej. Kóradex)" });
     const fix = el("button", { type: "button", textContent: "Corregir" });
     const state = el("small", { className: "muted" });
     fix.onclick = () => {
@@ -68,10 +68,10 @@ export class LiveMemory {
     );
   }
 
-  /** Someone who is not here but is named, often by a nickname: «Caro» is Carolina, the PO. */
+  /** Someone who is not here but is named, often by a nickname: «Pau» is Paula, the PO. */
   private namedForm(): HTMLElement {
-    const nick = el("input", { placeholder: "Cómo la nombran (p. ej. Caro)" });
-    const name = el("input", { placeholder: "Quién es (p. ej. Carolina Soto)" });
+    const nick = el("input", { placeholder: "Cómo la nombran (p. ej. Pau)" });
+    const name = el("input", { placeholder: "Quién es (p. ej. Paula Vera)" });
     const role = el("input", { placeholder: "Rol (opcional)" });
     const save = el("button", { type: "button", textContent: "Guardar" });
     const state = el("small", { className: "muted" });
@@ -183,7 +183,7 @@ function nameCell(who: string): HTMLElement {
   return el("span", { className: "who", textContent: who, title: who });
 }
 
-/** «Mario Hidalgo» is «Mario Rodrigo Hidalgo Garcia»; a one-word name would also hide every other Mario. */
+/** «Daniel Ibarra» is «Daniel Ignacio Ibarra Lagos»; a one-word name would also hide every other Daniel. */
 function isMe(who: string, me: string): boolean {
   const words = (text: string) =>
     text

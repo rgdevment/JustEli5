@@ -172,7 +172,7 @@ const steps: Step[] = [
       el(
         "div",
         {},
-        field("Tu nombre en la reunión", d.me, (v) => (d.me = v), "Ej.: Mario Hidalgo"),
+        field("Tu nombre en la reunión", d.me, (v) => (d.me = v), "Ej.: Daniel Ibarra"),
         field("Tu rol", d.meRole, (v) => (d.meRole = v), "Ej.: Lead - Pagos"),
       ),
   },
