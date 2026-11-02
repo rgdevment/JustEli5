@@ -1,6 +1,7 @@
 //! The Tisty adapter: `tisty mcp` over stdio (no port, no token). The person admits this
 //! assistant once in Tisty (Settings > Assistants); until then every call is rejected.
 
+use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 use std::time::Duration;
 
@@ -8,8 +9,8 @@ use mc_mcp_client::{McpClient, McpError, Timeouts};
 use serde_json::{Value, json};
 
 use super::{
-    Abort, AbortKind, Item, Plan, PublishReport, Publisher, Status, TaskPlan, page_item,
-    series_item, task_item,
+    Abort, AbortKind, Item, Plan, PublishReport, Publisher, Status, TaskPlan, meet_series_key,
+    page_item, series_item, task_item,
 };
 use crate::cli::{Env, Os};
 
@@ -265,6 +266,69 @@ fn lookup(client: &mut McpClient, args: Value, title: &str) -> Result<Option<Str
         let total = answer["total"].as_u64().unwrap_or(0) as usize;
         if docs.is_empty() || seen >= total {
             return Ok(None);
+        }
+    }
+}
+
+/// A meeting series Tisty already keeps: a document of `folder` whose properties say `type: meet`.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct TistySeries {
+    pub key: String,
+    pub title: String,
+}
+
+/// The meeting series in `folder`, read document by document: their properties tell, and so does
+/// `published` (document id → series key), for the documents written before they had properties.
+pub fn meeting_series(
+    program: &Path,
+    args: &[String],
+    folder: &str,
+    published: &BTreeMap<String, String>,
+) -> Result<Vec<TistySeries>, String> {
+    let mut client = start(program, args).map_err(|a| a.message)?;
+    let found = list_meeting_series(&mut client, folder, published);
+    client.close();
+    found.map_err(|f| match f {
+        Failure::Refused(why) => why,
+        Failure::Abort(a) => a.message,
+    })
+}
+
+fn list_meeting_series(
+    client: &mut McpClient,
+    folder: &str,
+    published: &BTreeMap<String, String>,
+) -> Result<Vec<TistySeries>, Failure> {
+    let mut series = Vec::new();
+    let mut seen = 0;
+    loop {
+        let text = call(
+            client,
+            "docs",
+            json!({"folder": folder, "limit": 200, "after": seen}),
+        )?;
+        let answer: Value = serde_json::from_str(&text).unwrap_or_default();
+        let docs = answer["docs"].as_array().cloned().unwrap_or_default();
+        for doc in &docs {
+            let (Some(id), Some(title)) = (doc["doc"].as_str(), doc["title"].as_str()) else {
+                continue;
+            };
+            let head = call(client, "read_doc", json!({"doc": id, "chars": 400}))?;
+            let body = serde_json::from_str::<Value>(&head)
+                .ok()
+                .and_then(|v| v["body"].as_str().map(str::to_string))
+                .unwrap_or(head);
+            if let Some(key) = meet_series_key(&body).or_else(|| published.get(id).cloned()) {
+                series.push(TistySeries {
+                    key,
+                    title: title.to_string(),
+                });
+            }
+        }
+        seen += docs.len();
+        let total = answer["total"].as_u64().unwrap_or(0) as usize;
+        if docs.is_empty() || seen >= total {
+            return Ok(series);
         }
     }
 }

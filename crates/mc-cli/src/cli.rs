@@ -206,9 +206,10 @@ commands:
                                       write the minutes in Spanish, checked against their evidence, into
                                       minutes/<id>/ (the newest fusion is read, else the newest run);
                                       without --notes it uses what was noted while capturing (notes.jsonl)
-  series list | show <key> | set <session> <key>
+  series list | show <key> | set <session> <key> | match <name> [--tisty]
                                       meetings that recur under one name: the series, its sessions and
-                                      the commitments still open after the last one with minutes
+                                      the commitments still open after the last one with minutes;
+                                      match names the series a name belongs to or may have been meant as
   glossary list | add <term> [--alias A] | remove <term>
   glossary review <session> [--analysis ID] [--accept-all]
                                       your own vocabulary (the terms of the memory, merged with the
@@ -314,7 +315,7 @@ fn command_spec(name: &str) -> Option<Spec> {
         },
         "series" => Spec {
             values: &[],
-            flags: &[],
+            flags: &["tisty"],
         },
         "llm" => Spec {
             values: &["llm-provider", "llm-model", "base-url"],

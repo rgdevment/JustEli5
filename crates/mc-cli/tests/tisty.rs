@@ -118,6 +118,13 @@ fn yes_publishes_the_minutes_and_one_task_with_the_user_s_commitments_as_parts()
     let (series, page) = (&docs[0], &docs[1]);
     assert_eq!(series["folder"], "Reuniones");
     assert_eq!(series["title"], "Daily de equipo");
+    assert!(
+        series["body"]
+            .as_str()
+            .unwrap()
+            .starts_with("---\ntype: meet\nseries: daily de equipo\n---\nDaily de equipo\n"),
+        "the series document says it is a meeting's, so the next one can be offered it"
+    );
     assert_eq!(page["page_of"], series["id"]);
     assert!(
         page.get("folder").is_none(),

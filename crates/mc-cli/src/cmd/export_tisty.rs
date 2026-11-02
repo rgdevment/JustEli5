@@ -17,7 +17,7 @@ use crate::config::Config;
 use crate::publish::tisty::{TistyPublisher, resolve};
 use crate::publish::{
     Abort, AbortKind, ItemKind, Plan, PublishReport, Publisher, Status, Target, build_plan,
-    parse_properties,
+    meet_properties, parse_properties,
 };
 
 pub struct Prepared {
@@ -30,7 +30,7 @@ pub struct Prepared {
 /// Series key → Tisty document id: the document is found by id even after it is renamed.
 const SERIES_DOCS_FILE: &str = "tisty_series.json";
 
-fn series_docs(cfg: &Config) -> BTreeMap<String, String> {
+pub fn series_docs(cfg: &Config) -> BTreeMap<String, String> {
     std::fs::read_to_string(cfg.data_dir.join(SERIES_DOCS_FILE))
         .ok()
         .and_then(|text| serde_json::from_str(&text).ok())
@@ -135,6 +135,9 @@ pub fn prepare(
     plan.minutes.series_doc = series_key
         .as_ref()
         .and_then(|key| series_docs(&ctx.cfg).get(key).cloned());
+    if let Some(key) = &series_key {
+        plan.minutes.series_body = meet_properties(key) + &plan.minutes.series_body;
+    }
     // Picture paths in the minutes are relative to their folder; Tisty needs the file itself.
     for (_, path) in &mut plan.minutes.images {
         *path = minutes_dir.join(&*path).display().to_string();

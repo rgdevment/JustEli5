@@ -154,7 +154,7 @@ The installer brings `eli5` (also answering to `mc`). Every command accepts `--j
 | `eli5 transcribe <session>` · `eli5 fuse <session>` | Whisper's final pass and its fusion with the captions |
 | `eli5 analyze <session>` · `eli5 minutes <session>` | analysis and minutes with the configured agent |
 | `eli5 export <session> --format md\|txt\|json` · `--tisty` | export, or publish to Tisty |
-| `eli5 series list\|show\|set` | recurring meetings and what stays open across them |
+| `eli5 series list\|show\|set\|match` | recurring meetings, what stays open across them, and which one a typed name means |
 | `eli5 glossary list\|add\|remove\|review` | your glossary, and the corrections the analyst suggested |
 | `eli5 models list\|pull\|verify\|remove` | Whisper models, downloaded only on request and checked by sha256 |
 | `eli5 import` · `eli5 status` | index and list sessions |

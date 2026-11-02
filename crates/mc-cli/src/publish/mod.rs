@@ -488,6 +488,29 @@ fn series_body(title: &str, props: &Properties, body: &str) -> String {
     out
 }
 
+/// The properties that mark a series document as a meeting's, so the next one can be offered it.
+pub fn meet_properties(series_key: &str) -> String {
+    format!("---\n{MEET_TYPE}\n{SERIES_PROPERTY} {series_key}\n---\n")
+}
+
+const MEET_TYPE: &str = "type: meet";
+const SERIES_PROPERTY: &str = "series:";
+
+/// The series key a document's properties carry when they say it is a meeting's.
+pub fn meet_series_key(document: &str) -> Option<String> {
+    let header = document.replace("\r\n", "\n");
+    let (header, _) = header.strip_prefix("---\n")?.split_once("\n---")?;
+    let lines: Vec<&str> = header.lines().map(str::trim).collect();
+    if !lines.contains(&MEET_TYPE) {
+        return None;
+    }
+    lines
+        .iter()
+        .find_map(|l| l.strip_prefix(SERIES_PROPERTY))
+        .map(|key| key.trim().to_string())
+        .filter(|key| !key.is_empty())
+}
+
 /// What publishing `minutes_md` and its commitments to `target` will create.
 pub fn build_plan(minutes_md: &str, commitments: &[CommitmentRecord], target: &Target) -> Plan {
     let (props, body) = parse_properties(minutes_md);
@@ -655,6 +678,27 @@ mod tests {
                 &["equipo".into(), "Reunión".into(), "dos palabras".into()]
             ),
             ["reunion", "daily", "equipo", "dos", "palabras"]
+        );
+    }
+
+    #[test]
+    fn a_meeting_series_document_is_told_by_its_properties() {
+        let body = format!(
+            "{}B2B Falabella Hito 2\n\n## Sesiones\n",
+            meet_properties("b2b falabella hito")
+        );
+        assert_eq!(
+            meet_series_key(&body).as_deref(),
+            Some("b2b falabella hito")
+        );
+        assert_eq!(
+            meet_series_key(&body.replace('\n', "\r\n")).as_deref(),
+            Some("b2b falabella hito")
+        );
+        assert_eq!(meet_series_key("---\nseries: x\n---\nNotas\n"), None);
+        assert_eq!(
+            meet_series_key("Daily\n\ntype: meet\nseries: daily\n"),
+            None
         );
     }
 

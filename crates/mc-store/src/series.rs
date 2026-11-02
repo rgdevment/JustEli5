@@ -73,9 +73,76 @@ pub fn series_for_name(name: &str, rules: &[SeriesRule]) -> Option<(String, Seri
     }
 }
 
+/// Words that say nothing about which meeting it is.
+const FILLER: &[&str] = &[
+    "a", "and", "con", "de", "del", "el", "en", "la", "las", "los", "of", "the", "with", "y",
+];
+
+fn telling_words(name: &str) -> Vec<String> {
+    mc_core::fold::fold_words(&name.replace(|c: char| !c.is_alphanumeric(), " "))
+        .split(' ')
+        .filter(|w| !w.is_empty() && !FILLER.contains(w) && !w.chars().all(|c| c.is_ascii_digit()))
+        .map(str::to_string)
+        .collect()
+}
+
+fn edit_distance(a: &str, b: &str) -> usize {
+    let b: Vec<char> = b.chars().collect();
+    let mut row: Vec<usize> = (0..=b.len()).collect();
+    for (i, ca) in a.chars().enumerate() {
+        let mut diagonal = row[0];
+        row[0] = i + 1;
+        for (j, cb) in b.iter().enumerate() {
+            let above = row[j + 1];
+            row[j + 1] = (above + 1)
+                .min(row[j] + 1)
+                .min(diagonal + usize::from(ca != *cb));
+            diagonal = above;
+        }
+    }
+    row[b.len()]
+}
+
+/// One word written two ways: «Hito2» and «hito», or one letter off in a long word.
+fn same_word(a: &str, b: &str) -> bool {
+    let bare = |w: &str| w.trim_end_matches(|c: char| c.is_ascii_digit()).to_string();
+    let (a, b) = (bare(a), bare(b));
+    a == b || (a.chars().count() >= 4 && b.chars().count() >= 4 && edit_distance(&a, &b) <= 1)
+}
+
+/// How alike two meeting names are, from 0 to 1: mostly how much of the shorter one the longer
+/// one holds, so «B2B Falabella Hito 2» is close to «Actividad | B2B-Falabella-Hito2: Sincronización».
+pub fn name_similarity(a: &str, b: &str) -> f64 {
+    let (a, b) = (telling_words(a), telling_words(b));
+    let (short, long) = if a.len() <= b.len() {
+        (&a, &b)
+    } else {
+        (&b, &a)
+    };
+    if short.is_empty() {
+        return 0.0;
+    }
+    let shared = short
+        .iter()
+        .filter(|w| long.iter().any(|v| same_word(w, v)))
+        .count() as f64;
+    0.7 * shared / short.len() as f64 + 0.3 * shared / long.len() as f64
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn names_written_a_little_differently_are_alike_and_other_meetings_are_not() {
+        let messy = "Actividad | B2B-Falabella-Hito2: Sincronización | Microsoft Teams";
+        assert!(name_similarity("B2B Falabella Hito 2", messy) >= 0.6);
+        assert!(name_similarity("Daily equipo", "Daily de equipo") > 0.99);
+        assert!(name_similarity("Sincronizacion pagos", "Sincronización de pago") >= 0.6);
+        assert!(name_similarity("Retro pagos", "Retro login") < 0.6);
+        assert!(name_similarity("Planning", "Daily de equipo") < 0.6);
+        assert_eq!(name_similarity("21/10", "Daily"), 0.0);
+    }
 
     #[test]
     fn the_key_drops_dates_numbers_and_punctuation() {
