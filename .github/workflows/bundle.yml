@@ -172,6 +172,10 @@ jobs:
             echo "::error::Info.plist lost the microphone prompt; macOS would refuse the microphone"
             status=1
           fi
+          if [ -z "$(plutil -extract NSAudioCaptureUsageDescription raw -o - "$plist" 2>/dev/null)" ]; then
+            echo "::error::Info.plist lost the system-audio prompt; macOS would refuse the process tap"
+            status=1
+          fi
           bin="$app/Contents/MacOS/eli5"
           if [ -x "$bin" ]; then
             archs=$(lipo -archs "$bin")

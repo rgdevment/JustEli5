@@ -211,7 +211,7 @@ pub fn is_absent(code: i32) -> bool {
     )
 }
 
-pub const PERMISSION_HELP: &str = "Accessibility permission is not granted: enable the terminal or app running `mc` in System Settings > Privacy & Security > Accessibility (then restart it); `mc doctor --uia --ax-prompt` asks macOS to show the prompt";
+pub const PERMISSION_HELP: &str = "Accessibility permission is not granted: enable JustEli5 (or the terminal running `eli5`) in System Settings > Privacy & Security > Accessibility, then restart it; `eli5 doctor --ask-permission accessibility` asks macOS to show the prompt";
 
 /// Maps a failed `AXError`; an invalid element of a living app is `Stale`, of a dead one `WindowGone`.
 pub fn map_ax_error(code: i32, app_alive: bool) -> UiError {

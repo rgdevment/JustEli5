@@ -14,9 +14,12 @@ mod mac_backend;
 #[cfg(target_os = "macos")]
 mod mac_ffi;
 #[cfg(target_os = "macos")]
+mod mac_permission;
+#[cfg(target_os = "macos")]
 mod mac_sck;
 #[cfg(target_os = "macos")]
 mod mac_tap;
+pub mod permission;
 pub mod probe;
 pub mod procmatch;
 pub mod recorder;
@@ -49,6 +52,26 @@ pub fn default_backend() -> Option<std::sync::Arc<dyn AudioBackend>> {
     return Some(std::sync::Arc::new(mac_backend::MacBackend::new()));
     #[cfg(not(any(windows, target_os = "macos")))]
     None
+}
+
+/// The macOS audio permissions of this process; `None` where the OS does not keep them per app.
+pub fn audio_access() -> Option<permission::AudioAccess> {
+    #[cfg(target_os = "macos")]
+    return Some(mac_backend::MacBackend::new().audio_access());
+    #[cfg(not(target_os = "macos"))]
+    None
+}
+
+/// Shows the macOS microphone prompt if it never showed, waiting for the answer; nothing elsewhere.
+pub fn request_microphone() {
+    #[cfg(target_os = "macos")]
+    mac_permission::request_microphone();
+}
+
+/// Shows the macOS Screen Recording prompt if it never showed; nothing elsewhere.
+pub fn request_screen_recording() {
+    #[cfg(target_os = "macos")]
+    mac_permission::request_screen_recording();
 }
 
 #[cfg(windows)]

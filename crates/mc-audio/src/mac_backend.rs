@@ -8,8 +8,10 @@ use objc2_foundation::NSProcessInfo;
 
 use crate::cpal_backend::CpalBackend;
 use crate::devices::DeviceInfo;
+use crate::mac_permission;
 use crate::mac_sck::SckSource;
 use crate::mac_tap::{TapSource, Target, is_running_output};
+use crate::permission::{AudioAccess, Screen};
 use crate::procmatch::{self, Choice, MACOS_APPS, Proc, snapshot};
 use crate::silence::SilenceAlert;
 use crate::source::{AudioBackend, AudioSource};
@@ -64,6 +66,20 @@ impl MacBackend {
     pub fn new() -> Self {
         Self {
             version: os_version(),
+        }
+    }
+
+    /// The tap's own permission has no public query; `doctor --audio` tries it instead.
+    pub fn audio_access(&self) -> AudioAccess {
+        let chain = mechanisms_for(self.version);
+        AudioAccess {
+            microphone: mac_permission::microphone(),
+            screen_recording: chain
+                .contains(&Mechanism::ScreenCaptureKit)
+                .then(|| Screen {
+                    granted: mac_permission::screen_recording(),
+                    fallback: chain[0] != Mechanism::ScreenCaptureKit,
+                }),
         }
     }
 

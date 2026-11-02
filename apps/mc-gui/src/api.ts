@@ -12,6 +12,13 @@ export interface Check {
   name: string;
   status: "ok" | "warn" | "FAIL";
   detail: string;
+  /** Permission checks only: granted, denied, not_asked, restricted or missing. */
+  state?: string;
+}
+
+/** One of doctor's checks by name; none while doctor is unread or failed. */
+export function findCheck(doctor: Doctor | Error | undefined, name: string): Check | undefined {
+  return doctor instanceof Error ? undefined : doctor?.checks.find((c) => c.name === name);
 }
 
 export interface Device {

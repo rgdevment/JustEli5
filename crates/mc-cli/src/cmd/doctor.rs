@@ -1,5 +1,7 @@
 use std::path::PathBuf;
 
+use mc_audio::permission::AudioAccess;
+use mc_captions::ui::ax_map::PERMISSION_HELP;
 use mc_captions::ui::dump::{DumpOptions, dump as dump_trees};
 use mc_captions::ui::report::{format_report, uia_report};
 use mc_captions::ui::{FakeBackend, Fixture, Platform, UiBackend};
@@ -13,6 +15,8 @@ struct Check {
     name: &'static str,
     status: &'static str,
     detail: String,
+    /// A permission's state for programs (`granted`, `denied`, `not_asked`, `restricted`, `missing`).
+    state: Option<&'static str>,
 }
 
 fn check(name: &'static str, status: &'static str, detail: impl Into<String>) -> Check {
@@ -20,8 +24,29 @@ fn check(name: &'static str, status: &'static str, detail: impl Into<String>) ->
         name,
         status,
         detail: detail.into(),
+        state: None,
     }
 }
+
+impl Check {
+    fn with_state(self, state: &'static str) -> Self {
+        Self {
+            state: Some(state),
+            ..self
+        }
+    }
+
+    fn json(&self) -> serde_json::Value {
+        let mut value = json!({"name": self.name, "status": self.status, "detail": self.detail});
+        if let Some(state) = self.state {
+            value["state"] = json!(state);
+        }
+        value
+    }
+}
+
+/// The permissions `--ask-permission` can ask macOS for.
+const ASKABLE: [&str; 3] = ["accessibility", "microphone", "screen_recording"];
 
 /// Presence check of a command on `PATH` (honouring `PATHEXT` on Windows).
 pub fn find_on_path(env: &Env, command: &str) -> Option<PathBuf> {
@@ -63,6 +88,20 @@ pub fn broken_config(err: &CliError, io: &mut Io<'_>, json_output: bool) -> Resu
 pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
     if !ctx.args.positional.is_empty() {
         return Err(CliError::usage("usage: eli5 doctor"));
+    }
+    let ask = ctx.args.value("ask-permission");
+    if let Some(name) = ask
+        && !ASKABLE.contains(&name)
+    {
+        return Err(CliError::usage(format!(
+            "--ask-permission takes one of {}, not {name:?}",
+            ASKABLE.join(", ")
+        )));
+    }
+    if ask.is_some() && !cfg!(target_os = "macos") {
+        return Err(CliError::usage(
+            "--ask-permission only applies on macOS, the one system that keeps these permissions per app",
+        ));
     }
     let cfg = &ctx.cfg;
     let mut checks = Vec::new();
@@ -135,6 +174,17 @@ pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
 
     checks.push(llm_check(ctx));
     checks.push(whisper_check());
+    match ask {
+        Some("microphone") => mc_audio::request_microphone(),
+        Some("screen_recording") => mc_audio::request_screen_recording(),
+        _ => {}
+    }
+    // The run's only Accessibility prompt: `--uia` and `--dump` then read without asking again.
+    let prompt = ctx.args.flag("ax-prompt") || ask == Some("accessibility");
+    checks.extend(permission_checks(
+        mc_captions::accessibility_trusted(prompt),
+        mc_audio::audio_access(),
+    ));
 
     let failed = checks.iter().any(|c| c.status == "FAIL");
     let mut human: String = checks
@@ -149,7 +199,7 @@ pub fn run(ctx: &Ctx<'_>, io: &mut Io<'_>) -> Result<u8, CliError> {
     let mut value = json!({
         "checks": checks
             .iter()
-            .map(|c| json!({"name": c.name, "status": c.status, "detail": c.detail}))
+            .map(Check::json)
             .collect::<Vec<_>>(),
         "ok": !failed,
     });
@@ -190,10 +240,50 @@ fn tisty_mcp_check(program: &Option<PathBuf>, args: &[String]) -> Check {
     }
 }
 
+/// A missing permission only warns: only the step that needs it fails.
+fn permission_checks(accessibility: Option<bool>, audio: Option<AudioAccess>) -> Vec<Check> {
+    let mut checks: Vec<Check> = accessibility
+        .into_iter()
+        .map(|trusted| {
+            if trusted {
+                check("accessibility", "ok", "allowed: the captions can be read")
+                    .with_state("granted")
+            } else {
+                check("accessibility", "warn", PERMISSION_HELP).with_state("missing")
+            }
+        })
+        .collect();
+    checks.extend(
+        audio
+            .map(mc_audio::permission::lines)
+            .unwrap_or_default()
+            .into_iter()
+            .map(|line| {
+                check(line.name, if line.ok { "ok" } else { "warn" }, line.detail)
+                    .with_state(line.state)
+            }),
+    );
+    checks
+}
+
 /// Whether this build can recognise speech; without it `transcribe` and `--live-asr` refuse.
 fn whisper_check() -> Check {
     if cfg!(feature = "whisper") {
-        check("whisper", "ok", "Whisper engine built in")
+        // What the build targets: whisper.cpp still falls back to the CPU without a usable GPU.
+        let device = if cfg!(target_os = "macos") {
+            "compiled for Metal"
+        } else if cfg!(feature = "cuda") {
+            "compiled for CUDA"
+        } else if cfg!(feature = "vulkan") {
+            "compiled for Vulkan"
+        } else {
+            "CPU only"
+        };
+        check(
+            "whisper",
+            "ok",
+            format!("Whisper engine built in ({device})"),
+        )
     } else {
         check(
             "whisper",
@@ -242,7 +332,8 @@ fn llm_check(ctx: &Ctx<'_>) -> Check {
 
 /// The accessibility backend `--uia`/`--dump` read from: a fixture on any OS
 /// (`--source fake-uia:<file>`), the real windows on Windows and macOS.
-pub fn ui_backend(ctx: &Ctx<'_>) -> Result<Box<dyn UiBackend>, CliError> {
+#[cfg_attr(not(target_os = "macos"), allow(unused_variables))]
+pub fn ui_backend(ctx: &Ctx<'_>, prompt: bool) -> Result<Box<dyn UiBackend>, CliError> {
     if let Some(spec) = ctx.args.value("source") {
         let Some(path) = spec.strip_prefix("fake-uia:") else {
             return Err(CliError::usage(
@@ -270,7 +361,7 @@ pub fn ui_backend(ctx: &Ctx<'_>) -> Result<Box<dyn UiBackend>, CliError> {
         let backend = mc_captions::mac_ax::MacAxBackend::new(mc_captions::mac_ax::MacOptions {
             // Diagnosing may read a huge tree; there is no stop key to honour here.
             messaging_ms: 20_000,
-            prompt: ctx.args.flag("ax-prompt"),
+            prompt,
             platform: None,
             selectors: ctx.cfg.capture.selectors.clone(),
         })
@@ -314,7 +405,7 @@ fn uia_section(ctx: &Ctx<'_>) -> Result<(String, Option<serde_json::Value>), Cli
     }
     let selectors = &ctx.cfg.capture.selectors;
     let max_nodes = number_option(ctx, "max-nodes", 20_000)?;
-    let mut backend = ui_backend(ctx)?;
+    let mut backend = ui_backend(ctx, false)?;
     let mut text = String::new();
     let mut value = serde_json::Map::new();
     if ctx.args.flag("uia") {
@@ -445,4 +536,69 @@ fn audio_section(ctx: &Ctx<'_>) -> Result<(String, Option<serde_json::Value>, bo
     let value = json!({"available": true, "devices": devices, "probe": probe});
     let unusable = probe.unusable();
     Ok((text, Some(value), unusable))
+}
+
+#[cfg(test)]
+mod tests {
+    use mc_audio::permission::{Access, Screen};
+
+    use super::*;
+
+    fn names(checks: &[Check]) -> Vec<(&str, &str)> {
+        checks.iter().map(|c| (c.name, c.status)).collect()
+    }
+
+    #[test]
+    fn no_permission_lines_where_the_os_keeps_none() {
+        assert!(permission_checks(None, None).is_empty());
+    }
+
+    #[test]
+    fn missing_permissions_warn_and_say_where_to_allow_them() {
+        let audio = AudioAccess {
+            microphone: Access::Denied,
+            screen_recording: Some(Screen {
+                granted: false,
+                fallback: false,
+            }),
+        };
+        let checks = permission_checks(Some(false), Some(audio));
+        assert_eq!(
+            names(&checks),
+            [
+                ("accessibility", "warn"),
+                ("microphone", "warn"),
+                ("screen_recording", "warn")
+            ]
+        );
+        assert!(
+            checks[0]
+                .detail
+                .contains("Privacy & Security > Accessibility")
+        );
+        let states: Vec<_> = checks.iter().map(|c| c.json()["state"].clone()).collect();
+        assert_eq!(
+            states,
+            [json!("missing"), json!("denied"), json!("missing")]
+        );
+    }
+
+    #[test]
+    fn granted_permissions_are_ok() {
+        let audio = AudioAccess {
+            microphone: Access::Granted,
+            screen_recording: None,
+        };
+        let checks = permission_checks(Some(true), Some(audio));
+        assert_eq!(
+            names(&checks),
+            [("accessibility", "ok"), ("microphone", "ok")]
+        );
+        assert_eq!(checks[1].json()["state"], "granted");
+    }
+
+    #[test]
+    fn other_checks_carry_no_state() {
+        assert!(check("config", "ok", "x").json().get("state").is_none());
+    }
 }
