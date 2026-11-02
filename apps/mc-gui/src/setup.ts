@@ -19,6 +19,7 @@ import { byId, el, show } from "./dom";
 import { confirmAndRun } from "./jobdialog";
 import { askFor, isMac, newAsks, permissionRows } from "./permissions";
 import { PLATFORMS, platformLabel } from "./platforms";
+import { openTistySite, TISTY_PITCH, tistyState } from "./tisty";
 import type { Settings } from "./settings";
 
 interface Agent {
@@ -89,6 +90,8 @@ interface Draft {
   finalPass: boolean;
   /** Not asked here; it decides whether the audio permissions matter. */
   recordAudio: boolean;
+  /** The first run turns saving to Tisty on when Tisty is ready; later runs keep the choice. */
+  suggestTisty: boolean;
 }
 
 interface Step {
@@ -125,6 +128,7 @@ function draftFrom(config: Record<string, unknown>, s: Settings): Draft {
     liveAsr: s.liveAsr,
     finalPass: s.finalPass,
     recordAudio: s.recordAudio,
+    suggestTisty: !s.setupDone,
   };
 }
 
@@ -260,19 +264,47 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Tisty",
-    hint: "Dónde guardar la minuta y tus compromisos al terminar cada reunión.",
+    title: "Guarda tus minutas en Tisty",
+    hint: `${TISTY_PITCH} Es donde JustEli5 deja lo que escribe.`,
     body: async (d) => {
-      const doctor = await mcJson<Doctor>(["doctor", "--tisty"]).catch(() => null);
-      const mcp = doctor?.checks.find((c) => c.name === "tisty_mcp");
-      const ok = mcp?.status === "ok";
+      const doctor = await mcJson<Doctor>(["doctor", "--tisty"]).catch((err: Error) => err);
+      const state = tistyState(doctor);
+      if (state === "ready" && d.suggestTisty) {
+        d.tisty = true;
+        d.suggestTisty = false;
+      }
+      const again = el("button", { textContent: "Volver a comprobar", type: "button", onclick: () => rerender() });
+      const status =
+        state === "ready"
+          ? el("p", { className: "ok", textContent: "✓ Tisty está listo" })
+          : state === "missing"
+            ? el(
+                "div",
+                { className: "recommend" },
+                el("strong", { textContent: "Te recomendamos instalar Tisty" }),
+                el("p", { textContent: "Sin Tisty, la minuta queda igual en archivos. Instálalo, ábrelo una vez y vuelve a comprobar." }),
+                el(
+                  "div",
+                  { className: "row" },
+                  el("button", { textContent: "Descargar Tisty", type: "button", onclick: openTistySite }),
+                  again,
+                ),
+              )
+            : el(
+                "div",
+                {},
+                el("p", {
+                  className: "bad",
+                  textContent: `Tisty está instalado pero no responde: ábrelo una vez y deja entrar a JustEli5.${
+                    doctor instanceof Error ? ` (${doctor.message})` : ""
+                  }`,
+                }),
+                el("div", { className: "row" }, again),
+              );
       return el(
         "div",
         {},
-        el("p", {
-          className: ok ? "ok" : "bad",
-          textContent: ok ? "✓ Tisty encontrado" : `Tisty no responde${mcp ? `: ${mcp.detail}` : ""}`,
-        }),
+        status,
         checkbox("Guardar en Tisty al final de cada reunión", d.tisty, (v) => (d.tisty = v)),
         field("Carpeta de las minutas", d.folder, (v) => (d.folder = v), "Trabajo / Meets"),
         field("Lista de tus compromisos", d.list, (v) => (d.list = v), "Trabajo"),
@@ -384,7 +416,7 @@ const steps: Step[] = [
         line("Tú", d.me ? `${d.me}${d.meRole ? ` (${d.meRole})` : ""}` : ""),
         line("Agente de IA", `${agent.label}${d.model ? ` · ${d.model}` : ""}`),
         line("Reuniones en", platformLabel(d.platform)),
-        line("Tisty", d.tisty ? `sí · «${d.folder}», lista «${d.list}»` : "no"),
+        line("Tisty", d.tisty ? `sí · «${d.folder}», lista «${d.list}»` : "no (la minuta queda solo en archivos)"),
         line("Whisper", [d.liveAsr ? "en vivo" : "", d.finalPass ? "pasada final" : ""].filter(Boolean).join(" y ") || "apagado"),
       );
     },

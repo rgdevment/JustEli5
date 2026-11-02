@@ -30,6 +30,7 @@ import { LiveMemory } from "./livememory";
 import { MemoryView } from "./memory";
 import { askFor, newAsks, permissionMissing, withPermissions } from "./permissions";
 import { platformLabel } from "./platforms";
+import { openTistySite } from "./tisty";
 import { runPost } from "./post";
 import * as form from "./prepare";
 import { SeriesQuestion } from "./seriesquestion";
@@ -194,6 +195,8 @@ export class App {
       testAudio: () => this.testAudio(),
       openSettings: (page) => openSettings(page).catch((err) => alert(err)),
       askPermission: (name) => this.askPermission(name),
+      openTistySite,
+      enableTisty: () => this.enableTisty(),
       redetect: () => this.detect(),
     };
   }
@@ -276,6 +279,13 @@ export class App {
     if (fresh) this.applyPermissions(read, fresh);
     else this.render();
     if (name === "accessibility") this.detect();
+  }
+
+  private enableTisty(): void {
+    this.settings = { ...this.settings, tisty: true };
+    form.writeForm(this.settings);
+    saveSettings(this.settings);
+    this.loadDoctor();
   }
 
   async detect(): Promise<void> {

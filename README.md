@@ -25,6 +25,11 @@
 > to follow along, build it and try it, but do not rely on it for your meetings
 > yet.
 
+> [!TIP]
+> **JustEli5 is made to work with [Tisty](https://www.tisty.app/).** Each meeting's minutes become a page of its
+> series' document and your own commitments become tasks, all in plain files on your disk. Install Tisty before your
+> first meeting; without it the minutes stay as Markdown and JSON files.
+
 ---
 
 ## Table of Contents
@@ -70,7 +75,8 @@ JustEli5 joins two sources instead of trusting one: the platform's captions for 
 Download the installer for your system from [Releases](https://github.com/rgdevment/JustEli5/releases):
 
 - **Windows** — `justeli5-installer-<version>-windows-x86_64.exe`. Installs for your user, without administrator rights, with a desktop and Start menu shortcut. It brings its own `eli5` command with Whisper: no Rust or compiler needed.
-- **macOS** — the `.dmg` for your Mac. Grant Accessibility (to read the captions), Microphone and Screen & System Audio Recording (to record the meeting audio) when asked; the setup wizard and `eli5 doctor` show which ones are still missing.
+- **macOS** — the `.dmg`, for Macs with Apple Silicon. Grant Accessibility (to read the captions), Microphone and Screen & System Audio Recording (to record the meeting audio) when asked; the setup wizard and `eli5 doctor` show which ones are still missing.
+- **Tisty (recommended)** — install [Tisty](https://www.tisty.app/) and open it once: JustEli5 saves the minutes there.
 
 ### First run
 
@@ -79,7 +85,7 @@ The first screen is a short setup that you can reopen any time from **Configurac
 1. **Who you are** — your name as the captions show it and your role, so your commitments are recognised as yours.
 2. **AI agent** — Claude Code, GitHub Copilot CLI, the Anthropic API, Ollama or LM Studio, with the model and a button to test it.
 3. **Your meeting app** — the one you use most; an open meeting is detected anyway.
-4. **Tisty** — whether the minutes go to Tisty, and in which folder and list.
+4. **Tisty** — recommended: the wizard checks that Tisty is installed (and offers to download it if not), turns saving on when it is ready, and asks for the folder and list.
 5. **Audio** — microphone and meeting audio, with a 10-second test.
 6. **Whisper** — live recognition and the final pass are off by default; turning them on downloads the models once.
 
