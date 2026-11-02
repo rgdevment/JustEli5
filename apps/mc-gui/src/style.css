@@ -64,6 +64,10 @@ code { font-family: ui-monospace, Consolas, monospace; font-size: 12px; word-bre
 .field > span { font-weight: 600; }
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .row.spread { justify-content: space-between; }
+.recommend {
+  border: 1px solid var(--accent); border-radius: 8px; padding: 12px; margin-bottom: 12px;
+}
+.recommend p { margin: 6px 0 10px; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
 @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
 

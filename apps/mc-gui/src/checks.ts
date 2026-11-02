@@ -4,6 +4,7 @@ import { type State, verdict } from "./audio";
 import { el } from "./dom";
 import { type Asks, isMac, permissionRows } from "./permissions";
 import { PLATFORMS, platformLabel } from "./platforms";
+import { TISTY_PITCH, tistyState } from "./tisty";
 import type { Settings } from "./settings";
 
 export interface Action {
@@ -39,6 +40,8 @@ export interface Fixes {
   openSettings: (page: string) => void;
   askPermission: (name: string) => void;
   redetect: () => void;
+  openTistySite: () => void;
+  enableTisty: () => void;
 }
 
 const pending = (label: string): Row => ({ label, state: "warn", detail: "Comprobando…", actions: [] });
@@ -123,22 +126,40 @@ function llmRow(s: Snapshot, fix: Fixes): Row {
   };
 }
 
-function tistyRow(s: Snapshot): Row {
-  const label = "Tisty";
-  if (!s.doctor) return pending(label);
-  if (s.doctor instanceof Error) return { label, state: "bad", detail: s.doctor.message, actions: [] };
-  const app = findCheck(s.doctor, "tisty");
-  const server = findCheck(s.doctor, "tisty_mcp");
-  if (app?.status === "ok" && server?.status === "ok") {
-    return { label, state: "ok", detail: server.detail, actions: [] };
+/** Saving to Tisty is the point of the minutes: a missing or unused Tisty is always said, with the way to fix it. */
+function tistyRow(s: Snapshot, saving: boolean, fix: Fixes): Row | null {
+  const label = "Guardar la minuta en Tisty";
+  if (!s.doctor) return saving ? pending(label) : null;
+  if (s.doctor instanceof Error) return saving ? { label, state: "bad", detail: s.doctor.message, actions: [] } : null;
+  const download = { label: "Descargar Tisty", run: fix.openTistySite };
+  switch (tistyState(s.doctor)) {
+    case "missing":
+      return {
+        label,
+        state: saving ? "bad" : "warn",
+        detail: `Recomendado: instala Tisty. ${TISTY_PITCH} Mientras tanto, la minuta queda en archivos.`,
+        actions: [download],
+      };
+    case "closed":
+      return {
+        label,
+        state: "bad",
+        detail: `Tisty está instalado pero no responde: ábrelo una vez y deja entrar a JustEli5. (${findCheck(s.doctor, "tisty_mcp")?.detail ?? ""})`,
+        actions: [],
+      };
+    case "ready":
+      return { label, state: "ok", detail: findCheck(s.doctor, "tisty_mcp")?.detail ?? "Listo", actions: [] };
+    default:
+      // Tisty is installed; only `doctor --tisty` asks its server, and that runs while saving is on.
+      return saving
+        ? pending(label)
+        : {
+            label,
+            state: "warn",
+            detail: "Tisty está instalado, pero las minutas no se guardan ahí.",
+            actions: [{ label: "Guardar en Tisty", run: fix.enableTisty }],
+          };
   }
-  const why = app?.status !== "ok" ? app?.detail : server?.detail;
-  return {
-    label,
-    state: "bad",
-    detail: `${why ?? "sin comprobar"}. Instala Tisty y ábrelo una vez; la minuta se guarda igual en archivos.`,
-    actions: [],
-  };
 }
 
 function audioRow(s: Snapshot, fix: Fixes, kind: "mic" | "system"): Row {
@@ -197,7 +218,8 @@ export function rows(s: Snapshot, settings: Settings, fix: Fixes, asks: Asks): R
     if (settings.finalPass) list.push(modelRow(s, fix, settings.finalModel, "final"));
   }
   list.push(llmRow(s, fix));
-  if (settings.tisty) list.push(tistyRow(s));
+  const tisty = tistyRow(s, settings.tisty, fix);
+  if (tisty) list.push(tisty);
   if (s.doctor && !(s.doctor instanceof Error)) {
     list.push(...permissionRows(s.doctor, settings.recordAudio, asks, fix.askPermission, fix.openSettings));
   }
