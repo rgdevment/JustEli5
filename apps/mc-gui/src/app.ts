@@ -31,6 +31,7 @@ import { MemoryView } from "./memory";
 import { platformLabel } from "./platforms";
 import { runPost } from "./post";
 import * as form from "./prepare";
+import { SeriesQuestion } from "./seriesquestion";
 import { type Settings, saveSettings, withRecentName } from "./settings";
 import { runSetup } from "./setup";
 import { mountVocabulary } from "./vocabulary";
@@ -49,6 +50,11 @@ export class App {
   private meetingView: MeetingView = "prepare";
   private readonly config: ConfigView;
   private readonly memory = new MemoryView();
+  private readonly seriesQuestion = new SeriesQuestion((title) => {
+    const name = byId<HTMLInputElement>("name");
+    name.value = title;
+    name.dispatchEvent(new Event("change"));
+  });
 
   constructor(private settings: Settings) {
     this.config = configView(
@@ -121,6 +127,7 @@ export class App {
     for (const id of ["record-audio", "live-asr", "final-pass", "analyst", "tisty", "name", "context"]) {
       byId(id).addEventListener("change", changed);
     }
+    byId("name").addEventListener("change", () => this.seriesQuestion.ask(this.settings.name, this.settings.tisty));
     for (const id of ["mic-device", "system-device"]) {
       byId(id).addEventListener("change", () => {
         changed();
