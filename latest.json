@@ -1,10 +1,14 @@
 {
-  "version": "0.1.0",
-  "notes": "https://github.com/rgdevment/JustEli5/releases/tag/v0.1.0",
+  "version": "0.2.0",
+  "notes": "https://github.com/rgdevment/JustEli5/releases/tag/v0.2.0",
   "platforms": {
     "windows-x86_64": {
-      "url": "https://github.com/rgdevment/JustEli5/releases/download/v0.1.0/justeli5-installer-0.1.0-windows-x86_64.exe",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSTRXcW1DZ25uRnZNbkRRaFBpUFVBQ3Y3Z1FFUjNEQ2VnY1Ztelo1VzV4MUFNTk5PZkNUODJwMFk5QzIyLzN3Nk1tdldrdmRlWXIzY055bXdLVWhBZktOSlZsdWtlbmdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNjM1NjI1CWZpbGU6anVzdGVsaTUtaW5zdGFsbGVyLTAuMS4wLXdpbmRvd3MteDg2XzY0LmV4ZQpUODhBZVdUOFphdjNXMVhnNHFWNzJaMDVVRDZDL2wyTUhmTEI2c0F3K0tHcnpCUTFnZXU3T3NxZFlsUXRGM2wvVWtPdU5YdUc5dmFtY2UwT3ZQeTNDdz09Cg=="
+      "url": "https://github.com/rgdevment/JustEli5/releases/download/v0.2.0/justeli5-installer-0.2.0-windows-x86_64.exe",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSTRXcW1DZ25uRmxyZGdWYlk4SE5HSEl0MmR5ZnJEcHRsaXB0UUtwWnJpYnN4Ymh6emN2cGF5ZDRrQWQyOGxoTWtSRVBlOHhNOExldHpvcncxSjZrQTdBUjVaV1hHUGdjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNjQ2NTQ0CWZpbGU6anVzdGVsaTUtaW5zdGFsbGVyLTAuMi4wLXdpbmRvd3MteDg2XzY0LmV4ZQpidXQvcWdQcEF3QzF2Y1hhNVloMWNtUlRyaWVLaUVlbjB0MlZMOU1PN05iZXVza3FZWjV3c1ljNGJSSkd3UmtnanlnaU1FMEhpdmUxNmVRNVltMUZDZz09Cg=="
+    },
+    "darwin-aarch64": {
+      "url": "https://github.com/rgdevment/JustEli5/releases/download/v0.2.0/justeli5-0.2.0-macos-aarch64.app.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVUSTRXcW1DZ25uRmxBby80c29YdE1ySEh6M1hidFhReVdHbTRVSXNhM2ZPUjJxUXNjY0pxTjVhVUJMdWFhQ0J0aWFoVzdWYkhPMVhBb3EzWGV5NjAyNEpoY3dVdVN4ZndjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNjQ2MzE0CWZpbGU6SnVzdEVsaTUuYXBwLnRhci5negp5MGQvRFphRi90QUFuVzFQcnZuRk1Gdnc0UDZYN3ZwejhhTTQ4T2tKYWEwa1FQR2wybTlhb2hJSHQzS0lLV0dZV1RRZlM4dWl2RFR1eExaRzBycWxCZz09Cg=="
     }
   }
 }
