@@ -825,6 +825,36 @@ fn teams_pick_window_rejects_chat_wrong_class_and_missing_title() {
 }
 
 #[test]
+fn teams_pick_window_takes_the_app_name_when_the_title_lacks_it() {
+    let sel = TeamsSel::default();
+    let pick = |windows: &[WindowInfo]| teams::pick_window(windows, &sel);
+    let app = |handle, title: &str, process: &str| WindowInfo {
+        process: Some(process.to_string()),
+        ..window(handle, title, TEAMS_CLASS)
+    };
+
+    // macOS titles name only what is on screen; the bundle says it is Teams.
+    assert_eq!(
+        pick(&[app(1, "Standup - Ana + Luis", "Microsoft Teams")]),
+        Some(0)
+    );
+    assert_eq!(
+        pick(&[app(1, "Standup", "Microsoft Teams (work or school)")]),
+        Some(0)
+    );
+    let captions = app(2, "Subtítulos | Standup", "Microsoft Teams");
+    assert_eq!(
+        pick(&[app(1, "Standup", "Microsoft Teams"), captions]),
+        Some(1)
+    );
+    assert_eq!(pick(&[app(1, "Chat | Ana", "Microsoft Teams")]), None);
+    assert_eq!(pick(&[app(1, "", "Microsoft Teams")]), None);
+
+    // A Windows process name is not the app's name: the title still has to say it.
+    assert_eq!(pick(&[app(1, "Standup", "ms-teams.exe")]), None);
+}
+
+#[test]
 fn zoom_pick_window_prefers_the_meeting_class_over_titles() {
     let sel = ZoomSel::default();
     let pick = |windows: &[WindowInfo]| zoom::pick_window(windows, &sel);

@@ -43,8 +43,8 @@ pub fn pick_window_tier(windows: &[WindowInfo], sel: &TeamsSel) -> Option<(usize
     )
 }
 
-/// The tiered choice over the windows `eligible` accepts whose title has one of
-/// `required` (Teams in a browser reuses it with browser windows).
+/// The tiered choice over the windows `eligible` accepts whose title or app has
+/// one of `required` (Teams in a browser reuses it with browser windows).
 pub fn pick_by(
     windows: &[WindowInfo],
     sel: &TeamsSel,
@@ -59,7 +59,7 @@ pub fn pick_by(
         let title = lower(&window.title);
         // Selector strings are compared lowercased, whatever the user wrote.
         let has = |keys: &[String]| keys.iter().any(|k| title.contains(&lower(k)));
-        if title.is_empty() || !has(required) {
+        if title.is_empty() || !(has(required) || app_named(window, required)) {
             continue;
         }
         if has(&sel.reject_keywords) {
@@ -77,6 +77,13 @@ pub fn pick_by(
         .map(|i| (i, Tier::CaptionPopout))
         .or(meeting.map(|i| (i, Tier::Meeting)))
         .or(fallback.map(|i| (i, Tier::Fallback)))
+}
+
+/// Whether the app that owns `window` has one of `required` in its name: macOS
+/// titles never name the app, its bundle does.
+fn app_named(window: &WindowInfo, required: &[String]) -> bool {
+    let app = window.process.as_deref().map(lower).unwrap_or_default();
+    required.iter().any(|k| app.contains(&lower(k)))
 }
 
 /// The meeting's name from the window title, without Teams' own decorations.
