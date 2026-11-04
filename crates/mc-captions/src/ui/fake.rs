@@ -50,6 +50,8 @@ pub struct FakeBackend {
     pub windows_calls: usize,
     pub snapshot_calls: usize,
     pub nodes_read: usize,
+    /// What the macOS backend answers, for tests of its window choice.
+    pub require_caption_region: bool,
 }
 
 impl FakeBackend {
@@ -134,6 +136,10 @@ fn clip(
 }
 
 impl UiBackend for FakeBackend {
+    fn requires_caption_region(&self) -> bool {
+        self.require_caption_region
+    }
+
     fn windows(&mut self) -> Result<Vec<WindowInfo>, UiError> {
         self.windows_calls += 1;
         let killed = &self.killed;

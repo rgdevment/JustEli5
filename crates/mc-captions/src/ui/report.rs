@@ -50,6 +50,9 @@ pub fn uia_report(
     max_nodes: usize,
     timer: &mut dyn FnMut() -> f64,
 ) -> Result<UiaReport, UiError> {
+    let mut adjusted = selectors.clone();
+    adjusted.teams.require_caption_region = backend.requires_caption_region();
+    let selectors = &adjusted;
     let listed = backend.windows()?;
     let windows: Vec<WindowRow> = listed
         .iter()
@@ -76,7 +79,7 @@ pub fn uia_report(
     let mut advice = Vec::new();
 
     for platform in Platform::ALL {
-        let Some((index, tier)) = platform.pick(&listed, selectors) else {
+        let Some((index, tier)) = choose(backend, selectors, platform, &listed, max_nodes) else {
             continue;
         };
         picks.push(read_pick(
@@ -111,6 +114,32 @@ pub fn uia_report(
         picks,
         advice,
     })
+}
+
+/// The window a source would attach to: the best title, unless another one has the caption container.
+fn choose(
+    backend: &mut dyn UiBackend,
+    selectors: &Selectors,
+    platform: Platform,
+    listed: &[WindowInfo],
+    max_nodes: usize,
+) -> Option<(usize, String)> {
+    let candidates = platform.candidates(listed, selectors);
+    if !platform.tries_every_window(selectors) {
+        return candidates.into_iter().next();
+    }
+    let depth = platform.discovery_depth(selectors);
+    let with_container = candidates.iter().find(|(index, _)| {
+        let whole = Target {
+            window: listed[*index].handle,
+            path: Vec::new(),
+            expect: None,
+        };
+        backend
+            .snapshot(&whole, &Budget::new(depth, max_nodes))
+            .is_ok_and(|tree| platform.container(&tree, selectors).is_some())
+    });
+    with_container.or(candidates.first()).cloned()
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -167,7 +196,7 @@ fn read_pick(
     report.discovery_nodes = tree.count();
     if platform.is_chromium() && report.discovery_nodes < 50 {
         advice.push(format!(
-            "{}{} tree is tiny: Chromium accessibility may be off. Retry in a few seconds, or start Narrator once.",
+            "{}{} tree is tiny: Chromium accessibility may be off. Retry in a few seconds; on Windows, start Narrator once.",
             name[..1].to_uppercase(),
             &name[1..]
         ));

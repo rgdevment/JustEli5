@@ -824,6 +824,85 @@ fn teams_pick_window_rejects_chat_wrong_class_and_missing_title() {
     assert_eq!(pick(&[window(1, "", TEAMS_CLASS)]), None);
 }
 
+/// What Teams on macOS shows during a meeting: the calendar's title says "reunión" and a group
+/// of its event card looks like a caption, while the meeting's title is only its name.
+fn macos_meeting_world() -> World {
+    let page = |children| UiNode::new(Role::Window, "").with_children(vec![captions_doc(children)]);
+    let calendar = page(vec![group("Luis Soto", "Revisión semanal")]);
+    let region = UiNode::new(Role::Group, "Subtítulos en vivo")
+        .with_children(vec![group("Ana García", "hola a todos")]);
+    let meeting = page(vec![group("Luis Soto", "un mensaje del chat"), region]);
+    world(vec![
+        teams_window(1, "Calendario | Nueva reunión", calendar),
+        teams_window(2, "Revisión semanal", meeting),
+    ])
+}
+
+/// macOS names the app in the window's process, not in its title.
+fn on_macos(mut world: World) -> World {
+    for window in &mut world.windows {
+        window.info.process = Some("Microsoft Teams".to_string());
+    }
+    world
+}
+
+fn macos_source(world: World) -> UiaSource<FakeBackend> {
+    let mut backend = FakeBackend::new(on_macos(world));
+    backend.require_caption_region = true;
+    UiaSource::new(
+        backend,
+        Platform::Teams,
+        Selectors::default(),
+        NodeMode::All,
+    )
+}
+
+#[test]
+fn macos_teams_reads_the_window_with_the_caption_region_whatever_the_titles_say() {
+    let mut source = macos_source(macos_meeting_world());
+    assert_eq!(
+        source.discover(),
+        Ok(Discovery::Attached {
+            window: "Revisión semanal".to_string()
+        })
+    );
+    let observations = source.poll().unwrap();
+    assert_eq!(observations.len(), 1);
+    assert_eq!(observations[0].speaker.as_deref(), Some("Ana García"));
+    assert_eq!(observations[0].text.as_deref(), Some("hola a todos"));
+}
+
+#[test]
+fn macos_teams_reads_nothing_while_no_window_has_a_caption_region() {
+    let calendar = UiNode::new(Role::Window, "").with_children(vec![captions_doc(vec![group(
+        "Luis Soto",
+        "Revisión semanal",
+    )])]);
+    let mut source = macos_source(world(vec![teams_window(
+        1,
+        "Calendario | Nueva reunión",
+        calendar,
+    )]));
+    assert!(matches!(source.discover(), Ok(Discovery::Attached { .. })));
+    assert_eq!(source.poll().unwrap(), Vec::new());
+}
+
+#[test]
+fn teams_elsewhere_keeps_choosing_by_title() {
+    let mut source = UiaSource::new(
+        FakeBackend::new(on_macos(macos_meeting_world())),
+        Platform::Teams,
+        Selectors::default(),
+        NodeMode::All,
+    );
+    assert_eq!(
+        source.discover(),
+        Ok(Discovery::Attached {
+            window: "Calendario | Nueva reunión".to_string()
+        })
+    );
+}
+
 #[test]
 fn teams_pick_window_takes_the_app_name_when_the_title_lacks_it() {
     let sel = TeamsSel::default();

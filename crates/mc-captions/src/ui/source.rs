@@ -99,7 +99,8 @@ pub struct UiaSource<B: UiBackend> {
 }
 
 impl<B: UiBackend> UiaSource<B> {
-    pub fn new(backend: B, platform: Platform, selectors: Selectors, mode: NodeMode) -> Self {
+    pub fn new(backend: B, platform: Platform, mut selectors: Selectors, mode: NodeMode) -> Self {
+        selectors.teams.require_caption_region = backend.requires_caption_region();
         Self {
             backend,
             platform,
@@ -169,16 +170,31 @@ impl<B: UiBackend> UiaSource<B> {
         self.stats.discoveries += 1;
         let windows = self.backend.windows()?;
         let mut candidates = self.platform.candidates(&windows, &self.selectors);
-        if self.platform.attaches_without_captions() {
+        let every = self.platform.tries_every_window(&self.selectors);
+        if self.platform.attaches_without_captions() && !every {
             candidates.truncate(1);
         }
+        let (mut best_title, mut failure) = (None, None);
         for (index, _) in candidates {
-            let window = windows[index].clone();
-            if let Some(cached) = self.locate_in(window)? {
-                return Ok(Some(cached));
+            match self.locate_in(windows[index].clone()) {
+                Ok(Some(cached)) if !every || cached.container.is_some() => {
+                    return Ok(Some(cached));
+                }
+                Ok(Some(cached)) => {
+                    best_title.get_or_insert(cached);
+                }
+                Ok(None) => {}
+                // One unreadable window must not hide the meeting in another.
+                Err(error) if every => {
+                    failure.get_or_insert(error);
+                }
+                Err(error) => return Err(error),
             }
         }
-        Ok(None)
+        match (best_title, failure) {
+            (None, Some(error)) => Err(error),
+            (found, _) => Ok(found),
+        }
     }
 
     /// The container of the captions in one window; `None` when the platform

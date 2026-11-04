@@ -79,6 +79,20 @@ pub fn pick_by(
         .or(fallback.map(|i| (i, Tier::Fallback)))
 }
 
+/// Every Teams window, best title first.
+pub fn candidates(windows: &[WindowInfo], sel: &TeamsSel) -> Vec<(usize, Tier)> {
+    let mut ranked: Vec<(usize, Tier)> = Vec::new();
+    loop {
+        let taken = |w: &WindowInfo| ranked.iter().any(|(i, _)| windows[*i].handle == w.handle);
+        let eligible = |w: &WindowInfo| sel.classes.contains(&w.class_name) && !taken(w);
+        let required = std::slice::from_ref(&sel.required_title);
+        match pick_by(windows, sel, &eligible, required) {
+            Some(next) => ranked.push(next),
+            None => return ranked,
+        }
+    }
+}
+
 /// Whether the app that owns `window` has one of `required` in its name: macOS
 /// titles never name the app, its bundle does.
 fn app_named(window: &WindowInfo, required: &[String]) -> bool {
@@ -209,6 +223,36 @@ pub fn find_first(
     }
     let mut path = Vec::new();
     descend(root, 1, max_depth, pred, &mut path).then_some(path)
+}
+
+/// Path of the innermost group named as the captions region: the window's outer
+/// group repeats its title, which may be a pop-out's or a meeting's that says "captions".
+pub fn find_region(window: &UiNode, sel: &TeamsSel) -> Option<Vec<usize>> {
+    for (index, child) in window.children.iter().enumerate() {
+        if let Some(mut path) = find_region(child, sel) {
+            path.insert(0, index);
+            return Some(path);
+        }
+        let name = lower(&child.name);
+        if child.role == Role::Group
+            && sel
+                .caption_keywords
+                .iter()
+                .any(|k| name.contains(&lower(k)))
+        {
+            return Some(vec![index]);
+        }
+    }
+    None
+}
+
+/// Where to read a window. Without a region only titles chose it, so its messages or calendar could pass for captions.
+pub fn container(window: &UiNode, sel: &TeamsSel) -> Option<Vec<usize>> {
+    if sel.require_caption_region {
+        find_region(window, sel)
+    } else {
+        Some(find_container(window, sel))
+    }
 }
 
 /// Where the captions live inside a window: the `RootWebArea` document that
