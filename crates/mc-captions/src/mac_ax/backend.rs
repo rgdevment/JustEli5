@@ -9,8 +9,8 @@ use std::time::{Duration, Instant};
 use sysinfo::{Pid, ProcessRefreshKind, ProcessesToUpdate, System, UpdateKind};
 
 use super::element::{
-    Attrs, ElementRef, Request, app_element, element_attr, read_attrs, set_global_timeout,
-    set_manual_accessibility, string_attr,
+    Attrs, ElementRef, Request, app_element, element_attr, read_attrs, set_enhanced_ui,
+    set_global_timeout, set_manual_accessibility, string_attr,
 };
 use super::is_trusted;
 use crate::ui::ax_map::{
@@ -138,10 +138,13 @@ impl MacAxBackend {
         };
         let state = match set_manual_accessibility(app, true) {
             Ok(()) => Manual::On,
-            Err(_) => Manual::Retry {
-                attempts: attempts + 1,
-                next: Instant::now() + retry_delay(attempts),
-            },
+            Err(_) => {
+                set_enhanced_ui(app, true);
+                Manual::Retry {
+                    attempts: attempts + 1,
+                    next: Instant::now() + retry_delay(attempts),
+                }
+            }
         };
         self.manual.insert(pid, state);
     }
@@ -233,9 +236,12 @@ impl Drop for MacAxBackend {
     fn drop(&mut self) {
         // Hand the apps back as we found them: web accessibility costs them CPU.
         for (pid, state) in &self.manual {
-            if matches!(state, Manual::On) {
-                let app = app_element(i32::try_from(*pid).unwrap_or(0), 1.0);
-                let _ = set_manual_accessibility(&app, false);
+            let app = app_element(i32::try_from(*pid).unwrap_or(0), 1.0);
+            match state {
+                Manual::On => {
+                    let _ = set_manual_accessibility(&app, false);
+                }
+                Manual::Retry { .. } => set_enhanced_ui(&app, false),
             }
         }
     }
@@ -356,5 +362,9 @@ impl UiBackend for MacAxBackend {
 
     fn truncated(&self) -> bool {
         self.truncated
+    }
+
+    fn requires_caption_region(&self) -> bool {
+        true
     }
 }
