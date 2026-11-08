@@ -82,13 +82,11 @@ impl AppKind {
     }
 }
 
-/// The app and bundle name of an executable path; a nested `.app` (a helper process) never owns windows, so it is rejected.
+/// The app and bundle name of an executable path. Only the bundle's main executable counts: its helpers
+/// (nested apps, XPC services, launch agents) own no windows, and asking them can use up a listing's time.
 pub fn classify_exe(path: &str) -> Option<(AppKind, &str)> {
-    let mut bundles = path.split('/').filter_map(|part| part.strip_suffix(".app"));
-    let bundle = bundles.next()?;
-    if bundles.next().is_some() {
-        return None;
-    }
+    let (bundle_path, _) = path.split_once(".app/Contents/MacOS/")?;
+    let bundle = bundle_path.rsplit('/').next()?;
     let kind = match bundle {
         "Microsoft Teams" | "Microsoft Teams (work or school)" | "Microsoft Teams classic" => {
             AppKind::Teams
@@ -273,6 +271,14 @@ mod tests {
         assert_eq!(classify_exe(zoom).map(|c| c.0), Some(AppKind::Zoom));
         let helper = "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper";
         assert_eq!(classify_exe(helper), None);
+        for helper in [
+            "/Applications/Microsoft Teams.app/Contents/Helpers/com.microsoft.teams2.respawn",
+            "/Applications/Microsoft Teams.app/Contents/XPCServices/com.microsoft.teams2.notificationcenter.xpc/Contents/MacOS/com.microsoft.teams2.notificationcenter",
+            "/Applications/Microsoft Teams.app/Contents/Library/LaunchAgents/com.microsoft.teams2.agent",
+            "/Applications/Microsoft Teams.app/Contents/Helpers/Microsoft Teams WebView.app/Contents/MacOS/Microsoft Teams WebView",
+        ] {
+            assert_eq!(classify_exe(helper), None, "{helper}");
+        }
         assert_eq!(classify_exe("/usr/bin/ssh"), None);
         assert_eq!(
             classify_exe("/Applications/Notes.app/Contents/MacOS/Notes"),

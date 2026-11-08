@@ -29,6 +29,9 @@ pub struct TeamsSel {
     /// The main window showing a pane: its title names the chat on screen, not the meeting.
     pub pane_prefixes: Vec<String>,
     pub cache_ttl_s: f64,
+    /// Read captions only from the region named by `caption_keywords`; set from the backend, never configured.
+    #[serde(skip)]
+    pub require_caption_region: bool,
 }
 
 impl Default for TeamsSel {
@@ -75,6 +78,7 @@ impl Default for TeamsSel {
             ]),
             pane_prefixes: strings(&["Actividad | ", "Activity | ", "Chat | "]),
             cache_ttl_s: 10.0,
+            require_caption_region: false,
         }
     }
 }

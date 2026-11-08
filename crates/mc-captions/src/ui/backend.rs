@@ -117,6 +117,10 @@ pub trait UiBackend {
     fn truncated(&self) -> bool {
         false
     }
+    /// Whether window titles cannot tell a Teams meeting apart, so only a named caption region counts as one.
+    fn requires_caption_region(&self) -> bool {
+        false
+    }
     /// Called once after every poll. A replaying fake moves to its next world
     /// here; real backends have nothing to do.
     fn after_poll(&mut self) {}

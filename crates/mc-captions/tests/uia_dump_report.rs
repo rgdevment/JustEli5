@@ -226,7 +226,7 @@ fn teams_report_fields_on_three_speakers() {
     assert_eq!(pick.poll_ms, 1.0);
     assert!(pick.poll_nodes > 0 && pick.poll_nodes < pick.discovery_nodes);
     assert!(pick.error.is_none());
-    assert!(report.advice.contains(&"Teams tree is tiny: Chromium accessibility may be off. Retry in a few seconds, or start Narrator once.".to_string()), "{:?}", report.advice);
+    assert!(report.advice.contains(&"Teams tree is tiny: Chromium accessibility may be off. Retry in a few seconds; on Windows, start Narrator once.".to_string()), "{:?}", report.advice);
 }
 
 #[test]

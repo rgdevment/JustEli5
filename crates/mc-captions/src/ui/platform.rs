@@ -109,7 +109,18 @@ impl Platform {
                 .map(|(i, huddle)| (i, if huddle { "Huddle" } else { "Window" }.into()))
                 .collect();
         }
+        if self.tries_every_window(sel) {
+            return teams::candidates(windows, &sel.teams)
+                .into_iter()
+                .map(|(i, tier)| (i, format!("{tier:?}")))
+                .collect();
+        }
         self.pick_one(windows, sel).into_iter().collect()
+    }
+
+    /// Whether the window with a caption container wins over the best title.
+    pub fn tries_every_window(self, sel: &Selectors) -> bool {
+        self == Self::Teams && sel.teams.require_caption_region
     }
 
     fn pick_one(self, windows: &[WindowInfo], sel: &Selectors) -> Option<(usize, String)> {
@@ -131,7 +142,8 @@ impl Platform {
     /// an empty path (the whole window) is the fallback when none is found.
     pub fn container(self, window: &UiNode, sel: &Selectors) -> Option<Vec<usize>> {
         match self {
-            Self::Teams | Self::TeamsWeb => Some(teams::find_container(window, &sel.teams)),
+            Self::Teams => teams::container(window, &sel.teams),
+            Self::TeamsWeb => Some(teams::find_container(window, &sel.teams)),
             Self::Zoom => zoom::find_container(window, &sel.zoom),
             Self::Meet => meet::find_container(window, &sel.meet),
             Self::Slack => slack::find_container(window, &sel.slack),

@@ -103,6 +103,14 @@ pub fn set_manual_accessibility(app: &AXUIElement, on: bool) -> Result<(), Code>
     check(unsafe { app.set_attribute_value(&name("AXManualAccessibility"), CFBoolean::new(on)) })
 }
 
+/// Switches a WebView2 app's web tree, which has no `AXManualAccessibility`. Its answer is ignored:
+/// Teams reports "not implemented" and builds the tree all the same.
+pub fn set_enhanced_ui(app: &AXUIElement, on: bool) {
+    // SAFETY: plain attribute write of a CFBoolean on an element we hold.
+    let _ =
+        unsafe { app.set_attribute_value(&name("AXEnhancedUserInterface"), CFBoolean::new(on)) };
+}
+
 /// Everything the tree needs from one element.
 pub struct Attrs {
     pub role: String,
