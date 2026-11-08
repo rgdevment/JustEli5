@@ -8,7 +8,6 @@ use serde_json::Value;
 use crate::config::{LlmConfig, Provider, api_key};
 use crate::error::LlmError;
 use crate::http::{ANTHROPIC_DEFAULT_URL, OPENAI_DEFAULT_URL, get};
-use crate::json::extract_json;
 use crate::process;
 
 /// Claude Code takes these aliases, which follow the newest model of each size, and full ids.
@@ -24,8 +23,8 @@ const CLAUDE_CODE: [&str; 7] = [
 
 const LIST_TIMEOUT: Duration = Duration::from_secs(10);
 
-/// Copilot's catalog depends on the plan and the organisation, so only the CLI itself knows it.
-const COPILOT_LIST: [&str; 3] = ["/model", "--list", "--json"];
+/// Slash commands only exist inside a session; this answers without one, or even a login.
+const COPILOT_LIST: [&str; 2] = ["help", "config"];
 
 /// The models `config`'s provider accepts; empty when it cannot say (a command, a copilot that
 /// is missing or does not answer).
@@ -69,15 +68,15 @@ fn copilot_models(command: &str) -> Vec<String> {
         .unwrap_or_default()
 }
 
-/// `[{"id": "...", "name": "..."}]`, possibly after a notice.
-fn copilot_ids(out: &str) -> Vec<String> {
-    let Some(list) = extract_json(out).and_then(|j| serde_json::from_str::<Value>(j).ok()) else {
-        return Vec::new();
-    };
-    list.as_array()
-        .into_iter()
-        .flatten()
-        .filter_map(|m| m["id"].as_str().map(str::to_string))
+/// The `- "id"` lines under the help's `model` setting.
+fn copilot_ids(help: &str) -> Vec<String> {
+    help.lines()
+        .skip_while(|line| !line.trim_start().starts_with("`model`:"))
+        .skip(1)
+        .map_while(|line| {
+            let id = line.trim().strip_prefix("- \"")?.strip_suffix('"')?;
+            Some(id.to_string())
+        })
         .collect()
 }
 
@@ -111,10 +110,10 @@ mod tests {
     }
 
     #[test]
-    fn copilot_ids_come_from_its_json_list() {
-        let out = "notice\n[{\"id\":\"gpt-6-astra\",\"name\":\"GPT-6 Astra\",\"current\":true},{\"id\":\"claude-opus-5.5\"}]\n";
-        assert_eq!(copilot_ids(out), ["gpt-6-astra", "claude-opus-5.5"]);
-        assert!(copilot_ids("Unknown command").is_empty());
+    fn copilot_ids_come_from_the_model_setting_of_its_help() {
+        let help = "  `logLevel`: log level.\r\n\r\n  `model`: AI model to use.\r\n    - \"gpt-6-astra\"\r\n    - \"claude-opus-5.5\"\r\n\r\n  `contextTier`: tier.\r\n    - \"default\"\r\n";
+        assert_eq!(copilot_ids(help), ["gpt-6-astra", "claude-opus-5.5"]);
+        assert!(copilot_ids("error: Invalid command format.").is_empty());
     }
 
     #[test]

@@ -3,7 +3,7 @@
 mod common;
 
 use common::Sandbox;
-use serde_json::{Value, json};
+use serde_json::Value;
 
 fn ok(sb: &Sandbox, args: &[&str]) -> Value {
     let mut all = vec!["--json"];
@@ -29,14 +29,15 @@ fn the_model_list_follows_the_provider() {
 
 #[cfg(unix)]
 #[test]
-fn copilot_is_asked_for_the_models_its_plan_offers() {
+fn copilot_is_asked_for_the_models_it_accepts() {
+    use serde_json::json;
     use std::os::unix::fs::PermissionsExt;
     let sb = Sandbox::new();
     let script = sb.path("copilot");
-    let list = r#"[{"id":"gpt-6-astra","name":"GPT-6 Astra","current":true},{"id":"claude-opus-5.5","name":"Claude Opus 5.5"}]"#;
+    let help = "  `model`: AI model to use.\n    - \"gpt-6-astra\"\n    - \"claude-opus-5.5\"\n";
     std::fs::write(
         &script,
-        format!("#!/bin/sh\n[ \"$*\" = \"/model --list --json\" ] && echo '{list}'\n"),
+        format!("#!/bin/sh\n[ \"$*\" = \"help config\" ] && printf '{help}'\n"),
     )
     .unwrap();
     std::fs::set_permissions(&script, std::fs::Permissions::from_mode(0o755)).unwrap();
