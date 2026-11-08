@@ -5,6 +5,7 @@ use std::time::Duration;
 
 use serde_json::Value;
 
+use crate::cli::COPILOT_HINT;
 use crate::config::{LlmConfig, Provider, api_key};
 use crate::error::LlmError;
 use crate::http::{ANTHROPIC_DEFAULT_URL, OPENAI_DEFAULT_URL, get};
@@ -26,8 +27,7 @@ const LIST_TIMEOUT: Duration = Duration::from_secs(10);
 /// Slash commands only exist inside a session; this answers without one, or even a login.
 const COPILOT_LIST: [&str; 2] = ["help", "config"];
 
-/// The models `config`'s provider accepts; empty when it cannot say (a command, a copilot that
-/// is missing or does not answer).
+/// The models `config`'s provider accepts; empty when it cannot say (a command).
 pub fn list_models(config: &LlmConfig) -> Result<Vec<String>, LlmError> {
     let provider = config.validate()?;
     Ok(match provider {
@@ -55,17 +55,21 @@ pub fn list_models(config: &LlmConfig) -> Result<Vec<String>, LlmError> {
             let base = config.base_url.as_deref().unwrap_or(OPENAI_DEFAULT_URL);
             ids(&get(base, "/v1/models", &auth, LIST_TIMEOUT)?)
         }
-        Provider::CopilotCli => copilot_models(config.command_name().unwrap_or("copilot")),
+        Provider::CopilotCli => copilot_models(config.command_name().unwrap_or("copilot"))?,
         Provider::Command | Provider::Fake => Vec::new(),
     })
 }
 
-fn copilot_models(command: &str) -> Vec<String> {
-    let args = COPILOT_LIST.map(String::from);
-    process::resolve(command, "")
-        .and_then(|program| process::run(&program, &args, "", LIST_TIMEOUT))
-        .map(|out| copilot_ids(&out))
-        .unwrap_or_default()
+fn copilot_models(command: &str) -> Result<Vec<String>, LlmError> {
+    let program = process::resolve(command, COPILOT_HINT)?;
+    let help = process::run(&program, &COPILOT_LIST.map(String::from), "", LIST_TIMEOUT)?;
+    let models = copilot_ids(&help);
+    if models.is_empty() {
+        return Err(LlmError::BadResponse(format!(
+            "`{command} help config` lists no models under `model`"
+        )));
+    }
+    Ok(models)
 }
 
 /// The `- "id"` lines under the help's `model` setting.
@@ -95,7 +99,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn claude_needs_no_call_and_a_missing_copilot_lists_nothing() {
+    fn claude_needs_no_call_and_a_missing_copilot_says_so() {
         let claude = LlmConfig {
             provider: "claude-cli".into(),
             ..LlmConfig::default()
@@ -106,7 +110,10 @@ mod tests {
             command: Some("/nonexistent/copilot".into()),
             ..LlmConfig::default()
         };
-        assert!(list_models(&copilot).unwrap().is_empty());
+        assert!(matches!(
+            list_models(&copilot),
+            Err(LlmError::NotFound { .. })
+        ));
     }
 
     #[test]

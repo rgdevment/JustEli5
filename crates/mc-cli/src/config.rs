@@ -68,6 +68,24 @@ struct FileLlm {
     json_mode: Option<bool>,
 }
 
+impl FileLlm {
+    /// A saved command, model or server belongs to the saved provider: another one must not run it.
+    fn for_provider(self, provider: &str) -> FileLlm {
+        if self
+            .provider
+            .as_deref()
+            .is_none_or(|saved| saved == provider)
+        {
+            return self;
+        }
+        FileLlm {
+            timeout_s: self.timeout_s,
+            json_mode: self.json_mode,
+            ..FileLlm::default()
+        }
+    }
+}
+
 #[derive(Debug, Default, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct FileFusion {
@@ -543,10 +561,11 @@ fn llm_settings(
         "llm.provider",
         owned(args.value("llm-provider")),
         owned(env.var("MC_LLM_PROVIDER")),
-        file.provider,
+        file.provider.clone(),
         Some(defaults.provider.clone()),
     )
     .unwrap_or(defaults.provider);
+    let file = file.for_provider(&provider);
     let model = pick(
         sources,
         "llm.model",
