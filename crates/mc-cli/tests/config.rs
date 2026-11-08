@@ -786,6 +786,26 @@ mod llm {
     }
 
     #[test]
+    fn another_provider_does_not_inherit_the_saved_command_model_or_server() {
+        let s = Sandbox::new();
+        let file = json!({"llm": {
+            "provider": "claude-cli", "model": "opus", "command": "/opt/claude",
+            "args": ["--x"], "base_url": "http://localhost:1", "api_key_env": "K", "timeout_s": 30,
+        }});
+        let env = with_file(&s, file);
+        let same = load(&env, &["--llm-provider", "claude-cli"]).unwrap();
+        assert_eq!(same.llm.command.as_deref(), Some("/opt/claude"));
+        assert_eq!(same.llm.model.as_deref(), Some("opus"));
+        let other = load(&env, &["--llm-provider", "copilot-cli"]).unwrap();
+        assert_eq!(other.llm.command, None);
+        assert_eq!(other.llm.model, None);
+        assert!(other.llm.args.is_empty());
+        assert_eq!(other.llm.base_url, None);
+        assert!(other.llm.api_key_env.is_empty());
+        assert_eq!(other.llm.timeout_s, 30);
+    }
+
+    #[test]
     fn unknown_keys_are_config_errors() {
         let s = Sandbox::new();
         let env = with_file(&s, json!({"llm": {"nope": 1}}));

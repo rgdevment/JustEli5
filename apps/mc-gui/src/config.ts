@@ -230,6 +230,8 @@ async function suggestModels(form: HTMLFormElement): Promise<void> {
   // A slower answer for a provider no longer chosen is dropped.
   if (list.dataset.provider !== provider) return;
   list.replaceChildren(...found.models.map((m) => el("option", { value: m })));
+  // A CLI not signed in yet or slow to start answers nothing now and the full list later.
+  if (found.models.length === 0) delete list.dataset.provider;
 }
 
 /** The model box offers the list without closing the door to a name typed by hand. */
@@ -238,6 +240,7 @@ function attachModelList(form: HTMLFormElement): void {
   if (!input) return;
   input.setAttribute("list", MODEL_LIST);
   input.after(el("datalist", { id: MODEL_LIST }));
+  input.addEventListener("focus", () => suggestModels(form));
 }
 
 export interface ConfigView {

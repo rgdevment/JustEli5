@@ -11,7 +11,7 @@ use crate::{CallUsage, Llm, LlmError, LlmRequest, Meter, system_text};
 pub const CLAUDE_DEFAULT_MODEL: &str = "sonnet";
 const CLAUDE_HINT: &str =
     "install the `claude` command-line tool, sign in once, and make sure it is on PATH";
-const COPILOT_HINT: &str = "install the GitHub Copilot CLI (npm install -g @github/copilot) and sign in with `copilot` once";
+pub(crate) const COPILOT_HINT: &str = "install the GitHub Copilot CLI (npm install -g @github/copilot) and sign in with `copilot` once";
 const SEPARATOR: &str = "\n\n--- user ---\n\n";
 
 /// Print mode, no tools, no saved session. Neither prompt travels in argv: the
