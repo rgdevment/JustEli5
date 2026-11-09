@@ -106,7 +106,7 @@ function modelRow(s: Snapshot, fix: Fixes, name: string, use: string): Row {
 
 const LLM_HELP: Record<string, string> = {
   "claude-cli": "Instala Claude Code (npm install -g @anthropic-ai/claude-code) y entra una vez con «claude».",
-  "copilot-cli": "Instala Copilot CLI (npm install -g @github/copilot) y entra una vez con «copilot».",
+  "copilot-cli": "Instala Copilot CLI (npm install -g @github/copilot o, en macOS, brew install copilot-cli) y entra una vez con «copilot».",
   anthropic: "Define la variable de entorno ANTHROPIC_API_KEY con tu clave y reinicia la app.",
   "openai-compatible": "Revisa base_url y la variable de entorno de la clave en Configuración.",
 };

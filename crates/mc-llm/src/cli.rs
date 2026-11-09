@@ -11,7 +11,7 @@ use crate::{CallUsage, Llm, LlmError, LlmRequest, Meter, system_text};
 pub const CLAUDE_DEFAULT_MODEL: &str = "sonnet";
 const CLAUDE_HINT: &str =
     "install the `claude` command-line tool, sign in once, and make sure it is on PATH";
-pub(crate) const COPILOT_HINT: &str = "install the GitHub Copilot CLI (npm install -g @github/copilot) and sign in with `copilot` once";
+pub(crate) const COPILOT_HINT: &str = "install the GitHub Copilot CLI (npm install -g @github/copilot, or brew install copilot-cli on macOS) and sign in with `copilot` once";
 const SEPARATOR: &str = "\n\n--- user ---\n\n";
 
 /// Print mode, no tools, no saved session. Neither prompt travels in argv: the
@@ -236,27 +236,38 @@ impl CommandLlm {
         })
     }
 
-    /// `copilot -p <prompt> --silent`: the non-interactive mode of the Copilot CLI,
-    /// which takes its prompt as an argument (`run` checks it fits).
     pub fn copilot(
         command: Option<&str>,
         model: Option<&str>,
         extra_args: &[String],
         timeout: Duration,
     ) -> Result<Self, LlmError> {
-        let mut args: Vec<String> = ["-p", "{prompt}", "--silent"].map(String::from).to_vec();
-        if let Some(model) = model {
-            args.extend(["--model".to_string(), model.to_string()]);
-        }
-        args.extend_from_slice(extra_args);
         Self::new(
             "copilot-cli",
             command.unwrap_or("copilot"),
-            &args,
+            &copilot_args(model, extra_args),
             COPILOT_HINT,
             timeout,
         )
     }
+}
+
+/// The prompt goes on stdin: an argument caps a long meeting, and a `.cmd` shim breaks its lines.
+/// The person's own instructions and GitHub's MCP servers must not steer or slow the minutes.
+fn copilot_args(model: Option<&str>, extra: &[String]) -> Vec<String> {
+    let mut args: Vec<String> = [
+        "--silent",
+        "--no-custom-instructions",
+        "--disable-builtin-mcps",
+        "--no-ask-user",
+    ]
+    .map(String::from)
+    .to_vec();
+    if let Some(model) = model {
+        args.extend(["--model".to_string(), model.to_string()]);
+    }
+    args.extend_from_slice(extra);
+    args
 }
 
 impl Llm for CommandLlm {
@@ -305,5 +316,18 @@ mod tests {
         );
         let failed = r#"{"result":"rate limited","is_error":true}"#;
         assert!(claude_answer(failed).is_err());
+    }
+
+    #[test]
+    fn copilot_reads_a_long_multiline_prompt_on_stdin() {
+        let args = copilot_args(Some("gpt-6-astra"), &["--x".to_string()]);
+        assert!(!args.iter().any(|a| a == "-p" || a.contains("{prompt}")));
+        assert_eq!(args[args.len() - 3..], ["--model", "gpt-6-astra", "--x"]);
+        let user = "line\n".repeat(20_000);
+        let invocation = build_invocation(&args, "system", &user);
+        assert_eq!(invocation.args, args);
+        assert!(invocation.stdin.starts_with("system") && invocation.stdin.ends_with(&user));
+        let program = Path::new("copilot.cmd");
+        assert!(process::check_argv(program, &invocation.args).is_ok());
     }
 }

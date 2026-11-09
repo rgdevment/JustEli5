@@ -6,7 +6,7 @@ use std::process::Command;
 
 use serde::Serialize;
 
-use crate::programs::{command, find};
+use crate::programs::{SearchPath, quiet};
 
 pub fn open(target: &str) -> Result<(), String> {
     let opener = if cfg!(windows) {
@@ -17,7 +17,7 @@ pub fn open(target: &str) -> Result<(), String> {
         "xdg-open"
     };
     // explorer returns 1 even when it opened the target.
-    command(Path::new(opener))
+    quiet(Path::new(opener))
         .arg(target)
         .spawn()
         .map(drop)
@@ -67,14 +67,14 @@ pub struct Prereq {
 struct Tool {
     id: &'static str,
     label: &'static str,
-    found: fn() -> bool,
+    found: fn(&SearchPath) -> bool,
     package: Option<&'static str>,
     manual: &'static str,
     elevates: bool,
 }
 
-fn on_path(name: &str) -> bool {
-    find(name).is_some()
+fn on_path(paths: &SearchPath, name: &str) -> bool {
+    paths.find(name).is_some()
 }
 
 #[cfg(windows)]
@@ -83,7 +83,7 @@ fn tools() -> Vec<Tool> {
         Tool {
             id: "rust",
             label: "Rust (cargo)",
-            found: || on_path("cargo"),
+            found: |paths| on_path(paths, "cargo"),
             package: Some("Rustlang.Rustup"),
             manual: "Instala Rust desde https://rustup.rs",
             elevates: false,
@@ -91,7 +91,7 @@ fn tools() -> Vec<Tool> {
         Tool {
             id: "git",
             label: "Git",
-            found: || on_path("git"),
+            found: |paths| on_path(paths, "git"),
             package: Some("Git.Git"),
             manual: "Instala Git desde https://git-scm.com",
             elevates: true,
@@ -99,7 +99,7 @@ fn tools() -> Vec<Tool> {
         Tool {
             id: "cmake",
             label: "CMake (para Whisper)",
-            found: || on_path("cmake") || program_files_has("CMake\\bin\\cmake.exe"),
+            found: |paths| on_path(paths, "cmake") || program_files_has("CMake\\bin\\cmake.exe"),
             package: Some("Kitware.CMake"),
             manual: "Instala CMake desde https://cmake.org/download",
             elevates: true,
@@ -107,7 +107,7 @@ fn tools() -> Vec<Tool> {
         Tool {
             id: "llvm",
             label: "LLVM (para Whisper)",
-            found: || program_files_has("LLVM\\bin\\libclang.dll"),
+            found: |_| program_files_has("LLVM\\bin\\libclang.dll"),
             package: Some("LLVM.LLVM"),
             manual: "Instala LLVM desde https://releases.llvm.org",
             elevates: true,
@@ -115,7 +115,7 @@ fn tools() -> Vec<Tool> {
         Tool {
             id: "msvc",
             label: "Herramientas de compilación de C++ (Visual Studio Build Tools)",
-            found: || {
+            found: |_| {
                 std::env::var_os("ProgramFiles(x86)").is_some_and(|dir| {
                     PathBuf::from(dir)
                         .join("Microsoft Visual Studio\\Installer\\vswhere.exe")
@@ -140,7 +140,7 @@ fn tools() -> Vec<Tool> {
         Tool {
             id: "xcode",
             label: "Herramientas de línea de comandos de Xcode",
-            found: || {
+            found: |_| {
                 Command::new("xcode-select")
                     .arg("-p")
                     .output()
@@ -153,7 +153,7 @@ fn tools() -> Vec<Tool> {
         Tool {
             id: "rust",
             label: "Rust (cargo)",
-            found: || on_path("cargo"),
+            found: |paths| on_path(paths, "cargo"),
             package: Some("rustup"),
             manual: "Instala Rust desde https://rustup.rs",
             elevates: false,
@@ -161,7 +161,7 @@ fn tools() -> Vec<Tool> {
         Tool {
             id: "cmake",
             label: "CMake (para Whisper)",
-            found: || on_path("cmake"),
+            found: |paths| on_path(paths, "cmake"),
             package: Some("cmake"),
             manual: "Instala CMake desde https://cmake.org/download",
             elevates: false,
@@ -170,9 +170,9 @@ fn tools() -> Vec<Tool> {
 }
 
 /// The package manager command for `package`, when the manager is installed.
-fn install_command(package: &str) -> Option<(PathBuf, Vec<String>)> {
+fn install_command(paths: &SearchPath, package: &str) -> Option<(PathBuf, Vec<String>)> {
     if cfg!(windows) {
-        let winget = find("winget")?;
+        let winget = paths.find("winget")?;
         let mut args: Vec<String> = [
             "install",
             "--id",
@@ -192,7 +192,7 @@ fn install_command(package: &str) -> Option<(PathBuf, Vec<String>)> {
         }
         Some((winget, args))
     } else if cfg!(target_os = "macos") {
-        let brew = find("brew")?;
+        let brew = paths.find("brew")?;
         Some((brew, vec!["install".to_string(), package.to_string()]))
     } else {
         None
@@ -216,18 +216,18 @@ fn shown(program: &Path, args: &[String]) -> String {
     format!("{name} {}", quoted.join(" "))
 }
 
-pub fn prereqs() -> Vec<Prereq> {
+pub fn prereqs(paths: &SearchPath) -> Vec<Prereq> {
     tools()
         .into_iter()
         .map(|tool| {
             let install = tool
                 .package
-                .and_then(install_command)
+                .and_then(|package| install_command(paths, package))
                 .map(|(program, args)| shown(&program, &args));
             Prereq {
                 id: tool.id,
                 label: tool.label,
-                found: (tool.found)(),
+                found: (tool.found)(paths),
                 install,
                 manual: tool.manual,
                 elevates: tool.elevates,
@@ -237,16 +237,16 @@ pub fn prereqs() -> Vec<Prereq> {
 }
 
 /// The installer for one prerequisite, ready to run as a job.
-pub fn installer(id: &str) -> Result<Command, String> {
+pub fn installer(paths: &SearchPath, id: &str) -> Result<Command, String> {
     let tool = tools()
         .into_iter()
         .find(|t| t.id == id)
         .ok_or_else(|| format!("unknown prerequisite {id}"))?;
     let (program, args) = tool
         .package
-        .and_then(install_command)
+        .and_then(|package| install_command(paths, package))
         .ok_or_else(|| tool.manual.to_string())?;
-    let mut cmd = command(&program);
+    let mut cmd = paths.command(&program);
     cmd.args(args);
     Ok(cmd)
 }
@@ -260,10 +260,10 @@ pub fn source_checkout() -> Option<PathBuf> {
 }
 
 /// `cargo install` of `mc` with Whisper from the checkout.
-pub fn mc_installer() -> Result<Command, String> {
+pub fn mc_installer(paths: &SearchPath) -> Result<Command, String> {
     let root = source_checkout().ok_or("no source checkout of JustEli5 next to this app")?;
-    let cargo = find("cargo").ok_or("cargo is not installed")?;
-    let mut cmd = command(&cargo);
+    let cargo = paths.find("cargo").ok_or("cargo is not installed")?;
+    let mut cmd = paths.command(&cargo);
     cmd.args(["install", "--locked", "--path"])
         .arg(root.join("crates").join("mc-cli"))
         .args(["--features", "whisper"]);
@@ -294,8 +294,8 @@ fn has_env(name: &str) -> bool {
     std::env::var_os(name).is_some_and(|v| !v.is_empty())
 }
 
-pub fn agents() -> Agents {
-    let found = |name: &str| find(name).map(|p| p.display().to_string());
+pub fn agents(paths: &SearchPath) -> Agents {
+    let found = |name: &str| paths.find(name).map(|p| p.display().to_string());
     Agents {
         claude: found("claude"),
         copilot: found("copilot"),
