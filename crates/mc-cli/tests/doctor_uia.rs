@@ -429,7 +429,7 @@ fn capture_with_config(sb: &Sandbox, config: Option<&Path>, fixture: &str) -> Ou
             &source,
             "--consent",
             "--until",
-            "1",
+            "3",
             "--poll-ms",
             "100",
         ],
