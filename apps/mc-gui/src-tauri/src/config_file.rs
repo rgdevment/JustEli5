@@ -5,7 +5,7 @@ use std::path::{Path, PathBuf};
 use serde::Serialize;
 use serde_json::Value;
 
-use crate::programs::{command, home_dir};
+use crate::programs::{SearchPath, home_dir};
 
 const EXAMPLE: &str = include_str!("../../../../scripts/config.example.json");
 
@@ -69,8 +69,9 @@ pub fn create() -> Result<String, String> {
 }
 
 /// The reason `mc doctor` gives for refusing a configuration, if it does.
-fn refusal(mc: &Path, candidate: &Path) -> Result<Option<String>, String> {
-    let out = command(mc)
+fn refusal(paths: &SearchPath, mc: &Path, candidate: &Path) -> Result<Option<String>, String> {
+    let out = paths
+        .command(mc)
         .arg("--config")
         .arg(candidate)
         .args(["--json", "doctor"])
@@ -87,14 +88,14 @@ fn refusal(mc: &Path, candidate: &Path) -> Result<Option<String>, String> {
 }
 
 /// Saves only what `mc` accepts: the candidate is checked from a file next to the real one.
-pub fn save(mc: &Path, value: &Value) -> Result<String, String> {
+pub fn save(paths: &SearchPath, mc: &Path, value: &Value) -> Result<String, String> {
     let path = path().ok_or("no configuration folder is known on this system")?;
     let parent = path.parent().ok_or("bad configuration path")?;
     std::fs::create_dir_all(parent).map_err(|e| e.to_string())?;
     let candidate = parent.join("config.gui-check.json");
     let text = serde_json::to_string_pretty(value).map_err(|e| e.to_string())? + "\n";
     std::fs::write(&candidate, text).map_err(|e| e.to_string())?;
-    match refusal(mc, &candidate) {
+    match refusal(paths, mc, &candidate) {
         Ok(None) => std::fs::rename(&candidate, &path).map_err(|e| e.to_string())?,
         Ok(Some(reason)) | Err(reason) => {
             let _ = std::fs::remove_file(&candidate);
